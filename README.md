@@ -5,7 +5,7 @@ Please go under edit and edit this file as needed for your project
 # Batch - WD 1.1
 
 ### Group Leader - IT21053528 - Mr. Surith Arawwala (it21053528)
-### Member 2 - 
+### Member 2 - IT21077692 - Mr. Kavindu Kasthurirathne (it21077692)
 ### Member 3 - 
 ### Member 4 - 
 ### Member 5 - 
