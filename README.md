@@ -8,7 +8,7 @@ Please go under edit and edit this file as needed for your project
 
 ### Member 2 - IT21077692 - Mr. Kavindu Kasthurirathne (it21077692)
 
-### Member 3 -
+### Member 3 - IT
 
 ### Member 4 -
 
