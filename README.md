@@ -1,8 +1,10 @@
 Please go under edit and edit this file as needed for your project
 
-# Project Name - 
-# Batch - 
-### Group Leader - IT20212232 - Mr. Asiri Gamage (asiriRepos)
+# Project Name - ITP_WD_B01_02
+
+# Batch - WD 1.1
+
+### Group Leader - IT21053528 - Mr. Surith Arawwala (it21053528)
 ### Member 2 - 
 ### Member 3 - 
 ### Member 4 - 
@@ -12,7 +14,9 @@ Please go under edit and edit this file as needed for your project
 ### Member 8 - 
 
 #### Brief Description of Project - 
-#### Technologies used - 
+  Eye Hospital Management System for Denetha Eye Hospital
 
+#### Technologies used - MERN stack
+  
 Note - The student's github account should be given in brackets e.g. (asiriRepos), this ideally should be your student id 
 
