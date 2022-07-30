@@ -14,7 +14,7 @@ Please go under edit and edit this file as needed for your project
 
 ### Member 5 -
 
-### Member 6 -
+### Member 6 -IT21078514 - Miss.Asini Madushka (it21078514)
 
 ### Member 7 -
 
