@@ -4,7 +4,7 @@ Please go under edit and edit this file as needed for your project
 
 # Batch - Y2.S2.WD.IT.0102
 
-### Group Leader - IT21053528 - Mr. Surith Arawwala (it21053528)
+### Group Leader - IT21053528 - Mr. Surith Arawwala (it21053528
 
 ### Member 2 - IT21077692 - Mr. Kavindu Kasthurirathne (it21077692)
 
