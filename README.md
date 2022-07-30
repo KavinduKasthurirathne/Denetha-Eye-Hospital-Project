@@ -8,17 +8,17 @@ Please go under edit and edit this file as needed for your project
 
 ### Member 2 - IT21077692 - Mr. Kavindu Kasthurirathne (it21077692)
 
-### Member 3 - IT21064654 - Mr. Thrinith Shevon (it21064654)
+### Member 3 - IT21047824 - Mr. Dinushka Samaranayake (it21047824)
 
-### Member 4 - ITT21057106 - Miss.Tharushi Navodya (it21057106)
+### Member 4 - IT21064654 - Mr. Thrinith Shevon (it21064654)
 
-### Member 5 -
+### Member 5 - IT21085130 - Ms. Savindee Suraweera (it21085130)
 
-### Member 6 -IT21078514 - Miss.Asini Madushka (it21078514)
+### Member 6 - IT21078514 - Ms. Asini Madushka (it21078514)
 
-### Member 7 -
+### Member 7 - IT21057106 - Ms. Tharushi Navodya (it21057106)
 
-### Member 8 -
+### Member 8 - IT21051616 - Mr. Nirmal Perera (it21051616)
 
 #### Brief Description of Project -
 
