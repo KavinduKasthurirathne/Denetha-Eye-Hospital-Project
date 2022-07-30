@@ -10,7 +10,7 @@ Please go under edit and edit this file as needed for your project
 
 ### Member 3 - IT21064654 - Mr. Thrinith Shevon (it21064654)
 
-### Member 4 -
+### Member 4 - ITT21057106 - Miss.Tharushi Navodya (it21057106)
 
 ### Member 5 -
 
