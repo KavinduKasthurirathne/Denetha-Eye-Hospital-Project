@@ -12,7 +12,7 @@ Please go under edit and edit this file as needed for your project
 
 ### Member 4 - IT21064654 - Mr. Thrinith Shevon (it21064654)
 
-### Member 5 - IT21085130 - Ms. Savindee Suraweera (it21085130)
+### Member 5 - IT21085130 - Ms. Savindee Hasara Suraweera (it21085130)
 
 ### Member 6 - IT21078514 - Ms. Asini Madushka (it21078514)
 
