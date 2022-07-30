@@ -16,7 +16,7 @@ Please go under edit and edit this file as needed for your project
 
 ### Member 6 -IT21078514 - Miss.Asini Madushka (it21078514)
 
-### Member 7 -ITT21057106 - Miss.Tharushi Navodya (it21057106)
+### Member 7 -IT21057106 - Miss.Tharushi Navodya (it21057106)
 
 ### Member 8 -
 
