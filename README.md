@@ -6,7 +6,7 @@ Please go under edit and edit this file as needed for your project
 
 ### Group Leader - IT21053528 - Mr. Surith Arawwala (it21053528)
 
-### Member 2 - IT21077692 - Mr. Kavindu Kasthurirathne 
+### Member 2 - IT21077692 - Mr. Kavindu Kasthurirathne (it21077692)
 
 ### Member 3 - IT21047824 - Mr. Dinushka Samaranayake (it21047824)
 
