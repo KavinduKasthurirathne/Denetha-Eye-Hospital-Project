@@ -22,7 +22,7 @@ Please go under edit and edit this file as needed for your project
 
 #### Brief Description of Project -
 
-Eye Hospital Management System for Denetha Eye Hospital
+Eye Hospital Management System for Denetha Eye hospital
 
 #### Technologies used - MERN stack
 
