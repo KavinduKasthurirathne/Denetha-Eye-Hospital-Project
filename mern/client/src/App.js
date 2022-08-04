@@ -1,6 +1,6 @@
 import React from 'react';
 import {Login} from './components/Login'
-import {Appoinment} from './components/Appoinment'\
+import {Appoinment} from './components/Appoinment'
 import {Patients} from './components/Patients'
 import './App.css';
 
