@@ -1,0 +1,11 @@
+.error
+{
+    font-size: 13px;
+    color: red;
+
+}
+.logo-img {
+    width: 45%;
+    border-radius: 100px;
+    box-shadow: 2px 2px 4px #989898;
+  }
