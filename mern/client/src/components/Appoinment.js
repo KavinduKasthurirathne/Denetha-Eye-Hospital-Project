@@ -67,8 +67,6 @@ export const Appoinment=() =>{
     const [contactnumber,setcontactnumber] = useState('');
     const [contactnumberError,setcontactnumberError] = useState('');
 
-    const [Age,setAge] =useState('');
-    const [AgeError,setAgeError] = useState('');
 
     const [successMsg,setSuccessMsg] = useState('');
 
