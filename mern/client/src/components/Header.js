@@ -7,8 +7,11 @@ export const Header = () => {
     //possibly from cookies
 
     const logo = require('../image/denethaLogo.png');
+    const design = require('../image/design.png');
 
     //array of items to be rendered in the navigation bar
+    //put other items between dashboard and logout
+    //use if-else to decide which items to render
     const navBarItems = [{
             name: 'Dashboard',
             path: ''
@@ -29,6 +32,9 @@ export const Header = () => {
             <div id='logo' className='flex-child'>
                 <img src={logo} alt='logo' className='header-logo' />
             </div>
+            <div id='header-design-container' >
+                <img src={design} alt='header-design' id='header-design' />
+            </div>
             <div id='navbar' className='flex-child right-align'><br /><br />
                 {navBarItems.map((item) => {
                     return (
@@ -39,10 +45,6 @@ export const Header = () => {
                         </NavLink>
                     ); 
                 })}
-                {/* <NavLink exact to='' className='navlink' activeClassName='active'>Dashboard</NavLink>
-                <NavLink exact to='inventory' className='navlink' activeClassName='active'>Inventory</NavLink>
-                <NavLink exact to='staff' className='navlink' activeClassName='active'>Staff</NavLink>
-                <NavLink exact to='/logout' className='navlink' activeClassName='active'>Logout</NavLink> */}
             </div>
             <div id='profile' className='flex-child right-align'>
                 <div className='flex-child'><br />

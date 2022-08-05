@@ -40,10 +40,25 @@
   box-shadow: 2px 2px 4px #00000057;
 }
 .header-logo{
-  transform: translate(150%, 130%) scale(330%);
+  transform: translate(550%, 430%) scale(930%);
   width: 20%;
   border-radius: 100px;
   box-shadow: 2px 2px 4px #00000057;
+}
+#logo{
+  flex-basis: 100px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+#header-design-container{
+  overflow: hidden;
+  flex-basis: 300px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+#header-design{
+  width: 50%;
+  transform: scale(150%) translate(55%, 10%);
 }
 
 input {
@@ -90,7 +105,7 @@ a{
   flex: 1;
   padding: 10px;
   margin: 10px;
-  background-color: #ff5f5ffe;
+  background-color: #00000000;
 }
 
 .navlink{
@@ -115,18 +130,16 @@ a{
   font-weight: bold;
   margin-top: 1px;
   margin-bottom: 1px;
+  white-space: nowrap
 }
 #userRole{
   color: white;
   font-weight: lighter;
   margin-top: 1px;
   margin-bottom: 0px;
+  white-space: nowrap
 }
-#logo{
-  flex-basis: 250px;
-  flex-grow: 0;
-  flex-shrink: 0;
-}
+
 #profilePic{
   background-color: white;
   transform: scale(80%) translate(-40%, 10%);
@@ -148,7 +161,7 @@ a{
     opacity: 1; 
   }
 }
-@keyframes fadetranlate {
+@keyframes fadetranslate {
   from { 
     opacity: 0;
     transform: translate(0%, -10%);
