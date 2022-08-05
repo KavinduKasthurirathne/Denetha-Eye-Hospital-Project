@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  animation: fadein 0.5s ease-in;
+}
+.basic{
+  text-align: center;
+  animation: fadetranslate 0.5s ease-in;
 }
 
 .App-header {
@@ -23,7 +28,6 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 25%;
   height: 60%;
@@ -33,7 +37,13 @@
 .logo-img {
   width: 45%;
   border-radius: 100px;
-  box-shadow: 2px 2px 4px #989898;
+  box-shadow: 2px 2px 4px #00000057;
+}
+.header-logo{
+  transform: translate(150%, 130%) scale(330%);
+  width: 20%;
+  border-radius: 100px;
+  box-shadow: 2px 2px 4px #00000057;
 }
 
 input {
@@ -67,4 +77,84 @@ input {
 a{
   text-decoration: none;
   color: white;
+}
+
+.header{
+  height: 10%;
+}
+.flex-container{
+  display: flex;
+  background-color: #00ADA3;
+}
+.flex-child{
+  flex: 1;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ff5f5ffe;
+}
+
+.navlink{
+  margin-left: 10%;
+  font-weight: lighter;
+}
+.active{
+  font-weight: bolder;
+}
+.right-align{
+  text-align: right;
+}
+#profile{
+  display: flex;
+  flex-basis: 20%;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+#username{
+  color: white;
+  font-weight: bold;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+#userRole{
+  color: white;
+  font-weight: lighter;
+  margin-top: 1px;
+  margin-bottom: 0px;
+}
+#logo{
+  flex-basis: 250px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+#profilePic{
+  background-color: white;
+  transform: scale(80%) translate(-40%, 10%);
+  flex-basis: 75px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-radius: 50px;
+}
+#profileImg{
+  transform: translate(-18%, 0%);
+}
+
+
+@keyframes fadein {
+  from { 
+    opacity: 0;
+  }
+  to   { 
+    opacity: 1; 
+  }
+}
+@keyframes fadetranlate {
+  from { 
+    opacity: 0;
+    transform: translate(0%, -10%);
+  }
+  to   { 
+    opacity: 1; 
+    transform: translate(0%, 0%);
+  }
 }

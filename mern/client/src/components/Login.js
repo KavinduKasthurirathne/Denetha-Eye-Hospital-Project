@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import '../App.css';
 
-export const Login = () => {
+export const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const logo = require('../image/denethaLogo.png');
 
     const handleSubmit = () => {
-        alert(`This doesnt do anything yet
-            entered inputs,
-            username - ${username}
-            password - ${password}`);
+        // alert(`This doesnt do anything yet
+        //     entered inputs,
+        //     username - ${username}
+        //     password - ${password}`);
+        props.onLogin();
     };
 
     const usenameOnChange = ({target}) => {

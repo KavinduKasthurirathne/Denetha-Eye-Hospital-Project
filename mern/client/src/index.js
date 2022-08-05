@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import { BrowserRouter,Routes,Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
-import {App} from './App';
-import {Patients} from './components/Patients'
+import createRoutes from './routes/routes';
+
+const routes = createRoutes();
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<App />} />
-        <Route path='receptionist' element={<Patients />} />
-        <Route path='*' element={<h2 className='App'>404 - Page not found!</h2>} />
-      </Routes>
+      {routes}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
