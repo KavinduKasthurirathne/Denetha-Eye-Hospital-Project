@@ -19,6 +19,9 @@ export const Header = () => {
             name: 'Staff',
             path: 'staff'
         }, {
+            name: 'Patients',
+            path: 'patients'
+        }, {
             name: 'Inventory',
             path: 'inventory'
         }, {
