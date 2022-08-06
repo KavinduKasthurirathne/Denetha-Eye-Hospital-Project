@@ -1,7 +1,7 @@
 import React,{useState ,useEffect} from "react";
-import { FormGroup, Button, Grid ,Paper, TextField, Typography,Radio ,RadioGroup, FormLabel, FormControl, Checkbox, FormControlLabel,Box,MenuItem } from "@mui/material";
+import { FormGroup, Button, Grid ,Paper, TextField,Radio ,RadioGroup, FormLabel, FormControl, Checkbox, FormControlLabel,Box,MenuItem } from "@mui/material";
 import '../Appoinment.css';
-
+import Dropdown from 'react-bootstrap/Dropdown';
 const Types = [
     {
       value: 'T001',
@@ -36,11 +36,7 @@ const doctors = [
   {
     value: 'D004',
     label: 'Dr.Chamila Wijesooriya',
-  },
-  {
-    value: 'D005',
-    label: 'Dr.Asela Premaranjana',
-  },
+  }
 ];
 
 export const Appoinment=() =>{
@@ -51,26 +47,21 @@ export const Appoinment=() =>{
     const [doctor, setdoctor] = React.useState('D001');
     const [type, settype] = React.useState('OPD');
     
-
     const handleChange1 = (event) => {
       setdoctor(event.target.value);
     };
     const handleChange2 = (event) => {
         settype(event.target.value);
-      };
+    };
     const [Name,setName] = useState('');
     const [NameError,setNameError] =useState('');
-
     const [Address,setAddress] = useState('');
     const [AddressError,setAddressError] =useState('');
-
     const [contactnumber,setcontactnumber] = useState('');
     const [contactnumberError,setcontactnumberError] = useState('');
-
-
     const [successMsg,setSuccessMsg] = useState('');
-
     const logo = require('../image/denethaLogo.png');
+
     const handleName= (e) =>
     {
       setSuccessMsg('');
@@ -116,18 +107,14 @@ export const Appoinment=() =>{
       else
       {
         setcontactnumberError('Contact number is Requried');
-      }
-     
+      }    
     }
     return(
         <Grid>
         <Paper elevation={20} style={paperStyle}>
             <Grid align='center'>
-            <div>  <img className='logo-img' src={logo} alt={'logo'} /></div>
+            <div> <img className='logo-img' src={logo} alt={'logo'} /></div>
             <h1>Make Appoinment</h1>
-            <Typography variant='caption'>
-            Enter correct details for make the appoinment !
-            </Typography>
             </Grid>
             <form onSubmit={handleFormSubmit} autoComplete="off">
             <br/>
@@ -159,33 +146,25 @@ export const Appoinment=() =>{
                 <br/>
                 <TextField type="number" fullWidth label='Appoinment Number'placeholder="Enter Appoinment Number"/>
                 <br/><br/>
-                <Box component="form" sx={{'& .MuiTextField-root': { width: '390px' },}}noValidate autoComplete="off">
-      <div>
-        <TextField
-          id="doctor"
-          select
-          label="Doctor"
-          value={doctor}
-          onChange={handleChange1}
-        >
-          {doctors.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-      </div>
-    </Box>
+                <Box component="form" sx={{'& .MuiTextField-root': { width: '450px' },}}noValidate autoComplete="off">
+                <div>
+                <TextField
+                  id="doctor"
+                  select
+                  label="Doctor"
+                  value={doctor}
+                  onChange={handleChange1}>
+                  {doctors.map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                  </TextField>
+               </div>
+                </Box>
                 <br/><br/>
-                <Box
-      component="form"
-      sx={{
-        '& .MuiTextField-root': {width: '390px' },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <div>
+                <Box component="form" sx={{'& .MuiTextField-root': {width: '450px' },}} noValidate autoComplete="off">
+                <div>
         <TextField
           id="Type"
           select
@@ -193,14 +172,14 @@ export const Appoinment=() =>{
           value={type}
           onChange={handleChange2}
         >
-          {Types.map((option) => (
+            {Types.map((option) => (
             <MenuItem key={option.value} value={option.value}>
               {option.label}
             </MenuItem>
-          ))}
-        </TextField>
-      </div>
-    </Box>
+             ))}
+              </TextField>
+              </div>
+              </Box>
                 <br/><br/>
                 <div style={{display:'flex'}}>
                 <h5>Date</h5>
@@ -210,15 +189,14 @@ export const Appoinment=() =>{
                 </div>
                 <br/>
                 <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} required label="I accept the terms and conditions." />
-            </FormGroup>
-                <div align="center" style={{display:'flex'}}>
-                <Button type='submit' variant="contained" style={buttonColor} >Submit</Button>
+               <FormControlLabel control={<Checkbox defaultChecked />} required label="I accept the terms and conditions." />
+                </FormGroup>
+                <div align="center" >
+                <Button type='submit' variant="contained" style={buttonColor}>Submit</Button>
                 <Button type='submit' variant="contained" style={buttonColor}>Reset</Button>
                 </div>
             </form>
         </Paper>
-    </Grid>
-    
+    </Grid> 
     )
 }
