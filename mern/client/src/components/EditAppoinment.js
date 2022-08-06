@@ -38,7 +38,7 @@ const doctors = [
   }
 ];
 
-export const Appoinment=() =>{
+export const EditAppoinment=() =>{
    
     const [post,setPost] = useState(null);
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
@@ -113,7 +113,7 @@ export const Appoinment=() =>{
         <Paper elevation={20} style={paperStyle}>
             <Grid align='center'>
             <div> <img className='logo-img' src={logo} alt={'logo'} /></div>
-            <h1>Make Appoinment</h1>
+            <h1>Edit Appoinment</h1>
             </Grid>
             <form onSubmit={handleFormSubmit} autoComplete="off">
             <br/>
