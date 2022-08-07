@@ -20,19 +20,19 @@ export const Header = () => {
             visible: ['accountant', 'doctor', 'receptionist', 'staff']
         }, {
             name: 'Staff',
-            path: 'staff',
-            visible: ['accountant']
+            path: '/staff',
+            visible: ['accountant', 'manager']
         }, {
             name: 'Inventory',
-            path: 'inventory',
+            path: '/inventory',
             visible: ['accountant', 'manager']
         }, {
             name: 'Patients',
-            path: 'patient',
+            path: '/patient',
             visible: ['receptionist', 'doctor']
         }, {
             name: 'Appointments',
-            path: 'appointment',
+            path: '/appointment',
             visible: ['receptionist', 'doctor']
         }, {
             name: 'Logout',
