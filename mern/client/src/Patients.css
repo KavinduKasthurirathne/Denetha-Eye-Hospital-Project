@@ -3,6 +3,7 @@ body {
 }
 
 .head {
+    font-size: 35px;
     text-align: center;
     padding-top: 70px;
 }
@@ -13,19 +14,26 @@ body {
 
 .patienttable {
     margin: auto;
-    padding-top: 0px;
+    padding-top: 25px;
     background-color: rgb(255, 255, 255);
     width: 50%;
     border-radius: 20px;
     box-shadow: 2px 2px 4px #989898;
 }
 
-th, td {
-    padding: 10px;
+th {
+    font-size: 20px;
+    width: 15%;
+    background-color: transparent;
+}
+
+td {
+    text-align: center;
+    padding-top: 20px;
 }
 
 .view-icon {
-    opacity: 50%;
+    opacity: 35%;
     width: 20px;
     height:20px;
     margin: auto;
