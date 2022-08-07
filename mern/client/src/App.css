@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  animation: fadein 0.5s ease-in;
+  animation: fadein 0.3s ease-in;
 }
 .basic{
   text-align: center;
-  animation: fadetranslate 0.5s ease-in;
+  animation: fadetranslate 0.3s ease-in;
 }
 
 .App-header {
@@ -102,6 +102,7 @@ a{
 
 .header{
   height: 20%;
+  animation: fadein 0.5s ease-in;
 }
 .flex-container{
   display: flex;
@@ -182,6 +183,12 @@ a{
   width: 15px;
   background-color: #00ada400;
   animation: spin 1s infinite ease-in-out;
+}
+#addAccount{
+  transform: translate(130%, -50%);
+  width: 15%;
+  height: 40%;
+  box-shadow: 2px 2px 4px #989898;
 }
 
 

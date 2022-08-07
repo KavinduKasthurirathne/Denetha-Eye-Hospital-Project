@@ -5,6 +5,7 @@ import { BrowserRouter, useNavigate } from "react-router-dom";
 import {CookiesProvider, useCookies} from 'react-cookie';
 
 import createRoutes from './routes/routes';
+import { Header } from './components/Header';
 
 const routes = createRoutes();
 
@@ -20,7 +21,9 @@ const Main = () => {
   });
 
   return (
-    <></>
+    <>
+      {(cookies.loggedIn==='true') ? <Header /> : null}
+    </>
   );
 };
 

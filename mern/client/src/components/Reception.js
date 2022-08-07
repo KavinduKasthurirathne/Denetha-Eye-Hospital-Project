@@ -1,10 +1,9 @@
-import {Header} from './Header.js';
+import {React} from 'react';
 
 export const Reception = () => {
 
     return (
         <>
-            <Header />
             <div className='basic'>Receptionist</div>
         </>
     );
