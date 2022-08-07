@@ -20,8 +20,8 @@ const App = () => {
     value: 'Invalid Password'
   }];
 
-  const [username, setUsername] = useState('dinushkasam');
-  const [password, setPassword] = useState('accpass');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [errorMsg, setErrorMsg] = useState(errors[0]);
   const navigateTo = useNavigate();
   const [cookies, setCookie] = useCookies(['name', 'loggedIn', 'role']);
