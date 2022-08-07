@@ -5,7 +5,7 @@ export const Reception = () => {
     return (
         <>
             <Header />
-            <div>Receptionist</div>
+            <div className='basic'>Receptionist</div>
         </>
     );
 }
