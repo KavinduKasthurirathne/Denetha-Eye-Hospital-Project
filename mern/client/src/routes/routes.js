@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 
 import {Appoinment} from "../components/Appoinment";
-import {App} from '../App';
+import App from '../App';
 import {Patients} from '../components/Patients'
 import {Accountant} from '../components/Accountant';
 import { Logout } from "../components/Logout";
@@ -21,14 +21,9 @@ const createRoutes = () => {
             <Route exact path='staff' element={<Patients />} />
             <Route exact path='doctor' element={<Patients />} />
             <Route exact path='admin' element={<Patients />} />
-<<<<<<< HEAD
             <Route exact path='appoinment' element={<Appoinment />} >
                 <Route exact path='List' element={<AppoinmentTable />} />
             </Route>
-=======
-            <Route exact path='Appoinment' element={<Appoinment />} />
-            <Route exact path='AppoinmentTable' element={<AppoinmentTable />} />
->>>>>>> 9a004913ca944f49236731424955822d8ae24314
             <Route exact path='logout' element={<Logout />} />
             <Route exact path='*' element={<h2 className='App'>404 - Page not found!</h2>} /> 
       </Routes>
