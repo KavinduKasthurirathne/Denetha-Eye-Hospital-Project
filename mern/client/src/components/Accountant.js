@@ -5,7 +5,6 @@ import {Header} from './Header.js';
 export const Accountant = () => {
     return(
         <>
-            <Header />
             <div className='basic'>
                 <br />
                 <button className='button navButton'>Purchase Orders</button>

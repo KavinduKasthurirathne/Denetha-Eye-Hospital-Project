@@ -9,6 +9,7 @@ export const Patients = () => {
         <>
         <Header />
         <p class='head'><u><b>Patient Details</b></u></p>
+        <h1 class='head'><u>Patient Details</u></h1>
         <div class='patienttable'>
             <table class='table1'>
                 <tr>

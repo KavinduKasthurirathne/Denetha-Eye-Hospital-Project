@@ -1,10 +1,10 @@
 .App {
   text-align: center;
-  animation: fadein 0.5s ease-in;
+  animation: fadein 0.3s ease-in;
 }
 .basic{
   text-align: center;
-  animation: fadetranslate 0.5s ease-in;
+  animation: fadetranslate 0.3s ease-in;
 }
 
 .App-header {
@@ -40,13 +40,13 @@
   box-shadow: 2px 2px 4px #00000057;
 }
 .header-logo{
-  transform: translate(550%, 430%) scale(930%);
-  width: 20%;
+  transform: translate(180%, 150%) scale(370%);
+  width: 50%;
   border-radius: 100px;
-  box-shadow: 0.3px 0.3px 1px #00000057;
+  box-shadow: 0.7px 0.7px 1px #00000057;
 }
 #logo{
-  flex-basis: 100px;
+  flex-basis: 90px;
   flex-grow: 0;
   flex-shrink: 0;
 }
@@ -101,7 +101,8 @@ a{
 }
 
 .header{
-  height: 10%;
+  height: 20%;
+  animation: fadein 0.5s ease-in;
 }
 .flex-container{
   display: flex;
@@ -109,13 +110,13 @@ a{
 }
 .flex-child{
   flex: 1;
-  padding: 10px;
-  margin: 10px;
-  background-color: #00000000;
+  padding: 5px;
+  margin: 5px;
+  background-color: #db4e4e00;
 }
 
 .navlink{
-  margin-left: 10%;
+  margin-left: 8%;
   font-weight: lighter;
 }
 .active{
@@ -148,14 +149,14 @@ a{
 
 #profilePic{
   background-color: white;
-  transform: scale(80%) translate(-40%, 10%);
+  transform: scale(80%) translate(-30%, 10%);
   flex-basis: 75px;
   flex-grow: 0;
   flex-shrink: 0;
   border-radius: 50px;
 }
 #profileImg{
-  transform: translate(-18%, 0%);
+  transform: translate(-19%, 0%);
 }
 
 .error-msg{
@@ -182,6 +183,12 @@ a{
   width: 15px;
   background-color: #00ada400;
   animation: spin 1s infinite ease-in-out;
+}
+#addAccount{
+  transform: translate(130%, -50%);
+  width: 15%;
+  height: 40%;
+  box-shadow: 2px 2px 4px #989898;
 }
 
 

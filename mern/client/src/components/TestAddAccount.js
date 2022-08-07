@@ -32,11 +32,11 @@ export const TestAddAccount = () => {
     };
 
     return (
-        <div>
-            <input name={'name'} type={'text'} value={input.name} placeholder={'Full name'} onChange={inputOnChange} />
-            <input name={'username'} type={'text'} value={input.username} placeholder={'username'} onChange={inputOnChange} />
-            <input name={'password'} type={'text'} value={input.password} placeholder={'password'} onChange={inputOnChange} />
-            <input name={'role'} type={'text'} value={input.role} placeholder={'Role'} onChange={inputOnChange} />  
+        <div id='addAccount' className='round-edge-div'><br /><br />
+            <input name={'name'} type={'text'} value={input.name} placeholder={'Full name'} onChange={inputOnChange} /><br />
+            <input name={'username'} type={'text'} value={input.username} placeholder={'username'} onChange={inputOnChange} /><br />
+            <input name={'password'} type={'text'} value={input.password} placeholder={'password'} onChange={inputOnChange} /><br />
+            <input name={'role'} type={'text'} value={input.role} placeholder={'Role'} onChange={inputOnChange} /><br />
             <button className='button' onClick={handleSubmit} >Add Account</button>
         </div>
     );

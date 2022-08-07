@@ -7,6 +7,7 @@ import {Patients} from '../components/Patients'
 import {Accountant} from '../components/Accountant';
 import { Logout } from "../components/Logout";
 import {AppoinmentTable} from "../components/AppoinmentTable";
+import {Reception} from '../components/Reception';
 
 
 const createRoutes = () => {
@@ -15,7 +16,7 @@ const createRoutes = () => {
             <Route exact path='/' element={<App />} />
             <Route exact path='accountant' element={<Accountant />} />
             <Route exact path='manager' element={<Patients />} />
-            <Route exact path='receptionist' element={<Patients />} >
+            <Route exact path='receptionist' element={<Reception />} >
                 <Route exact path='patients' element={<Patients />} />
             </Route>
             <Route exact path='staff' element={<Patients />} />

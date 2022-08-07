@@ -15,24 +15,20 @@ export const Header = () => {
     //put other items between dashboard and logout
     //use if-else to decide which items to render
     const navBarItems = [{
-            name: 'Dashboard',
-            path: '',
-            visible: ['accountant', 'doctor', 'receptionist', 'staff']
-        }, {
             name: 'Staff',
-            path: 'staff',
-            visible: ['accountant']
+            path: '/staff',
+            visible: ['accountant', 'manager']
         }, {
             name: 'Inventory',
-            path: 'inventory',
+            path: '/inventory',
             visible: ['accountant', 'manager']
         }, {
             name: 'Patients',
-            path: 'patient',
+            path: '/patient',
             visible: ['receptionist', 'doctor']
         }, {
             name: 'Appointments',
-            path: 'appointment',
+            path: '/appointment',
             visible: ['receptionist', 'doctor']
         }, {
             name: 'Logout',
@@ -50,6 +46,11 @@ export const Header = () => {
                 <img src={design} alt='header-design' id='header-design' />
             </div>
             <div id='navbar' className='flex-child right-align'><br /><br />
+                <NavLink exact to={cookies.role}
+                    className='navlink' 
+                    activeClassName='active'>
+                    Dashboard
+                    </NavLink>
                 {navBarItems.map((item) => {
                     if(item.visible.find((element) => element===cookies.role)){
                         return (
@@ -70,6 +71,7 @@ export const Header = () => {
                     <p id='userRole'>{cookies.role}</p>
                 </div>
                 <div id='profilePic' className='flex-child'><p id='profileImg'>profile picture</p></div>
+                
             </div>
         </div>
     );
