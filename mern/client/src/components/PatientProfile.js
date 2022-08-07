@@ -8,7 +8,7 @@ export const Patients = () => {
         <>
         <Header />
 
-
+        <div class='profile'>Patient Profile</div>
         
         </>
     );
