@@ -1,10 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../App.css';
+import { useCookies } from 'react-cookie';
 
 export const Header = () => {
     //need to get userRole, name, profilepicture
     //possibly from cookies
+    const [cookies] = useCookies('name', 'role');
 
     const logo = require('../image/denethaLogo.png');
     const design = require('../image/design.png');
@@ -14,16 +16,28 @@ export const Header = () => {
     //use if-else to decide which items to render
     const navBarItems = [{
             name: 'Dashboard',
-            path: ''
+            path: '',
+            visible: ['accountant', 'doctor', 'receptionist', 'staff']
         }, {
             name: 'Staff',
-            path: 'staff'
+            path: 'staff',
+            visible: ['accountant']
         }, {
             name: 'Inventory',
-            path: 'inventory'
+            path: 'inventory',
+            visible: ['accountant', 'manager']
+        }, {
+            name: 'Patients',
+            path: 'patient',
+            visible: ['receptionist', 'doctor']
+        }, {
+            name: 'Appointments',
+            path: 'appointment',
+            visible: ['receptionist', 'doctor']
         }, {
             name: 'Logout',
-            path: '/logout'
+            path: '/logout',
+            visible: ['accountant', 'doctor', 'receptionist', 'staff']
         }
     ];
 
@@ -37,19 +51,23 @@ export const Header = () => {
             </div>
             <div id='navbar' className='flex-child right-align'><br /><br />
                 {navBarItems.map((item) => {
-                    return (
-                    <NavLink exact to={item.path} 
-                        className='navlink' 
-                        activeClassName='active' >
-                        {item.name}
-                        </NavLink>
-                    ); 
+                    if(item.visible.find((element) => element===cookies.role)){
+                        return (
+                            <NavLink exact to={item.path} 
+                                className='navlink' 
+                                activeClassName='active' >
+                                {item.name}
+                                </NavLink>
+                            ); 
+                    }else{
+                        return null;
+                    }
                 })}
             </div>
             <div id='profile' className='flex-child right-align'>
                 <div className='flex-child'><br />
-                    <p id='username'>User Name</p>
-                    <p id='userRole'>Role</p>
+                    <p id='username'>{cookies.name}</p>
+                    <p id='userRole'>{cookies.role}</p>
                 </div>
                 <div id='profilePic' className='flex-child'><p id='profileImg'>profile picture</p></div>
             </div>
