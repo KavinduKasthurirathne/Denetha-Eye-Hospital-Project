@@ -158,6 +158,32 @@ a{
   transform: translate(-18%, 0%);
 }
 
+.error-msg{
+  height: 25px;
+  transition: all 0.5s;
+  font-weight: lighter;
+  animation: fadetranslate 0.5s ease-in;
+}
+
+.thin-text{
+  font-weight: lighter;
+  margin: 0%;
+}
+.bold-text{
+  font-weight: bold;
+  margin: 0%;
+}
+.loading{
+  margin: auto;
+  border: 6px solid #9c9c9c;
+  border-radius: 50%;
+  border-top: 6px solid #ffffff;
+  height: 15px;
+  width: 15px;
+  background-color: #00ada400;
+  animation: spin 1s infinite ease-in-out;
+}
+
 
 @keyframes fadein {
   from { 
@@ -176,4 +202,8 @@ a{
     opacity: 1; 
     transform: translate(0%, 0%);
   }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
