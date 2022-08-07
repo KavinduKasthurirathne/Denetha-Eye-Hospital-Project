@@ -23,3 +23,10 @@ body {
 th, td {
     padding: 10px;
 }
+
+.view-icon {
+    opacity: 50%;
+    width: 20px;
+    height:20px;
+    margin: auto;
+}
