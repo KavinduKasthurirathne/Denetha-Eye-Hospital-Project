@@ -126,8 +126,9 @@ a{
   text-align: right;
 }
 #profile{
+  background-color: #ffffff00;
   display: flex;
-  flex-basis: 20%;
+  flex-basis: 15%;
   flex-grow: 0;
   flex-shrink: 0;
 }
@@ -148,15 +149,15 @@ a{
 }
 
 #profilePic{
+  display: block;
+  margin: auto;
   background-color: white;
-  transform: scale(80%) translate(-30%, 10%);
-  flex-basis: 75px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  border-radius: 50px;
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
 }
 #profileImg{
-  transform: translate(-19%, 0%);
+  text-align: center;
 }
 
 .error-msg{
@@ -189,6 +190,9 @@ a{
   width: 15%;
   height: 40%;
   box-shadow: 2px 2px 4px #989898;
+}
+#navbar{
+  margin-top: 2.5%;
 }
 
 

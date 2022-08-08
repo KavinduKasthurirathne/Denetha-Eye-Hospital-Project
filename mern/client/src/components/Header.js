@@ -45,7 +45,7 @@ export const Header = () => {
             <div id='header-design-container' >
                 <img src={design} alt='header-design' id='header-design' />
             </div>
-            <div id='navbar' className='flex-child right-align'><br /><br />
+            <div id='navbar' className='flex-child right-align'>
                 <NavLink exact to={cookies.role}
                     className='navlink' 
                     activeClassName='active'>
@@ -70,7 +70,7 @@ export const Header = () => {
                     <p id='username'>{cookies.name}</p>
                     <p id='userRole'>{cookies.role}</p>
                 </div>
-                <div id='profilePic' className='flex-child'><p id='profileImg'>profile picture</p></div>
+                <div id='profilePic' ><p id='profileImg'>profile picture</p></div>
                 
             </div>
         </div>
