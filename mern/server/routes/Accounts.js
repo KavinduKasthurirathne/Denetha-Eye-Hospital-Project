@@ -1,10 +1,13 @@
 const router = require('express').Router();
 const account = require('../models/AccountModel');
+const bcrypt = require('bcryptjs');
 
 router.route('/add').post(async (req, res) => {
     const {name, username, password, role} = req.body;
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
 
-    const newAccount = new account({name, username, password, role});
+    const newAccount = new account({name, username, password: hash, role});
 
     await newAccount.save().then(() => {
         res.status(200).send({status: 'Account added'});
@@ -20,7 +23,7 @@ router.route('/check').post(async (req, res) => {
 
     await account.find({username}).then((result)=>{
         if(result[0]){
-            if(result[0].password === password){
+            if(bcrypt.compareSync(password, result[0].password)){
                 res.json(result);
             }else{
                 res.status(200).send({message: 'invalidPass'});

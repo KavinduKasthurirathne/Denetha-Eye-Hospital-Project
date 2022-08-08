@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../App.css';
 import Loading from './LoadingIndicator';
 
 export const Login = (props) => {
-    const [loading, setLoading] = useState(false);
 
     const logo = require('../image/denethaLogo.png');
 
     const handleSubmit = () => {
-        setLoading(true);
         props.onLogin();
     };
 
@@ -28,7 +26,7 @@ export const Login = (props) => {
             <input name={'password'} type={'password'} value={pass} placeholder={'Password'} onChange={passwordOnChange} />
             <br />
             <button className='button' onClick={handleSubmit}>
-                {(loading===true) ? <Loading /> : 'Sign In'}
+                {(props.load===true) ? <Loading /> : 'Sign In'}
             </button>
         </div>
     );
