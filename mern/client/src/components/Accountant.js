@@ -1,24 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../App.css';
-import {Header} from './Header.js';
+
+import PurchaseOrder from './Accountant/PurchaseOrder';
+import Accounts from './Accountant/Accounts';
+import PettyCash from './Accountant/PettyCash';
 
 export const Accountant = () => {
+    const [display, setDisplay] = useState('purchaseOrder');
+
+    //event handlers
+    const purchaseOrderOnClick = () => {
+        setDisplay('purchaseOrder');
+    };
+    const AccountsOnClick = () => {
+        setDisplay('accounts');
+    };
+    const pettyCashOnClick = () => {
+        setDisplay('pettyCash')
+    };
+
     return(
         <>
             <div className='basic'>
                 <br />
-                <button className='button navButton'>Purchase Orders</button>
-                <button className='button navButton'>Accounts</button>
-                <br />
+                <button className='button navButton' onClick={purchaseOrderOnClick}>Purchase Orders</button>
+                <button className='button navButton' onClick={pettyCashOnClick}>Petty Cash</button>
+                <button className='button navButton' onClick={AccountsOnClick}>Accounts</button>
                 <div>
-                    <p>
-                        two buttons<br />
-                        Accountant page!<br />
-                        Accounts<br />
-                        Petty cash<br />
-                        Purchase ordesrs<br />
-                        Print
-                    </p>
+                    {display==='purchaseOrder' && <PurchaseOrder />}
+                    {display==='accounts' && <Accounts />}
+                    {display==='pettyCash' && <PettyCash />}
                 </div>
             </div>
         </>

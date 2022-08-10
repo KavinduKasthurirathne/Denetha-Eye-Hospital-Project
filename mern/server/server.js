@@ -8,8 +8,11 @@ app.use(express.json());
 
 const mongoose = require('mongoose');
 
+//routes
 const accountRouter = require('./routes/Accounts');
 app.use('/account', accountRouter);
+const PORouter = require('./routes/PurchaseOrders');
+app.use('/purchaseOrder', PORouter);
  
 app.listen(port, () => {
   //Perform a database connection when server start

@@ -12,8 +12,7 @@ router.route('/add').post(async (req, res) => {
     await newAccount.save().then(() => {
         res.status(200).send({status: 'Account added'});
     }).catch((err) => {
-        console.log(err);
-        res.status(500).send({status: 'Error: Account not added', error: err});
+        res.status(500).send({status: 'Error: Account not added', error: err.message});
     });
 
 });
@@ -32,8 +31,32 @@ router.route('/check').post(async (req, res) => {
             res.status(200).send({message: 'invalidUser'});
         }
     }).catch((err) => {
-        console.log(err);
-        res.status(500).send({status: 'Error: Account not fount', error: err});
+        res.status(500).send({status: 'Error: Account not found', error: err.message});
+    });
+});
+
+router.route('/update/:oid').post(async (req, res) => {
+    const {name, username, password, role} = req.body;
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
+
+    const oid = req.params.oid;
+    const updateAccount = {name, username, password: hash, role};
+
+    await account.findByIdAndUpdate(oid, updateAccount).then(() => {
+        res.status(200).send({status: 'Account updated', update: updateAccount});
+    }).catch((err) => {
+        res.status(500).send({status: 'Error: Account update failed', error: err.message});
+    });
+});
+
+router.route('/delete/:oid').post(async (req, res) => {
+    const oid = req.params.oid;
+
+    await account.findByIdAndDelete(oid).then((result) => {
+        res.status(200).send({message:'Account Deleted'})
+    }).catch((err) => {
+        res.status(500).send({status: 'Error: Delete unseccessful', error: err.message});
     });
 });
 
