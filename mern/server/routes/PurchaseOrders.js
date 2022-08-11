@@ -7,13 +7,14 @@ router.route('/add').post(async (req, res) => {
         poNumber,
         vendor,
         date,
+        editor,
         mode,
         items
     } = req.body;
 
     const currentDate = Date.now();
 
-    const newPO = new PO({poRoot, poNumber, vendor, date, lastEdit: currentDate, mode, items});
+    const newPO = new PO({poRoot, poNumber, vendor, date, lastEdit: currentDate, editor, mode, items});
 
     await newPO.save().then(() => {
         res.status(200).send({status: 'PO added'});
@@ -23,7 +24,7 @@ router.route('/add').post(async (req, res) => {
 
 });
 
-router.route('/').post(async (req, res) => {
+router.route('/get').post(async (req, res) => {
     await PO.find().then((result)=>{
         if(result){
             res.json(result);
@@ -41,6 +42,7 @@ router.route('/update/:oid').post(async (req, res) => {
         poNumber,
         vendor,
         date,
+        editor,
         mode,
         items
     } = req.body;
@@ -48,7 +50,7 @@ router.route('/update/:oid').post(async (req, res) => {
     const currentDate = Date.now();
     const oid = req.params.oid;
 
-    const updatePO = {poRoot, poNumber, vendor, date, lastEdit: currentDate, mode, items};
+    const updatePO = {poRoot, poNumber, vendor, date, lastEdit: currentDate, editor, mode, items};
 
     await PO.findByIdAndUpdate(oid, updatePO).then((result) => {
         res.status(200).send({message:'Update successful', update: updatePO})

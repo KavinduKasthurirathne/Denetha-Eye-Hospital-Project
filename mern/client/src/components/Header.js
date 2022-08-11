@@ -46,17 +46,17 @@ export const Header = () => {
                 <img src={design} alt='header-design' id='header-design' />
             </div>
             <div id='navbar' className='flex-child right-align'>
-                <NavLink exact to={cookies.role}
-                    className='navlink' 
-                    activeClassName='active'>
+                <NavLink to={cookies.role}
+                    className='navlink'
+                    key={'Dashboard'}>
                     Dashboard
                     </NavLink>
                 {navBarItems.map((item) => {
                     if(item.visible.find((element) => element===cookies.role)){
                         return (
-                            <NavLink exact to={item.path} 
-                                className='navlink' 
-                                activeClassName='active' >
+                            <NavLink to={item.path} 
+                                className='navlink'
+                                key={item.name.toString()}>
                                 {item.name}
                                 </NavLink>
                             ); 

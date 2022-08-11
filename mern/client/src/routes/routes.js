@@ -14,7 +14,11 @@ const createRoutes = () => {
     return (
         <Routes>
             <Route exact path='/' element={<App />} />
-            <Route exact path='accountant' element={<Accountant />} />
+            <Route exact path='accountant' element={<Accountant />} >
+                <Route exact path=':root' element={<Accountant />} >
+                    <Route exact path=':ponum' element={<Accountant />} />
+                </Route>
+            </Route>
             <Route exact path='manager' element={<Patients />} />
             <Route exact path='receptionist' element={<Reception />} >
             <Route exact path='patients' element={<Patients />} />

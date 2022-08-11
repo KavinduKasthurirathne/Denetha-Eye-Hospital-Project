@@ -18,7 +18,7 @@ const Main = () => {
     if(cookies.loggedIn !== 'true') {
       navigateTo('/');
     }
-  });
+  }, [cookies, navigateTo]);
 
   return (
     <>

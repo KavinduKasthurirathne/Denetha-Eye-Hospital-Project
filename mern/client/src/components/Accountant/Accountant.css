@@ -21,3 +21,39 @@
 #PORoot, #POList {
     overflow-y: scroll;
 }
+
+.normal-text {
+    color: black;
+}
+.bold-text {
+    font-weight: bolder;
+    color: black;
+}
+
+.left-align {
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+}
+li {
+    transition: 0.3s ease;
+    border-radius: 10px;
+    padding: 10px 5px;
+    width: 95%;
+    transform: translate(-10%, 0%);
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+li:hover {
+    background-color: rgba(0, 0, 0, 0.150);
+}
+
+.prompt {
+    justify-content: center;
+    transform: translate(0%, 1100%);
+    color: rgba(0, 0, 0, 0.312);
+    font-style: italic;
+}

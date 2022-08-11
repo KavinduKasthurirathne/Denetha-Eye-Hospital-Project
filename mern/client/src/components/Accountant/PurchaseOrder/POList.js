@@ -3,9 +3,7 @@ import '../Accountant.css';
 
 const POList = () => {
     return (
-        <div>
-            <p>All POs</p>
-        </div>
+        <div><p className='prompt'>Select one to show list</p></div>
     );
 };
 

@@ -207,7 +207,7 @@ a{
 @keyframes fadetranslate {
   from { 
     opacity: 0;
-    transform: translate(0%, -10%);
+    transform: translate(0%, -3%);
   }
   to   { 
     opacity: 1; 

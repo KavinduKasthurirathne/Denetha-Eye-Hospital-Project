@@ -3,9 +3,7 @@ import '../Accountant.css';
 
 const PODetails = () => {
     return (
-        <div>
-            <p>PO details</p>
-        </div>
+        <div><p className='prompt'>Select a Purchase order to edit</p></div>
     );
 };
 

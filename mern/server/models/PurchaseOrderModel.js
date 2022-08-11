@@ -6,6 +6,7 @@ const purchaseOrderSchema = new Mongoose.Schema({
     vendor: String,
     date: Date,
     lastEdit: {type: Date, default:Date.now},
+    editor: String,
     mode: String,
     items: String
 });
