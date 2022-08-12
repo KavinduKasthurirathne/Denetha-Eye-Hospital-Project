@@ -33,6 +33,9 @@
 .left-align {
     text-align: left;
 }
+.center-align {
+    text-align: center;
+}
 
 ul {
     list-style-type: none;
@@ -56,4 +59,44 @@ li:hover {
     transform: translate(0%, 1100%);
     color: rgba(0, 0, 0, 0.312);
     font-style: italic;
+}
+
+#po-header {
+    display: flex;
+    flex-direction: row;
+}
+.po-header-child {
+    flex: 1;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0);
+}
+#po-num{
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    font-size: small;
+}
+#po-num-value{
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    font-size: x-large;
+}
+#print-container {
+    flex-basis: 10%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#po-container {
+    flex-basis: 10%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#po-body {
+    background-color: aqua;
+    height: 350px;
+}
+#po-submit {
+    background-color: aquamarine;
+    height: 100px;
 }

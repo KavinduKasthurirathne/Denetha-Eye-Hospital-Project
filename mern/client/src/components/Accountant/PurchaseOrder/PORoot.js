@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Accountant.css';
+import '../../../App.css';
+import { Button } from '@mui/material';
 
 const PORoot = (props) => {
 
@@ -9,7 +11,7 @@ const PORoot = (props) => {
     };
 
     return (
-        <div className='left-align'>
+        <div className='left-align basic'>
             <ul>
                 {props.data.map((item, i) => (
                     (item===props.root) ?
@@ -25,7 +27,10 @@ const PORoot = (props) => {
                         </Link>
                     </li>
                 ))}
-                <button onClick={show}>show</button>
+                <Button 
+                variant="contained" 
+                onClick={show} 
+                color='secondary' >New</Button>
             </ul>
         </div>
     );
