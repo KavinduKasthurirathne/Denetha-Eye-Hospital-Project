@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, useNavigate } from "react-router-dom";
 import {CookiesProvider, useCookies} from 'react-cookie';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import createRoutes from './routes/routes';
 import { Header } from './components/Header';
 
 const routes = createRoutes();
+
+const theme = new createTheme({
+  palette: {
+    primary: {
+      main: '#00ADA3'
+    },
+    secondary: {
+      main: '#2A628F'
+    }
+  }
+});
 
 const Main = () => {
   const [cookies] = useCookies(['loggedIn']);
@@ -32,8 +44,10 @@ root.render(
   <React.StrictMode>
     <CookiesProvider>
       <BrowserRouter>
-        <Main />
-        {routes}
+        <ThemeProvider theme={theme}>
+          <Main />
+          {routes}
+        </ThemeProvider>
       </BrowserRouter>
     </CookiesProvider>
   </React.StrictMode>

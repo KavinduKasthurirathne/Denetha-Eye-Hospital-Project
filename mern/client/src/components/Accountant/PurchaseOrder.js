@@ -9,12 +9,22 @@ import PODetails from './PurchaseOrder/PODetails';
 
 const PurchaseOrder = (props) => {
     const [roots, setRoots] = useState([]);
+    const [orders, setOrders] = useState([]);
+    const [select, setSelect] = useState({});
     const {root, ponum} = useParams();
 
     useEffect(()=>{
-        const rootList = props.data.map((item) => (item.poRoot));
+        const rootList = props.data.map((item) => (item.poRoot)).filter((item, i, self) => self.indexOf(item)===i);
         setRoots(rootList);
-    }, [props.data]);
+        if(root){
+            const orderList = props.data.filter((item) => item.poRoot===root).map((item) => ({poNumber: item.poNumber, id: item._id}));
+            setOrders(orderList);
+            if(ponum){
+                const selected = props.data.find((item) => item._id===ponum);
+                setSelect(selected);
+            }
+        }
+    }, [props.data, root, ponum]);
 
     return (
         <div className='App grid-wrapper'>
@@ -22,10 +32,10 @@ const PurchaseOrder = (props) => {
                 <PORoot data={roots} setter={setRoots} root={root} />
             </div>
             <div className='grid-child' id='POList'>
-                <POList root={root}/>
+                <POList data={orders} setter={setOrders} root={root} ponum={ponum} select={setSelect} />
             </div>
             <div className='grid-child' id='PODetails'>
-                <PODetails root={root} ponum={ponum} />
+                <PODetails data={select} root={root} ponum={ponum} />
             </div>
         </div>
     );
