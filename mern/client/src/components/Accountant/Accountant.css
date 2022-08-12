@@ -61,11 +61,11 @@ li:hover {
     font-style: italic;
 }
 
-#po-header {
+.po-flex {
     display: flex;
     flex-direction: row;
 }
-.po-header-child {
+.po-flex-child {
     flex: 1;
     margin: 5px;
     background-color: rgba(0, 0, 0, 0);
@@ -93,10 +93,21 @@ li:hover {
     flex-shrink: 0;
 }
 #po-body {
-    background-color: aqua;
-    height: 350px;
+    background-color: rgba(0, 255, 255, 0);
+    height: 380px;
 }
 #po-submit {
+    margin: auto;
     background-color: aquamarine;
-    height: 100px;
+    height: 70px;
+    width: 80%
+}
+#po-save {
+    flex-basis: 10%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#po-item-table {
+    margin: auto;
+    width: 90%;
 }
