@@ -1,17 +1,12 @@
 import React from "react";
 import '../Accountant.css';
 import '../../../App.css';
-import { Table, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton } from "@mui/material";
+import { Table, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TableBody } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
-const POItems = (props) => {
 
-    const handleDelete = (index) => {
-        const newItems = props.data.filter((value, i) => (i !== index));
-        props.setter(newItems);
-        console.log(index);
-    };
+const POItems = (props) => {
 
     return (
         <div id='po-item-table' >
@@ -25,6 +20,7 @@ const POItems = (props) => {
                             <TableCell align='right' style={{fontWeight: 'bold'}}>Amount(Rs.)</TableCell>
                         </TableRow>
                     </TableHead>
+                    <TableBody>
                     {
                         props.data.map((row, i) => (
                             <TableRow key={row.item}>
@@ -36,6 +32,7 @@ const POItems = (props) => {
                                     <IconButton aria-label='delete record' size='small' onClick={()=>{
                                         const newItems = props.data.filter((value, index) => (index !== i));
                                         props.setter(newItems);
+                                        props.setSave(false);
                                     }}>
                                         <DeleteIcon />
                                     </IconButton>
@@ -46,6 +43,11 @@ const POItems = (props) => {
                             </TableRow>
                         ))
                     }
+                        <TableRow>
+                            <TableCell align='right' colSpan={3}><div className='bold-text'>Total</div></TableCell>
+                            <TableCell align='right' ><div className='bold-text'>{props.calcTotal()}</div></TableCell>
+                        </TableRow>
+                    </TableBody>
                 </Table>
             </TableContainer>
         </div>

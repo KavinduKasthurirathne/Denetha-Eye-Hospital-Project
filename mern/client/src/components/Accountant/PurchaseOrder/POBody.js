@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import '../Accountant.css';
 import '../../../App.css';
-import { Button, FormControl, IconButton, InputLabel, OutlinedInput, TextField } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Button, FormControl, InputLabel, OutlinedInput} from '@mui/material';
 import POItems from './POItems';
+import SaveIcon from '@mui/icons-material/Save';
 
 const POBody = (props) => {
     const [inputs, setInputs] = useState({});
@@ -14,13 +14,21 @@ const POBody = (props) => {
             ...prev,
             [target.name]: target.value
         }));
-        if(inputs.item && inputs.num && inputs.unit){
-            if(inputs.item!=='' && inputs.num!=='' && inputs.unit!==''){
-                setDisable(false);
-            }else {
-                setDisable(true);
+        if(inputs.num || inputs.unit){
+            setDisable(false);
+        }else {
+            setDisable(true);
+        }
+    };
+
+    const calculateTotal = () => {
+        let sum = 0;
+        if(props.data){
+            if(props.data.length>0){
+                props.data.map((item)=>(sum += parseFloat(item.amount)));
             }
         }
+        return(sum.toFixed(2));
     };
 
     const handleAdd = () => {
@@ -43,15 +51,16 @@ const POBody = (props) => {
             amount: ''
         });
         setDisable(true);
+        props.setSave(false);
     };
 
     return (
         <>
-            <div id='po-body' >
-                <POItems data={props.data} setter={props.setter} />
+            <div id='po-body' className='po-anim' >
+                <POItems data={props.data} setter={props.setter} calcTotal={calculateTotal} setSave={props.setSave} />
             </div>
             <hr />
-            <div id='po-submit' className='po-flex' >
+            <div id='po-submit' className='po-flex po-anim' >
                 <div className='po-flex-child'>
                     <FormControl variant='outlined'>
                         <InputLabel htmlFor='item'>Item(s)</InputLabel>
@@ -97,6 +106,15 @@ const POBody = (props) => {
                         onClick={handleAdd} 
                         color='secondary' 
                         disabled={disable} >Add</Button>
+                </div>
+                <div className='po-flex-child' id='po-database'>
+                    <Button 
+                        variant="contained" 
+                        onClick={props.handleSave} 
+                        color='secondary' 
+                        disabled={props.save}
+                        endIcon={<SaveIcon />} 
+                        >Save</Button>
                 </div>
             </div>
         </>

@@ -1,37 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../Accountant.css';
 import '../../../App.css';
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
+import { useCookies } from 'react-cookie';
+import NoticeDialog from '../NoticeDialog';
+import axios from 'axios';
 
 const PORoot = (props) => {
+    const [newRoot, setNewRoot] = useState(false);
+    const [newList, setNewList] = useState('');
+    const [cookies] = useCookies('role');
 
-    const show = () => {
-        console.log(props.data);
+    const handleAdd = () => {
+        setNewRoot(true);
+    };
+
+    const handleChange = ({target}) => {
+        setNewList(target.value);
+    };
+
+    const onSubmit = () => {
+        const data = {
+            poRoot: newList,
+            poNumber: 1,
+            editor: cookies.role
+        }
+
+        axios.post('http://localhost:5000/purchaseOrder/add', data)
+        .then((res)=>{
+            setNewRoot(false);
+            props.getPO();
+        })
+        console.log(data);
     };
 
     return (
-        <div className='left-align basic'>
-            <ul>
-                {props.data.map((item, i) => (
-                    (item===props.root) ?
-                    <li key={'root'+i}>
-                        <Link className='bold-text' key={item} to={`${item}`} >
-                            <div>{item}</div>
-                        </Link>
-                    </li>
-                    :
-                    <li key={'root'+i}>
-                        <Link className='normal-text' key={item} to={`${item}`} >
-                            <div>{item}</div>
-                        </Link>
-                    </li>
-                ))}
-                <Button 
+        <div className='basic'>
+            <div className='left-align'>
+                <ul>
+                    {props.data.map((item, i) => (
+                        (item===props.root) ?
+                        <li key={'root'+i} className='transition' >
+                            <Link className='bold-text' key={item} to={`${item}`} >
+                                <div>{item}</div>
+                            </Link>
+                        </li>
+                        :
+                        <li key={'root'+i} className='transition' >
+                            <Link className='normal-text' key={item} to={`${item}`} >
+                                <div>{item}</div>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <Button 
                 variant="contained" 
-                onClick={show} 
+                onClick={handleAdd} 
                 color='secondary' >New</Button>
-            </ul>
+            <NoticeDialog 
+                message={ <div style={{margin: 5}}><TextField 
+                    label='New List Name'
+                    variant='outlined'
+                    value={newList}
+                    onChange={handleChange} /></div> }
+                handleClose={()=>setNewRoot(false)}
+                handleButton={onSubmit}
+                title='Create List' 
+                enable={newRoot} />
         </div>
     );
 };
