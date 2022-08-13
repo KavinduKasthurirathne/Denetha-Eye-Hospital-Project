@@ -6,15 +6,13 @@ import { Button, IconButton, TextField } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import NoticeDialog from '../NoticeDialog';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
 const POList = (props) => {
     const [newPO, setNewPO] = useState(false);
     const [deletePO, setDeletePO] = useState(false);
     const [newName, setNewName] = useState('');
-    const [cookies] = useCookies('role');
-    const navigateTo = useNavigate();
+    const [cookies] = useCookies('name');
 
     const handleAdd = () => {
         setNewPO(true);
@@ -31,7 +29,7 @@ const POList = (props) => {
         const PO = {
             poRoot: props.root,
             poNumber: newName,
-            editor: cookies.role
+            editor: cookies.name
         }
         axios.post('http://localhost:5000/purchaseOrder/add', PO)
         .then((res)=> {
@@ -47,8 +45,8 @@ const POList = (props) => {
             axios.post(`http://localhost:5000/purchaseOrder/delete/${id}`, {})
             .then((res)=>{
                 setDeletePO(false);
+                props.ponumSetter('');
                 props.getPO();
-                navigateTo(`/${cookies.role}/${props.root}`);
             })
             .catch((err) => console.log(err));
         }
@@ -56,11 +54,18 @@ const POList = (props) => {
 
     const displayData = () => { return(
         (props.data[0] && props.data[0].poNumber!==undefined) ?
-        <ul>
+        <ul className='basic'>
             {props.data.map((item, i) => (
                 (item.id===props.ponum) ?
                 <li key={'item'+i} className='transition' >
-                    <Link className='bold-text' key={i} to={props.root+'/'+item.id} >
+                    <Link 
+                        className='bold-text' 
+                        key={i} 
+                        to={props.root+'/'+item.id} 
+                        onClick={(e)=>{
+                            e.preventDefault();
+                            props.ponumSetter(item.id);
+                        }} >
                     <div>PO {item.poNumber}</div>
                     </Link>
                     <IconButton aria-label='Delete PO' size='small' onClick={handleDelete} >
@@ -69,7 +74,14 @@ const POList = (props) => {
                 </li>
                 :
                 <li key={'item'+i} className='transition' >
-                    <Link className='normal-text' key={i} to={props.root+'/'+item.id} >
+                    <Link 
+                        className='normal-text' 
+                        key={i} 
+                        to={props.root+'/'+item.id} 
+                        onClick={(e)=>{
+                            e.preventDefault();
+                            props.ponumSetter(item.id);
+                        }} >
                     <div>PO {item.poNumber}</div>
                     </Link>
                 </li>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import './Accountant.css';
-import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 
@@ -13,7 +12,8 @@ const PurchaseOrder = (props) => {
     const [roots, setRoots] = useState([]);
     const [orders, setOrders] = useState([]);
     const [select, setSelect] = useState({});
-    const {root, ponum} = useParams();
+    const [root, setRoot] = useState('');
+    const [ponum, setPonum] = useState('');
     const [cookies] = useCookies('role');
     const navigateTo = useNavigate();
 
@@ -50,6 +50,7 @@ const PurchaseOrder = (props) => {
                     data={roots} 
                     setter={setRoots} 
                     root={root} 
+                    rootSetter={setRoot}
                     getPO={props.getPO}/>
             </div>
             <div className='grid-child' id='POList'>
@@ -57,7 +58,9 @@ const PurchaseOrder = (props) => {
                     data={orders} 
                     setter={setOrders} 
                     root={root} 
+                    rootSetter={setRoot}
                     ponum={ponum} 
+                    ponumSetter={setPonum}
                     select={setSelect} 
                     getPO={props.getPO} 
                     selected={select} />

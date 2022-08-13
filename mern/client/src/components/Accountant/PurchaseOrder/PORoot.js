@@ -10,7 +10,7 @@ import axios from 'axios';
 const PORoot = (props) => {
     const [newRoot, setNewRoot] = useState(false);
     const [newList, setNewList] = useState('');
-    const [cookies] = useCookies('role');
+    const [cookies] = useCookies('name');
 
     const handleAdd = () => {
         setNewRoot(true);
@@ -24,7 +24,7 @@ const PORoot = (props) => {
         const data = {
             poRoot: newList,
             poNumber: 1,
-            editor: cookies.role
+            editor: cookies.name
         }
 
         axios.post('http://localhost:5000/purchaseOrder/add', data)
@@ -32,7 +32,6 @@ const PORoot = (props) => {
             setNewRoot(false);
             props.getPO();
         })
-        console.log(data);
     };
 
     return (
@@ -42,13 +41,27 @@ const PORoot = (props) => {
                     {props.data.map((item, i) => (
                         (item===props.root) ?
                         <li key={'root'+i} className='transition' >
-                            <Link className='bold-text' key={item} to={`${item}`} >
+                            <Link 
+                                className='bold-text' 
+                                key={item} 
+                                to={`${item}`} 
+                                onClick={(e)=>{
+                                    e.preventDefault();
+                                    props.rootSetter(item);
+                                }} >
                                 <div>{item}</div>
                             </Link>
                         </li>
                         :
                         <li key={'root'+i} className='transition' >
-                            <Link className='normal-text' key={item} to={`${item}`} >
+                            <Link 
+                                className='normal-text' 
+                                key={item} 
+                                to={`${item}`} 
+                                onClick={(e)=>{
+                                    e.preventDefault();
+                                    props.rootSetter(item);
+                                }} >
                                 <div>{item}</div>
                             </Link>
                         </li>

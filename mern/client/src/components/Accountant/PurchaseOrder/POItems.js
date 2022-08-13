@@ -3,7 +3,6 @@ import '../Accountant.css';
 import '../../../App.css';
 import { Table, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TableBody } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 
 
 const POItems = (props) => {
@@ -35,9 +34,6 @@ const POItems = (props) => {
                                         props.setSave(false);
                                     }}>
                                         <DeleteIcon />
-                                    </IconButton>
-                                    <IconButton aria-label='delete record' size='small' >
-                                        <EditIcon />
                                     </IconButton>
                                 </TableCell>
                             </TableRow>
