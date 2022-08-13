@@ -61,9 +61,9 @@ const App = () => {
         const {name, role} = data[0];
     
         //save to cookies
-        setCookie('role', role, {path: '/'});
-        setCookie('name', name, {path: '/'});
-        setCookie('loggedIn', 'true', {path: '/'});
+        setCookie('role', role, {path: '/', maxAge: (3600*12)});
+        setCookie('name', name, {path: '/', maxAge: (3600*12)});
+        setCookie('loggedIn', 'true', {path: '/', maxAge: (3600*12)});
       }
     })
     .catch((error) => {console.log(error)});

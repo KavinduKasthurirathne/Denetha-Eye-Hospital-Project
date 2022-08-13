@@ -37,6 +37,10 @@
     text-align: center;
 }
 
+.transition {
+    transition: 0.3s ease;
+}
+
 ul {
     list-style-type: none;
 }
@@ -92,17 +96,26 @@ li:hover {
     flex-grow: 0;
     flex-shrink: 0;
 }
+.po-anim {
+    animation: fadein 0.5s ease;
+}
 #po-body {
     background-color: rgba(0, 255, 255, 0);
     height: 380px;
+    overflow: auto;
 }
 #po-submit {
     margin: auto;
-    background-color: aquamarine;
+    background-color: rgba(0, 0, 0, 0);
     height: 70px;
-    width: 80%
+    width: 90%
 }
 #po-save {
+    flex-basis: 10%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#po-database {
     flex-basis: 10%;
     flex-grow: 0;
     flex-shrink: 0;
@@ -111,3 +124,10 @@ li:hover {
     margin: auto;
     width: 90%;
 }
+
+
+@keyframes fadein {
+    0% {opacity: 0;}
+    40% {opacity: 0; }
+    100% {opacity: 1; }
+  }

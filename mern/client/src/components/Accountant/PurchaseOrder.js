@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import './Accountant.css';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 import PORoot from './PurchaseOrder/PORoot';
 import POList from './PurchaseOrder/POList';
@@ -12,6 +14,21 @@ const PurchaseOrder = (props) => {
     const [orders, setOrders] = useState([]);
     const [select, setSelect] = useState({});
     const {root, ponum} = useParams();
+    const [cookies] = useCookies('role');
+    const navigateTo = useNavigate();
+
+    useEffect(() => {
+        const redirect = (e) => {
+            e.preventDefault();
+            navigateTo(`/${cookies.role}`);
+          };
+
+        window.onbeforeunload = redirect;
+        return () => {
+            window.onbeforeunload = null;
+        };
+      }, [cookies.role, navigateTo]);
+      
 
     useEffect(()=>{
         const rootList = props.data.map((item) => (item.poRoot)).filter((item, i, self) => self.indexOf(item)===i);
@@ -29,13 +46,28 @@ const PurchaseOrder = (props) => {
     return (
         <div className='App grid-wrapper'>
             <div className='grid-child' id='PORoot'>
-                <PORoot data={roots} setter={setRoots} root={root} />
+                <PORoot 
+                    data={roots} 
+                    setter={setRoots} 
+                    root={root} 
+                    getPO={props.getPO}/>
             </div>
             <div className='grid-child' id='POList'>
-                <POList data={orders} setter={setOrders} root={root} ponum={ponum} select={setSelect} />
+                <POList 
+                    data={orders} 
+                    setter={setOrders} 
+                    root={root} 
+                    ponum={ponum} 
+                    select={setSelect} 
+                    getPO={props.getPO} 
+                    selected={select} />
             </div>
             <div className='grid-child' id='PODetails'>
-                <PODetails data={select} root={root} ponum={ponum} />
+                <PODetails 
+                    data={select} 
+                    root={root} 
+                    ponum={ponum} 
+                    getPO={props.getPO} />
             </div>
         </div>
     );

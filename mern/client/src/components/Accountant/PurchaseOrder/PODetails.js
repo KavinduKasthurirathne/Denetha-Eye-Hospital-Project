@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import '../Accountant.css';
 import '../../../App.css';
-import { Button, FormControl, IconButton, InputLabel, OutlinedInput, TextField } from '@mui/material';
-import PrintIcon from '@mui/icons-material/Print';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 import POBody from './POBody';
+import NoticeDialog from '../NoticeDialog';
+import POHeader from './POHeader';
 
 const PODetails = (props) => {
     const [data, setData] = useState({});
     const [items, setItems] = useState([]);
+    const [save, setSave] = useState(true);
+    const [dialog, setDialog] = useState(false);
+    const [message, setMessage] = useState('');
+    const [cookies] = useCookies('name');
 
     //a function to get ISO date with correct time zone
     const getDateString = (iso) => {
@@ -18,6 +24,11 @@ const PODetails = (props) => {
     };
 
     useEffect(()=>{
+        if(props.data.items){
+            setItems(JSON.parse(props.data.items));
+        }else{
+            setItems([]);
+        }
         var isoDate;
         var isoEditDate;
         if(props.data.date){
@@ -38,6 +49,31 @@ const PODetails = (props) => {
             ...prev,
             [target.name]: target.value
         }));
+        setSave(false);
+    };
+
+    const handleSave = async () => {
+        const update = {
+            poRoot: data.poRoot,
+            poNumber: data.poNumber,
+            vendor: data.vendor,
+            date: data.date,
+            editor: cookies.name,
+            mode: data.mode,
+            items: JSON.stringify(items)
+        };
+        await axios.post(`http://localhost:5000/purchaseOrder/update/${data._id}`, update)
+        .then((response) => {
+            setMessage(response.data.message);
+            setDialog(true);
+            props.getPO();
+            setSave(true);
+        })
+        .catch((err)=>{console.log(err)})
+    };
+
+    const dialogClose = () => {
+        setDialog(false);
     };
 
     return (
@@ -45,55 +81,21 @@ const PODetails = (props) => {
             {
             (props.data && props.ponum) ?
             <>
-            <div id='po-header' className='po-flex'>
-                <div id='po-container' className='po-header-child'>
-                    <div id='po-num'>PO number</div>
-                    <div id='po-num-value'>{data.poNumber}</div>
-                </div>
-                <div className='po-header-child'>
-                    <FormControl variant='outlined'>
-                        <InputLabel htmlFor='vendor'>Vendor</InputLabel>
-                        <OutlinedInput 
-                            id='vendor'
-                            name='vendor'
-                            size='small'
-                            value={data.vendor}
-                            type='text'
-                            onChange={handleChange} 
-                            label='Vendor' />
-                    </FormControl>
-                </div>
-                <div className='po-flex-child'>
-                    <TextField 
-                        name='date' 
-                        size='small'
-                        variant="outlined" 
-                        value={data.date} 
-                        type='date' 
-                        onChange={handleChange}
-                        label='Date'
-                        InputLabelProps={{shrink: true}} />
-                </div>
-                <div className='po-header-child'>
-                    <FormControl variant='outlined'>
-                        <InputLabel htmlFor='mode'>Mode of payment</InputLabel>
-                        <OutlinedInput 
-                            id='mode'
-                            name='mode'
-                            size='small'
-                            value={data.mode}
-                            type='text'
-                            onChange={handleChange} 
-                            label='Mode of payment' />
-                    </FormControl>
-                </div>
-                <div id='print-container' className='po-header-child' >
-                    <IconButton aria-label="print" size='large'  >
-                        <PrintIcon fontSize='large' />
-                    </IconButton>
-                </div>
-            </div>
-            <POBody data={items}  setter={setItems} />
+            <POHeader 
+                data={data}
+                handleChange={handleChange} />
+            <NoticeDialog 
+                message={`Status: ${message}`} 
+                handleClose={dialogClose}
+                handleButton={dialogClose} 
+                enable={dialog} 
+                title='Alert!' />
+            <POBody 
+                data={items}  
+                setter={setItems} 
+                save={save} 
+                handleSave={handleSave} 
+                setSave={setSave} />
             </>
             :
             <p className='prompt'>Select a Purchase order to edit</p>}

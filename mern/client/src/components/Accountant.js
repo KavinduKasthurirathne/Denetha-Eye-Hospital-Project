@@ -10,12 +10,13 @@ export const Accountant = () => {
     const [display, setDisplay] = useState('purchaseOrder');
     const [POdata, setPOdata] = useState([]);
 
+    const getPOdata = async () => {
+        await axios.post('http://localhost:5000/purchaseOrder/get', {})
+        .then((response) => {setPOdata(response.data)})
+        .catch((err) => {console.log(err)});
+    };
+
     useEffect(()=>{
-        const getPOdata = async () => {
-            await axios.post('http://localhost:5000/purchaseOrder/get', {})
-            .then((response) => {setPOdata(response.data)})
-            .catch((err) => {console.log(err)});
-        };
         getPOdata();
     }, []);
 
@@ -39,7 +40,7 @@ export const Accountant = () => {
                 <button className='button navButton' onClick={pettyCashOnClick}>Petty Cash</button>
                 <button className='button navButton' onClick={AccountsOnClick}>Accounts</button>
                 <div>
-                    {display==='purchaseOrder' && <PurchaseOrder data={POdata} />}
+                    {display==='purchaseOrder' && <PurchaseOrder data={POdata} getPO={getPOdata} />}
                     {display==='accounts' && <Accounts />}
                     {display==='pettyCash' && <PettyCash />}
                 </div>
