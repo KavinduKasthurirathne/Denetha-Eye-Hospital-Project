@@ -3,22 +3,26 @@
     float: right;
     width: auto;
     margin-right: 18%;
-    margin-top: 110px;   
+    margin-top: 40px;   
 }
 
 #PatientSearch{
     float: left;
     width: auto;
     margin-left: 2%;
-    height: 46px;
-    margin-top: 110px;   
+    margin-top: 40px;   
 }
 
 #searchBox{
     float: left;
     width: 270px;
-    height: 18px;
+    height: 19px;
     border-color: rgb(123, 193, 234);
-    margin-left: 18%;
-    margin-top: 112px;   
+    margin-left: 15%;
+    margin-top: 42px;   
+}
+
+#leftText{
+    margin-top: 65px;
+    margin-left: 15%;
 }
