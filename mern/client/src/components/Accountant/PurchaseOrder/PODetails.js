@@ -93,6 +93,8 @@ const PODetails = (props) => {
             <POBody 
                 data={items}  
                 setter={setItems} 
+                editor={data.editor}
+                editDate={data.lastEdit}
                 save={save} 
                 handleSave={handleSave} 
                 setSave={setSave} />

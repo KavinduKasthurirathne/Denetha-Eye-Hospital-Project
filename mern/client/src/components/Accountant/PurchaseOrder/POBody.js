@@ -117,6 +117,9 @@ const POBody = (props) => {
                         >Save</Button>
                 </div>
             </div>
+            <div id='message'>
+                Last edited by {props.editor} on {props.editDate}
+            </div>
         </>
     );
 };

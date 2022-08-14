@@ -68,6 +68,7 @@ li:hover {
 .po-flex {
     display: flex;
     flex-direction: row;
+    background-color: rgba(0, 0, 0, 0);
 }
 .po-flex-child {
     flex: 1;
@@ -107,7 +108,7 @@ li:hover {
 #po-submit {
     margin: auto;
     background-color: rgba(0, 0, 0, 0);
-    height: 70px;
+    height: 50px;
     width: 90%
 }
 #po-save {
@@ -123,6 +124,10 @@ li:hover {
 #po-item-table {
     margin: auto;
     width: 90%;
+}
+#message {
+    color: rgba(0, 0, 0, 0.396);
+    font-style: italic;
 }
 
 
