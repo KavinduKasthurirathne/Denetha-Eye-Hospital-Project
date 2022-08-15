@@ -21,7 +21,6 @@ router.route('/add').post(async (req, res) => {
     }).catch((err) => {
         res.status(500).send({status: 'Error: PO not added', error: err.message});
     });
-
 });
 
 router.route('/get').post(async (req, res) => {
@@ -55,7 +54,7 @@ router.route('/update/:oid').post(async (req, res) => {
     await PO.findByIdAndUpdate(oid, updatePO).then((result) => {
         res.status(200).send({message:'Update successful', update: updatePO})
     }).catch((err) => {
-        res.status(500).send({status: 'Error: Update unseccessful', error: err.message});
+        res.status(500).send({status: 'Error: Update unsuccessful', error: err.message});
     });
 });
 
@@ -63,9 +62,9 @@ router.route('/delete/:oid').post(async (req, res) => {
     const oid = req.params.oid;
 
     await PO.findByIdAndDelete(oid).then((result) => {
-        res.status(200).send({message:'PO Deleted'})
+        res.status(200).send({message:'PO Deleted'});
     }).catch((err) => {
-        res.status(500).send({status: 'Error: Delete unseccessful', error: err.message});
+        res.status(500).send({status: 'Error: Delete unsuccessful', error: err.message});
     });
 });
 

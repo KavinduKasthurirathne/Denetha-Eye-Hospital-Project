@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
 
 
 const NoticeDialog = (props) => {
@@ -13,9 +13,7 @@ const NoticeDialog = (props) => {
                 {props.title}
             </DialogTitle>
             <DialogContent>
-                <DialogContentText>
-                    {props.message}
-                </DialogContentText>
+                {props.message}
             </DialogContent>
             <DialogActions>
                 <Button 

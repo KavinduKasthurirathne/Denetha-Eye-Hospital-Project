@@ -20,54 +20,61 @@ const PORoot = (props) => {
         setNewList(target.value);
     };
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
         const data = {
             poRoot: newList,
             poNumber: 1,
             editor: cookies.name
         }
 
-        axios.post('http://localhost:5000/purchaseOrder/add', data)
+        await axios.post('http://localhost:5000/purchaseOrder/add', data)
         .then((res)=>{
             setNewRoot(false);
+            setNewList('');
             props.getPO();
         })
     };
 
     return (
         <div className='basic'>
-            <div className='left-align'>
-                <ul>
-                    {props.data.map((item, i) => (
-                        (item===props.root) ?
-                        <li key={'root'+i} className='transition' >
-                            <Link 
-                                className='bold-text' 
-                                key={item} 
-                                to={`${item}`} 
-                                onClick={(e)=>{
-                                    e.preventDefault();
-                                    props.rootSetter(item);
-                                }} >
-                                <div>{item}</div>
-                            </Link>
-                        </li>
-                        :
-                        <li key={'root'+i} className='transition' >
-                            <Link 
-                                className='normal-text' 
-                                key={item} 
-                                to={`${item}`} 
-                                onClick={(e)=>{
-                                    e.preventDefault();
-                                    props.rootSetter(item);
-                                }} >
-                                <div>{item}</div>
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            {    
+                props.data ?
+                
+                <div className='left-align'>
+                    <ul>
+                        {props.data.map((item, i) => (
+                            (item===props.root) ?
+                            <li key={'root'+i} className='transition' >
+                                <Link 
+                                    className='bold-text' 
+                                    key={item} 
+                                    to={`${item}`} 
+                                    onClick={(e)=>{
+                                        e.preventDefault();
+                                        props.rootSetter(item);
+                                    }} >
+                                    <div>{item}</div>
+                                </Link>
+                            </li>
+                            :
+                            <li key={'root'+i} className='transition' >
+                                <Link 
+                                    className='normal-text' 
+                                    key={item} 
+                                    to={`${item}`} 
+                                    onClick={(e)=>{
+                                        e.preventDefault();
+                                        props.rootSetter(item);
+                                    }} >
+                                    <div>{item}</div>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                :
+                <p className='prompt'>Select a PO Root to start</p>
+                }
             <Button 
                 variant="contained" 
                 onClick={handleAdd} 

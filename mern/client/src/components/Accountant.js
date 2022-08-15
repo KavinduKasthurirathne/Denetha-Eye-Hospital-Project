@@ -9,21 +9,27 @@ import PettyCash from './Accountant/PettyCash';
 export const Accountant = () => {
     const [display, setDisplay] = useState('purchaseOrder');
     const [POdata, setPOdata] = useState([]);
+    const [PCdata, setPCdata] = useState([]);
 
     const getPOdata = async () => {
         await axios.post('http://localhost:5000/purchaseOrder/get', {})
         .then((response) => {setPOdata(response.data)})
         .catch((err) => {console.log(err)});
     };
+    const getPCdata = async () => {
+        await axios.post('http://localhost:5000/pettyCash/get', {})
+        .then((res) => {setPCdata(res.data)})
+        .catch((err)=> {console.log(err)});
+    };
 
     useEffect(()=>{
         getPOdata();
+        getPCdata();
     }, []);
 
     //event handlers
     const purchaseOrderOnClick = () => {
         setDisplay('purchaseOrder');
-        console.log(POdata);
     };
     const AccountsOnClick = () => {
         setDisplay('accounts');
@@ -42,7 +48,7 @@ export const Accountant = () => {
                 <div>
                     {display==='purchaseOrder' && <PurchaseOrder data={POdata} getPO={getPOdata} />}
                     {display==='accounts' && <Accounts />}
-                    {display==='pettyCash' && <PettyCash />}
+                    {display==='pettyCash' && <PettyCash data={PCdata} getPC={getPCdata} />}
                 </div>
             </div>
         </>

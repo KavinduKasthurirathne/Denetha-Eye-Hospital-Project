@@ -14,7 +14,10 @@ const PurchaseOrder = (props) => {
     const [ponum, setPonum] = useState('');
 
     useEffect(()=>{
-        const rootList = props.data.map((item) => (item.poRoot)).filter((item, i, self) => self.indexOf(item)===i);
+        //get a list of unique roots
+        const rootList = props.data.map((item) => (item.poRoot))
+        .filter((item, i, self) => self.indexOf(item)===i);
+
         setRoots(rootList);
         if(root){
             const orderList = props.data.filter((item) => item.poRoot===root).map((item) => ({poNumber: item.poNumber, id: item._id}));

@@ -13,6 +13,8 @@ const accountRouter = require('./routes/Accounts');
 app.use('/account', accountRouter);
 const PORouter = require('./routes/PurchaseOrders');
 app.use('/purchaseOrder', PORouter);
+const pettyCashRouter = require('./routes/PettyCashRecords');
+app.use('/pettyCash', pettyCashRouter);
  
 app.listen(port, () => {
   //Perform a database connection when server start

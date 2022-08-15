@@ -52,6 +52,10 @@ export const Header = () => {
             name: 'Appointments',
             path: '/appointment',
             visible: ['receptionist', 'doctor']
+        }, {
+            name: 'Surgery',
+            path: '/surgery',
+            visible: ['accountant', 'receptionist', 'doctor']
         }
     ];
 

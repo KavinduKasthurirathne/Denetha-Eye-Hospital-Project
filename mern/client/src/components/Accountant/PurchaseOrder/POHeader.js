@@ -74,7 +74,7 @@ const POHeader = (props) => {
                         label='Mode of payment' 
                         InputLabelProps={{shrink: true}}/>
                 </div>
-                <div id='print-container' className='po-header-child' >
+                <div id='print-container' className='po-flex-child' >
                     <div style={{ display: 'none' }}>
                         <PrintablePO data={props.data} ref={componentRef} />
                     </div>

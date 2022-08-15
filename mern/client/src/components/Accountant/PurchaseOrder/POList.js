@@ -25,13 +25,13 @@ const POList = (props) => {
         setNewName(target.value);
     };
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
         const PO = {
             poRoot: props.root,
             poNumber: newName,
             editor: cookies.name
         }
-        axios.post('http://localhost:5000/purchaseOrder/add', PO)
+        await axios.post('http://localhost:5000/purchaseOrder/add', PO)
         .then((res)=> {
             setNewPO(false);
             setNewName('');
@@ -39,11 +39,11 @@ const POList = (props) => {
         })
         .catch((err) => console.log(err));
     };
-    const onDelete = () => {
+    const onDelete = async () => {
         if(props.selected){
             const id = props.selected._id;
 
-            axios.post(`http://localhost:5000/purchaseOrder/delete/${id}`, {})
+            await axios.post(`http://localhost:5000/purchaseOrder/delete/${id}`, {})
             .then((res)=>{
                 setDeletePO(false);
                 props.ponumSetter('');
@@ -115,11 +115,11 @@ const POList = (props) => {
                 title='Create New Purchase Order' 
                 enable={newPO} />
             <NoticeDialog 
-            message={ <div style={{margin: 5}}>This will delete this PO and it cannot be recovered.</div> }
-            handleClose={()=>setDeletePO(false)}
-            handleButton={onDelete}
-            title='Are you sure?' 
-            enable={deletePO} />
+                message={ <div style={{margin: 5}}>This will delete this PO and it cannot be recovered.</div> }
+                handleClose={()=>setDeletePO(false)}
+                handleButton={onDelete}
+                title='Are you sure?' 
+                enable={deletePO} />
         </div>
     );
 };
