@@ -3,7 +3,7 @@ import { FormGroup, Button, Grid ,Paper, TextField,Radio ,RadioGroup, FormLabel,
 import '../Appoinment.css';
 const Types = [
     {
-      value: 'T001',
+      value: 'T0010',
       label: 'OPD Appoinment',
     },
     {

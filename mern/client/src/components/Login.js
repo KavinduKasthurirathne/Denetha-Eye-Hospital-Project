@@ -1,26 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../App.css';
+import Loading from './LoadingIndicator';
 
 export const Login = (props) => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
     const logo = require('../image/denethaLogo.png');
 
     const handleSubmit = () => {
-        // alert(`This doesnt do anything yet
-        //     entered inputs,
-        //     username - ${username}
-        //     password - ${password}`);
         props.onLogin();
     };
 
-    const usenameOnChange = ({target}) => {
-        setUsername(target.value);
-    }
-    const passwordOnChange = ({target}) => {
-        setPassword(target.value);
-    }
+    const {name, usenameOnChange, pass, passwordOnChange} = props.input;
+
+    const displayError = () => { return (<div id='error-mgs' className='error-msg'>{props.error.value}</div>) };
 
     return (
         <div className='round-edge-div'>
@@ -28,11 +20,14 @@ export const Login = (props) => {
             <img className='logo-img' src={logo} alt={'logo'} />
             <br />
             <h3>Login</h3>
-            <input name={'username'} type={'text'} value={username} placeholder={'Username'} onChange={usenameOnChange} />
+            {props.error.name === 'none' ? null : displayError()}
+            <input name={'username'} type={'text'} value={name} placeholder={'Username'} onChange={usenameOnChange} />
             <br />
-            <input name={'password'} type={'password'} value={password} placeholder={'Password'} onChange={passwordOnChange} />
+            <input name={'password'} type={'password'} value={pass} placeholder={'Password'} onChange={passwordOnChange} />
             <br />
-            <button className='button' onClick={handleSubmit}>Sign in</button>
+            <button className='button' onClick={handleSubmit}>
+                {(props.load===true) ? <Loading /> : 'Sign In'}
+            </button>
         </div>
     );
 }

@@ -4,8 +4,11 @@
     color: red;
 
 }
-.logo-img {
-    width: 5%;
-    border-radius: 100px;
-    box-shadow: 2px 2px 4px #989898;
+th
+{
+    background-color:#7f858c ;
+}
+td
+{
+    background-color: #ffffff;
 }
