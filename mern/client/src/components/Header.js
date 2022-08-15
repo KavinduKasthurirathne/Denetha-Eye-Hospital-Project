@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import '../App.css';
 import { useCookies } from 'react-cookie';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Avatar, IconButton, Menu, MenuItem } from '@mui/material';
+import { Avatar, IconButton, ListItemIcon, Menu, MenuItem } from '@mui/material';
 import HelpIcon from '@mui/icons-material/Help';
 import LogoutIcon from '@mui/icons-material/Logout';
+import LockIcon from '@mui/icons-material/Lock';
 
 export const Header = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -94,7 +95,7 @@ export const Header = () => {
                         aria-haspopup='true' 
                         aria-controls={open ? 'profile-menu' : undefined} 
                         aria-expanded={open ? 'true' : undefined}
-                        size='large' 
+                        size='small' 
                         onClick={handleClick} >
                         <Avatar sx={{ width: 60, height: 60 }}>
                             {getAvatar()}
@@ -105,13 +106,40 @@ export const Header = () => {
                         style={{width: 800}}
                         anchorEl={anchorEl}
                         open={open} 
+                        onClick={handleClose}
                         onClose={handleClose}
+                        PaperProps={{
+                            style: {
+                              width: '120px',
+                            },
+                          }}
+                        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                         MenuListProps={{
                             'aria-labelledby': 'profile-button',
                         }} >
-                        <MenuItem><AccountCircleIcon fontSize='small' /> Profile</MenuItem>
-                        <MenuItem><HelpIcon fontSize='small' /> Help</MenuItem>
-                        <MenuItem><LogoutIcon fontSize='small' />
+                        <MenuItem>
+                            <ListItemIcon>
+                                <LockIcon />
+                            </ListItemIcon>
+                            Profile
+                        </MenuItem>
+                        <MenuItem>
+                            <ListItemIcon>
+                                <AccountCircleIcon />
+                            </ListItemIcon>
+                            Profile
+                        </MenuItem>
+                        <MenuItem>
+                            <ListItemIcon>
+                                <HelpIcon />
+                            </ListItemIcon>
+                            Help
+                        </MenuItem>
+                        <MenuItem>
+                            <ListItemIcon>
+                                <LogoutIcon />
+                            </ListItemIcon>
                             <NavLink to='/logout' style={{color:'black'}} >
                                 Logout
                                 </NavLink>
