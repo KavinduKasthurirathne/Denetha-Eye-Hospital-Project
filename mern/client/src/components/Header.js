@@ -2,8 +2,29 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../App.css';
 import { useCookies } from 'react-cookie';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { Avatar, IconButton, Menu, MenuItem } from '@mui/material';
+import HelpIcon from '@mui/icons-material/Help';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export const Header = () => {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const getAvatar = () => {
+        if(cookies.name){
+            let avatar = cookies.name;
+            return avatar.charAt(0);
+        }
+    };
+
+
     //need to get userRole, name, profilepicture
     //possibly from cookies
     const [cookies] = useCookies('name', 'role');
@@ -30,10 +51,6 @@ export const Header = () => {
             name: 'Appointments',
             path: '/appointment',
             visible: ['receptionist', 'doctor']
-        }, {
-            name: 'Logout',
-            path: '/logout',
-            visible: ['accountant', 'doctor', 'receptionist', 'staff']
         }
     ];
 
@@ -66,11 +83,41 @@ export const Header = () => {
                 })}
             </div>
             <div id='profile' className='flex-child right-align'>
-                <div className='flex-child'><br />
+                <div id='userinfo' className='flex-child'>
                     <p id='username'>{cookies.name}</p>
                     <p id='userRole'>{cookies.role}</p>
                 </div>
-                <div id='profilePic' ><p id='profileImg'><i class="fas fa-user-md" ></i></p></div>
+                <div id='profilePic' >
+                    <IconButton 
+                        id='profile-button'
+                        aria-label='account' 
+                        aria-haspopup='true' 
+                        aria-controls={open ? 'profile-menu' : undefined} 
+                        aria-expanded={open ? 'true' : undefined}
+                        size='large' 
+                        onClick={handleClick} >
+                        <Avatar sx={{ width: 60, height: 60 }}>
+                            {getAvatar()}
+                        </Avatar>
+                    </IconButton>
+                    <Menu 
+                        id='profile-menu'
+                        style={{width: 800}}
+                        anchorEl={anchorEl}
+                        open={open} 
+                        onClose={handleClose}
+                        MenuListProps={{
+                            'aria-labelledby': 'profile-button',
+                        }} >
+                        <MenuItem><AccountCircleIcon fontSize='small' /> Profile</MenuItem>
+                        <MenuItem><HelpIcon fontSize='small' /> Help</MenuItem>
+                        <MenuItem><LogoutIcon fontSize='small' />
+                            <NavLink to='/logout' style={{color:'black'}} >
+                                Logout
+                                </NavLink>
+                        </MenuItem>
+                    </Menu>
+                </div>
                 
             </div>
         </div>

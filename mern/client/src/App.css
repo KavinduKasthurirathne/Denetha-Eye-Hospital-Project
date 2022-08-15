@@ -125,6 +125,9 @@ a{
 .right-align{
   text-align: right;
 }
+.left-align{
+  text-align: left;
+}
 #profile{
   background-color: #ffffff00;
   display: flex;
@@ -147,19 +150,16 @@ a{
   margin-bottom: 0px;
   white-space: nowrap
 }
+#userinfo{
+  margin-top: 27px;
+}
 
 #profilePic{
-  display: block;
   margin: auto;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0);
   height: 75px;
   width: 75px;
-  border-radius: 50%;
-}
-#profileImg{
   text-align: center;
-  margin-top: 20px;
-  font-size: 25px;
 }
 
 .error-msg{

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import './Accountant.css';
-import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
 
 import PORoot from './PurchaseOrder/PORoot';
 import POList from './PurchaseOrder/POList';
@@ -14,21 +12,6 @@ const PurchaseOrder = (props) => {
     const [select, setSelect] = useState({});
     const [root, setRoot] = useState('');
     const [ponum, setPonum] = useState('');
-    const [cookies] = useCookies('role');
-    const navigateTo = useNavigate();
-
-    useEffect(() => {
-        const redirect = (e) => {
-            e.preventDefault();
-            navigateTo(`/${cookies.role}`);
-          };
-
-        window.onbeforeunload = redirect;
-        return () => {
-            window.onbeforeunload = null;
-        };
-      }, [cookies.role, navigateTo]);
-      
 
     useEffect(()=>{
         const rootList = props.data.map((item) => (item.poRoot)).filter((item, i, self) => self.indexOf(item)===i);
@@ -44,7 +27,7 @@ const PurchaseOrder = (props) => {
     }, [props.data, root, ponum]);
 
     return (
-        <div className='App grid-wrapper'>
+        <div className='basic grid-wrapper-3'>
             <div className='grid-child' id='PORoot'>
                 <PORoot 
                     data={roots} 

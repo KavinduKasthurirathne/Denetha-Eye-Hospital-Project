@@ -34,6 +34,7 @@ const POList = (props) => {
         axios.post('http://localhost:5000/purchaseOrder/add', PO)
         .then((res)=> {
             setNewPO(false);
+            setNewName('');
             props.getPO();
         })
         .catch((err) => console.log(err));
