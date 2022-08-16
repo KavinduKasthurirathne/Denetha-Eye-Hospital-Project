@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import '../../../App.css';
 import '../Accountant.css';
-import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import NoticeDialog from "../NoticeDialog";
 
@@ -13,7 +12,6 @@ const PCRoot = (props) => {
     const [newRoot, setNewRoot] = useState(false);
     const [deletePC, setDeletePC] = useState(false);
     const [listName, setListName] = useState('');
-    const [cookies] = useCookies('name');
 
     const handleChange = ({target}) => {
         setListName(target.value);
@@ -22,7 +20,7 @@ const PCRoot = (props) => {
     const onSubmit = async () => {
         const data = {
             pcRoot: listName,
-            editor: cookies.name
+            date: Date.now()
         };
 
         await axios.post('http://localhost:5000/pettyCash/add', data).then((res)=>{
@@ -36,7 +34,7 @@ const PCRoot = (props) => {
 
     const onDelete = async () => {
         if (props.root){
-            await axios.post(`http://localhost:5000/pettyCash/deleteMany/${props.root}`, {}).then((res)=>{
+            await axios.post(`http://localhost:5000/pettyCash/deleteRoot/${props.root}`, {}).then((res)=>{
                 setDeletePC(false);
                 props.rootSetter('');
                 props.getPC();
@@ -59,7 +57,7 @@ const PCRoot = (props) => {
                                 <li key={item} >
                                     <Link 
                                     key={item}
-                                    to={item}
+                                    to={'item'}
                                     onClick={(e)=>{
                                         e.preventDefault();
                                         props.rootSetter(item);
@@ -79,7 +77,7 @@ const PCRoot = (props) => {
                                 <li key={item} >
                                     <Link 
                                     key={item}
-                                    to={item}
+                                    to={'item'}
                                     onClick={(e)=>{
                                         e.preventDefault();
                                         props.rootSetter(item);

@@ -9,7 +9,6 @@ router.route('/add').post(async (req, res) => {
         type,
         date,
         amount,
-        editor
     } = req.body;
 
     const currentDate = Date.now();
@@ -21,13 +20,26 @@ router.route('/add').post(async (req, res) => {
         type,
         date,
         amount,
-        lastEdit: currentDate,
-        editor});
+        lastEdit: currentDate});
     
     await newRecord.save().then(()=>{
         res.status(200).send({status: 'Petty cash record added'});
     }).catch((err)=> {
         res.status(500).send({status: 'Error: Petty cash record not added', Error: err.message});
+    });
+});
+
+router.route('/getdata').post(async (req, res) => {
+    const id = '62fb3bd5529566688cf964fa';
+
+    await PettyCash.findById(id).then((result)=>{
+        if(result){
+            res.json(result);
+        }else{
+            res.status(200).send({message: `No results for ${id}`});
+        }
+    }).catch((err)=>{
+        res.status(500).send({message: 'Error', error: err.message});
     });
 });
 
@@ -50,9 +62,10 @@ router.route('/get').post(async (req, res) => {
     await PettyCash.find({}).then((result)=>{
         if(result){
             const rootList = result.map((item) => (item.pcRoot))
-            .filter((item, i, self) => self.indexOf(item)===i);
+            .filter((item, i, self) => (self.indexOf(item)===i));
+            const filtered = rootList.filter((item)=>(item!=null))
 
-            res.json(rootList);
+            res.json(filtered);
         }else{
             res.status(200).send({message: `No results`});
         }
@@ -83,10 +96,24 @@ router.route('/update/:oid').post(async (req, res) => {
         date,
         amount,
         lastEdit: currentDate,
-        editor};
+        editor
+    };
 
     await PettyCash.findByIdAndUpdate(id, updateRecord).then((result)=>{
         res.status(200).send({message: 'Petty cash record updated'});
+    }).catch((err)=>{
+        res.status(500).send({message: 'Error: Update unsuccessful', error: err.message});
+    });
+});
+
+router.route('/updateData').post(async (req, res) => {
+    const id = '62fb3bd5529566688cf964fa';
+    const {reserve} = req.body;
+
+    const updateRecord = {reserve};
+
+    await PettyCash.findByIdAndUpdate(id, updateRecord).then((result)=>{
+        res.status(200).send({message: 'Record updated'});
     }).catch((err)=>{
         res.status(500).send({message: 'Error: Update unsuccessful', error: err.message});
     });

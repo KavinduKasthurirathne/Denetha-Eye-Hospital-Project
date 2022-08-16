@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import '../../../App.css';
 import '../Accountant.css';
 import PCHeader from "./PCHeader";
+import PCItems from "./PCItems";
+import PCSubmit from "./PCSubmit";
 
 const PCBody = (props) => {
-    const [reserve, setReserve] = useState('20000.00');
-    // const getDateString = (iso) => {
-    //     const date = new Date(iso);
-    //     const correctDate = new Date(date.getTime() + 360*60000);
-    //     return (correctDate.toISOString().split('T')[0]);
-    // };
+    const [reserve, setReserve] = useState('');
+    const [update, setUpdate] = useState(false);
+    const [updateInput, setUpdateInput] = useState({});
+    const [updateID, setUpdateID] = useState('');
+
+    const getData = async () => {
+        await axios.post('http://localhost:5000/pettyCash/getdata')
+        .then((res)=>{
+            setReserve(res.data.reserve);
+        }).catch((err)=>{
+            console.log(err);
+        })};
+
+    useEffect(()=>{
+        getData();
+    },[]);
 
     const calculateTotal = () => {
         let sum = 0;
@@ -32,11 +45,41 @@ const PCBody = (props) => {
         <div className='basic'>
             {
                 props.root ?
+                
                 <div className='po-anim'>
-                    <PCHeader 
+                    {
+                        (props.data && props.data.length > 0) ?
+                        <>
+                            <PCHeader 
+                                data={props.data}
+                                root={props.root} 
+                                reserve={reserve}
+                                getReserve={getData}
+                                calculateReserve={calculateReserve()}
+                                setReserve={setReserve} />
+                            <hr />
+                            <PCItems 
+                                root={props.root} 
+                                data={props.data} 
+                                getList={props.getList} 
+                                update={setUpdate}
+                                up={update}
+                                updateInput={setUpdateInput}
+                                setUpdateID={setUpdateID} />
+                            <hr />
+                        </>
+                        :
+                        <div id='fixed-height'>
+                            <p className='prompt'>No Records, Delete this list and create a new one</p>
+                        </div>
+                    }
+                    <PCSubmit 
                         root={props.root} 
-                        reserve={calculateReserve()}
-                        serReserve={setReserve} />
+                        update={update}
+                        setUpdate={setUpdate}
+                        updateID={updateID}
+                        updateInput={updateInput}
+                        getList={props.getList} />
                 </div>
                 :
                 <p className='prompt'>Select a Petty Cash Root to edit</p>

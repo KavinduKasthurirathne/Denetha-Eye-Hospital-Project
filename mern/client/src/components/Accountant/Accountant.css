@@ -2,12 +2,12 @@
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     height: 100%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 30px;
-    width: 80%;
+    width: 90%;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.247);
 }
 
@@ -118,14 +118,25 @@ li:hover {
     height: 380px;
     overflow: auto;
 }
+#pc-body {
+    background-color: rgba(0, 255, 255, 0);
+    height: 350px;
+    overflow: auto;
+}
 #po-submit {
     margin: auto;
     background-color: rgba(0, 0, 0, 0);
     height: 50px;
     width: 90%;
 }
+#pc-submit {
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0);
+    height: 60px;
+    width: 100%;
+}
 #po-save {
-    flex-basis: 10%;
+    flex-basis: 5%;
     flex-grow: 0;
     flex-shrink: 0;
 }
@@ -147,13 +158,37 @@ li:hover {
     width: 90%;
 }
 
+#pc-title{
+    font-weight: bolder;
+    font-size: x-large;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
 #acc-root{
     overflow-y: scroll;
 }
+#edit-message{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: smaller;
+    color: rgba(0, 0, 0, 0.414);
+}
+#reserve {
+    color: rgba(0, 0, 0, 0.396);
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0);
+    font-style: italic;
+    width: 90%;
+}
+#fixed-height {
+    height: 470px;
+}
+
 
 
 @keyframes fadeinslow {
     0% {opacity: 0;}
     40% {opacity: 0; }
     100% {opacity: 1; }
-  }
+}
