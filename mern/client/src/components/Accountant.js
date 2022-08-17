@@ -42,9 +42,24 @@ export const Accountant = () => {
         <>
             <div className='basic'>
                 <br />
-                <button className='button navButton' onClick={purchaseOrderOnClick}>Purchase Orders</button>
-                <button className='button navButton' onClick={pettyCashOnClick}>Petty Cash</button>
-                <button className='button navButton' onClick={AccountsOnClick}>Accounts</button>
+                <button 
+                    className='button navButton' 
+                    onClick={purchaseOrderOnClick} 
+                    disabled={display==='purchaseOrder' ? true : false}>
+                    Purchase Orders
+                </button>
+                <button 
+                    className='button navButton' 
+                    onClick={pettyCashOnClick}
+                    disabled={display==='pettyCash' ? true : false}>
+                    Petty Cash
+                </button>
+                <button 
+                    className='button navButton' 
+                    onClick={AccountsOnClick}
+                    disabled={display==='accounts' ? true : false}>
+                    Accounts
+                </button>
                 <div>
                     {display==='purchaseOrder' && <PurchaseOrder data={POdata} getPO={getPOdata} />}
                     {display==='accounts' && <Accounts />}

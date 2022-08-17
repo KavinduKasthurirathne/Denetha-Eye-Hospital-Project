@@ -126,7 +126,9 @@ export const Header = () => {
                             <ListItemIcon>
                                 <LockIcon />
                             </ListItemIcon>
-                            Profile
+                            <NavLink to='/editAcc' style={{color:'black'}} >
+                                Account
+                            </NavLink>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>

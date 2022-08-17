@@ -85,8 +85,12 @@ input {
     sans-serif;
 }
 .button:hover {
-  background-color: #5a86a9;
+  background-color: #1f3e58;
   box-shadow: 2px 2px 4px #989898;
+}
+.button:disabled {
+  background-color: #6a93b5;
+  color: rgba(253, 253, 253, 0.471);
 }
 .button:active {
   transform: scale(80%);
@@ -195,6 +199,23 @@ a{
 }
 #navbar{
   margin-top: 2.5%;
+}
+#user-account{
+  margin-top: 60px;
+  font-size: x-large;
+  font-weight: bold;
+}
+.message {
+  color: rgba(0, 0, 0, 0.396);
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0);
+  font-style: italic;
+  font-size: small;
+  text-align: center;
+  width: 90%;
+}
+.title{
+  font-size: large;
 }
 
 
