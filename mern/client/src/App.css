@@ -110,13 +110,11 @@ a{
 }
 .flex-container{
   display: flex;
-  background-color: #00ADA3;
 }
 .flex-child{
   flex: 1;
   padding: 5px;
   margin: 5px;
-  background-color: #db4e4e00;
 }
 
 .navlink{

@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom';
 import '../App.css';
 import { useCookies } from 'react-cookie';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { Avatar, IconButton, ListItemIcon, Menu, MenuItem } from '@mui/material';
+import { Avatar, IconButton, ListItemIcon, Menu, MenuItem, useTheme } from '@mui/material';
 import HelpIcon from '@mui/icons-material/Help';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LockIcon from '@mui/icons-material/Lock';
 
 export const Header = () => {
+    const theme = useTheme();
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -60,7 +61,8 @@ export const Header = () => {
     ];
 
     return (
-        <div className='flex-container header'>
+        <div className='flex-container header' 
+            style={{backgroundColor: theme.palette.primary.main}}>
             <div id='logo' className='flex-child'>
                 <img src={logo} alt='logo' className='header-logo' />
             </div>
