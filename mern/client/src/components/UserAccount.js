@@ -49,23 +49,33 @@ const UserAccount = () => {
     };
 
     const onPasswordSubmit = async () => {
-        if(inputs.newPass === inputs.reNewPass){
-            setError('');
-            const updateData = {
-                password: inputs.newPass
-            };
-            await axios.post(`http://localhost:5000/account/update/${cookies.id}`, updateData)
-            .then((res)=>{
-                deleteCookie('name');
-                deleteCookie('loggedIn');
-                deleteCookie('role');
-                deleteCookie('username');
-                deleteCookie('id');
-                window.location.reload();
-            }).catch((err)=>{console.log(err)});
-        }else{
-            setError("New Passwords don't match");
+        if(inputs.newPass!=='' && inputs.reNewPass!==''){
+            if(inputs.newPass === inputs.reNewPass){
+                if(inputs.newPass.length<8){
+                    setError('Password must be atleast 8 characters long');
+                }else {
+                    setError('');
+                    const updateData = {
+                        password: inputs.newPass
+                    };
+                    await axios.post(`http://localhost:5000/account/update/${cookies.id}`, updateData)
+                    .then((res)=>{
+                        deleteCookie('name');
+                        deleteCookie('loggedIn');
+                        deleteCookie('role');
+                        deleteCookie('username');
+                        deleteCookie('id');
+                        window.location.reload();
+                    }).catch((err)=>{console.log(err)});
+                }
+                
+            }else{
+                setError("New Passwords don't match");
+            }  
+        }else {
+            setError("Please type a password");
         }
+        
     };
 
     const handleClose = ()=>{
