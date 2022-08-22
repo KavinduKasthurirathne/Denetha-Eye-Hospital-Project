@@ -29,8 +29,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 25%;
-  height: 60%;
+  width: 300px;
+  height: 450px;
   box-shadow: 2px 2px 4px #989898;
 }
 
@@ -85,8 +85,12 @@ input {
     sans-serif;
 }
 .button:hover {
-  background-color: #5a86a9;
+  background-color: #1f3e58;
   box-shadow: 2px 2px 4px #989898;
+}
+.button:disabled {
+  background-color: #6a93b5;
+  color: rgba(253, 253, 253, 0.471);
 }
 .button:active {
   transform: scale(80%);
@@ -106,13 +110,11 @@ a{
 }
 .flex-container{
   display: flex;
-  background-color: #00ADA3;
 }
 .flex-child{
   flex: 1;
   padding: 5px;
   margin: 5px;
-  background-color: #db4e4e00;
 }
 
 .navlink{
@@ -189,12 +191,29 @@ a{
 }
 #addAccount{
   transform: translate(130%, -50%);
-  width: 15%;
-  height: 40%;
+  width: 250px;
+  height: 320px;
   box-shadow: 2px 2px 4px #989898;
 }
 #navbar{
   margin-top: 2.5%;
+}
+#user-account{
+  margin-top: 60px;
+  font-size: x-large;
+  font-weight: bold;
+}
+.message {
+  color: rgba(0, 0, 0, 0.396);
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0);
+  font-style: italic;
+  font-size: small;
+  text-align: center;
+  width: 90%;
+}
+.title{
+  font-size: large;
 }
 
 

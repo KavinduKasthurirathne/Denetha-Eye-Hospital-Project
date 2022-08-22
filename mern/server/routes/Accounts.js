@@ -37,11 +37,16 @@ router.route('/check').post(async (req, res) => {
 
 router.route('/update/:oid').post(async (req, res) => {
     const {name, username, password, role} = req.body;
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
-
     const oid = req.params.oid;
-    const updateAccount = {name, username, password: hash, role};
+    let updateAccount = {};
+
+    if(password){
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(password, salt);
+        updateAccount = {password: hash};
+    }else {
+        updateAccount = {name, username, role};
+    }
 
     await account.findByIdAndUpdate(oid, updateAccount).then(() => {
         res.status(200).send({status: 'Account updated', update: updateAccount});

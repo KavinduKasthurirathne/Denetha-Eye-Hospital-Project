@@ -6,9 +6,10 @@ const pettyCashSchema = new Mongoose.Schema({
     pcItem: String,
     type: String,
     date: Date,
-    amount: Number,
+    amount: String,
     lastEdit: {type: Date, default:Date.now},
     editor: String,
+    reserve: String
 });
 
 const pettyCashRecord = Mongoose.model('pettyCashRecord', pettyCashSchema);

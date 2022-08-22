@@ -9,17 +9,15 @@ const PettyCash = (props) => {
     const [root, setRoot] = useState('');
     const [selected, setSelected] = useState([]);
 
+    const getSelected = async (link) => {
+        await axios.post(`http://localhost:5000/pettyCash/getSelected/${link}`, {})
+        .then((res)=>{setSelected(res.data)})
+        .catch((err)=>{console.log(err)});
+    };
+
     useEffect(()=>{
-        const getSelected = async () => {
-            await axios.post(`http://localhost:5000/pettyCash/getSelected/${root}`, {})
-            .then((res)=>{
-                setSelected(res.data);
-            }).catch((err)=>{
-                console.log(err);
-            });
-        };
         if(root){
-            getSelected();
+            getSelected(root);
         }
     }, [root]);
 
@@ -35,6 +33,7 @@ const PettyCash = (props) => {
             <div className='grid-child'>
                 <PCBody 
                     data={selected} 
+                    getList={getSelected}
                     root={root} 
                     setRoot={setRoot} />
             </div>
