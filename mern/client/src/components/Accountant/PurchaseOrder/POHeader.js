@@ -78,7 +78,10 @@ const POHeader = (props) => {
                     <div style={{ display: 'none' }}>
                         <PrintablePO data={props.data} ref={componentRef} />
                     </div>
-                    <IconButton aria-label="print" size='large' onClick={print} >
+                    <IconButton 
+                        aria-label="print" 
+                        size='large' 
+                        onClick={print} >
                         <PrintIcon fontSize='large' />
                     </IconButton>
                 </div>

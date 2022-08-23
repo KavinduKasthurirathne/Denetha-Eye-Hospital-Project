@@ -58,11 +58,13 @@ const App = () => {
         }
         setLoading(false);
       } else {
-        const {name, role} = data[0];
+        const {name, username, role, _id} = data[0];
     
         //save to cookies
         setCookie('role', role, {path: '/', maxAge: (3600*12)});
+        setCookie('id', _id, {path: '/', maxAge: (3600*12)});
         setCookie('name', name, {path: '/', maxAge: (3600*12)});
+        setCookie('username', username, {path: '/', maxAge: (3600*12)});
         setCookie('loggedIn', 'true', {path: '/', maxAge: (3600*12)});
       }
     })

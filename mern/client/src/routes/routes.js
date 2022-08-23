@@ -8,6 +8,7 @@ import {Accountant} from '../components/Accountant';
 import {Logout} from "../components/Logout";
 import {AppoinmentTable} from "../components/AppoinmentTable";
 import {Reception} from '../components/Reception';
+import UserAccount from "../components/UserAccount";
 
 
 const createRoutes = () => {
@@ -16,15 +17,21 @@ const createRoutes = () => {
             <Route exact path='/' element={<App />} />
             <Route exact path='accountant' element={<Accountant />} />
             <Route exact path='manager' element={<Patients />} />
+<<<<<<< HEAD
             <Route exact path='receptionist' element={<Patients />} >
             <Route exact path='patients' element={<Patients />} />
+=======
+            <Route exact path='receptionist' element={<Reception />} >
+                <Route exact path='patients' element={<Patients />} />
+>>>>>>> 284be5d8197ef93141f7e7c522feb63220f75284
             </Route>
             <Route exact path='staff' element={<Patients />} />
             <Route exact path='doctor' element={<Patients />} />
             <Route exact path='admin' element={<Patients />} />
             <Route exact path='appoinment' element={<Appoinment />} >
-            <Route exact path='List' element={<AppoinmentTable />} />
+                <Route exact path='List' element={<AppoinmentTable />} />
             </Route>
+            <Route exact path='editAcc' element={<UserAccount />} />
             <Route exact path='logout' element={<Logout />} />
             <Route exact path='*' element={<h2 className='App'>404 - Page not found!</h2>} /> 
       </Routes>
