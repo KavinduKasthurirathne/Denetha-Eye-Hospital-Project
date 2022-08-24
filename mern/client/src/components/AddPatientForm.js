@@ -10,7 +10,9 @@ export const Patients = () => {
         <div class='addNew'>Add New Patient</div>
 
         <div class='patienttable'>
-            
+            <form>
+                
+            </form>
         </div>
         
         </>
