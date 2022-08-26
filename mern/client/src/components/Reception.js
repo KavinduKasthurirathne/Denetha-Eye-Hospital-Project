@@ -3,7 +3,7 @@ import '../App.css';
 import './Receptionist/Reception.css';
 import SearchBar from "./Receptionist/PatientSearch";
 import BookData from "./Receptionist/Data.json";
-
+/*const patient = require("./server/models/PatientModel.js")*/
 
 export const Reception = () => {
 
@@ -17,7 +17,7 @@ export const Reception = () => {
                 
                 {/* <button className='button' id='PatientSearch'>Patient Search &nbsp; <i class="fas fa-search"></i></button> */}
                 
-                <button className='button' id='newPatient'>Add New Patient &nbsp; <i class="fas fa-plus-circle"></i></button> 
+                <a href="./AddPatientForm.js"> <button className='button' id='newPatient' >Add New Patient &nbsp; <i class="fas fa-plus-circle"></i></button> </a>
                 
         
                           

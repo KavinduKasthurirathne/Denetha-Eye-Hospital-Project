@@ -10,6 +10,7 @@ import {Logout} from "../components/Logout";
 import {AppoinmentTable} from "../components/AppoinmentTable";
 import {Reception} from '../components/Reception';
 import UserAccount from "../components/UserAccount";
+import {AddPatientForm} from "../components/AddPatientForm";
 
 
 const createRoutes = () => {
@@ -18,8 +19,11 @@ const createRoutes = () => {
             <Route exact path='/' element={<App />} />
             <Route exact path='accountant' element={<Accountant />} />
             <Route exact path='manager' element={<Patients />} />
-            <Route exact path='receptionist' element={<Patients />} />
             <Route exact path='receptionist' element={<Reception />} >
+            <Route exact path='receptionist' element={<Patients />} />
+            <Route exact path='receptionist' element={<Patients />} />
+
+            
             </Route>
             <Route exact path='staff' element={<Patients />} />
             <Route exact path='doctor' element={<Patients />} />
