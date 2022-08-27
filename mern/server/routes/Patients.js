@@ -1,2 +1,4 @@
 const router = require('express').Router();
-const account = require('../models/PatientModel');
+const patient = require('../models/PatientModel');
+
+module.exports = router;
