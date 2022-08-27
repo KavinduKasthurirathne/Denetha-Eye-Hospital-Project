@@ -39,6 +39,9 @@ function App() {
         </tr>
         
       </table>
+
+      <input type = "button" id = "PBtn1">Edit</input>
+      
     </div>
     
   );
