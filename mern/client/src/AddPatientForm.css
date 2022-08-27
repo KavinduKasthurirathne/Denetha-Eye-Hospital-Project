@@ -1,0 +1,12 @@
+body {
+    background-color: #F3F3F3;
+}
+
+.patienttable {
+    margin: auto;
+    padding-top: 25px;
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #989898;
+}

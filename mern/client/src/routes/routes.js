@@ -4,11 +4,13 @@ import { Routes, Route } from "react-router-dom";
 import {Appoinment} from "../components/Appoinment";
 import App from '../App';
 import {Patients} from '../components/Patients';
+import {PatientProfile} from '../components/PatientProfile';
 import {Accountant} from '../components/Accountant';
 import {Logout} from "../components/Logout";
 import {AppoinmentTable} from "../components/AppoinmentTable";
 import {Reception} from '../components/Reception';
 import UserAccount from "../components/UserAccount";
+import {AddPatientForm} from "../components/AddPatientForm";
 
 
 const createRoutes = () => {
@@ -18,13 +20,16 @@ const createRoutes = () => {
             <Route exact path='accountant' element={<Accountant />} />
             <Route exact path='manager' element={<Patients />} />
             <Route exact path='receptionist' element={<Reception />} >
-                <Route exact path='patients' element={<Patients />} />
+            <Route exact path='receptionist' element={<Patients />} />
+            <Route exact path='receptionist' element={<Patients />} />
+
+            
             </Route>
             <Route exact path='staff' element={<Patients />} />
             <Route exact path='doctor' element={<Patients />} />
             <Route exact path='admin' element={<Patients />} />
             <Route exact path='appoinment' element={<Appoinment />} >
-                <Route exact path='List' element={<AppoinmentTable />} />
+            <Route exact path='List' element={<AppoinmentTable />} />
             </Route>
             <Route exact path='editAcc' element={<UserAccount />} />
             <Route exact path='logout' element={<Logout />} />
