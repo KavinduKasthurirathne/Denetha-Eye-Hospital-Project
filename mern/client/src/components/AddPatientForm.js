@@ -5,7 +5,7 @@ export const Patients = () => {
 
     return (
         <>
-        <Header />
+      
 
         <div class='addNew'>Add New Patient</div>
 
