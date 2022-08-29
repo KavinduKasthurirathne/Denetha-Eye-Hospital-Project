@@ -2,16 +2,30 @@ import React, { useState } from "react";
 import "./SearchBar.css";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from "@mui/icons-material/Close";
+import axios from "axios";
 
-function SearchBar({ placeholder, data }) {
+function SearchBar({ placeholder}) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
+  let data;
+
+  axios.post('http://localhost:5000/patient/search' , {})
+    .then((res) => {
+      data=res.data;
+    })
+    .catch((err) => {
+      console.log(err)});
+  
+
+  
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
+      console.log(value.name);
+      return value.name.toLowerCase().includes(searchWord.toLowerCase());
+      
     });
 
     if (searchWord === "") {
@@ -44,16 +58,16 @@ function SearchBar({ placeholder, data }) {
 
       </div>
       <div className="patientdetails">Patient Name :<br /><br />
-        <i class="fas fa-phone"> :</i>
+        <i className="fas fa-phone"> :</i>
       </div>
 
 
-      {filteredData.length != 0 && (
+      {filteredData.length !== 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 12).map((value, key) => {
             return (
-              <a className="dataItem" href={value.link} target="_blank">
-                <p>{value.title} </p>
+              <a className="dataItem hover" href={value.link}>
+                <p>{value.name} </p>
               </a>
             );
           })}
