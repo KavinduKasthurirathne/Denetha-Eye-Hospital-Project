@@ -67,7 +67,7 @@ function SearchBar({ placeholder}) {
           {filteredData.slice(0, 12).map((value, key) => {
             return (
               <a className="dataItem hover" href={value.link}>
-                <p>{value.name} </p>
+                <p>{value.name} - 0{value.phone}</p>
               </a>
             );
           })}
