@@ -3,7 +3,7 @@ import './Profile.css';
 
 function App() {
   return (
-    <div >
+    <div > 
       <table>
         <tr>
           <th>ID : </th>
