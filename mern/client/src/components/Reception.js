@@ -2,8 +2,6 @@ import {React} from 'react';
 import '../App.css';
 import './Receptionist/Reception.css';
 import SearchBar from "./Receptionist/PatientSearch";
-import axios from 'axios';
-import { useEffect } from 'react';
 
 export const Reception = () => {
 
