@@ -2,10 +2,10 @@ const Mongoose = require('mongoose');
 
 const patientSchema = new Mongoose.Schema({
     name: String,
-    phone: String,
-    age: String
+    phone: Number,
+    age: Number
 });
 
-const patient = Mongoose.model('patient', accountSchema);
+const patient = Mongoose.model('patient', patientSchema);
 
 module.exports = patient;

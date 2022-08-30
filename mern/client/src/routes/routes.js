@@ -12,13 +12,19 @@ import {Reception} from '../components/Reception';
 import UserAccount from "../components/UserAccount";
 import {AddPatientForm} from "../components/AddPatientForm";
 import StaffDetails from "../components/StaffDetails/StaffDetails";
+
+
+
+
 const createRoutes = () => {
     return (
         <Routes>
+            <Route exact path = 'manager' element={<StaffDetails/>}/>
             <Route exact path='/' element={<App />} />
             <Route exact path='accountant' element={<Accountant />} />
             <Route exact path='manager' element={<StaffDetails />} />
             <Route exact path='manager' element={<Patients />} />
+            
                 <Route exact path='receptionist' element={<Reception />} >
             <Route exact path='receptionist' element={<Patients />} />
             <Route exact path='receptionist' element={<Patients />} />
@@ -28,8 +34,19 @@ const createRoutes = () => {
             <Route exact path='staff' element={<Patients />} />
             <Route exact path='doctor' element={<Patients />} />
             <Route exact path='admin' element={<Patients />} />
-                <Route exact path='appoinment' element={<Appoinment />} >
+                <Route exact path='appoinment' element={<Appoinment />} />
             <Route exact path='List' element={<AppoinmentTable />} />
+
+            <Route exact path='receptionist' element={<Reception />} />
+            <Route exact path='staff' element={<Patients />} />
+            <Route exact path='doctor' element={<Patients />} />
+            <Route exact path='admin' element={<Patients />} />
+            <Route exact path='patient' element={<Patients />} />
+            <Route exact path='AddPatientForm' element={<AddPatientForm />} />
+
+            <Route exact path='appoinment' element={<Appoinment />} >
+                <Route exact path='List' element={<AppoinmentTable />} />
+
             </Route>
             <Route exact path='editAcc' element={<UserAccount />} />
             <Route exact path='logout' element={<Logout />} />

@@ -15,6 +15,8 @@ const PORouter = require('./routes/PurchaseOrders');
 app.use('/purchaseOrder', PORouter);
 const pettyCashRouter = require('./routes/PettyCashRecords');
 app.use('/pettyCash', pettyCashRouter);
+const patientRouter = require('./routes/Patients');
+app.use('/patient', patientRouter);
  
 app.listen(port, () => {
   //Perform a database connection when server start
