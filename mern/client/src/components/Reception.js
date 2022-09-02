@@ -12,7 +12,6 @@ export const Reception = () => {
             <div>
                 <h1 id='leftText'>Reception</h1>
             
-                
                 <SearchBar placeholder="Enter patient name..." />
                 
                 {/* <button className='button' id='PatientSearch'>Patient Search &nbsp; <i class="fas fa-search"></i></button> */}
