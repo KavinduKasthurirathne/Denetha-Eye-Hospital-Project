@@ -46,7 +46,7 @@
   box-shadow: 0.7px 0.7px 1px #00000057;
 }
 #logo{
-  flex-basis: 90px;
+  flex-basis: 80px;
   flex-grow: 0;
   flex-shrink: 0;
 }
@@ -153,7 +153,7 @@ a{
   white-space: nowrap
 }
 #userinfo{
-  margin-top: 27px;
+  margin-top: 20px;
 }
 
 #profilePic{
