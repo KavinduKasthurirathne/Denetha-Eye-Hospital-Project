@@ -12,7 +12,7 @@ const POList = (props) => {
     const [newPO, setNewPO] = useState(false);
     const [deletePO, setDeletePO] = useState(false);
     const [newName, setNewName] = useState('');
-    const [cookies] = useCookies('name');
+    const [cookies] = useCookies('name', 'proxy');
 
     const handleAdd = () => {
         setNewPO(true);
@@ -31,7 +31,7 @@ const POList = (props) => {
             poNumber: newName,
             editor: cookies.name
         }
-        await axios.post('http://localhost:5000/purchaseOrder/add', PO)
+        await axios.post(`${cookies.proxy}/api/purchaseOrder/add`, PO)
         .then((res)=> {
             setNewPO(false);
             setNewName('');
@@ -43,7 +43,7 @@ const POList = (props) => {
         if(props.selected){
             const id = props.selected._id;
 
-            await axios.post(`http://localhost:5000/purchaseOrder/delete/${id}`, {})
+            await axios.post(`${cookies.proxy}/api/purchaseOrder/delete/${id}`, {})
             .then((res)=>{
                 setDeletePO(false);
                 props.ponumSetter('');

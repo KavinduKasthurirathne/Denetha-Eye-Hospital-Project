@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../App.css';
+import { useCookies } from 'react-cookie';
 
 import PurchaseOrder from './Accountant/PurchaseOrder';
 import Accounts from './Accountant/Accounts';
@@ -10,14 +11,15 @@ export const Accountant = () => {
     const [display, setDisplay] = useState('purchaseOrder');
     const [POdata, setPOdata] = useState([]);
     const [PCdata, setPCdata] = useState([]);
+    const [cookies] = useCookies('proxy');
 
     const getPOdata = async () => {
-        await axios.post('http://localhost:5000/purchaseOrder/get', {})
+        await axios.post(`${cookies.proxy}/api/purchaseOrder/get`, {})
         .then((response) => {setPOdata(response.data)})
         .catch((err) => {console.log(err)});
     };
     const getPCdata = async () => {
-        await axios.post('http://localhost:5000/pettyCash/get', {})
+        await axios.post(`${cookies.proxy}/api/pettyCash/get`, {})
         .then((res) => {setPCdata(res.data)})
         .catch((err)=> {console.log(err)});
     };

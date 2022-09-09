@@ -6,7 +6,7 @@ import axios from 'axios';
 import {useCookies} from 'react-cookie';
 
 const PCSubmit = (props) => {
-    const [cookies] = useCookies('name');
+    const [cookies] = useCookies('name', 'proxy');
     const [inputs, setInputs] = useState({
         vNum: '',
         item: '',
@@ -45,7 +45,7 @@ const PCSubmit = (props) => {
             date: inputs.date,
             amount: amount.toFixed(2),
         }
-        await axios.post('http://localhost:5000/pettyCash/add', addData)
+        await axios.post(`${cookies.proxy}/api/pettyCash/add`, addData)
         .then((res)=>{
             setInputs({
                 vNum: '',
@@ -72,7 +72,7 @@ const PCSubmit = (props) => {
             amount: amount.toFixed(2),
             editor: cookies.name
         };
-        await axios.post(`http://localhost:5000/pettyCash/update/${props.updateID}`, updateData)
+        await axios.post(`${cookies.proxy}/api/pettyCash/update/${props.updateID}`, updateData)
         .then((res)=>{
             setInputs({
                 vNum: '',

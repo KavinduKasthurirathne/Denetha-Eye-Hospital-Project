@@ -6,7 +6,7 @@ import NoticeDialog from './Accountant/NoticeDialog';
 import axios from 'axios';
 
 const UserAccount = () => {
-    const [cookies, setCookie, deleteCookie] = useCookies('name', 'role', 'username', 'id', 'loggedIn');
+    const [cookies, setCookie, deleteCookie] = useCookies('name', 'role', 'username', 'id', 'loggedIn', 'proxy');
     const [changePass, setChangePass] = useState(false);
     const [enableChange, setEnableChange] = useState(true);
     const [error, setError] = useState('');
@@ -34,7 +34,7 @@ const UserAccount = () => {
             name: inputs.name, 
             username: inputs.username
         };
-        await axios.post(`http://localhost:5000/account/update/${cookies.id}`, updateData)
+        await axios.post(`${cookies.proxy}/api/account/update/${cookies.id}`, updateData)
         .then((res)=>{
             const {name, username} = res.data.update;
             setCookie('name', name, {path: '/', maxAge: (3600*12)});
@@ -58,7 +58,7 @@ const UserAccount = () => {
                     const updateData = {
                         password: inputs.newPass
                     };
-                    await axios.post(`http://localhost:5000/account/update/${cookies.id}`, updateData)
+                    await axios.post(`${cookies.proxy}/api/account/update/${cookies.id}`, updateData)
                     .then((res)=>{
                         deleteCookie('name');
                         deleteCookie('loggedIn');

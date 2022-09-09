@@ -7,11 +7,13 @@ import PrintablePC from './PrintablePC';
 import { useReactToPrint } from 'react-to-print';
 import NoticeDialog from "../NoticeDialog";
 import axios from "axios";
+import {useCookies} from 'react-cookie';
 
 const PCHeader = (props) => {
     const [dialog, setDialog] = useState(false);
     const [newReserve, setNewReserve] = useState('.00');
     const componentRef = useRef();
+    const [cookies] = useCookies('proxy');
 
     const print = useReactToPrint({
         content: ()=>componentRef.current
@@ -28,7 +30,7 @@ const PCHeader = (props) => {
 
     const onSubmit = async () => {
         const data = {reserve: parseFloat(newReserve).toFixed(2)}
-        await axios.post('http://localhost:5000/pettyCash/updateData', data)
+        await axios.post(`${cookies.proxy}/api/pettyCash/updateData`, data)
         .then((res)=>{
             setDialog(false);
             setNewReserve('');

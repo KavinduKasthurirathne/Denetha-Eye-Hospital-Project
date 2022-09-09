@@ -10,7 +10,7 @@ import axios from 'axios';
 const PORoot = (props) => {
     const [newRoot, setNewRoot] = useState(false);
     const [newList, setNewList] = useState('');
-    const [cookies] = useCookies('name');
+    const [cookies] = useCookies('name', 'proxy');
 
     const handleAdd = () => {
         setNewRoot(true);
@@ -27,7 +27,7 @@ const PORoot = (props) => {
             editor: cookies.name
         }
 
-        await axios.post('http://localhost:5000/purchaseOrder/add', data)
+        await axios.post(`${cookies.proxy}/api/purchaseOrder/add`, data)
         .then((res)=>{
             setNewRoot(false);
             setNewList('');

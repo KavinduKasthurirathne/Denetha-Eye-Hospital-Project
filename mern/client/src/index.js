@@ -22,7 +22,11 @@ const theme = new createTheme({
 });
 
 const Main = () => {
-  const [cookies] = useCookies(['loggedIn']);
+  const [cookies, setCookie] = useCookies(['loggedIn']);
+
+  useEffect(()=>{
+    setCookie('proxy', 'http://localhost:5000', {path: '/', maxAge: (3600*12)});
+  });
 
   const navigateTo = useNavigate();
   useEffect(()=>{

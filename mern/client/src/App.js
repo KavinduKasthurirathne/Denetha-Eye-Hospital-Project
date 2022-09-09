@@ -24,7 +24,7 @@ const App = () => {
   const [errorMsg, setErrorMsg] = useState(errors[0]);
   const [loading, setLoading] = useState(false);
   const navigateTo = useNavigate();
-  const [cookies, setCookie] = useCookies(['name', 'loggedIn', 'role']);
+  const [cookies, setCookie] = useCookies(['name', 'loggedIn', 'role', 'proxy']);
 
   //using a condition to redirect to a page
   //URL is set to localhost:3000/{userRole}
@@ -46,7 +46,7 @@ const App = () => {
       password
     }
 
-    await axios.post('http://localhost:5000/account/check', data)
+    await axios.post(`${cookies.proxy}/api/account/check`, data)
     .then(({data}) => {
       if(data.message){
         if(data.message === 'invalidUser'){

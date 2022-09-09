@@ -6,11 +6,13 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import axios from "axios";
 import NoticeDialog from "../NoticeDialog";
+import {useCookies} from 'react-cookie';
 
 const PCItems = (props) => {
     const [deleteDialog, setDeleteDialog] = useState(false);
     const [itemID, setItemID] = useState('');
     const [loading, setLoading] = useState(false);
+    const [cookies] = useCookies('proxy');
     
     const getDateString = (iso) => {
         const date = new Date(iso);
@@ -20,7 +22,7 @@ const PCItems = (props) => {
 
     const handleDelete= async () => {
         setLoading(true);
-        await axios.post(`http://localhost:5000/pettyCash/delete/${itemID}`)
+        await axios.post(`${cookies.proxy}/api/pettyCash/delete/${itemID}`)
         .then((res)=>{
             setDeleteDialog(false);
             setItemID('');

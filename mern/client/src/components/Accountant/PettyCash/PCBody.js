@@ -5,15 +5,17 @@ import '../Accountant.css';
 import PCHeader from "./PCHeader";
 import PCItems from "./PCItems";
 import PCSubmit from "./PCSubmit";
+import {useCookies} from 'react-cookie';
 
 const PCBody = (props) => {
     const [reserve, setReserve] = useState('');
     const [update, setUpdate] = useState(false);
     const [updateInput, setUpdateInput] = useState({});
     const [updateID, setUpdateID] = useState('');
+    const [cookies] = useCookies('proxy');
 
     const getData = async () => {
-        await axios.post('http://localhost:5000/pettyCash/getdata')
+        await axios.post(`${cookies.proxy}/api/pettyCash/getdata`)
         .then((res)=>{
             setReserve(res.data.reserve);
         }).catch((err)=>{

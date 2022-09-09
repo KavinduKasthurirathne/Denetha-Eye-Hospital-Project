@@ -4,13 +4,15 @@ import '../../App.css';
 import './Accountant.css';
 import PCBody from './PettyCash/PCBody';
 import PCRoot from './PettyCash/PCRoot';
+import { useCookies } from 'react-cookie';
 
 const PettyCash = (props) => {
     const [root, setRoot] = useState('');
     const [selected, setSelected] = useState([]);
+    const [cookies] = useCookies('proxy');
 
     const getSelected = async (link) => {
-        await axios.post(`http://localhost:5000/pettyCash/getSelected/${link}`, {})
+        await axios.post(`${cookies.proxy}/api/pettyCash/getSelected/${link}`, {})
         .then((res)=>{setSelected(res.data)})
         .catch((err)=>{console.log(err)});
     };

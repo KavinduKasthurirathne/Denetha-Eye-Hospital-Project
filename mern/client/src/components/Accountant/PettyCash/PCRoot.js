@@ -4,6 +4,7 @@ import '../../../App.css';
 import '../Accountant.css';
 import axios from 'axios';
 import NoticeDialog from "../NoticeDialog";
+import {useCookies} from 'react-cookie';
 
 import { Button, IconButton, TextField } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -12,6 +13,7 @@ const PCRoot = (props) => {
     const [newRoot, setNewRoot] = useState(false);
     const [deletePC, setDeletePC] = useState(false);
     const [listName, setListName] = useState('');
+    const [cookies] = useCookies('proxy');
 
     const handleChange = ({target}) => {
         setListName(target.value);
@@ -23,7 +25,7 @@ const PCRoot = (props) => {
             date: Date.now()
         };
 
-        await axios.post('http://localhost:5000/pettyCash/add', data).then((res)=>{
+        await axios.post(`${cookies.proxy}/api/pettyCash/add`, data).then((res)=>{
             setListName('');
             setNewRoot(false);
             props.getPC();
@@ -34,7 +36,7 @@ const PCRoot = (props) => {
 
     const onDelete = async () => {
         if (props.root){
-            await axios.post(`http://localhost:5000/pettyCash/deleteRoot/${props.root}`, {}).then((res)=>{
+            await axios.post(`${cookies.proxy}/api/pettyCash/deleteRoot/${props.root}`, {}).then((res)=>{
                 setDeletePC(false);
                 props.rootSetter('');
                 props.getPC();

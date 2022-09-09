@@ -14,7 +14,7 @@ const PODetails = (props) => {
     const [save, setSave] = useState(true);
     const [dialog, setDialog] = useState(false);
     const [message, setMessage] = useState('');
-    const [cookies] = useCookies('name');
+    const [cookies] = useCookies('name', 'proxy');
 
     //a function to get ISO date with correct time zone
     const getDateString = (iso) => {
@@ -62,7 +62,7 @@ const PODetails = (props) => {
             mode: data.mode,
             items: JSON.stringify(items)
         };
-        await axios.post(`http://localhost:5000/purchaseOrder/update/${data._id}`, update)
+        await axios.post(`${cookies.proxy}/api/purchaseOrder/update/${data._id}`, update)
         .then((response) => {
             setMessage(response.data.message);
             setDialog(true);
