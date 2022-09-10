@@ -14,7 +14,6 @@ router.route('/add').post(async (req, res) => {
     }).catch((err) => {
         res.status(500).send({status: 'Error: Account not added', error: err.message});
     });
-
 });
 
 router.route('/check').post(async (req, res) => {
