@@ -33,7 +33,6 @@ export const TestAddAccount = () => {
             password: input.password,
             role: input.role
         }
-
         await fetch(`${cookies.proxy}/api/account/add`, {
             method: 'POST',
             headers: {

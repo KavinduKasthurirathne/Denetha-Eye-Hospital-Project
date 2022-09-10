@@ -26,7 +26,7 @@ const Main = () => {
 
   useEffect(()=>{
     setCookie('proxy', 'http://localhost:5000', {path: '/', maxAge: (3600*12)});
-  });
+  }, []);
 
   const navigateTo = useNavigate();
   useEffect(()=>{
