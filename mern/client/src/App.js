@@ -34,6 +34,10 @@ const App = () => {
     }
   });
 
+  useEffect(()=>{
+    setCookie('proxy', 'http://localhost:5000', {path: '/', maxAge: (3600*12)});
+  }, []);
+
   //check database and validate user
   //set user role
   //set loggedIn = true

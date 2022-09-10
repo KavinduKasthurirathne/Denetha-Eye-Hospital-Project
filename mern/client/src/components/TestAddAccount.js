@@ -2,9 +2,11 @@ import { Button, FormControl, IconButton, InputAdornment, InputLabel, MenuItem, 
 import React, { useState } from 'react';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import {useCookies} from 'react-cookie';
 
 export const TestAddAccount = () => {
     const [show, setShow] = useState(false);
+    const [cookies] = useCookies('proxy');
     const [input, setInput] = useState({
         name: '',
         username: '',
@@ -31,8 +33,7 @@ export const TestAddAccount = () => {
             password: input.password,
             role: input.role
         }
-
-        await fetch('http://localhost:5000/account/add', {
+        await fetch(`${cookies.proxy}/api/account/add`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
