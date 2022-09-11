@@ -38,7 +38,7 @@ const doctors = [
   }
 ];
 
-export const EditAppoinment=() =>{
+export const EditAppointment=() =>{
    
     const [post,setPost] = useState(null);
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
