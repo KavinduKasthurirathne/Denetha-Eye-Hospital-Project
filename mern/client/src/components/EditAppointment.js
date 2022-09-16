@@ -8,7 +8,6 @@ export const EditAppoinment=() =>{
     const [post,setPost] = useState(null);
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
     const buttonColor={background:'#2A628F' ,padding:'10px 97px',margin :'5px',width:100}
-    
     const [Name,setName] = useState('');
     const [Address,setAddress] = useState('');
     const [Age,setAge] = useState('');

@@ -14,7 +14,7 @@ import {AddPatientForm} from "../components/AddPatientForm";
 import StaffDetails from "../components/StaffDetails/StaffDetails";
 import { EditAppoinment } from "../components/EditAppointment";
 import {AppointmentMainpage} from "../components/AppointmentMainpage";
-
+import { Help } from "../components/Help";
 
 const createRoutes = () => {
     return (
@@ -24,12 +24,9 @@ const createRoutes = () => {
             <Route exact path='accountant' element={<Accountant />} />
             <Route exact path='manager' element={<StaffDetails />} />
             <Route exact path='manager' element={<Patients />} />
-            
             <Route exact path='receptionist' element={<Reception />} >
             <Route exact path='receptionist' element={<Patients />} />
             <Route exact path='receptionist' element={<Patients />} />
-           
-            
             </Route>
             <Route exact path='staff' element={<Patients />} />
             <Route exact path='doctor' element={<Patients />} />
@@ -45,6 +42,7 @@ const createRoutes = () => {
             <Route exact path='editappointment' element={<EditAppoinment />} />
             <Route exact path="AppointmentMainpage" element={<AppointmentMainpage/>}/>
             <Route exact path='appointment' element={<Appoinment />} >
+            <Route exact path='help' element={<Help />} />
             <Route exact path='List' element={<AppoinmentTable />} />
             </Route>
             <Route exact path='editAcc' element={<UserAccount />} />
