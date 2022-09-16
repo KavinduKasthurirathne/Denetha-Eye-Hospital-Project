@@ -21,6 +21,9 @@ const appoinmentRouter = require('./routes/Appoinment');
 app.use('/api/appointment', appoinmentRouter);
 const EditappoinmentRouter = require('./routes/EditAppoinment');
 app.use('/api/Editappointment', EditappoinmentRouter); 
+const surgeryRouter = require("./routes/Surgery");
+app.use("/api/surgery",surgeryRouter);
+
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
