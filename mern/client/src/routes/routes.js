@@ -12,8 +12,8 @@ import {Reception} from '../components/Reception';
 import UserAccount from "../components/UserAccount";
 import {AddPatientForm} from "../components/AddPatientForm";
 import StaffDetails from "../components/StaffDetails/StaffDetails";
-
-
+import { EditAppoinment } from "../components/EditAppointment";
+import {AppointmentMainpage} from "../components/AppointmentMainpage";
 
 
 const createRoutes = () => {
@@ -42,10 +42,10 @@ const createRoutes = () => {
             <Route exact path='admin' element={<Patients />} />
             <Route exact path='patient' element={<Patients />} />
             <Route exact path='AddPatientForm' element={<AddPatientForm />} />
-            
+            <Route exact path='editappointment' element={<EditAppoinment />} />
+            <Route exact path="AppointmentMainpage" element={<AppointmentMainpage/>}/>
             <Route exact path='appointment' element={<Appoinment />} >
             <Route exact path='List' element={<AppoinmentTable />} />
-
             </Route>
             <Route exact path='editAcc' element={<UserAccount />} />
             <Route exact path='logout' element={<Logout />} />
