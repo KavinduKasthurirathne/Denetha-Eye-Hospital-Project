@@ -7,6 +7,7 @@ export const AddPatientForm = () => {
     return (
         <>
 
+<<<<<<< HEAD
         <div class='addformpatienttable'>
             <p class='denethahead'><u><b>Denetha Eye Hospital</b></u></p>
             <p class='addformhead'><u><b>Add New Patient</b></u></p>
@@ -57,6 +58,15 @@ export const AddPatientForm = () => {
 
             </form>
 
+=======
+
+        <div class='addNew'>Add New Patient</div>
+
+        <div class='patienttable'>
+            <form>
+                
+            </form>
+>>>>>>> parent of 5a5476c (1)
         </div>
         
         </>
