@@ -3,6 +3,7 @@ import "./SearchBar.css";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
+import {SearchResult} from "./SearchResult";
 
 function SearchBar({ placeholder}) {
   const [filteredData, setFilteredData] = useState([]);
@@ -10,7 +11,8 @@ function SearchBar({ placeholder}) {
 
   let data;
 
-  axios.post('http://localhost:5000/patient/search' , {})
+  //assigning document content to data variable
+  axios.post('http://localhost:5000/api/patient/search' , {})
     .then((res) => {
       data=res.data;
     })
@@ -23,9 +25,8 @@ function SearchBar({ placeholder}) {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      console.log(value.name);
+      console.log("loop");
       return value.name.toLowerCase().includes(searchWord.toLowerCase());
-      
     });
 
     if (searchWord === "") {
@@ -40,6 +41,11 @@ function SearchBar({ placeholder}) {
     setWordEntered("");
   };
 
+  const [selectedName, setSelectedName] = useState("");
+  const [selectedPhone, setSelectedPhone] = useState("");
+
+
+
   return (
     <><div className="search">
       <div className="searchInputs">
@@ -48,6 +54,7 @@ function SearchBar({ placeholder}) {
           placeholder={placeholder}
           value={wordEntered}
           onChange={handleFilter} />
+
         <div className="searchIcon">
           {filteredData.length === 0 ? (
             <SearchIcon />
@@ -56,20 +63,27 @@ function SearchBar({ placeholder}) {
           )}
         </div>
 
+      
+
       </div>
-      <div className="patientdetails">Patient Name :<br /><br />
-        <i className="fas fa-phone"> :</i>
-      </div>
+      <SearchResult Pname={selectedName} Pno={selectedPhone} />
 
 
       {filteredData.length !== 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 12).map((value, key) => {
+            
             return (
-              <a className="dataItem hover" href={value.link}>
-                <p>{value.name} - 0{value.phone}</p>
-              </a>
+              <div className="dataItem hover" key={key} onClick={()=>{
+                  setSelectedName(filteredData[key].name);
+                  setSelectedPhone(filteredData[key].phone); 
+                  clearInput();
+                }}>
+                <p>{value.name} - {value.phone}</p>
+                
+              </div>
             );
+          
           })}
 
         </div>
