@@ -1,5 +1,5 @@
 import React,{useState ,useEffect} from "react";
-import { Button, Grid ,Paper, TextField, Typography,Radio ,RadioGroup, FormLabel, FormControl, Checkbox,Select, 
+import { Button, Grid ,Paper, TextField, Typography,Radio ,RadioGroup, FormLabel, FormControl, Checkbox,Select,InputLabel, 
     FormControlLabel,TextareaAutosize ,FormGroup,Box,MenuItem} from "@mui/material";
 import axios from 'axios';
 import {useCookies} from 'react-cookie';
@@ -12,6 +12,7 @@ export const Help=() =>{
     const [Message,setMessage] = useState('');
     const [Type,setType] = useState('');
     const [cookies] = useCookies('proxy');
+    const logo = require('../image/denethaLogo.png');
     
     const handlePriority = ({target}) =>
     {
@@ -48,16 +49,16 @@ export const Help=() =>{
         <Grid >
         <Paper elevation={20} style={paperStyle}>
             <Grid align='center'>
-                <div> <img src='Logo.jpg' alt=''/></div>
+            <div> <img className='logo-img' src={logo} alt={'logo'} /></div>
             <h1>Help</h1>
-            <Typography variant='caption'>
-                Help
-            </Typography>
+            
             </Grid>
             <form>
                 <br/>
-                <Box component="form" sx={{'& .MuiTextField-root': { width: '390px' },}} noValidate autoComplete="off">
-             <Select 
+                
+                <FormControl sx={{marginTop: 2, width:450}}>
+                <InputLabel id='Select_Type'  >Priority Value</InputLabel>
+                <Select 
                   label='priority'
                   labelId='select-priority-label'
                   id='Priority'
@@ -78,8 +79,8 @@ export const Help=() =>{
                             <div style={{marginLeft: 80,width:350}}>Low</div>
                         </MenuItem>
                 </Select>
-                </Box>
-                <br/>
+            </FormControl>
+                <br/><br/>
                 <TextField fullWidth label='Discription'placeholder="Enter Discription" value={Description}  onChange={handleDescription}/>
                 <br/><br/>
                 <FormLabel component="legend">Message</FormLabel>
