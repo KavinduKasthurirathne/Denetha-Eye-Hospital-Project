@@ -66,7 +66,7 @@ function SearchBar({ placeholder}) {
       
 
       </div>
-      <SearchResult Pname={selectedName} Pno={selectedPhone} />
+      
 
 
       {filteredData.length !== 0 && (
@@ -90,6 +90,8 @@ function SearchBar({ placeholder}) {
       )}
 
     </div>
+    
+    <SearchResult Pname={selectedName} Pno={selectedPhone} setName={setSelectedName} setPhone={setSelectedPhone}/>
     </>
   );
 }
