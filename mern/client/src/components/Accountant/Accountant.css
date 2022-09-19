@@ -1,0 +1,194 @@
+.grid-wrapper-2 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    height: 100%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 90%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.247);
+}
+
+.grid-wrapper-3 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 4fr;
+    height: 100%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 90%;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.247);
+}
+
+.grid-child {
+    background-color: rgba(0, 0, 0, 0);
+    margin: 5px;
+    height: 34em;
+}
+
+
+#PORoot, #POList {
+    overflow-y: scroll;
+}
+
+.normal-text {
+    color: black;
+}
+.bold-text {
+    font-weight: bolder;
+    color: black;
+}
+
+.left-align {
+    text-align: left;
+}
+.center-align {
+    text-align: center;
+}
+
+.transition {
+    transition: 0.3s ease;
+}
+
+ul {
+    list-style-type: none;
+}
+li {
+    transition: 0.3s ease;
+    border-radius: 10px;
+    padding: 10px 5px;
+    width: 95%;
+    transform: translate(-10%, 0%);
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+li:hover {
+    background-color: rgba(0, 0, 0, 0.121);
+}
+
+.prompt {
+    justify-content: center;
+    transform: translate(0%, 1100%);
+    color: rgba(0, 0, 0, 0.312);
+    font-style: italic;
+}
+
+.po-flex {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(0, 0, 0, 0);
+}
+.po-flex-child {
+    flex: 1;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0);
+}
+#po-num{
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    font-size: small;
+}
+#po-num-value{
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    font-size: x-large;
+}
+#print-container {
+    flex-basis: 10%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#po-container {
+    flex-basis: 10%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.po-anim {
+    animation: fadeinslow 0.5s ease;
+}
+#po-body {
+    background-color: rgba(0, 255, 255, 0);
+    height: 380px;
+    overflow: auto;
+}
+#pc-body {
+    background-color: rgba(0, 255, 255, 0);
+    height: 350px;
+    overflow: auto;
+}
+#po-submit {
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0);
+    height: 50px;
+    width: 90%;
+}
+#pc-submit {
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0);
+    height: 60px;
+    width: 100%;
+}
+#po-save {
+    flex-basis: 5%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#po-database {
+    flex-basis: 10%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#po-item-table {
+    margin: auto;
+    width: 90%;
+}
+#message {
+    color: rgba(0, 0, 0, 0.396);
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0);
+    font-style: italic;
+    text-align: left;
+    width: 90%;
+}
+
+#pc-title{
+    font-weight: bolder;
+    font-size: x-large;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+#acc-root{
+    overflow-y: scroll;
+}
+#edit-message{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: smaller;
+    color: rgba(0, 0, 0, 0.414);
+}
+#reserve {
+    color: rgba(0, 0, 0, 0.396);
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0);
+    font-style: italic;
+    width: 90%;
+}
+#fixed-height {
+    height: 470px;
+}
+
+
+
+@keyframes fadeinslow {
+    0% {opacity: 0;}
+    40% {opacity: 0; }
+    100% {opacity: 1; }
+}

@@ -1,0 +1,28 @@
+
+#newPatient{
+    float: right;
+    width: auto;
+    margin-right: 15%;
+    margin-top: -60px;
+}
+
+#PatientSearch{
+    float: left;
+    width: auto;
+    margin-left: 2%;
+    margin-top: 40px;   
+}
+
+#searchBox{
+    float: left;
+    width: 270px;
+    height: 19px;
+    border-color: rgb(123, 193, 234);
+    margin-left: 15%;
+    margin-top: 42px;   
+}
+
+#leftText{
+    margin-top: 65px;
+    margin-left: 15%;
+}
