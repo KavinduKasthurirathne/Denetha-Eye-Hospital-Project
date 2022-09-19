@@ -22,30 +22,22 @@ const createRoutes = () => {
             <Route exact path = 'manager' element={<StaffDetails/>}/>
             <Route exact path='/' element={<App />} />
             <Route exact path='accountant' element={<Accountant />} />
-            <Route exact path='manager' element={<StaffDetails />} />
-            <Route exact path='manager' element={<Patients />} />
             <Route exact path='receptionist' element={<Reception />} >
-            <Route exact path='receptionist' element={<Patients />} />
-            <Route exact path='receptionist' element={<Patients />} />
             </Route>
             <Route exact path='staff' element={<Patients />} />
             <Route exact path='doctor' element={<Patients />} />
             <Route exact path='admin' element={<Patients />} />
-            <Route exact path='List' element={<AppoinmentTable />} />
-            
-            <Route exact path='receptionist' element={<Reception />} />
             <Route exact path='staff' element={<Patients />} />
-            <Route exact path='doctor' element={<Patients />} />
-            <Route exact path='admin' element={<Patients />} />
             <Route exact path='patient' element={<Patients />} />
             <Route exact path='AddPatientForm' element={<AddPatientForm />} />
             <Route exact path='editappointment' element={<EditAppoinment />} />
             <Route exact path="AppointmentMainpage" element={<AppointmentMainpage/>}/>
-            <Route exact path='appointment' element={<Appoinment />} >
-            <Route exact path='help' element={<Help />} />
-            <Route exact path='List' element={<AppoinmentTable />} />
-            </Route>
+            <Route exact path='appointment' element={<Appoinment />} />
+            <Route exact path='appoinmenttable' element={<AppoinmentTable />} />
+           
+            
             <Route exact path='editAcc' element={<UserAccount />} />
+            <Route exact path='help' element={<Help />} />
             <Route exact path='logout' element={<Logout />} />
             <Route exact path='*' element={<h2 className='App'>404 - Page not found!</h2>} /> 
       </Routes>

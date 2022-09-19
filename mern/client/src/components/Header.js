@@ -145,10 +145,14 @@ export const Header = () => {
                             <ListItemIcon>
                                 <HelpIcon />
                             </ListItemIcon>
-                            Help
+                            
+                            <NavLink to='/help' style={{color:'black'}} >
+                               Help
+                                </NavLink>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
+
                                 <LogoutIcon />
                             </ListItemIcon>
                             <NavLink to='/logout' style={{color:'black'}} >
