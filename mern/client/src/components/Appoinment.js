@@ -3,12 +3,14 @@ import { Select,InputLabel, FormGroup, Button, Grid ,Paper, TextField,Radio ,Rad
 import '../Appoinment.css';
 import axios from 'axios';
 import {useCookies} from 'react-cookie';
+import { EditAppoinment } from "./EditAppointment";
+
 export const Appoinment=() =>{
    
     const [post,setPost] = useState(null);
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
     const buttonColor={background:'#2A628F' ,padding:'10px 97px',margin :'5px',width:100}
-    
+    const buttongreenColor = {background:'#3D8361',padding:'10px 97px',margin :'5px',width:100};
     const [Name,setName] = useState('');
     const [Address,setAddress] = useState('');
     const [Age,setAge] = useState('');
@@ -80,7 +82,6 @@ export const Appoinment=() =>{
   await axios.post(`${cookies.proxy}/api/appointment/record`,appoinment)
   .then((res)=>{
   console.log(res.data);
-
   }).catch((err)=>{
     console.log(err);
   })
@@ -188,6 +189,8 @@ export const Appoinment=() =>{
                 </FormGroup>
                 <div align="center" >
                 <Button  onClick={handleSubmit} variant="contained" style={buttonColor}>Submit</Button>
+                <br/>
+                <a href="/AppointmentMainpage"><Button  onClick={handleSubmit} variant="contained" style={buttongreenColor}>Edit appoinment</Button>t</a>
                 </div>
             </form>
         </Paper>
