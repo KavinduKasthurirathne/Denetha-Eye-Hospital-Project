@@ -1,8 +1,6 @@
 body {
     background-color: #F3F3F3;
 }
-
-<<<<<<< HEAD
 .denethahead {
     font-size: 25px;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -34,7 +32,8 @@ body {
 
 .addform {
     margin-left: 150px;
-=======
+}
+
 .patienttable {
     margin: auto;
     padding-top: 25px;
@@ -42,5 +41,4 @@ body {
     width: 50%;
     border-radius: 20px;
     box-shadow: 2px 2px 4px #989898;
->>>>>>> parent of 5a5476c (1)
 }
