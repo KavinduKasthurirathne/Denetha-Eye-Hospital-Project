@@ -7,14 +7,18 @@ export const SearchResult = (props) => {
         props.setName("");
         props.setPhone("");
       };
-
+    
     return(<>
         <div className="patientdetails">Patient Name : {props.Pname}<br /><br />
         <i className="fas fa-phone"> </i> : {props.Pno}
-        { (props.Pname!=="" && props.Pno!=="" )?
+        { (props.Pname!=="" && props.Pno!=="" )? 
+    
       <button className='button' id='Clearbtn' onClick={clearPatient}> Clear Patient </button> : null
     }
       </div>
+     
+      
+        
     </>
     )
 }
