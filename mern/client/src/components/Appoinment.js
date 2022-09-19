@@ -1,9 +1,10 @@
 import React,{useState ,useEffect} from "react";
 import { Select,InputLabel, FormGroup, Button, Grid ,Paper, TextField,Radio ,RadioGroup, FormLabel, FormControl, Checkbox, FormControlLabel,Box,MenuItem } from "@mui/material";
 import '../Appoinment.css';
+import { NavLink,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {useCookies} from 'react-cookie';
-import { EditAppoinment } from "./EditAppointment";
+import { Help } from "./Help";
 
 export const Appoinment=() =>{
    
@@ -22,7 +23,7 @@ export const Appoinment=() =>{
     const [date,setDate] = useState('');
     const [time,setTime] = useState('');
     const [cookies] = useCookies('proxy');
-
+    const navigateTo = useNavigate();
     const logo = require('../image/denethaLogo.png');
 
     const handleName= ({target}) =>
@@ -81,10 +82,15 @@ export const Appoinment=() =>{
     };
   await axios.post(`${cookies.proxy}/api/appointment/record`,appoinment)
   .then((res)=>{
+    alert("Your appoinment successfully added");
   console.log(res.data);
+  navigateTo('/appoinmenttable');
+
   }).catch((err)=>{
+    alert("Your appoinment have getting inturrupted.Try again");
     console.log(err);
   })
+
     }
 
     return(
@@ -189,8 +195,10 @@ export const Appoinment=() =>{
                 </FormGroup>
                 <div align="center" >
                 <Button  onClick={handleSubmit} variant="contained" style={buttonColor}>Submit</Button>
+                <Button  variant="contained" style={buttonColor}><NavLink to='/appoinmenttable' style={{color:'black'}} >
+                               Appointment Table
+                                </NavLink></Button>
                 <br/>
-                <a href="/AppointmentMainpage"><Button  onClick={handleSubmit} variant="contained" style={buttongreenColor}>Edit appoinment</Button>t</a>
                 </div>
             </form>
         </Paper>
