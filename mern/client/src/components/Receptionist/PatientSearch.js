@@ -41,13 +41,16 @@ function SearchBar({ placeholder}) {
     setWordEntered("");
   };
 
+
+
   const [selectedName, setSelectedName] = useState("");
   const [selectedPhone, setSelectedPhone] = useState("");
 
 
 
   return (
-    <><div className="search">
+    <>
+    <div className="search">
       <div className="searchInputs">
         <input
           type="text"
@@ -62,13 +65,11 @@ function SearchBar({ placeholder}) {
             <CloseIcon id="clearBtn" onClick={clearInput} />
           )}
         </div>
-
-      
-
       </div>
-      <SearchResult Pname={selectedName} Pno={selectedPhone} />
-
-
+      
+      
+      
+      {/* displaying  most relavant name and phone */}
       {filteredData.length !== 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 12).map((value, key) => {
@@ -78,18 +79,22 @@ function SearchBar({ placeholder}) {
                   setSelectedName(filteredData[key].name);
                   setSelectedPhone(filteredData[key].phone); 
                   clearInput();
+                  
                 }}>
                 <p>{value.name} - {value.phone}</p>
                 
               </div>
             );
-          
-          })}
-
+          })
+          }
         </div>
       )}
-
+      
     </div>
+    <SearchResult Pname={selectedName} Pno={selectedPhone} setName={setSelectedName} setPhone={setSelectedPhone}/>
+    
+    
+
     </>
   );
 }
