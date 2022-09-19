@@ -19,8 +19,13 @@ const patientRouter = require('./routes/Patients');
 app.use('/api/patient', patientRouter);
 const appoinmentRouter = require('./routes/Appoinment');
 app.use('/api/appointment', appoinmentRouter);
+<<<<<<< HEAD
 const EditappoinmentRouter = require('./routes/EditAppoinment');
 app.use('/api/Editappointment', EditappoinmentRouter); 
+=======
+//const EditappoinmentRouter = require('./routes/EditAppoinment');
+//app.use('/api/Editappointment', EditappoinmentRouter); 
+>>>>>>> 43aa2c809f1cfe42022a940befd758085d5844cd
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
