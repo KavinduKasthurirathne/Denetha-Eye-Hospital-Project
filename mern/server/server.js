@@ -19,24 +19,12 @@ const patientRouter = require('./routes/Patients');
 app.use('/api/patient', patientRouter);
 const appoinmentRouter = require('./routes/Appoinment');
 app.use('/api/appointment', appoinmentRouter);
-<<<<<<< HEAD
-<<<<<<< HEAD
-const EditappoinmentRouter = require('./routes/EditAppoinment');
-app.use('/api/Editappointment', EditappoinmentRouter); 
-=======
-//const EditappoinmentRouter = require('./routes/EditAppoinment');
-//app.use('/api/Editappointment', EditappoinmentRouter); 
->>>>>>> 43aa2c809f1cfe42022a940befd758085d5844cd
-=======
-//const EditappoinmentRouter = require('./routes/EditAppoinment');
-//app.use('/api/Editappointment', EditappoinmentRouter); 
-//const MainappoinmentRouter = require('./routes/AppointmentMainpage');
-//app.use('/api/AppointmentMainpage', MainappoinmentRouter); 
+// const EditappoinmentRouter = require('./routes/EditAppoinment');
+// app.use('/api/Editappointment', EditappoinmentRouter);
 const surgeryRouter = require("./routes/Surgery");
 app.use("/api/surgery",surgeryRouter);
 const HelpRouter = require("./routes/Help");
 app.use("/api/help",HelpRouter);
->>>>>>> parent of 5a5476c (1)
 if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
   app.use(express.static('client/build'));
   app.get('*', (req, res) => {
