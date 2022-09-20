@@ -9,7 +9,7 @@ export const SearchResult = (props) => {
       };
     
     return(<>
-        <div className="patientdetails">Patient Name : {props.Pname}<br /><br />
+        <div className="patientdetails">Patient Name : {props.Pname}<br />
         <i className="fas fa-phone"> </i> : {props.Pno}
         { (props.Pname!=="" && props.Pno!=="" )? 
     
