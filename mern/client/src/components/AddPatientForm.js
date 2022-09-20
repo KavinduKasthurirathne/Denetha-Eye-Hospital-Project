@@ -5,7 +5,7 @@ import '../App.css';
 export const AddPatientForm = () => {
 
     return (
-        <div>
+        <>
 
         <div class='addformpatienttable'>
             <p class='denethahead'><u><b>Denetha Eye Hospital</b></u></p>
@@ -57,16 +57,8 @@ export const AddPatientForm = () => {
 
             </form>
 
-
-        <div class='addNew'>Add New Patient</div>
-
-        <div class='patienttable'>
-            <form>
-                
-            </form>
         </div>
 
-        </div>
-        </div>
+        </>
     );
 };
