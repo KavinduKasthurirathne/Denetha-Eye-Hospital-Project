@@ -28,7 +28,43 @@
 }
 
 #Clearbtn{
-    width: auto;
-    margin-left: 150px;
+    border-radius: 16px;
+    width: fit-content;
+    margin-left: 210px;
+    height:fit-content;
+    font-size: small;
+    background-color:#adc2c8;
+    color: black;
 
+}
+
+#appointType{
+    margin-top: 15%;
+   text-align: center;
+}
+
+.AppointTable{
+    padding: 1%;
+   border: 0px;
+ 
+}
+
+#type{
+    padding: 30px;
+    background-color: rgb(222, 238, 240);
+    
+}
+
+#type:hover{
+    background-color: #9fcedc;
+    cursor: pointer;
+    
+}
+
+#makeAppoint{
+    float: right;
+    width: auto;
+    margin-right: 15%;
+    margin-bottom: 5%;
+    
 }
