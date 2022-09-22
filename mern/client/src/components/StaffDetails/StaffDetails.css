@@ -1,0 +1,33 @@
+
+.staffDetails{
+    border:10px;
+}
+.topic1{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.btnAdd{
+    font-size: 20px;
+    float:right;
+    background-color: #2A628F;
+
+}
+
+.stafftable{
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid;
+}
+.searchbar ul{
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchbar li{
+    display:inline-flex;
+}
+
+

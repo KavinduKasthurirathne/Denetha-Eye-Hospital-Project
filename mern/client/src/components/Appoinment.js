@@ -5,26 +5,45 @@ import { NavLink,useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {useCookies} from 'react-cookie';
 import { Help } from "./Help";
+import {InputAdornment} from "@mui/material";
 
-export const Appoinment=() =>{
+export const Appoinment=(props) =>{
    
     const [post,setPost] = useState(null);
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
     const buttonColor={background:'#2A628F' ,padding:'10px 97px',margin :'5px',width:100}
     const buttongreenColor = {background:'#3D8361',padding:'10px 97px',margin :'5px',width:100};
-    const [Name,setName] = useState('');
+    const [Name,setName] = useState(props.name===null?"" :props.name);
     const [Address,setAddress] = useState('');
     const [Age,setAge] = useState('');
     const [Gender,setGender] = useState('');
     const [appoinmentnumber,setAppoinmentnumber] = useState('');
-    const [contactnumber,setcontactnumber] = useState('');
+    const [contactnumber,setcontactnumber] = useState(props.phone===null?"" :props.phone);
     const [doctor, setdoctor] = useState('');
-    const [type, settype] = useState('');
+    const [type, settype] = useState("");
     const [date,setDate] = useState('');
     const [time,setTime] = useState('');
     const [cookies] = useCookies('proxy');
     const navigateTo = useNavigate();
     const logo = require('../image/denethaLogo.png');
+
+    useEffect(() => {
+      switch(props.type){
+        case "O" : settype("OPD");
+        break;
+
+        case  "C" : settype("Clinic");
+        break;
+
+        case  "S" : settype("Surgery");
+        break;
+
+        case  "P" : settype("Post-Operation");
+        break;
+
+      }
+
+    },[]);
 
     const handleName= ({target}) =>
     {
@@ -98,7 +117,7 @@ export const Appoinment=() =>{
         <Paper elevation={20} style={paperStyle}>
             <Grid align='center'>
             <div> <img className='logo-img' src={logo} alt={'logo'} /></div>
-            <h1>Make Appoinment</h1>
+            <h1>Make Appointment</h1>
             </Grid>
             <form>
             <br/>
@@ -120,9 +139,11 @@ export const Appoinment=() =>{
                 </RadioGroup>
                 </FormControl>
                 <br/>
-                APPOINMENT DETAILS
+                APPOINTMENT DETAILS
                 <br/><br/>
-                <TextField type="number" fullWidth label='Appoinment Number'placeholder="Enter Appoinment Number" onChange={handleappoinmentnumber} value={appoinmentnumber}/>
+                <TextField InputProps={{
+                  startAdornment: <InputAdornment position="start">{props.type}</InputAdornment>,
+                  }}type="number" fullWidth label='Appoinment Number'placeholder="Enter Appoinment Number" onChange={handleappoinmentnumber} value={appoinmentnumber}/>
                 <br/><br/>
                 
                 <FormControl sx={{marginTop: 2, width:450}}>
@@ -154,33 +175,8 @@ export const Appoinment=() =>{
             </FormControl>
                 <br/><br/>
            
-                <FormControl sx={{marginTop: 2, width:450}}>
-                <InputLabel id='Select_Type'  >Type</InputLabel>
-                <Select 
-                  label='Type'
-                  labelId='select-role-label'
-                  id='Type'
-                  name='Type'
-                  value={type} 
-                  onChange={handleType}
-                    variant='standard' >
-                        <MenuItem value=''>
-                            <div style={{marginLeft: 80,width:350}}>Select</div>
-                        </MenuItem>
-                        <MenuItem value='OPD'>
-                            <div style={{marginLeft: 80,width:350}}>OPD</div>
-                        </MenuItem>
-                        <MenuItem value='Clinic'>
-                            <div style={{marginLeft: 80,width:350}}>Clinic</div>
-                        </MenuItem>
-                        <MenuItem value='Operation'>
-                            <div style={{marginLeft: 80,width:350}}>Operation</div>
-                        </MenuItem>
-                        <MenuItem value='Postoparation'>
-                            <div style={{marginLeft: 80,width:350}}>Post Oparation</div>
-                        </MenuItem>
-                </Select>
-            </FormControl>
+                <TextField fullWidth label='Type' value={type} onChange={handleType}/>
+
            
                 <br/><br/>
                 <div style={{display:'flex'}}>

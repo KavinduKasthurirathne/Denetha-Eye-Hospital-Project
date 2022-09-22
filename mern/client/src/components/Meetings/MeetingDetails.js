@@ -1,31 +1,35 @@
+
 import React from 'react';
-import {Header} from './Header.js';
-function App(){
+import './MeetingDetails.css';
+
+function Meetings(){
     return(
-        <div class = "MeetingDetails">
-            <div class = "block1">
-                <a href="StaffDetails.js">
-                    <Button> Staff Details </Button>
-                </a>
-                <h1>Meeting Timetable</h1>
-                <a href="">
-                    <Button> Download </Button>
-                </a>
-            </div> 
+        <div className="mainmeetings">
+            <div className='meetingheader'>
+                <h2 className="meetingtopic">Meeting Time Table</h2>
+                <button
+                    className='btndownload'
+                    onClick={''}>
+                        Download
+                </button>
+            </div>
 
-        <h2></h2>
-            
 
-            <table>
-                <tr>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Host</th>
-                    <th>Description</th>
-                </tr>
-                
-            </table>
-            
+            <table className='meetingtable'>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Host</th>
+                <th>Description</th>
+            </tr>
+
+        </table>
         </div>
+
+
+
+
     );
 }
+
+export default Meetings;

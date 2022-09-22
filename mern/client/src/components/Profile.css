@@ -1,0 +1,21 @@
+profile.css
+.profiletable{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    
+}
+.profiletable th{
+    text-align: right;
+}
+.profiletable td{
+    text-align: left;
+    width:5px;
+}
+#btnedit{
+    font-size: 20px;
+    float:right;
+    background-color: #2A628F;
+    margin-right: 315px;
+    margin-top: 20px;
+}

@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
 import {SearchResult} from "./SearchResult";
 
-function SearchBar({ placeholder}) {
+function SearchBar(props) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
 
@@ -41,20 +41,13 @@ function SearchBar({ placeholder}) {
     setWordEntered("");
   };
 
-
-
-  const [selectedName, setSelectedName] = useState("");
-  const [selectedPhone, setSelectedPhone] = useState("");
-
-
-
   return (
     <>
     <div className="search">
       <div className="searchInputs">
         <input
           type="text"
-          placeholder={placeholder}
+          placeholder="Enter patient name..."
           value={wordEntered}
           onChange={handleFilter} />
 
@@ -76,8 +69,8 @@ function SearchBar({ placeholder}) {
             
             return (
               <div className="dataItem hover" key={key} onClick={()=>{
-                  setSelectedName(filteredData[key].name);
-                  setSelectedPhone(filteredData[key].phone); 
+                  props.setSelectedName(filteredData[key].name);
+                  props.setSelectedPhone(filteredData[key].phone); 
                   clearInput();
                   
                 }}>
@@ -91,7 +84,7 @@ function SearchBar({ placeholder}) {
       )}
       
     </div>
-    <SearchResult Pname={selectedName} Pno={selectedPhone} setName={setSelectedName} setPhone={setSelectedPhone}/>
+    <SearchResult Pname={props.selectedName} Pno={props.selectedPhone} setName={props.setSelectedName} setPhone={props.setSelectedPhone}/>
     
     
 

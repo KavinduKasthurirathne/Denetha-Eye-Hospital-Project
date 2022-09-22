@@ -49,17 +49,31 @@
  
 }
 
-#type{
+#td{
     padding: 30px;
     background-color: rgb(222, 238, 240);
+}
+
+#type{
+    padding: 10px;
+    border: 0px;
+    font-size: medium;
     
 }
 
-#type:hover{
+#td:hover{
+   
+    cursor: pointer;
+    
+}
+
+#type:focus{
     background-color: #9fcedc;
     cursor: pointer;
     
 }
+
+
 
 #makeAppoint{
     float: right;

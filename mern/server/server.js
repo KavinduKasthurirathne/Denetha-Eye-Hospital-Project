@@ -19,6 +19,16 @@ const patientRouter = require('./routes/Patients');
 app.use('/api/patient', patientRouter);
 const appoinmentRouter = require('./routes/Appoinment');
 app.use('/api/appointment', appoinmentRouter);
+
+const meetingRouter = require('./routes/Meeting');
+app.use('/api/meeting' , meetingRouter);
+
+const profileRouter = require('./routes/Profiledb');
+app.use('/api/profile' , profileRouter);
+
+const staffRouter = require('./routes/Staff');
+app.use('./api/staffdetails' , staffRouter);
+
 // const EditappoinmentRouter = require('./routes/EditAppoinment');
 // app.use('/api/Editappointment', EditappoinmentRouter);
 const surgeryRouter = require("./routes/Surgery");
