@@ -14,10 +14,10 @@ const POBody = (props) => {
             ...prev,
             [target.name]: target.value
         }));
-        if(inputs.num || inputs.unit){
-            setDisable(false);
-        }else {
+        if(inputs.num==='' && inputs.unit==='' && inputs.item===''){
             setDisable(true);
+        }else {
+            setDisable(false);
         }
     };
 
