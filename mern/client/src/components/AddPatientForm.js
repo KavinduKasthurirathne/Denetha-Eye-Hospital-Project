@@ -47,13 +47,17 @@ export const AddPatientForm = () => {
 
                 <label for="checkboxform">How do you like to remind upcoming appointments: </label> <br></br>
 
-                <input type="checkbox" id="call" name="call" value="Call"></input>
-                <label for="call">Call</label>
-                <input type="checkbox" id="msg" name="msg" value="Message"></input>
-                <label for="msg">Message</label> <br></br>
+                <div class='checkboxes'>
+                    <input type="checkbox" id="call" name="call" value="Call"></input>
+                    <label for="call">Call</label> <t></t>
+                    <input type="checkbox" id="msg" name="msg" value="Message"></input>
+                    <label for="msg">Message</label>
+                </div>
 
-                <button type="button">Save</button>
-                <button type="button">Cancel</button>
+                <div class='buttons'>
+                    <button class='saveBtn' type="button"><b>Save</b></button>
+                    <button class='cancelBtn' type="button"><b>Cancel</b></button>
+                </div>
 
             </form>
 
