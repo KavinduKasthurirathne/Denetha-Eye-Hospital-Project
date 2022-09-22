@@ -28,7 +28,7 @@ const PCSubmit = (props) => {
             ...prev,
             [target.name]: target.value
         }));
-        if(inputs.item || inputs.amount || inputs.type || inputs.date || inputs.vNum){
+        if(inputs.item!=='' && inputs.amount!=='' && inputs.type!=='' && inputs.vNum!==''){
             setDisable(false);
         }else {
             setDisable(true);
