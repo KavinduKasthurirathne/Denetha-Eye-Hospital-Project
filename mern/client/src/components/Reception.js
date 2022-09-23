@@ -4,6 +4,7 @@ import './Receptionist/Reception.css';
 import SearchBar from "./Receptionist/PatientSearch";
 import { AppointType } from './Receptionist/AppointType';
 import { Appoinment } from './Appoinment';
+import { Receipt } from "./Receptionist/Receipt";
 
 export const Reception = () => {
 
@@ -11,6 +12,7 @@ export const Reception = () => {
     const [selectedName, setSelectedName] = useState("");
     const [selectedPhone, setSelectedPhone] = useState("");
     const [AppoinmentType, setAppoinmentType] = useState("");
+    const [NewReceipt, setNewReceipt] = useState(false);
 
 
 
@@ -31,7 +33,9 @@ export const Reception = () => {
                     
                     <AppointType btnsetter={setNewAppoinment} btnstate={NewAppoinment} type={setAppoinmentType}/>
                     
-                </div> : <Appoinment name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
+                </div> : !NewReceipt?
+                    <Appoinment btnsetter ={setNewReceipt} btnstate={NewReceipt} name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
+                    :<Receipt name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
                 }
                 
                 

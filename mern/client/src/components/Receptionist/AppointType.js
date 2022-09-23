@@ -1,14 +1,9 @@
 import React, { useState } from "react";
 import './Reception.css';
 
-export const AppointType = (props) => {
-
-   
-      
+export const AppointType = (props) => {  
     
-   
-    
-    return(<>
+      return(<>
     <div id='appointType'>
         <h2 >Select Appointment type</h2>        
         <table align='center' className='AppointTable'>

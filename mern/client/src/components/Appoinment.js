@@ -6,6 +6,7 @@ import axios from 'axios';
 import {useCookies} from 'react-cookie';
 import { Help } from "./Help";
 import {InputAdornment} from "@mui/material";
+import '../App.css';
 
 export const Appoinment=(props) =>{
    
@@ -190,10 +191,12 @@ export const Appoinment=(props) =>{
                <FormControlLabel control={<Checkbox defaultChecked />} required label="I accept the terms and conditions." />
                 </FormGroup>
                 <div align="center" >
-                <Button  onClick={handleSubmit} variant="contained" style={buttonColor}>Submit</Button>
-                <Button  variant="contained" style={buttonColor}><NavLink to='/appoinmenttable' style={{color:'black'}} >
-                               Appointment Table
-                                </NavLink></Button>
+                <button className='button' onClick={()=>{
+                 props.btnsetter(!props.btnstate);
+                 handleSubmit();
+            
+                }} variant="contained"  style={{color:'white'}} >Confirm Appoinment</button>
+                <NavLink to='/appoinmenttable' style={{color:'white'}} ><button className='button'>Appointment Table</button></NavLink>
                 <br/>
                 </div>
             </form>

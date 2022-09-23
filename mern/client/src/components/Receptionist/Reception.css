@@ -82,3 +82,19 @@
     margin-bottom: 5%;
     
 }
+
+#receipt{
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+   
+    
+}
+
+#receiptTable{
+    box-shadow: inset;
+    text-align: left;
+    padding: 20px;
+    background-color: rgb(218, 233, 238);
+
+}
