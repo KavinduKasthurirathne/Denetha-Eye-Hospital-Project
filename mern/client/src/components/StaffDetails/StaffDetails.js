@@ -15,7 +15,7 @@ const StaffDetails = () => {
                     <li>
                         <input  type="text" 
                                 className = "search" 
-                                placeholder="search"/>Search
+                                placeholder="search"/>
                     </li>
                     <li>
                         <button 
