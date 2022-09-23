@@ -46,10 +46,6 @@ export const Header = () => {
             path: '/receptionist',
             visible: ['receptionist']
         },{
-            name: 'Staff',
-            path: '/staff',
-            visible: ['accountant', 'manager']
-        }, {
             name: 'Inventory',
             path: '/inventory',
             visible: ['accountant', 'manager']
@@ -65,6 +61,10 @@ export const Header = () => {
             name: 'Surgery',
             path: '/surgery',
             visible: ['accountant', 'receptionist', 'doctor']
+        },{
+            name:'Meetings',
+            path:'/meetings',
+            visible: ['staff' , 'manager','accountant','receptionist']
         }
     ];
 
@@ -139,7 +139,8 @@ export const Header = () => {
                             <ListItemIcon>
                                 <AccountCircleIcon />
                             </ListItemIcon>
-                            Profile
+                            <NavLink to='/profile' style={{color:'black'}} >Profile
+                            </NavLink>
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
