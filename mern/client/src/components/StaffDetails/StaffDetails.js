@@ -1,15 +1,36 @@
+
 import React from 'react';
-import {Header} from '../Header.js';
+import './StaffDetails.css';
+
+function directMeetings(){
+    <a href='MeetingDetails.js'></a>
+}
 
 const StaffDetails = () => {
     return(
         <div class = "staffDetails">
-            <h2>Staff Details</h2>
-            <input type = "button" id = "SDB1"/>
-            
-            <input type = "text" placeholder="Search"/>
-            <input type = "button" id = "SDB2" />ADD
-            <table>
+            <h2 class = "topic1">Staff Details</h2>
+            <div className='SearchBar'>
+                <ul>
+                    <li>
+                        <input  type="text" 
+                                className = "search" 
+                                placeholder="search"/>Search
+                    </li>
+                    <li>
+                        <button 
+                            className="btnAdd"
+                            onclick = {''}>
+                            Add
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+               
+                
+
+            <table class="stafftable">
                 <tr>
                     <th>ID</th>
                     <th>Name</th>

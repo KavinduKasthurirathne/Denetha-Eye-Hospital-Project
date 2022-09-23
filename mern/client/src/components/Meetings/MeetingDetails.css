@@ -1,0 +1,28 @@
+
+.meetingheader{
+    display: inline-flex;
+    margin: 20px;
+    margin-left:650px;
+    margin-right: auto;
+
+}
+.meetingtopic{
+    text-align: center;
+
+
+    
+}
+.btndownload{
+    margin-left: 150px;
+    margin-top:15px;
+    height:35px;
+    width:80px;
+    border-radius: 10px;;
+}
+.meetingtable{
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: auto;
+    border-style: groove;
+}
+
