@@ -127,9 +127,9 @@ const PCSubmit = (props) => {
             </div>
             <div className='po-flex-child'>
                 <FormControl variant='outlined' fullWidth>
-                    <InputLabel htmlFor='type'>Type</InputLabel>
+                    <InputLabel htmlFor='pcType'>Type</InputLabel>
                     <Select 
-                        id='type'
+                        id='pcType'
                         name='type'
                         size='small'
                         value={inputs.type}
