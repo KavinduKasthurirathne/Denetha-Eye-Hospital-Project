@@ -191,9 +191,9 @@ export const Appoinment=(props) =>{
                <FormControlLabel control={<Checkbox defaultChecked />} required label="I accept the terms and conditions." />
                 </FormGroup>
                 <div align="center" >
-                <button className='button' onClick={()=>{
+                <button className='button' onClick={(e)=>{
                  props.btnsetter(!props.btnstate);
-                 handleSubmit();
+                 handleSubmit(e);
             
                 }} variant="contained"  style={{color:'white'}} >Confirm Appoinment</button>
                 <NavLink to='/appoinmenttable' style={{color:'white'}} ><button className='button'>Appointment Table</button></NavLink>
