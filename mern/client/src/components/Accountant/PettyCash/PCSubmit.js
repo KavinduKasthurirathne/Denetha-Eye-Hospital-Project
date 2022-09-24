@@ -28,12 +28,15 @@ const PCSubmit = (props) => {
             ...prev,
             [target.name]: target.value
         }));
+    };
+
+    useEffect(()=>{
         if(inputs.item!=='' && inputs.amount!=='' && inputs.type!=='' && inputs.vNum!==''){
             setDisable(false);
         }else {
             setDisable(true);
         }
-    };
+    }, [inputs]);
 
     const handleAdd = async () => {
         let amount = parseFloat(inputs.amount) * 1.00;
