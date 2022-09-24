@@ -60,7 +60,7 @@ export const Header = () => {
         }, {
             name: 'Surgery',
             path: '/surgery',
-            visible: ['accountant', 'receptionist', 'doctor']
+            visible: ['accountant', 'receptionist', 'doctor','staff']
         },{
             name:'Meetings',
             path:'/meetings',

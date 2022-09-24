@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Accountant.css';
 import '../../../App.css';
 import { Button, FormControl, InputLabel, OutlinedInput} from '@mui/material';
@@ -6,7 +6,11 @@ import POItems from './POItems';
 import SaveIcon from '@mui/icons-material/Save';
 
 const POBody = (props) => {
-    const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState({
+        num: '',
+        unit: '',
+        item: ''
+    });
     const [disable, setDisable] = useState(true);
 
     const handleChange = ({target}) => {
@@ -14,12 +18,15 @@ const POBody = (props) => {
             ...prev,
             [target.name]: target.value
         }));
-        if(inputs.num==='' && inputs.unit==='' && inputs.item===''){
-            setDisable(true);
-        }else {
-            setDisable(false);
-        }
     };
+
+    useEffect(()=>{
+        if(inputs.num!=='' && inputs.unit!=='' && inputs.item!==''){
+            setDisable(false);
+        }else {
+            setDisable(true);
+        }
+    }, [inputs]);
 
     const calculateTotal = () => {
         let sum = 0;
