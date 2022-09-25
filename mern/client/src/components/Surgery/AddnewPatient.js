@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Header} from '../Header.js';
+//import {Header} from '../Header.js';
 import axios  from "axios";
 
 export default function AddSuPatient (){
