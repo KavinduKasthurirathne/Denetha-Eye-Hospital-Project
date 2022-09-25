@@ -1,13 +1,19 @@
 import React, {useState} from "react";
 //import {Header} from '../Header.js';
 import axios  from "axios";
+import './Addnew.css';
 
 export default function AddSuPatient (){
         const [pnumber , setPnumber]= useState("");
         const [pname , setName]= useState("");
         const [number , setNumber]= useState("");
         const [age , setAge]= useState("");
-        const [gender , setGender]= useState("");
+
+        const [gender, setGender] = React.useState('Male');
+
+        const handleChange = (e) => {
+         setGender(e.target.value)
+             }
         const [Stype , setStype]= useState("");
 
     function sendData(e){
@@ -67,14 +73,9 @@ export default function AddSuPatient (){
                 setAge(e.target.value);
                 }}/>
             </div>
+            <div><input type="radio" value="male" checked={gender === 'Male'} onChange={handleChange} /> Male</div>
+            <div><input type="radio" value="female" checked={gender === 'Female'} onChange={handleChange}/> Female</div>
 
-            <div className="form-group">
-                <label for="gender">Gender</label>
-                <input type="text" class="form-control" id="gender"  placeholder="Enter Patient's Surgery Type"   onChange={(e)=>{
-
-                        setGender(e.target.value);
-                        }}/>    
-            </div>
             
             
 
