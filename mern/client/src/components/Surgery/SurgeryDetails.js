@@ -22,6 +22,7 @@ const Record = (props) => (
      <button className="btnLink"
        onClick={() => {
          props.deleteRecord(props.record._id);
+         window.alert("Record Deleted");
        }}
      >
        Delete
@@ -84,6 +85,7 @@ export default function RecordList() {
  return (
    <div className="container">
     <h2 style={{marginLeft:20}}>Surgery Details</h2>
+    <input className="searchbar" type="text" placeholder="Search.."></input>
     <button className="button" onClick= {navigateToAddNew}>Add New Patient +</button>
      <table className="table_table-striped" style={{ marginTop: 20 }}>
        <thead>
