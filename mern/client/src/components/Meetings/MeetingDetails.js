@@ -75,7 +75,7 @@ function Meetings(props){
                             Download
                     </button>
                     <button 
-                        className='addMeeting'
+                        className='button'
                         onClick={AddMeeting}>
                             Add
                     </button>
@@ -99,7 +99,7 @@ function Meetings(props){
             {
                 editDetails.date === ''? null:
                 <AddMeetings 
-                date = {editDetails.date}
+                date = {getDateString(editDetails.date)}
                 time = {editDetails.time}
                 host = {editDetails.host}
                 description = {editDetails.description}
@@ -124,7 +124,7 @@ const Record = (props) => (
       <td>{props.record.description}</td>
       <td>
       <button
-            className='editMeeting'
+            className='button'
             onClick={() => {
                 props.setEditDetails({
                     date: props.record.date,
@@ -135,7 +135,7 @@ const Record = (props) => (
             }}>
                 Edit
         </button>&nbsp;&nbsp;
-        <button className="btn_btn-link"
+        <button className="button"
           onClick={() => {
             props.deleteRecord(props.record._id);
           }}

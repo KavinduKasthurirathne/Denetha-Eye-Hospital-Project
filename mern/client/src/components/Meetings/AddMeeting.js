@@ -49,7 +49,7 @@ function AddMeetings(props){
                     onChange={(event) =>{
                         setDate(event.target.value);//assign evrytime, when changing the value
                     }}
-                    value = {(getDateString)}
+                    value = {date}
                     />
                 </div>
 
