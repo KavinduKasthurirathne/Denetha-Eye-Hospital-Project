@@ -37,7 +37,7 @@ export const AddPatientForm = () => {
         }
 
         axios.post("http://localhost:5000/api/patient/insert", newPatient).then(()=>{
-            alert("Student Added!");
+            alert("Patient Added Successfully!");
             navigateTo('/receptionist');
         }).catch((err)=>{
             alert(err);
@@ -57,14 +57,14 @@ export const AddPatientForm = () => {
             <p class='addformhead'><u><b>Add New Patient</b></u></p>
 
             <form class='addform' onSubmit={sendData}>
-                <label for="name">Full Name: </label>
+                <label for="name">Full Name: * </label>
                 <input type="text" id="name" className="name" placeholder='Full Name' required
 
                 onChange = {(e)=>{
                     setname(e.target.value);
                 }} /> <br></br>
 
-                <label for="age">Age: </label>
+                <label for="age">Age: * </label>
                 <input type="text" id="age" className="age" placeholder='Age' required
 
                 onChange = {(e)=>{
@@ -92,7 +92,7 @@ export const AddPatientForm = () => {
                     setaddress(e.target.value);
                 }} /> <br></br>
 
-                <label for="phone">Phone Number: </label>
+                <label for="phone">Phone Number: * </label>
                 <input type="text" id="phone" className="phone" placeholder='Phone Number' required pattern="[0-9]{10}"
 
                 onChange = {(e)=>{
