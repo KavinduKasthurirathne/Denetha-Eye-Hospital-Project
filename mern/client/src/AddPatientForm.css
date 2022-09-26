@@ -47,6 +47,7 @@ body {
 }
 
 .saveBtn {
+    cursor: pointer;
     font-size: 16px;
     padding: 7px;
     margin-right: 70px;
@@ -62,6 +63,7 @@ body {
 }
 
 .cancelBtn {
+    cursor: pointer;
     font-size: 16px;
     padding: 7px;
     width: 90px;

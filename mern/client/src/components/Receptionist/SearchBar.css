@@ -3,7 +3,7 @@
     display: flex;
   }
   
-  .search input {
+  #search input {
     float: left;
     background-color: white;
     border: 0;

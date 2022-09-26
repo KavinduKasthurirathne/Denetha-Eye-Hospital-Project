@@ -77,7 +77,7 @@ const PCHeader = (props) => {
                     onChange={handleChange} /></div> }
                 handleClose={()=>setDialog(false)}
                 handleButton={onSubmit}
-                title='Create New Purchase Order' 
+                title='Purchase Order Reserve' 
                 enable={dialog} />
         </div>
     );

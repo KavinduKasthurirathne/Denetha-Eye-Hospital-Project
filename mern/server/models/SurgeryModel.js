@@ -23,7 +23,7 @@ const surgerySchema = new Schema({
     }
 
 })
-const Surgery = mongoose.model("SuergeryDetail",surgerySchema);
+const Surgery = mongoose.model("SurgeryDetail",surgerySchema);
 
 module.exports = Surgery;
 

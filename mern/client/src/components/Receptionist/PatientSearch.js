@@ -43,7 +43,7 @@ function SearchBar(props) {
 
   return (
     <>
-    <div className="search">
+    <div id="search">
       <div className="searchInputs">
         <input
           type="text"

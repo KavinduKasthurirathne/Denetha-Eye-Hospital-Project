@@ -1,0 +1,53 @@
+.table_table-striped th{padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #def7ed;
+  color: rgb(18, 18, 18);
+  padding: 8px;
+  font-size: 20px;
+
+}
+.container{
+    margin-top: 70px;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-content: center;
+}
+.design{
+    padding: 8px;
+    width: 100px;
+
+}
+.cwidth{
+    width: 5px;
+    
+}
+.btnLink{
+    border-radius: 8px;
+    font-size: 16px;
+}
+.button{
+        padding: 15px;
+        width: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 30px;
+        border: 0px;
+        color: white;
+        background-color: #2A628F;
+        transition: all 0.3s;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #989898;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+          'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+          sans-serif;
+      
+}
+.searchbar{
+    float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
