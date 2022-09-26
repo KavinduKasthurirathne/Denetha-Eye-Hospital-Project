@@ -86,10 +86,7 @@ export default function RecordList() {
     const navigateToDiagForm = () => {
         navigate2('/diagForm');
       };
-      const navigate3 = useNavigate();
-      const navigateToEdit = () => {
-          navigate3('/edit');
-        };
+      
   
       function filterContent (posts,searchItem){
         const result = posts.filter((post)=>{
@@ -133,7 +130,7 @@ export default function RecordList() {
      <br/>
      <button className="button" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button>
      <button className="button" onClick= {navigateToDiagForm}><span>Diagnosis Recipts</span></button>
-     <button className="button" onClick= {navigateToEdit}><span>Edit</span></button>
+     
    </div>
  );
 }
