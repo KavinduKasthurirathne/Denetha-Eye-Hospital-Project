@@ -4,7 +4,7 @@ const Mongoose = require('mongoose');
 const meetingSchema = new Mongoose.Schema({
 
     date : {
-        type: String,
+        type: Date,
         required : true//backend validation
     },
 

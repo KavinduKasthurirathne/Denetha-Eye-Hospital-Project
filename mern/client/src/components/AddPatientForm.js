@@ -1,8 +1,46 @@
-import {React} from 'react';
+import React,{useState} from 'react';
 import '../AddPatientForm.css';
 import '../App.css';
+import axios from "axios";
 
 export const AddPatientForm = () => {
+
+    const [name, setname] = useState("");
+    const [age, setage] = useState("");
+    const [gender, setgender] = useState("");
+    const [dob, setdob] = useState("");
+    const [address, setaddress] = useState("");
+    const [phone, setphone] = useState("");
+    const [gname, setguardianName] = useState("");
+    const [gnumber, setguardianPhone] = useState("");
+    const [checkboxCall, setcheckboxCall] = useState("");
+    const [checkboxMsg, setcheckboxMsg] = useState("");
+    const [remarks, setremarks] = useState("");
+
+    function sendData(e) {
+        e.preventDefault();
+        
+        const newPatient ={
+            name,
+            age,
+            gender,
+            dob,
+            address,
+            phone,
+            gname,
+            gnumber,
+            checkboxCall,
+            checkboxMsg,
+            remarks
+        }
+
+        axios.post("http://localhost:5000/api/patient/insert", newPatient).then(()=>{
+            alert("Student Added!");
+        }).catch((err)=>{
+            alert(err);
+        })
+
+    }
 
     return (
         <>
@@ -11,52 +49,90 @@ export const AddPatientForm = () => {
             <p class='denethahead'><u><b>Denetha Eye Hospital</b></u></p>
             <p class='addformhead'><u><b>Add New Patient</b></u></p>
 
-            <form class='addform'>
-                <label for="name">Name: </label>
-                <input type="text" id="name" name="name" required></input> <br></br>
+            <form class='addform' onSubmit={sendData}>
+                <label for="name">Full Name: </label>
+                <input type="text" id="name" className="name" placeholder='Full Name' required
+
+                onChange = {(e)=>{
+                    setname(e.target.value);
+                }} /> <br></br>
 
                 <label for="age">Age: </label>
-                <input type="text" id="age" name="age" required></input> <br></br>
+                <input type="text" id="age" className="age" placeholder='Age' required
+
+                onChange = {(e)=>{
+                    setage(e.target.value);
+                }} /> <br></br>
 
                 <label for="gender">Gender (M/F): </label>
-                <input type="text" id="gender" name="gender" required></input> <br></br>
+                <input type="text" id="gender" className="gender" placeholder='Male (M)/ Female (F)' required
+                
+                onChange = {(e)=>{
+                    setgender(e.target.value);
+                }} /> <br></br>
 
                 <label for="dob">Date of Birth: </label>
-                <input type="date" id="dob" name="dob"></input> <br></br>
+                <input type="date" id="dob" className="dob"
+
+                onChange = {(e)=>{
+                    setdob(e.target.value);
+                }} /> <br></br>
                 
                 <label for="address">Address: </label>
-                <input type="text" id="address" name="address"></input> <br></br>
+                <input type="text" id="address" className="address" placeholder='Address'
 
-                <label for="fad">First Appointment Date: </label>
-                <input type="date" id="fad" name="fad"></input> <br></br>
+                onChange = {(e)=>{
+                    setaddress(e.target.value);
+                }} /> <br></br>
 
-                <label for="lad">Last Appointment Date: </label>
-                <input type="date" id="lad" name="lad"></input> <br></br>
+                <label for="phone">Phone Number: </label>
+                <input type="text" id="phone" className="phone" placeholder='Phone Number' required
 
-                <label for="number">Phone Number: </label>
-                <input type="text" id="number" name="number" required></input> <br></br>
+                onChange = {(e)=>{
+                    setphone(e.target.value);
+                }} /> <br></br>
 
                 <label for="gname">Guardian's Name: </label>
-                <input type="text" id="gname" name="gname"></input> <br></br>
+                <input type="text" id="gname" className="gname" placeholder='Guardian Name'
 
-                <label for="gaddress">Guardian's Address: </label>
-                <input type="text" id="gaddress" name="gaddress"></input> <br></br>
+                onChange = {(e)=>{
+                    setguardianName(e.target.value);
+                }} /> <br></br>
 
                 <label for="gnumber">Guardian's Phone Number: </label>
-                <input type="text" id="gnumber" name="gnumber"></input> <br></br>
+                <input type="text" id="gnumber" className="gnumber" placeholder='Guardian Phone Number'
 
-                <label for="checkboxform">How do you like to remind upcoming appointments: </label> <br></br>
+                onChange = {(e)=>{
+                    setguardianPhone(e.target.value);
+                }} /> <br></br>
+
+                {/* <label for="checkboxform">How do you like to remind upcoming appointments: </label> <br></br>
 
                 <div class='checkboxes'>
-                    <input type="checkbox" id="call" name="call" value="Call"></input>
-                    <label for="call">Call</label> <t></t>
-                    <input type="checkbox" id="msg" name="msg" value="Message"></input>
+                    <input type="checkbox" id="checkboxCall" className="checkboxCall" value="Call"
+                    onChange = {(e)=>{
+                        setcheckboxCall(e.target.value);
+                    }} />
+
+                    <label for="call">Call</label>
+
+                    <input type="checkbox" id="checkboxMsg" className="checkboxMsg" value="Message"
+                    onChange = {(e)=>{
+                        setcheckboxMsg(e.target.value);
+                    }} />
+
                     <label for="msg">Message</label>
-                </div>
+                </div> */}
+
+                <label for="remarks">Remarks: </label>
+                <input type="text" id="remarks" className="remarks" placeholder='Add Remarks'
+                onChange = {(e)=>{
+                    setremarks(e.target.value);
+                }} /> <br></br>
 
                 <div class='buttons'>
-                    <button class='saveBtn' type="button"><b>Save</b></button>
-                    <button class='cancelBtn' type="button"><b>Cancel</b></button>
+                    <button id='saveBtn' className='button' type="submit"><b>Save</b></button>
+                    <button id='cancelBtn' className='button' type="cancel"><b>Cancel</b></button>
                 </div>
 
             </form>

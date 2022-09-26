@@ -1,16 +1,58 @@
-
-import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Profile.css';
+import axios from 'axios';
+import React , {useState,useEffect} from "react";
+import {useCookies} from 'react-cookie';
+
+function Profile(props) {
+
+  const [Profilerecords, setProfileRecords] = useState([]);
+  const [cookies] = useCookies('id');
+  
+  const navigate = useNavigate();
+
+      // This method fetches the records from the database.
+    useEffect(() => {
+      async function getProfile() {
+          const response = await fetch(`http://localhost:5000/api/meeting/`);
+      
+          if (!response.ok) {
+              const message = `An error occurred: ${response.statusText}`;
+              window.alert(message);
+              return;
+          }
+      
+          const Profilerecords = await response.json();
+          setProfileRecords(Profilerecords);
+      }
+      
+      getProfile();
+      
+      return;
+      }, [Profilerecords.length]);
 
 
-function Profile() {
+
+  async function deleteRecord(id) {
+    await fetch(`http://localhost:5000/api/profile/delete/${id}`, {
+    method: "DELETE"
+    });
+
+    const newRecords = Profilerecords.filter((el) => el._id !== id);
+    
+    setProfileRecords(newRecords);
+    window.alert("Profile deleted");
+  }
+
+
   return (
-    <div > 
+
+    <div className='ProfilePage'> 
       <table className='profiletable'>
         <tbody>
         <tr>
           <th>ID : </th>
-          <td><input type = "textbox" placeholder = "S001" name="idNo" value="" /></td>
+          <td><input readOnly type = "textbox" placeholder = "S001" name="idNo" value="" /></td>
         </tr>
         <tr>
           <th>Name : </th>
@@ -45,7 +87,20 @@ function Profile() {
         
       </table>
 
-      <input type = "button" id = "btnedit" name="btnedit" value="Edit"/>
+      <button 
+        className = "btnedit"  
+        >
+          Edit
+      </button>
+
+      <button
+        className="btnRemove" 
+        onClick={() => {
+          props.deleteRecord(cookies.id);
+        }}
+        >
+          Remove
+      </button>
       
     </div>
     

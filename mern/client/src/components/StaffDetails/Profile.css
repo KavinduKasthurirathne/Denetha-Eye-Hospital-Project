@@ -1,21 +1,33 @@
-profile.css
+
 .profiletable{
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+    width:600px;
     
 }
 .profiletable th{
     text-align: right;
+    width:100px;
 }
 .profiletable td{
     text-align: left;
     width:5px;
 }
-#btnedit{
+.btnedit{
+    font-size: 20px;
+    float:left;
+    background-color: #2A628F;
+    margin-left: 600px;
+    margin-top: 20px;
+}
+.btnRemove{
     font-size: 20px;
     float:right;
     background-color: #2A628F;
-    margin-right: 315px;
+    margin-right: 450px;
     margin-top: 20px;
+}
+.ProfilePage{
+    margin-bottom: 100px;
 }
