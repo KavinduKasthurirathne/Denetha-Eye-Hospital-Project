@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {Login} from './components/Login'
 import { TestAddAccount } from './components/TestAddAccount';
 import { useCookies } from 'react-cookie';
+import AddPatientForm from './components/AddPatientForm';
 
 const App = () => {
   //list of error messages
@@ -85,7 +86,7 @@ const App = () => {
   return (
       <div className="App">
         <Login onLogin={verifyLogin} input={user} error={errorMsg} load={loading}/>
-        <TestAddAccount />
+        <TestAddAccount/>
       </div>
   );
 };
