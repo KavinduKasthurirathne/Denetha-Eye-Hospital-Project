@@ -41,11 +41,15 @@ app.use("/api/help",HelpRouter);
 
 const surgeryRouter = require("./routes/Surgery");
 app.use("/api/surgery",surgeryRouter);
+
 const diagnosisRouter = require("./routes/DiagnosisRoute");
 app.use("/api/diagnosis",diagnosisRouter);
 
 const receiptRouter = require("./routes/Receipts");
 app.use("/api/receipt",receiptRouter);
+
+const addpatientRouter = require("./routes/AddPatient");
+app.use("./api/addpatient", addpatientRouter);
 
 
 

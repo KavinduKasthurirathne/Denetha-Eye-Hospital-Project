@@ -1,3 +1,37 @@
 body {
     background-color: #F3F3F3;
 }
+
+.denethahead {
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(21, 149, 189);
+    text-align: left;
+    margin-left: 150px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.head {
+    font-size: 22px;
+    text-align: left;
+    margin-left: 150px;
+    padding-top: 5px;
+    position: relative;
+}
+
+.patienttable {
+    margin-left: 250px;
+    margin-top: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    width: 65%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #989898;
+    position: absolute;
+}
+
+.patientform {
+    margin-left: 150px;
+}
