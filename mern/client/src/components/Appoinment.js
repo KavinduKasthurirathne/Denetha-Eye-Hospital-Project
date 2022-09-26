@@ -190,12 +190,13 @@ export const Appoinment=(props) =>{
                <FormControlLabel control={<Checkbox defaultChecked />} required label="I accept the terms and conditions." />
                 </FormGroup>
                 <div align="center" >
+                <a href="/receptionist"><button className='button'>Cancel</button></a>
                 <button className='button' onClick={(e)=>{
                  props.btnsetter(!props.btnstate);
                  handleSubmit(e);
             
                 }} variant="contained"  style={{color:'white'}} >Confirm Appoinment</button>
-                <NavLink to='/appoinmenttable' style={{color:'white'}} ><button className='button'>Appointment Table</button></NavLink>
+                
                 <br/>
                 </div>
             </form>

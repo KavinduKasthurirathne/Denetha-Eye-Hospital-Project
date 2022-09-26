@@ -23,6 +23,29 @@ router.route('/insert').post(async (req, res) => {
 
 });
 
+// router.route('/read').post(async (req, res) => {
+
+//     const {
+//         name,
+//         phone,
+//         type,
+//         age,
+//         date,
+//         doctor,
+//         amount,
+//     } = req.body;
+
+//     const receipt1 = new receipt ({name, phone, type, age, date, doctor, amount});
+
+//     await receipt1.save().then(() => {
+//         res.json("Receipt added");
+//     }).catch((err) => {
+//         console.log(err);
+//     });
+
+// });
+
+
 module.exports = router;
 
 
