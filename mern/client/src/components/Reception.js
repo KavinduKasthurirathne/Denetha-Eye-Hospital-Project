@@ -5,6 +5,7 @@ import SearchBar from "./Receptionist/PatientSearch";
 import { AppointType } from './Receptionist/AppointType';
 import { Appoinment } from './Appoinment';
 import { Receipt } from "./Receptionist/Receipt";
+import { EditReceipt } from "./Receptionist/EditReceipt";
 
 export const Reception = () => {
 
@@ -13,7 +14,7 @@ export const Reception = () => {
     const [selectedPhone, setSelectedPhone] = useState("");
     const [AppoinmentType, setAppoinmentType] = useState("");
     const [NewReceipt, setNewReceipt] = useState(false);
-
+    const [editReceipt, seteditReceipt] = useState(false);
 
 
     return (
@@ -35,7 +36,9 @@ export const Reception = () => {
                     
                 </div> : !NewReceipt?
                     <Appoinment btnsetter ={setNewReceipt} btnstate={NewReceipt} name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
-                    :<Receipt name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
+                    :!editReceipt?
+                        <Receipt btnsetter ={seteditReceipt} btnstate={editReceipt} name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
+                        :<EditReceipt name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
                 }
                 
                 

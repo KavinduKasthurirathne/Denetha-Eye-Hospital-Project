@@ -3,21 +3,17 @@ let meeting = require('../models/MeetingModel');
 const { get } = require("mongoose");
 
 //display all meetings
-router.route('/get').post(async (req, res) => {
-    await meeting.find().then((result)=>{
-        if(result){
-            res.json(result);
-        }else {
-            res.status(200).send({message: 'Cannot found'});
-        }
+router.route('/').get((req, res) => {
+    meeting.find().then((result)=>{
+            res.json(result)
     }).catch((err) => {
             res.status(500).send({status: '', error: err.message});
-    });
-});
+    })
+})
 
 //add new meeting to the database
 router.route("/add").post((req,res)=>{
-     const date = req.body.date;
+     const date = Date(req.body.date);
      const time = req.body.time;
      const host = req.body.host;
      const description = req.body.description;
@@ -66,7 +62,7 @@ router.route('/update/:meetingDate').put(async (req, res) => {
 });
 
 //delete meetings
-router.route('/delete/:meetingid').post(async (req, res) => {
+router.route('/delete/:meetingid').delete(async (req, res) => {
     
     const deleteMeeting = req.params.meetingid;
 

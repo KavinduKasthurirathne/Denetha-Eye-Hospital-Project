@@ -14,6 +14,18 @@ router.route('/get').post(async (req, res) => {
     });
 });
 
+router.route('/check').post(async (req, res) => {
+    await Profiledb.find({id:req.body.id}).then((result)=>{
+        if(result){
+            res.status(201).send({message: 'ProfileFound'});
+        }else {
+            res.status(200).send({message: 'NoProfile'});
+        }
+    }).catch((err) => {
+        res.status(500).send({status: 'Error: Account not found', error: err.message});
+    });
+});
+
 //update profile
 router.route('/update/:pid').put(async (req, res) => {
     

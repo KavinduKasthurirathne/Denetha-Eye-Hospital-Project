@@ -105,6 +105,9 @@ export const Receipt = (props) => {
             </table>
             <br/>
            <a href="/receptionist"><button className='button' >Cancel</button></a>
+           <button className='button' onClick={()=>{
+                 props.btnsetter(!props.btnstate)
+                }}>Edit</button>
            <button className='button' onClick={handleInsert}>Confirm Payment</button>
            <br/>
          </div>
