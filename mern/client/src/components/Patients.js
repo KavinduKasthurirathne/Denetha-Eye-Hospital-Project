@@ -7,7 +7,7 @@ export const Patients = () => {
 
     return (
         <>
-        <p class='head'><u><b>Patient Details</b></u></p>
+        <p class='headerPatients'><u><b>Patient Details</b></u></p>
 
         <div class='patienttable'>
             <table class='table1'>

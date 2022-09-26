@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import '../AddPatientForm.css';
 import '../App.css';
 import axios from "axios";
+import {NavLink,useNavigate} from 'react-router-dom';
 
 export const AddPatientForm = () => {
 
@@ -16,6 +17,7 @@ export const AddPatientForm = () => {
     const [checkboxCall, setcheckboxCall] = useState("");
     const [checkboxMsg, setcheckboxMsg] = useState("");
     const [remarks, setremarks] = useState("");
+    const navigateTo = useNavigate();
 
     function sendData(e) {
         e.preventDefault();
@@ -36,11 +38,16 @@ export const AddPatientForm = () => {
 
         axios.post("http://localhost:5000/api/patient/insert", newPatient).then(()=>{
             alert("Student Added!");
+            navigateTo('/receptionist');
         }).catch((err)=>{
             alert(err);
-        })
+        });
 
-    }
+    };
+
+    function cancelForm(e) {
+        navigateTo('/receptionist');
+    };
 
     return (
         <>
@@ -65,7 +72,7 @@ export const AddPatientForm = () => {
                 }} /> <br></br>
 
                 <label for="gender">Gender (M/F): </label>
-                <input type="text" id="gender" className="gender" placeholder='Male (M)/ Female (F)' required
+                <input type="text" id="gender" className="gender" placeholder='Male (M)/ Female (F)'
                 
                 onChange = {(e)=>{
                     setgender(e.target.value);
@@ -86,7 +93,7 @@ export const AddPatientForm = () => {
                 }} /> <br></br>
 
                 <label for="phone">Phone Number: </label>
-                <input type="text" id="phone" className="phone" placeholder='Phone Number' required
+                <input type="text" id="phone" className="phone" placeholder='Phone Number' required pattern="[0-9]{10}"
 
                 onChange = {(e)=>{
                     setphone(e.target.value);
@@ -100,7 +107,7 @@ export const AddPatientForm = () => {
                 }} /> <br></br>
 
                 <label for="gnumber">Guardian's Phone Number: </label>
-                <input type="text" id="gnumber" className="gnumber" placeholder='Guardian Phone Number'
+                <input type="text" id="gnumber" className="gnumber" placeholder='Guardian Phone Number' pattern="[0-9]{10}"
 
                 onChange = {(e)=>{
                     setguardianPhone(e.target.value);
@@ -124,6 +131,11 @@ export const AddPatientForm = () => {
                     <label for="msg">Message</label>
                 </div> */}
 
+                <br></br>
+                <br></br>
+
+                <p class='noteDoctor'><i>To be filled by the doctor*</i></p>
+
                 <label for="remarks">Remarks: </label>
                 <input type="text" id="remarks" className="remarks" placeholder='Add Remarks'
                 onChange = {(e)=>{
@@ -132,7 +144,7 @@ export const AddPatientForm = () => {
 
                 <div class='buttons'>
                     <button id='saveBtn' className='button' type="submit"><b>Save</b></button>
-                    <button id='cancelBtn' className='button' type="cancel"><b>Cancel</b></button>
+                    <button id='cancelBtn' className='button' type="cancel" onClick={cancelForm}><b>Cancel</b></button>
                 </div>
 
             </form>

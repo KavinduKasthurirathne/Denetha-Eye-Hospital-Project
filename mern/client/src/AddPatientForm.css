@@ -32,6 +32,10 @@ body {
     position: absolute;
 }
 
+.noteDoctor {
+    color: red;
+}
+
 .addform {
     margin-left: 150px;
 }
