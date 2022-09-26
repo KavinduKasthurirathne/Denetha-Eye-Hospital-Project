@@ -89,22 +89,21 @@ export const Appoinment=(props) =>{
     const handleSubmit =async({target}) =>
     {
       const appoinment = {
-        name: Name,
-        address: Address,
-        phone: contactnumber,
-        age: Age,
-        gender:Gender ,
-        appoinmentnumber:appoinmentnumber,
-        type:type,
-        date: date,
-        time:time,
-        doctor: doctor
+        Name,
+        Address,
+        contactnumber,
+        Age,
+        Gender ,
+        appoinmentnumber,
+        type,
+        date,
+        time,
+        doctor
     };
   await axios.post(`${cookies.proxy}/api/appointment/record`,appoinment)
   .then((res)=>{
-    alert("Your appoinment successfully added");
-  console.log(res.data);
-  navigateTo('/appoinmenttable');
+    console.log(res.data);
+    navigateTo('/receptionist');
 
   }).catch((err)=>{
     alert("Your appoinment have getting inturrupted.Try again");

@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from "react";
 import './Reception.css';
 import axios from "axios";
+import { Appoinment } from "../Appoinment";
 
 export const Receipt = (props) => {  
 
@@ -52,6 +53,7 @@ export const Receipt = (props) => {
       axios.post("http://localhost:5000/api/receipt/insert", receiptOb)
       .then((res) => {
             console.log(res.data);
+            alert("Appoinment completed");
             window.location.reload();
         })
         .catch((err) => {
