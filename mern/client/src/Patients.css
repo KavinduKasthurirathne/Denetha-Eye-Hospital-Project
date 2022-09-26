@@ -3,7 +3,7 @@ body {
 }
 
 .headerPatients {
-    font-size: 32px;
+    font-size: 30px;
     text-align: center;
     padding-top: 70px;
 }
@@ -14,7 +14,7 @@ body {
 
 .patienttable {
     margin: auto;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-bottom: 30px;
     background-color: rgb(255, 255, 255);
     width: 70%;
