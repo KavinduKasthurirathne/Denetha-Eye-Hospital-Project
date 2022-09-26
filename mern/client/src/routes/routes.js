@@ -13,6 +13,7 @@ import UserAccount from "../components/UserAccount";
 import {AddPatientForm} from "../components/AddPatientForm";
 import StaffDetails from "../components/StaffDetails/StaffDetails";
 import Meetings from "../components/Meetings/MeetingDetails";
+import AddMeeting from "../components/Meetings/AddMeeting";
 import Profile from "../components/StaffDetails/Profile";
 import { EditAppoinment } from "../components/EditAppointment";
 import {AppointmentMainpage} from "../components/AppointmentMainpage";
@@ -37,7 +38,8 @@ const createRoutes = () => {
             <Route exact path="AppointmentMainpage" element={<AppointmentMainpage/>}/>
             <Route exact path='appointment' element={<Appoinment />} />
             <Route exact path='appoinmenttable' element={<AppoinmentTable />} />
-            <Route exact path='meetings' element={<Meetings />} />    
+            <Route exact path='meetings' element={<Meetings />} />   
+            <Route exact path='meetings/add_meetings' element={<AddMeeting/>} /> 
             <Route exact path='profile' element={<Profile />} />        
             
             <Route exact path='editAcc' element={<UserAccount />} />
