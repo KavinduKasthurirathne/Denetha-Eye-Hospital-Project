@@ -1,4 +1,3 @@
-
 .meetingheader{
     display: inline-flex;
     margin: 20px;
@@ -17,12 +16,23 @@
     margin-top:15px;
     height:35px;
     width:80px;
-    border-radius: 10px;;
+    border-radius: 10px;
 }
 .meetingtable{
     margin-left: auto;
     margin-right: auto;
     table-layout: auto;
     border-style: groove;
+}
+.btn_btn-link{
+    width : 60px;
+    height:20px;
+}
+.addMeeting{
+    margin-left: 20px;
+    height:35px;
+    width:80px;
+    border-radius: 10px;
+    margin-top:15px;
 }
 

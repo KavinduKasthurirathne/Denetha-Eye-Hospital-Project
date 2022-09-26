@@ -7,11 +7,12 @@
     font-size: 30px;
 }
 
-
 .btnAdd{
     font-size: 20px;
-    float:right;
-    background-color: #2A628F;
+    margin-left: 375px;
+    background-color:skyblue;
+    border-radius: 10px;
+    width : 60px;
     
 
 }
@@ -21,16 +22,9 @@
     margin-right: auto;
     border: 5px solid;
 }
-.searchbar ul{
-    list-style-type: none;
-}
-
-.searchbar li{
-    display:inline-flex;
-}
 .search{
     float:inline-start;
-    margin-left: 470px;
+    margin-left: 430px;
 }
 
 

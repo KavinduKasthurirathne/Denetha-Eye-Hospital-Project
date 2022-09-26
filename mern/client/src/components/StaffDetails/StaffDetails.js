@@ -1,51 +1,79 @@
-
 import React from 'react';
 import './StaffDetails.css';
+import './AddNewMember'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import {useState,useEffect} from "react";
 
-function directMeetings(){
-    <a href='MeetingDetails.js'></a>
-}
+function StaffDetails () {
 
-const StaffDetails = () => {
+    const [memberRecords, setMemberRecords] = useState([]);
+
+    // This method will map out the records on the table
+    function recordMemberList() {
+        return memberRecords.map((record) => {
+        return (
+            <Record
+            record={memberRecords}
+            key={memberRecords._id}
+            />
+        );
+        });
+    }
+
+    const navigate = useNavigate();
+
+    const AddStaffMember = () => {
+        navigate('AddNewMember');
+    }
+
+    const viewProfile = () => {
+  
+    }
+
     return(
         <div class = "staffDetails">
             <h2 class = "topic1">Staff Details</h2>
             <div className='SearchBar'>
-                <ul>
-                    <li>
                         <input  type="text" 
                                 className = "search" 
                                 placeholder="search"/>
-                    </li>
-                    <li>
                         <button 
                             className="btnAdd"
-                            onclick = {''}>
+                            onclick = {AddStaffMember}>
                             Add
                         </button>
-                    </li>
-                </ul>
             </div>
 
                
                 
 
             <table class="stafftable">
+                <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Job Status</th>
                     <th></th>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><button type = "button"><a href = "Profile.js">view</a></button> </td>
-                </tr>
+                </thead>
+                <tbody>{recordMemberList()}</tbody>
             </table>
         </div>
     );
 };
+
+const Record = (props) => (
+    <tr>
+        <td>{(props.record.id)}</td>
+        <td>{(props.record.name)}</td>
+        <td>{(props.record.jobStatus)}</td>
+        <td>
+            <button 
+                className='viewProfile'
+            >View Profile</button>
+        </td>
+    </tr>
+)
 
 export default StaffDetails;
