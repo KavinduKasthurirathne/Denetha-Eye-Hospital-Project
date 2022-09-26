@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom";
@@ -13,13 +14,13 @@ const Record = (props) => (
    <td>{props.record.gender}</td>
    <td>{props.record.Stype}</td>
    <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Admission Form</Link></td>
-   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Repot</Link></td>
+   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Report</Link></td>
    <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Details Recipt</Link></td>
-   <td><button className="btnLink">Waiting</button></td>
-   <td><button className="btnLink">Paid</button></td>
+   <td><button className="button-29">Released</button></td>
+   <td><button className="button-88">Paid</button></td>
    <td>
-     <Link style={{color: 'Black'}} className="btnLink" to={`/edit/${props.record._id}`}>Update</Link> | 
-     <button className="btnLink"
+     <a style={{color: 'Black'}} className="btnLink" href={`/edit/${props.record._id}`}><b>Update</b></a><br/><br/>
+     <button className="button-71"
        onClick={() => {
          props.deleteRecord(props.record._id);
          window.alert("Record Deleted");
@@ -32,6 +33,7 @@ const Record = (props) => (
 );
  
 export default function RecordList() {
+  
     const navigate = useNavigate();
     const navigateToAddNew = () => {
         navigate('/addNew');
@@ -80,15 +82,37 @@ export default function RecordList() {
      );
    });
  }
+ const navigate2 = useNavigate();
+    const navigateToDiagForm = () => {
+        navigate2('/diagForm');
+      };
+      const navigate3 = useNavigate();
+      const navigateToEdit = () => {
+          navigate3('/edit');
+        };
+  
+      function filterContent (posts,searchItem){
+        const result = posts.filter((post)=>{
+          post.includes(searchItem);
+        })
+        this.setState({posts:result});
+      }
+  function handleTextSearch (e){
+        const searchItem = e.currentTarget.value;
+        axios.get("http://localhost:5000/api/surgery/get").then((res)=>{
+          filterContent(res.data.posts,searchItem);
+        })
+      }
+ 
  
  // This following section will display the table with the records of individuals.
  return (
    <div className="container">
     <h2 style={{marginLeft:20}}>Surgery Details</h2>
-    <input className="searchbar" type="text" placeholder="Search.."></input>
-    <button className="button" onClick= {navigateToAddNew}>Add New Patient +</button>
+    <input className="searchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
+    <button className="button" onClick= {navigateToAddNew}><span>Add New Patient</span></button>
      <table className="table_table-striped" style={{ marginTop: 20 }}>
-       <thead>
+       <thead className="theader">
          <tr>
            <th className="cwidth">Patient Number</th>
            <th>Patient Name</th>
@@ -106,6 +130,11 @@ export default function RecordList() {
        </thead>
        <tbody>{recordList()}</tbody>
      </table>
+     <br/>
+     <button className="button" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button>
+     <button className="button" onClick= {navigateToDiagForm}><span>Diagnosis Recipts</span></button>
+     <button className="button" onClick= {navigateToEdit}><span>Edit</span></button>
    </div>
  );
 }
+

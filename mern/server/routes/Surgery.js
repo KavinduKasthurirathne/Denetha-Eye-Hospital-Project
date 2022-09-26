@@ -16,7 +16,7 @@ router.route("/add").post((req,res)=>{
     })
     surgeryadd.save().then(()=>{
         res.json("New Patient Added")
-    }).catch(()=>{
+    }).catch((err)=>{
         console.log(err);
     })
 
@@ -65,13 +65,11 @@ router.route("/get/:pid").get(async (req,res)=>{
     let sid = req.params.pid;
     const user = await surgery1.findById(sid).then(()=>{
         res.status(200).send({status:"User fetched"})
-    }).catch(()=>{
+    }).catch((err)=>{
         console.log(err.message);
         res.status(500).send({status:"Error with get user",error:err.message});
 
 })
 })
-
-
 
 module.exports = router;
