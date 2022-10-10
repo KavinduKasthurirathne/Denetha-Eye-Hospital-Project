@@ -3,7 +3,7 @@ const Mongoose = require('mongoose');
 const AppointmentSchema = new Mongoose.Schema({
     name: String,
     address: String,
-    phone: Number,
+    contactnumber: Number,
     age: Number,
     gender :String,
     appoinmentnumber:Number,
