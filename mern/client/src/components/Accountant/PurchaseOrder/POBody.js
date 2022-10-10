@@ -3,9 +3,9 @@ import '../Accountant.css';
 import '../../../App.css';
 import { Button, FormControl, InputLabel, OutlinedInput} from '@mui/material';
 import POItems from './POItems';
-import SaveIcon from '@mui/icons-material/Save';
 
 const POBody = (props) => {
+    const [editSelect, setEditSelect] = useState(null);
     const [inputs, setInputs] = useState({
         num: '',
         unit: '',
@@ -20,6 +20,23 @@ const POBody = (props) => {
         }));
     };
 
+    useEffect(()=>{
+        if(editSelect !== null) {
+            setInputs({
+                item: props.data[editSelect].item,
+                num: props.data[editSelect].num,
+                unit: props.data[editSelect].unit,
+                amount: props.data[editSelect].amount
+            });
+        } else {
+            setInputs({
+                item: '',
+                num: '',
+                unit: '',
+                amount: ''
+            });
+        }
+    }, [editSelect]);
     useEffect(()=>{
         if(inputs.num!=='' && inputs.unit!=='' && inputs.item!==''){
             setDisable(false);
@@ -47,24 +64,40 @@ const POBody = (props) => {
             unit: unit,
             amount: amount
         }
-        props.setter((prev)=> ([
-            ...prev,
-            add
-        ]));
+
+        if (editSelect === null) {//add a new item
+            props.setter((prev)=> ([
+                ...prev,
+                add
+            ]));
+        } else {//edit current item
+            props.setter((prev)=> {
+                var list = [...prev];
+                list[editSelect] = add;
+
+                return list;
+            });
+            setEditSelect(null);
+        }
         setInputs({
             item: '',
             num: '',
             unit: '',
             amount: ''
         });
+        props.save(true);
         setDisable(true);
-        props.setSave(false);
     };
 
     return (
         <>
             <div id='po-body' className='po-anim' >
-                <POItems data={props.data} setter={props.setter} calcTotal={calculateTotal} setSave={props.setSave} />
+                <POItems 
+                    data={props.data} 
+                    setter={props.setter} 
+                    calcTotal={calculateTotal} 
+                    setSave={props.save} 
+                    edit={setEditSelect} />
             </div>
             <hr />
             <div id='po-submit' className='po-flex po-anim' >
@@ -112,16 +145,7 @@ const POBody = (props) => {
                         variant="contained" 
                         onClick={handleAdd} 
                         color='secondary' 
-                        disabled={disable} >Add</Button>
-                </div>
-                <div className='po-flex-child' id='po-database'>
-                    <Button 
-                        variant="contained" 
-                        onClick={props.handleSave} 
-                        color='secondary' 
-                        disabled={props.save}
-                        endIcon={<SaveIcon />} 
-                        >Save</Button>
+                        disabled={disable} >{editSelect===null? 'Add':'Edit'}</Button>
                 </div>
             </div>
             <div id='message'>
