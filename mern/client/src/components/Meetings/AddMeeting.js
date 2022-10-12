@@ -3,14 +3,18 @@ import './AddMeetings.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 function AddMeetings(props){
+    const [topic, setTopic] = useState(props.topic);
+    const [id, setId] = useState(props.id);
+    console.log(props.id);
+    var [date, setDate] = useState(props.date);
+    var [time , setTime] = useState(props.time);
+    var [host , setHost] = useState(props.host);
+    var [description , setDescription] = useState(props.description);
 
     const navigate = useNavigate();
 
     function sendMeetingDetails(event) {
-        event.preventDefault();
-
         const newMeeting = {
             date,
             time,
@@ -26,12 +30,31 @@ function AddMeetings(props){
         })
     }
 
-    const [date, setDate] = useState( props.date);
-    const [time , setTime] = useState(props.time);
-    const [host , setHost] = useState(props.host);
-    const [description , setDescription] = useState(props.description);
+    function updateMeetingDetails(event) {
+        const updateMeeting = {
+            date,
+            time,
+            host,
+            description
+        }
 
+        console.log(updateMeeting);
+        axios.put("http://localhost:5000/api/meeting/update/" + props.id , updateMeeting)
+        .then(() =>{
+            alert("Meeting updated Successfully!");
+            navigate("/meetings");
+        }).catch((err) => {
+            alert(err);
+        })
+    }
 
+    if(props.topic) {
+        var title = "Edit Meeting";
+        var funct = updateMeetingDetails;
+    }else {
+        var title = "Add Meeting";
+        var funct = sendMeetingDetails;
+    }
     const getDateString = (iso) => {
         const date = new Date(iso);
         const correctDate = new Date(date.getTime() + 360*60000);
@@ -41,52 +64,60 @@ function AddMeetings(props){
     console.log(props);
 
     return(
-        <div className="container">
-            <form className="addmeetingform" onSubmit={sendMeetingDetails}>
-                <div className="form-group">
+        <div className="addMeetingContainer">
+            <div className="addMeetingInnerContainer">
+            <h2 className="addMeetingTitle">{title}</h2>
+            <form className="addmeetingform" onSubmit={ (e) => { 
+                e.preventDefault();
+                funct();
+            }}>
+
+                <div className="form-group-addM">
                     <label htmlFor="date">Date</label>
                     <input type="Date" className="form-control" id="meetingDate" aria-describedby=""
-                    onChange={(event) =>{
-                        setDate(event.target.value);//assign evrytime, when changing the value
+                    onChange={(e) =>{
+                        setDate(e.target.value);//assign evrytime, when changing the value
                     }}
                     value = {date}
-                    />
+                    required/>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group-addM">
                     <label htmlFor="time">Time</label>
-                    <input type="text" className="form-control" id="meetingTime"
-                    onChange={(event) =>{
-                        setTime(event.target.value);//assign evrytime, when changing the value
+                    <input type="time" className="form-control" id="meetingTime"
+                    onChange={(e) =>{
+                        setTime(e.target.value);//assign evrytime, when changing the value
                     }}
                     value = {time}
-                    />
+                    required/>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group-addM">
                     <label htmlFor="host">Host</label>
                     <input type="text" className="form-control" id="meetingHost"
-                    onChange={(event) =>{
-                        setHost(event.target.value);//assign evrytime, when changing the value
+                    onChange={(e) =>{
+                        setHost(e.target.value);//assign evrytime, when changing the value
                     }}
                     value = {host}
-                    />
+                    required/>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group-addM">
                     <label htmlFor="description">Description</label>
                     <input type="text" className="form-control" id="meetingdescription"
-                    onChange={(event) =>{
-                        setDescription(event.target.value);//assign evrytime, when changing the value
+                    onChange={(e) =>{
+                        setDescription(e.target.value);//assign evrytime, when changing the value
                     }}
                     value = {description}
-                    />
+                    required/>
                 </div>
                 
-                <button type="submit" className="btn_btn-primary">Submit</button>
+                <center>
+                    <button type="submit" className="button">Submit</button>
+                </center>
             </form>
+            </div>    
         </div>
-        
 
     );
 }

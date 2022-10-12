@@ -1,68 +1,83 @@
-import './AddNewMember.css';
-import axios from 'axios';
-import React,{useState} from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function AddNewMember(props){
+const AddNewMember = () => {
+  const backbtn = useNavigate();
 
-    function sendStaffDetails(event) {
-        event.preventDefault();
+  return (
+    <div className="mainDiv">
+      <button
+        onClick={() => {
+          backbtn(-1);
+        }}
+        style={{
+          position: "relative",
+          marginTop: "3%",
+          marginLeft: "3%",
+          width: "100px",
+          backgroundColor: "#CBCBCB",
+        }}
+        className="button"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          fill="black"
+          class="bi bi-arrow-left"
+          viewBox="0 0 15 15"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+          />
+        </svg>
+      </button>
+      <div className="updateform">
+        <h3>Add Profile</h3>
+        <hr />
 
-        const newMember = {
-            id,
-            name,
-            jobStatus
-        }
+        <div className="updateFormout">
+          <form>
+            <label>ID : </label>
+            <input />
+            <br />
 
-        axios.post("http://localhost:5000/api/staff/add" , newMember).then(() =>{
-            alert("New Member added Successfully!");
-        }).catch((err) => {
-            alert(err);
-        })
-    }
+            <label>Name :</label>
+            <input />
+            <br />
 
-    const [id, setId] = useState( props.id);
-    const [name , setName] = useState(props.name);
-    const [jobStatus , setJobStatus] = useState(props.jobStatus);
-   
-    return(
-        <div className="container">
-            <form className="addmemberform" onSubmit={sendStaffDetails}>
-                <div className="form-group">
-                    <label htmlFor="id">ID</label>
-                    <input type="text" className="form-control" id="memberId" aria-describedby=""
-                    onChange={(event) =>{
-                        setId(event.target.value);//assign evrytime, when changing the value
-                    }}
-                    value = {id}
-                    />
-                </div>
+            <label>Job role :</label>
+            <input />
+            <br />
 
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control" id="memberName"
-                    onChange={(event) =>{
-                        setName(event.target.value);//assign evrytime, when changing the value
-                    }}
-                    value = {name}
-                    />
-                </div>
+            <label>Contact No :</label>
+            <input />
+            <br />
 
-                <div className="form-group">
-                    <label htmlFor="jobStatus">Job Status</label>
-                    <input type="text" className="form-control" id="jobStatus"
-                    onChange={(event) =>{
-                        setJobStatus(event.target.value);//assign evrytime, when changing the value
-                    }}
-                    value = {jobStatus}
-                    />
-                </div>
+            <label>Address :</label>
+            <input />
+            <br />
 
-                <button type="submit" className="btn_btn-primary">Submit</button>
-            </form>
+            <label>Email :</label>
+            <input />
+            <br />
+
+            <label>Date of Birth :</label>
+            <input />
+            <br />
+
+            <label>Basic Salary :</label>
+            <input />
+            <br />
+            <center>
+              <button className="button">Save</button>
+            </center>
+          </form>
         </div>
-        
-
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default AddNewMember;

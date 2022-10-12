@@ -48,8 +48,9 @@ app.use("/api/diagnosis",diagnosisRouter);
 const receiptRouter = require("./routes/Receipts");
 app.use("/api/receipt",receiptRouter);
 
-const addpatientRouter = require("./routes/AddPatient");
+/*const addpatientRouter = require("./routes/AddPatient");
 app.use("./api/addpatient", addpatientRouter);
+*/
 
 
 
