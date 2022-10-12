@@ -14,15 +14,15 @@ export const Appoinment=(props) =>{
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
     const buttonColor={background:'#2A628F' ,padding:'10px 97px',margin :'5px',width:100}
     const buttongreenColor = {background:'#3D8361',padding:'10px 97px',margin :'5px',width:100};
-    const [Name,setName] = useState(props.name===null?"" :props.name);
-    const [Address,setAddress] = useState('');
-    const [Age,setAge] = useState('');
-    const [Gender,setGender] = useState('');
-    const [appoinmentnumber,setAppoinmentnumber] = useState('');
+    const [name,setname] = useState(props.name===null?"" :props.name);
+    const [address,setaddress] = useState('');
+    const [age,setage] = useState('');
+    const [gender,setgender] = useState('');
+    const [appoinmentnumber,setappoinmentnumber] = useState('');
     const [contactnumber,setcontactnumber] = useState(props.phone===null?"" :props.phone);
     const [doctor, setdoctor] = useState('');
     const [type, settype] = useState("");
-    const [date,setDate] = useState('');
+    const [date,setdate] = useState('');
     const [time,setTime] = useState('');
     const [cookies] = useCookies('proxy');
     const navigateTo = useNavigate();
@@ -48,15 +48,15 @@ export const Appoinment=(props) =>{
 
     const handleName= ({target}) =>
     {
-      setName(target.value);
+      setname(target.value);
     }
     const handleAddress= ({target}) =>
     {
-      setAddress(target.value);
+      setaddress(target.value);
     }
     const handleAge =({target}) =>
     {
-      setAge(target.value);
+      setage(target.value);
     }
     const handlecontactnumber= ({target}) =>
     {
@@ -64,7 +64,7 @@ export const Appoinment=(props) =>{
     }
     const handlegender =({target}) =>
     {
-      setGender(target.value);
+      setgender(target.value);
     }
     const handleDoctor =({target}) =>
     {
@@ -72,7 +72,7 @@ export const Appoinment=(props) =>{
     }
     const handleappoinmentnumber =({target}) =>
     {
-      setAppoinmentnumber(target.value);
+      setappoinmentnumber(target.value);
     }
     const handleType = ({target})=>
     {
@@ -80,7 +80,7 @@ export const Appoinment=(props) =>{
     }
    const handleDate = ({target})=>
     {
-      setDate(target.value);
+      setdate(target.value);
     }
     const handleTime = ({target})=>
     {
@@ -89,11 +89,11 @@ export const Appoinment=(props) =>{
     const handleSubmit =async({target}) =>
     {
       const appoinment = {
-        Name,
-        Address,
+        name,
+        address,
         contactnumber,
-        Age,
-        Gender ,
+        age,
+        gender ,
         appoinmentnumber,
         type,
         date,
@@ -123,17 +123,17 @@ export const Appoinment=(props) =>{
             <br/>
                 PATIENT DETAILS 
                 <br/><br/>
-                <TextField fullWidth label='Patient Name' placeholder="Enter Patient Name" onChange={handleName} value={Name}/>
+                <TextField fullWidth label='Patient Name' placeholder="Enter Patient Name" onChange={handleName} value={name}/>
                 <br/><br/>
-                <TextField fullWidth label='Address' placeholder="Enter Address" onChange={handleAddress} value={Address}/>
+                <TextField fullWidth label='Address' placeholder="Enter Address" onChange={handleAddress} value={address}/>
                 <br/><br/>
                 <TextField fullWidth label='Contact Number' placeholder="Enter Contact Number" onChange={handlecontactnumber} value={contactnumber}/>
                 <br/><br/>
-                <TextField fullWidth label='Age'placeholder="Enter Age" value={Age} onChange={handleAge}/>
+                <TextField fullWidth label='Age'placeholder="Enter Age" value={age} onChange={handleAge}/>
                 <br/><br/>
                 <FormControl component="fieldset">
                 <FormLabel component="legend">Gender</FormLabel>
-                <RadioGroup aria-label="gender" value={Gender} style={{display:'initial'}} onChange={handlegender}>
+                <RadioGroup aria-label="gender" value={gender} style={{display:'initial'}} onChange={handlegender}>
                     <FormControlLabel value="female" control={<Radio/>} label="Female"/>
                     <FormControlLabel value="male" control={<Radio/>} label="Male"/>
                 </RadioGroup>

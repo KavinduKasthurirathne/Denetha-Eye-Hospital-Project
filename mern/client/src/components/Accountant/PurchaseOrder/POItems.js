@@ -3,7 +3,7 @@ import '../Accountant.css';
 import '../../../App.css';
 import { Table, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TableBody } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
-
+import EditIcon from '@mui/icons-material/Edit';
 
 const POItems = (props) => {
 
@@ -31,10 +31,17 @@ const POItems = (props) => {
                                     <IconButton aria-label='delete record' size='small' onClick={()=>{
                                         const newItems = props.data.filter((value, index) => (index !== i));
                                         props.setter(newItems);
-                                        props.setSave(false);
+                                        props.setSave(true);
                                     }}>
                                         <DeleteIcon />
                                     </IconButton>
+                                    <IconButton 
+                                            size='small' 
+                                            onClick={()=>{
+                                                props.edit(i);
+                                            }} >
+                                            <EditIcon />
+                                        </IconButton>
                                 </TableCell>
                             </TableRow>
                         ))

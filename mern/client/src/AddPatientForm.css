@@ -32,6 +32,10 @@ body {
     position: absolute;
 }
 
+.noteDoctor {
+    color: red;
+}
+
 .addform {
     margin-left: 150px;
 }
@@ -46,31 +50,16 @@ body {
     margin-left: 370px;
 }
 
-.saveBtn {
-    cursor: pointer;
-    font-size: 16px;
-    padding: 7px;
-    margin-right: 70px;
-    width: 80px;
+#saveBtn {
     background-color: #22BB14;
-    border-width: 0px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 4px #989898;
 }
 
 .saveBtn:hover {
     background-color: #1a8d10;
 }
 
-.cancelBtn {
-    cursor: pointer;
-    font-size: 16px;
-    padding: 7px;
-    width: 90px;
+#cancelBtn {
     background-color: #F92A2A;
-    border-width: 0px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 4px #989898;
 }
 
 .cancelBtn:hover {

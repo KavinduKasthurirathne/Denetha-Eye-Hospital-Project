@@ -2,11 +2,13 @@ import React, { useState,useEffect } from "react";
 import './Reception.css';
 import axios from "axios";
 
-export const Receipt = (props) => {  
+export const EditReceipt = (props) => {  
 
     const [type, settype] = useState("");
     const [Hospitalfee, setHospitalfee] = useState();
     const [Doctorfee, setDoctorfee] = useState();
+    const [name, setname] = useState(props.name);
+    const [phone, setphone] = useState(props.phone);
    
     useEffect(() => {
         switch(props.type){
@@ -34,13 +36,18 @@ export const Receipt = (props) => {
       },[]);
 
     let amount = Hospitalfee+Doctorfee;
+    
+
+    const handleName =({target}) =>{
+        setname(target.value);
+    }
+
+    const handlePhone =({target}) =>{
+        setphone(target.value);
+    }
 
 
-     const handleInsert = (e) =>{
-
-        const name=props.name;
-        const phone=props.phone;
-
+    const handleUpdate = (e) =>{
         const receiptOb = {
             name,
             phone,
@@ -51,13 +58,13 @@ export const Receipt = (props) => {
       axios.post("http://localhost:5000/api/receipt/insert", receiptOb)
       .then((res) => {
             console.log(res.data);
-            alert("Appoinment completed");
+            alert("receipt updated");
             window.location.reload();
         })
         .catch((err) => {
         console.log(err)});
     }
-    
+
     
       return(<>         
             <div id="receipt">       
@@ -70,7 +77,8 @@ export const Receipt = (props) => {
                 
                 <tr>
                     <td id="receiptCell">Patient name:</td>
-                    <td id="receiptCell">{props.name}</td>
+                   
+                    <td id="receiptCell"> <input value={name} onChange={handleName}></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">Appoinment type:</td>
@@ -78,16 +86,19 @@ export const Receipt = (props) => {
                 </tr>
                 <tr>
                     <td id="receiptCell">Date:</td>
+                    <td> <input></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">Phone:</td>
-                    <td id="receiptCell">{props.phone}</td>
+                    <td id="receiptCell"><input value={phone} onChange={handlePhone}></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">Age:</td>
+                    <td> <input></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">Doctor:</td>
+                    <td> <input></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">
@@ -104,11 +115,8 @@ export const Receipt = (props) => {
                 </tbody>    
             </table>
             <br/>
-           <a href="/receptionist"><button className='button' >Cancel</button></a>
-           <button className='button' onClick={()=>{
-                 props.btnsetter(!props.btnstate)
-                }}>Edit</button>
-           <button className='button' onClick={handleInsert}>Confirm Payment</button>
+           <a href="/receptionist"><button className='button'>Cancel</button></a>
+           <button className='button' onClick={handleUpdate}>Save</button>
            <br/>
          </div>
            

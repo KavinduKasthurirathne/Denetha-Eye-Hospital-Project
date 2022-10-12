@@ -2,24 +2,25 @@ import React,{useState} from 'react';
 import '../AddPatientForm.css';
 import '../App.css';
 import axios from "axios";
+import {NavLink,useNavigate} from 'react-router-dom';
 
 export const AddPatientForm = () => {
 
-    const [name, setName] = useState("");
-    const [age, setAge] = useState("");
-    const [gender, setGender] = useState("");
-    const [dob, setDob] = useState("");
-    const [address, setAddress] = useState("");
-    const [phone, setPhone] = useState("");
-    const [gname, setGuardianName] = useState("");
-    const [gnumber, setGuardianPhone] = useState("");
-    const [checkboxCall, setCheckboxCall] = useState("");
-    const [checkboxMsg, setCheckboxMsg] = useState("");
-    const [remarks, setRemarks] = useState("");
+    const [name, setname] = useState("");
+    const [age, setage] = useState("");
+    const [gender, setgender] = useState("");
+    const [dob, setdob] = useState("");
+    const [address, setaddress] = useState("");
+    const [phone, setphone] = useState("");
+    const [gname, setguardianName] = useState("");
+    const [gnumber, setguardianPhone] = useState("");
+    const [checkboxCall, setcheckboxCall] = useState("");
+    const [checkboxMsg, setcheckboxMsg] = useState("");
+    const [remarks, setremarks] = useState("");
+    const navigateTo = useNavigate();
 
     function sendData(e) {
         e.preventDefault();
-        alert("Successfully Added!");
         
         const newPatient ={
             name,
@@ -35,8 +36,18 @@ export const AddPatientForm = () => {
             remarks
         }
 
-        axios.post("http://localhost:5000/AddPatient/add")
-    }
+        axios.post("http://localhost:5000/api/patient/insert", newPatient).then(()=>{
+            alert("Patient Added Successfully!");
+            navigateTo('/receptionist');
+        }).catch((err)=>{
+            alert(err);
+        });
+
+    };
+
+    function cancelForm(e) {
+        navigateTo('/receptionist');
+    };
 
     return (
         <>
@@ -46,89 +57,94 @@ export const AddPatientForm = () => {
             <p class='addformhead'><u><b>Add New Patient</b></u></p>
 
             <form class='addform' onSubmit={sendData}>
-                <label for="name">Full Name: </label>
+                <label for="name">Full Name: * </label>
                 <input type="text" id="name" className="name" placeholder='Full Name' required
 
-                onchange = {(e)=>{
-                    setName(e.target.value);
+                onChange = {(e)=>{
+                    setname(e.target.value);
                 }} /> <br></br>
 
-                <label for="age">Age: </label>
+                <label for="age">Age: * </label>
                 <input type="text" id="age" className="age" placeholder='Age' required
 
-                onchange = {(e)=>{
-                    setAge(e.target.value);
+                onChange = {(e)=>{
+                    setage(e.target.value);
                 }} /> <br></br>
 
                 <label for="gender">Gender (M/F): </label>
-                <input type="text" id="gender" className="gender" placeholder='Male (M)/ Female (F)' required
+                <input type="text" id="gender" className="gender" placeholder='Male (M)/ Female (F)'
                 
-                onchange = {(e)=>{
-                    setGender(e.target.value);
+                onChange = {(e)=>{
+                    setgender(e.target.value);
                 }} /> <br></br>
 
                 <label for="dob">Date of Birth: </label>
                 <input type="date" id="dob" className="dob"
 
-                onchange = {(e)=>{
-                    setDob(e.target.value);
+                onChange = {(e)=>{
+                    setdob(e.target.value);
                 }} /> <br></br>
                 
                 <label for="address">Address: </label>
                 <input type="text" id="address" className="address" placeholder='Address'
 
-                onchange = {(e)=>{
-                    setAddress(e.target.value);
+                onChange = {(e)=>{
+                    setaddress(e.target.value);
                 }} /> <br></br>
 
-                <label for="phone">Phone Number: </label>
-                <input type="text" id="phone" className="phone" placeholder='Phone Number' required
+                <label for="phone">Phone Number: * </label>
+                <input type="text" id="phone" className="phone" placeholder='Phone Number' required pattern="[0-9]{10}"
 
-                onchange = {(e)=>{
-                    setPhone(e.target.value);
+                onChange = {(e)=>{
+                    setphone(e.target.value);
                 }} /> <br></br>
 
                 <label for="gname">Guardian's Name: </label>
                 <input type="text" id="gname" className="gname" placeholder='Guardian Name'
 
-                onchange = {(e)=>{
-                    setGuardianName(e.target.value);
+                onChange = {(e)=>{
+                    setguardianName(e.target.value);
                 }} /> <br></br>
 
                 <label for="gnumber">Guardian's Phone Number: </label>
-                <input type="text" id="gnumber" className="gnumber" placeholder='Guardian Phone Number'
+                <input type="text" id="gnumber" className="gnumber" placeholder='Guardian Phone Number' pattern="[0-9]{10}"
 
-                onchange = {(e)=>{
-                    setGuardianPhone(e.target.value);
+                onChange = {(e)=>{
+                    setguardianPhone(e.target.value);
                 }} /> <br></br>
 
-                <label for="checkboxform">How do you like to remind upcoming appointments: </label> <br></br>
+                {/* <label for="checkboxform">How do you like to remind upcoming appointments: </label> <br></br>
 
                 <div class='checkboxes'>
                     <input type="checkbox" id="checkboxCall" className="checkboxCall" value="Call"
-                    onchange = {(e)=>{
-                        setCheckboxCall(e.target.value);
+                    onChange = {(e)=>{
+                        setcheckboxCall(e.target.value);
                     }} />
 
                     <label for="call">Call</label>
 
                     <input type="checkbox" id="checkboxMsg" className="checkboxMsg" value="Message"
-                    onchange = {(e)=>{
-                        setCheckboxMsg(e.target.value);
+                    onChange = {(e)=>{
+                        setcheckboxMsg(e.target.value);
                     }} />
 
                     <label for="msg">Message</label>
-                </div>
+                </div> */}
+
+                <br></br>
+                <br></br>
+
+                <p class='noteDoctor'><i>To be filled by the doctor*</i></p>
 
                 <label for="remarks">Remarks: </label>
                 <input type="text" id="remarks" className="remarks" placeholder='Add Remarks'
-                onchange = {(e)=>{
-                    setRemarks(e.target.value);
+                onChange = {(e)=>{
+                    setremarks(e.target.value);
                 }} /> <br></br>
 
                 <div class='buttons'>
-                    <button id='saveBtn' class='saveBtn' type="submit"><b>Save</b></button>
-                    <button id='cancelBtn' class='cancelBtn' type="cancel"><b>Cancel</b></button>
+                    <button id='saveBtn' className='button' type="submit"><b>Save</b></button>
+                    <button id='cancelBtn' className='button' type="cancel" onClick={cancelForm}><b>Cancel</b></button>
                 </div>
 
             </form>
