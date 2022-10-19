@@ -31,7 +31,7 @@ const profileRouter = require("./routes/Profiledb");
 app.use("/api/profile", profileRouter);
 
 const staffRouter = require("./routes/Staff");
-app.use("./api/staffdetails", staffRouter);
+app.use("/api/staffdetails", staffRouter);
 
 // const EditappoinmentRouter = require('./routes/EditAppoinment');
 // app.use('/api/Editappointment', EditappoinmentRouter);

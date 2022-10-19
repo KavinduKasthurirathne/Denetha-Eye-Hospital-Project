@@ -1,14 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { TestAddAccount } from "../TestAddAccount";
 
-const AddNewMember = () => {
-  const backbtn = useNavigate();
+function AddNewProfile(props) {
+  // const AddNewMember = () => {
+  // const backbtn = useNavigate();
+
+  const navigate = useNavigate();
+
+  const [id, setId] = useState(props.id);
+  const [name, setName] = useState(props.name);
+  var [contactno, setContactno] = useState(props.contactno);
+  var [address, setAddress] = useState(props.address);
+  var [jobrole, setJobrole] = useState(props.jobrole);
+  var [email, setEmail] = useState(props.email);
+  var [dob, setDob] = useState(props.dob);
+  var [basicSal, setBasicSal] = useState(props.basicSal);
+
+  function sendProfileDetails(event) {
+    const newProfile = {
+      id,
+      name,
+      contactno,
+      address,
+      jobrole,
+      email,
+      dob,
+      basicSal,
+    };
+
+    axios
+      .post("http://localhost:5000/api/staffDetails/add", newProfile)
+      .then(() => {
+        alert("Profile added Successfully!");
+        navigate("/staff");
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
 
   return (
     <div className="mainDiv">
       <button
         onClick={() => {
-          backbtn(-1);
+          // backbtn(-1);
         }}
         style={{
           position: "relative",
@@ -36,21 +73,9 @@ const AddNewMember = () => {
       <div className="updateform">
         <h3>Add Profile</h3>
         <hr />
-
+        <TestAddAccount />
         <div className="updateFormout">
           <form>
-            <label>ID : </label>
-            <input />
-            <br />
-
-            <label>Name :</label>
-            <input />
-            <br />
-
-            <label>Job role :</label>
-            <input />
-            <br />
-
             <label>Contact No :</label>
             <input />
             <br />
@@ -78,6 +103,6 @@ const AddNewMember = () => {
       </div>
     </div>
   );
-};
+}
 
-export default AddNewMember;
+export default AddNewProfile;

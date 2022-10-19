@@ -1,49 +1,21 @@
 const router = require("express").Router();
-let Staff = require("../models/StaffModel");
+let Staff = require("../models/StaffModel.js");
 const { get } = require("mongoose");
 
-//add new staff member to the database
-// router.route('/add').post(async (req, res) => {
-//     const {
-//         id,
-//         name,
-//         jobstatus
-//     } = req.body;
+router.route("/add").post(async (req, res) => {
+  const staff = req.body;
+  const newStaff = new Staff(staff);
 
-//     const currentDate = Date.now();
-
-//     const newStaff = new Staff ({id, name, jobstatus});
-
-//     await newStaff.save().then(() => {
-//         res.status(200).send({status: 'Successfully Added'});
-//     }).catch((err) => {
-//         res.status(500).send({status: 'Error: Unsuccessful', error: err.message});
-//     });
-// });
-
-router.route("/add").post((req, res) => {
-  const id = req.body.id;
-  const name = req.body.name;
-  const jobStatus = req.body.jobStatus;
-
-  const newStaff = new Staff({
-    id,
-    name,
-    jobStatus,
-  });
-
-  newProfile
-    .save()
-    .then(() => {
-      res.json("New Profile is added.");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  try {
+    await newStaff.save();
+    res.status(201).json(newStaff);
+  } catch (error) {
+    res.json({ message: error });
+  }
 });
 
 //get staff details by giving id of that staff member
-router.route("/get/:id").post(async (req, res) => {
+router.route("/get/:id").get(async (req, res) => {
   const staffId = req.params.id;
 
   await Staff.findById(staffId)
