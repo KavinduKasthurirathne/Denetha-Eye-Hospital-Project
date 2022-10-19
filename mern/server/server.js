@@ -18,6 +18,9 @@ app.use("/api/purchaseOrder", PORouter);
 const pettyCashRouter = require("./routes/PettyCashRecords");
 app.use("/api/pettyCash", pettyCashRouter);
 
+const transactionsRouter = require("./routes/Transactions");
+app.use("/api/transactions", transactionsRouter);
+
 const patientRouter = require("./routes/Patients");
 app.use("/api/patient", patientRouter);
 

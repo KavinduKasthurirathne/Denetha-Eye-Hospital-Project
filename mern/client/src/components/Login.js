@@ -34,6 +34,7 @@ export const Login = (props) => {
             <p className='title'>Login</p>
             {props.error.name === 'none' ? null : displayError()}
             <TextField 
+                required
                 sx={{marginTop: 2, width:200}}
                 label='Username'
                 name='username'
@@ -41,6 +42,7 @@ export const Login = (props) => {
                 onChange={usenameOnChange} 
                 variant='standard' />
             <TextField 
+                required
                 sx={{marginTop: 2, width:200}}
                 label='Password'
                 name='password'
