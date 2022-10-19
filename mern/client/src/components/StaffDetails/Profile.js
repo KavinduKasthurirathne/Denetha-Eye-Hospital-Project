@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Profile.css";
+import { useCookies } from "react-cookie";
+import axios from "axios";
 
 const Profile = () => {
+  var [contactno, setContactno] = useState();
+  var [address, setAddress] = useState();
+  var [email, setEmail] = useState();
+  var [dob, setDob] = useState();
+  var [basicSal, setBasicSal] = useState();
+  const [cookies] = useCookies("id", "username", "role", "name");
+  const findProfile = async () => {
+    const data = {
+      id: cookies.id,
+    };
+
+    await axios
+      .post("http://localhost:5000/api/profile/get", data)
+      .then(({ data }) => {
+        if (data.message === null) {
+          setContactno(data.contactno);
+          setAddress(data.address);
+          setEmail(data.email);
+          setDob(data.dob);
+          setBasicSal(data.basicSal);
+        }
+      });
+  };
   const backbtn = useNavigate();
   return (
     <div className="mainDiv">
@@ -39,36 +64,36 @@ const Profile = () => {
 
         <div className="updateFormout">
           <form>
-            <label>ID : </label>
-            <input defaultValue={"ID001"} disabled />
+            <label>Username : </label>
+            <input value={cookies.username} disabled />
             <br />
 
             <label>Name :</label>
-            <input defaultValue={"Sunera Abishek"} disabled />
+            <input value={cookies.name} disabled />
             <br />
 
             <label>Job role :</label>
-            <input defaultValue={"Manager"} disabled />
+            <input value={cookies.role} disabled />
             <br />
 
             <label>Contact No :</label>
-            <input defaultValue={"0701273992"} />
+            <input value={contactno} />
             <br />
 
             <label>Address :</label>
-            <input defaultValue={"123,Peralanda,Ragama"} />
+            <input value={address} />
             <br />
 
             <label>Email :</label>
-            <input defaultValue={"abhishekperera77@gmail.com"} />
+            <input value={email} />
             <br />
 
             <label>Date of Birth :</label>
-            <input defaultValue={"1999-11-27"} />
+            <input value={dob} />
             <br />
 
             <label>Basic Salary :</label>
-            <input defaultValue={"150,000"} />
+            <input value={basicSal} />
             <br />
             <center>
               <button className="button">Update</button>

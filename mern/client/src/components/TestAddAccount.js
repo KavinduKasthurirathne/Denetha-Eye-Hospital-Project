@@ -45,7 +45,7 @@ export const TestAddAccount = () => {
     };
 
     return (
-        <div id='addAccount' className='round-edge-div'>
+        <div id='addAccount'>
             <TextField 
                 sx={{marginTop: 2, width:200}}
                 label='Name'
