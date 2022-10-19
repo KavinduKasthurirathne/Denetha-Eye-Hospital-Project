@@ -3,7 +3,8 @@ const Profiledb = require("../models/ProfileModel");
 const { get } = require("mongoose");
 
 router.route("/get").post(async (req, res) => {
-  await Profiledb.find()
+  const id = req.body.id;
+  await Profiledb.findById(id)
     .then((result) => {
       if (result) {
         res.json(result);

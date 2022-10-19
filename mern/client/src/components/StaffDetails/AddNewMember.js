@@ -9,38 +9,6 @@ function AddNewProfile(props) {
 
   const navigate = useNavigate();
 
-  const [id, setId] = useState(props.id);
-  const [name, setName] = useState(props.name);
-  var [contactno, setContactno] = useState(props.contactno);
-  var [address, setAddress] = useState(props.address);
-  var [jobrole, setJobrole] = useState(props.jobrole);
-  var [email, setEmail] = useState(props.email);
-  var [dob, setDob] = useState(props.dob);
-  var [basicSal, setBasicSal] = useState(props.basicSal);
-
-  function sendProfileDetails(event) {
-    const newProfile = {
-      id,
-      name,
-      contactno,
-      address,
-      jobrole,
-      email,
-      dob,
-      basicSal,
-    };
-
-    axios
-      .post("http://localhost:5000/api/staffDetails/add", newProfile)
-      .then(() => {
-        alert("Profile added Successfully!");
-        navigate("/staff");
-      })
-      .catch((err) => {
-        alert(err);
-      });
-  }
-
   return (
     <div className="mainDiv">
       <button
@@ -71,10 +39,10 @@ function AddNewProfile(props) {
         </svg>
       </button>
       <div className="updateform">
-        <h3>Add Profile</h3>
+        <h3>Add Account</h3>
         <hr />
         <TestAddAccount />
-        <div className="updateFormout">
+        {/* <div className="updateFormout">
           <form>
             <label>Contact No :</label>
             <input />
@@ -99,7 +67,7 @@ function AddNewProfile(props) {
               <button className="button">Save</button>
             </center>
           </form>
-        </div>
+      </div>*/}
       </div>
     </div>
   );
