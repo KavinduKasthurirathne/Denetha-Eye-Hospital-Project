@@ -190,10 +190,15 @@ a{
   animation: spin 1s infinite ease-in-out;
 }
 #addAccount{
-  transform: translate(130%, -50%);
-  width: 250px;
-  height: 320px;
+  text-align: center;
+  padding: 2%;
+  width: 30%;
+  height: 45%;
   box-shadow: 2px 2px 4px #989898;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  margin: auto;
+  margin-bottom: 30px;
 }
 #navbar{
   margin-top: 2.5%;
