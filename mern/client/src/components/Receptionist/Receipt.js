@@ -40,12 +40,18 @@ export const Receipt = (props) => {
 
         const name=props.name;
         const phone=props.phone;
+        const date=props.date;
+        const age=props.age;
+        const doctor = props.doctor;
 
         const receiptOb = {
             name,
             phone,
             type,
-            amount
+            amount,
+            date,
+            age,
+            doctor
       };
       
       axios.post("http://localhost:5000/api/receipt/insert", receiptOb)
@@ -78,6 +84,8 @@ export const Receipt = (props) => {
                 </tr>
                 <tr>
                     <td id="receiptCell">Date:</td>
+                    <td id="receiptCell">{props.date}</td>
+
                 </tr>
                 <tr>
                     <td id="receiptCell">Phone:</td>
@@ -85,9 +93,13 @@ export const Receipt = (props) => {
                 </tr>
                 <tr>
                     <td id="receiptCell">Age:</td>
+                    <td id="receiptCell">{props.age}</td>
+
                 </tr>
                 <tr>
                     <td id="receiptCell">Doctor:</td>
+                    <td id="receiptCell">{props.doctor}</td>
+
                 </tr>
                 <tr>
                     <td id="receiptCell">

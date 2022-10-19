@@ -12,6 +12,10 @@ export const Reception = () => {
     const [selectedName, setSelectedName] = useState("");
     const [selectedPhone, setSelectedPhone] = useState("");
     const [AppoinmentType, setAppoinmentType] = useState("");
+    const [Appointmentdate, setAppointmentdate] = useState("");
+    const [Appointmentage,setAppointmentage] = useState('');
+    const [Appointmentdoctor, setAppointmentdoctor] = useState('');
+
     const [NewReceipt, setNewReceipt] = useState(false);
     const [editReceipt, seteditReceipt] = useState(false);
     const [NewAppoinment, setNewAppoinment] = useState(false);
@@ -32,9 +36,27 @@ export const Reception = () => {
                 <AppointType btnsetter={setNewAppoinment} btnstate={NewAppoinment} type={setAppoinmentType}/>
                 
             </div> : !NewReceipt?
-                <Appoinment btnsetter ={setNewReceipt} btnstate={NewReceipt} name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
+                <Appoinment btnsetter = {setNewReceipt} 
+                            btnstate = {NewReceipt} 
+                            name = {selectedName} 
+                            phone = {selectedPhone} 
+                            type = {AppoinmentType} 
+                            setdate = {setAppointmentdate} 
+                            date = {Appointmentdate}
+                            age = {Appointmentage}
+                            setage = {setAppointmentage}
+                            doctor={Appointmentdoctor}
+                            setdoctor={setAppointmentdoctor}/>
                 :!editReceipt?
-                    <Receipt btnsetter ={seteditReceipt} btnstate={editReceipt} name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
+                    <Receipt btnsetter ={seteditReceipt} 
+                             btnstate={editReceipt} 
+                             name={selectedName} 
+                             phone={selectedPhone}
+                             type={AppoinmentType} 
+                             date={Appointmentdate}
+                             age={Appointmentage}
+                             doctor={Appointmentdoctor}/>
+
                     :<EditReceipt name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
             }
             
