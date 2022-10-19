@@ -13,7 +13,7 @@ export const Reception = () => {
     const [selectedPhone, setSelectedPhone] = useState("");
     const [AppoinmentType, setAppoinmentType] = useState("");
     const [Appointmentdate, setAppointmentdate] = useState("");
-    const [Appointmentage,setAppointmentage] = useState('');
+    const [Appointmentage,setAppointmentage] = useState();
     const [Appointmentdoctor, setAppointmentdoctor] = useState('');
 
     const [NewReceipt, setNewReceipt] = useState(false);
@@ -31,7 +31,9 @@ export const Reception = () => {
                             selectedPhone={selectedPhone} 
                             setSelectedPhone={setSelectedPhone}/>
                                     
-                <a href="/AddPatientForm"> <button className='button' id='newPatient' >Add New Patient &nbsp; <i className="fas fa-plus-circle"></i></button> </a>
+                <a href="/AddPatientForm"> 
+                <button className='button' id='newPatient' >Add New Patient &nbsp; <i className="fas fa-plus-circle"></i></button> 
+                </a>
                 
                 <AppointType btnsetter={setNewAppoinment} btnstate={NewAppoinment} type={setAppoinmentType}/>
                 
@@ -57,12 +59,14 @@ export const Reception = () => {
                              age={Appointmentage}
                              doctor={Appointmentdoctor}/>
 
-                    :<EditReceipt name={selectedName} phone={selectedPhone} type={AppoinmentType}/>
-            }
-            
-                
-                          
-                    
+                    :<EditReceipt   name={selectedName} 
+                                    phone={selectedPhone}
+                                    type={AppoinmentType} 
+                                    date={Appointmentdate}
+                                    age={Appointmentage}
+                                    doctor={Appointmentdoctor}/>
+            }              
+                                        
         </div>
     );
     

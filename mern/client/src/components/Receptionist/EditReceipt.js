@@ -9,6 +9,9 @@ export const EditReceipt = (props) => {
     const [Doctorfee, setDoctorfee] = useState();
     const [name, setname] = useState(props.name);
     const [phone, setphone] = useState(props.phone);
+    const [date, setdate] = useState(props.date);
+    const [age, setage] = useState(props.age);
+    const [doctor, setdoctor] = useState(props.doctor);
    
     useEffect(() => {
         switch(props.type){
@@ -46,19 +49,34 @@ export const EditReceipt = (props) => {
         setphone(target.value);
     }
 
+    const handleAge =({target}) =>{
+        setage(target.value);
+    }
+
+    const handleDate =({target}) =>{
+        setdate(target.value);
+    }
+
+    const handleDoctor =({target}) =>{
+        setdoctor(target.value);
+    }
 
     const handleUpdate = (e) =>{
+        e.preventDefault();
         const receiptOb = {
             name,
             phone,
             type,
-            amount
+            amount,
+            date,
+            age,
+            doctor
       };
       
       axios.post("http://localhost:5000/api/receipt/insert", receiptOb)
       .then((res) => {
             console.log(res.data);
-            alert("receipt updated");
+            alert("Receipt Updated...");
             window.location.reload();
         })
         .catch((err) => {
@@ -67,7 +85,8 @@ export const EditReceipt = (props) => {
 
     
       return(<>         
-            <div id="receipt">       
+            <div id="receipt">
+            <form onSubmit={handleUpdate}>       
             <table align="center" id="receiptTable">
             <caption> 
                     <h2>Denetha Eye Hospital</h2>
@@ -77,8 +96,7 @@ export const EditReceipt = (props) => {
                 
                 <tr>
                     <td id="receiptCell">Patient name:</td>
-                   
-                    <td id="receiptCell"> <input value={name} onChange={handleName}></input></td>
+                    <td id="receiptCell"> <input value={name} type={"text"} onChange={handleName} required></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">Appoinment type:</td>
@@ -86,19 +104,19 @@ export const EditReceipt = (props) => {
                 </tr>
                 <tr>
                     <td id="receiptCell">Date:</td>
-                    <td> <input></input></td>
+                    <td id="receiptCell">  <input value={date} type={"date"} onChange={handleDate} required></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">Phone:</td>
-                    <td id="receiptCell"><input value={phone} onChange={handlePhone}></input></td>
+                    <td id="receiptCell"><input value={phone} type={"text"} onChange={handlePhone} required pattern="[0-9]{10}"></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">Age:</td>
-                    <td> <input></input></td>
+                    <td id="receiptCell">  <input value={age} type={"number"} onChange={handleAge}></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">Doctor:</td>
-                    <td> <input></input></td>
+                    <td id="receiptCell">  <input value={doctor} type={"text"} onChange={handleDoctor}></input></td>
                 </tr>
                 <tr>
                     <td id="receiptCell">
@@ -115,10 +133,13 @@ export const EditReceipt = (props) => {
                 </tbody>    
             </table>
             <br/>
-           <a href="/receptionist"><button className='button'>Cancel</button></a>
-           <button className='button' onClick={handleUpdate}>Save</button>
+           {/* <a href="mern\client\src\components\Reception.js"><button className='button' type="cancel">Cancel</button></a> */}
+           <button type="submit" className='button'>Save</button>
+           </form> 
            <br/>
+           
          </div>
+         
            
         
     </>

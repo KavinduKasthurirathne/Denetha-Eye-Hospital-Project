@@ -17,7 +17,7 @@ const receiptSchema = new Mongoose.Schema({
     },
 
     age: {
-        type : String,
+        type : Number,
         require : false
     },
     

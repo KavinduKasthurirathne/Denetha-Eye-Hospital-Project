@@ -88,6 +88,7 @@ export const Appoinment=(props) =>{
       const date = props.date;
       const age = props.age;
       const doctor = props.doctor;
+      
       const appoinment = {
         name,
         address,
