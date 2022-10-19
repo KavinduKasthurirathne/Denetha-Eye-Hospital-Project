@@ -48,7 +48,7 @@ const App = () => {
 
     const data = {
       username,
-      password
+      password,
     }
 
     await axios.post(`${cookies.proxy}/api/account/check`, data)
@@ -86,7 +86,6 @@ const App = () => {
   return (
       <div className="App">
         <Login onLogin={verifyLogin} input={user} error={errorMsg} load={loading}/>
-        <TestAddAccount/>
       </div>
   );
 };
