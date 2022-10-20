@@ -103,7 +103,10 @@ const PCRoot = (props) => {
                 New
             </Button>
             <NoticeDialog 
-                message={ <div style={{margin: 5}}><TextField 
+                message={ 
+                <div style={{margin: 5}}>
+                    <TextField 
+                    required
                     label='New List Name'
                     variant='outlined'
                     value={listName}

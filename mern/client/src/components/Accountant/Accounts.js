@@ -20,6 +20,8 @@ const Accounts = () => {
 
     const [date, setDate] = useState(today);
     const [transactionData, setTransactionData] = useState([]);
+    const [editID, setEditID] = useState('');
+    const [inputs, setInputs] = useState({});
     const [cookies] = useCookies("proxy");
 
     const getReceipts = async (date) => {
@@ -32,6 +34,7 @@ const Accounts = () => {
 
     useEffect(()=>{
         getReceipts(date);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [date]);
 
     return (
@@ -41,12 +44,19 @@ const Accounts = () => {
                 setDate={setDate} />
             <div id='transactionList'>
                 <div className='grid-child' id='acc-root'>
-                    <TransactionsRoot data={transactionData} />
+                    <TransactionsRoot 
+                        patientData={transactionData}
+                        setInputs={setInputs}
+                        setEditID={setEditID} />
                 </div>
                 <div className='grid-child'>
                     <TransactionDetails 
                         date={date} 
-                        data={transactionData} />
+                        editID={editID}
+                        inputs={inputs}
+                        setInputs={setInputs}
+                        setEditID={setEditID}
+                        patientData={transactionData} />
                 </div>
             </div>
         </div>

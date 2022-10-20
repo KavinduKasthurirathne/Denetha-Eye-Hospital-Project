@@ -6,10 +6,10 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from
 
 const PrintableTR = React.forwardRef((props, ref) => {
 
-    const calculateTotal = () => {
+    const calculateTotal = (list) => {
         let sum = 0;
-        if(props.data){
-            props.data.map((item)=>(sum += parseFloat(item.amount)));
+        if(list){
+            list.map((item)=>(sum += parseFloat(item.amount)));
         }
         return(sum.toFixed(2));
     };
@@ -18,11 +18,6 @@ const PrintableTR = React.forwardRef((props, ref) => {
         const date = new Date(iso);
         const correctDate = new Date(date.getTime() + 360*60000);
         return (correctDate.toISOString().split('T')[0]);
-    };
-
-    const reimburse = () => {
-        let re = parseFloat(props.reserve) - calculateTotal();
-        return re.toFixed(2);
     };
 
     const logo = require('../../../image/denethaLogo.png');
@@ -42,16 +37,16 @@ const PrintableTR = React.forwardRef((props, ref) => {
                     </p>
                 </div>
                 <div className='po-flex-child'>
-                    <h2>Petty Cash</h2>
+                    <h2>Daily Transactions</h2>
                     <table className='table'>
                         <thead>
                             <tr>
-                                <th className='th'>Month</th>
+                                <th className='th'>Date</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td className='td'>{props.root}</td>
+                                <td className='td'>{props.date}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -69,13 +64,10 @@ const PrintableTR = React.forwardRef((props, ref) => {
                                 Date
                             </TableCell>
                             <TableCell align='left' style={{fontWeight: 'bold', width: 190}} >
-                                Description
+                                Title
                             </TableCell>
                             <TableCell align='left' style={{fontWeight: 'bold', width: 70}} >
                                 Type
-                            </TableCell>
-                            <TableCell align='left' style={{fontWeight: 'bold', width: 70}} >
-                                Vo. Num.
                             </TableCell>
                             <TableCell align='right' style={{fontWeight: 'bold', width: 80}} >
                                 Amount(Rs.)
@@ -84,28 +76,29 @@ const PrintableTR = React.forwardRef((props, ref) => {
                     </TableHead>
                     <TableBody>
                         {
-                            props.data.map((row)=>(
+                            props.patientData.map((row)=>(
                                 <TableRow key={row._id} >
                                     <TableCell align='left' >{getDateString(row.date)}</TableCell>
-                                    <TableCell align='left' >{row.pcItem}</TableCell>
+                                    <TableCell align='left' >{row.name}</TableCell>
                                     <TableCell align='left' >{row.type}</TableCell>
-                                    <TableCell align='left' >{row.vNum}</TableCell>
                                     <TableCell align='right' >{row.amount}</TableCell>
                                 </TableRow>
                             ))
                         }
                         <TableRow>
-                            <TableCell align='right' colSpan={4}><div className='bold-text'>Total</div></TableCell>
-                            <TableCell align='right' ><div className='bold-text'>{calculateTotal()}</div></TableCell>
+                            <TableCell align='right' colSpan={3}><div className='bold-text'>Patient Sub Total</div></TableCell>
+                            <TableCell align='right' ><div className='bold-text'>{calculateTotal(props.patientData)}</div></TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell align='right' colSpan={3}><div className='bold-text'>Doctor Sub Total</div></TableCell>
+                            <TableCell align='right' ><div className='bold-text'>{calculateTotal(props.patientData)}</div></TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
                 </TableContainer>
             </div>
             <div id='sign' >
-                <p className='normal-text right-align'>{`Reserve -> `}{props.reserve}</p>
-                <p className='normal-text right-align'>{`Total Usage -> `}{calculateTotal()}</p>
-                <p className='normal-text right-align'>{`Remainder -> `}{reimburse()}</p>
+                <h3 className='normal-text right-align'>{`Gross Income -> `}{calculateTotal(props.patientData)}</h3>
             </div>
         </div>
     );
