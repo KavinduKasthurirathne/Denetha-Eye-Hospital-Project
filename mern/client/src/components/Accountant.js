@@ -27,6 +27,7 @@ export const Accountant = () => {
     useEffect(()=>{
         getPOdata();
         getPCdata();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     //event handlers
@@ -48,19 +49,19 @@ export const Accountant = () => {
                     className='button navButton' 
                     onClick={purchaseOrderOnClick} 
                     disabled={display==='purchaseOrder' ? true : false}>
-                    Purchase Orders
+                    PURCHASE ORDERS
                 </button>
                 <button 
                     className='button navButton' 
                     onClick={pettyCashOnClick}
                     disabled={display==='pettyCash' ? true : false}>
-                    Petty Cash
+                    PETTY CASH
                 </button>
                 <button 
                     className='button navButton' 
                     onClick={AccountsOnClick}
                     disabled={display==='accounts' ? true : false}>
-                    Accounts
+                    INCOME AND EXPENSES
                 </button>
                 <div>
                     {display==='purchaseOrder' && <PurchaseOrder data={POdata} getPO={getPOdata} />}
