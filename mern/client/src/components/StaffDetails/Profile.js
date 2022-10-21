@@ -11,11 +11,13 @@ const Profile = () => {
   var [dob, setDob] = useState();
   var [basicSal, setBasicSal] = useState();
   const [cookies] = useCookies("id", "username", "role", "name");
+
+  const navigate = useNavigate();
+
   const findProfile = async () => {
     const data = {
       id: cookies.id,
     };
-
     await axios
       .post("http://localhost:5000/api/profile/get", data)
       .then(({ data }) => {
@@ -28,6 +30,31 @@ const Profile = () => {
         }
       });
   };
+
+  //add data to the profile table when user added personal data
+  function addData(e) {
+    e.preventDefault();
+
+    const addNewDataToProfile = {
+      contactno,
+      address,
+      email,
+      dob,
+      basicSal,
+    };
+
+    axios
+      .post("http://localhost:5000/api/profile/add", addNewDataToProfile)
+      .then(() => {
+        alert("Data Inserted!");
+        window.location.reload(true);
+      })
+      .catch((err) => {
+        alert(err);
+        console.log(err);
+      });
+  }
+
   const backbtn = useNavigate();
   return (
     <div className="mainDiv">
@@ -63,10 +90,13 @@ const Profile = () => {
         <hr />
 
         <div className="updateFormout">
-          <form>
-            <label>Username : </label>
-            <input value={cookies.username} disabled />
-            <br />
+          <form onSubmit={addData}>
+            <div>
+              <label>Username : </label>
+              <input value={cookies.username} disabled />
+
+              <br />
+            </div>
 
             <label>Name :</label>
             <input value={cookies.name} disabled />
@@ -81,21 +111,44 @@ const Profile = () => {
             <br />
 
             <label>Address :</label>
-            <input value={address} />
+            <input
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+              value={address}
+            />
             <br />
 
             <label>Email :</label>
-            <input value={email} />
+            <input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
+            />
             <br />
 
             <label>Date of Birth :</label>
-            <input value={dob} />
+            <input
+              onChange={(e) => {
+                setDob(e.target.value);
+              }}
+              value={dob}
+            />
             <br />
 
             <label>Basic Salary :</label>
-            <input value={basicSal} />
+            <input
+              onChange={(e) => {
+                setBasicSal(e.target.value);
+              }}
+              value={basicSal}
+            />
             <br />
             <center>
+              <button type="submit" className="button">
+                Save
+              </button>
               <button className="button">Update</button>
               <button style={{ backgroundColor: "#ff4d4d" }} className="button">
                 Delete

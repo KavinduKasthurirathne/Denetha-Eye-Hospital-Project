@@ -29,7 +29,7 @@ router.route("/add").post(async (req, res) => {
   const dob = Date(req.body.dob);
   const basicSal = Number(req.body.basicSal);
 
-  const newProfile = new profile({
+  const newProfile = new Profiledb({
     id,
     name,
     contactno,
@@ -42,20 +42,23 @@ router.route("/add").post(async (req, res) => {
   newProfile
     .save()
     .then(() => {
-      res.json("New Meeting is added.");
+      res.json("New data is added.");
     })
     .catch((err) => {
       console.log(err);
     });
 });
 
-router.route("/check").post(async (req, res) => {
-  await Profiledb.find({ id: req.body.id })
+//update profile
+router.route("/update/:pid").put(async (req, res) => {
+  const id = req.body.id;
+
+  await Profiledb.findById(id)
     .then((result) => {
       if (result) {
-        res.status(201).send({ message: "ProfileFound" });
+        res.json(result);
       } else {
-        res.status(200).send({ message: "NoProfile" });
+        res.status(200).send({ message: "No user" });
       }
     })
     .catch((err) => {
@@ -63,23 +66,14 @@ router.route("/check").post(async (req, res) => {
         .status(500)
         .send({ status: "Error: Account not found", error: err.message });
     });
-});
-
-//update profile
-router.route("/update/:pid").put(async (req, res) => {
-  const profileId = req.params.pid;
 
   //destructure
-  const { id, name, contactno, address, jobrole, email, dob, basicSal } =
-    req.body;
+  const { contactno, address, email, dob, basicSal } = req.body;
 
   //update values
   const updateProfile = {
-    id,
-    name,
     contactno,
     address,
-    jobrole,
     email,
     dob,
     basicSal,
