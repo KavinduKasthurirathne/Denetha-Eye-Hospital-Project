@@ -7,8 +7,6 @@ function AddNewProfile(props) {
   // const AddNewMember = () => {
   // const backbtn = useNavigate();
 
-  const navigate = useNavigate();
-
   return (
     <div className="mainDiv">
       <button
