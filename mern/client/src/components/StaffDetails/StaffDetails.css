@@ -1,36 +1,29 @@
-
-.staffDetails{
-    border:10px;
-}
-.topic1{
-    text-align: center;
-    font-size: 30px;
+.maindiv {
+  display: block;
+  padding: 5%;
 }
 
-
-.btnAdd{
-    font-size: 20px;
-    float:right;
-    background-color: #2A628F;
-    
-
+.topic1 {
+  margin-left: 40%;
 }
 
-.stafftable{
-    margin-left: auto;
-    margin-right: auto;
-    border: 5px solid;
-}
-.searchbar ul{
-    list-style-type: none;
+.addbtn:hover {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
+  transform: translateY(-2px);
 }
 
-.searchbar li{
-    display:inline-flex;
-}
-.search{
-    float:inline-start;
-    margin-left: 470px;
+.search {
+  margin-left: 45%;
+  width: 40%;
 }
 
+.stafftable {
+  width: 95%;
+  margin: 10px;
+  border: 10px;
+}
 
+.stafftable th {
+  padding-left: 130px;
+  background-color: rgba(0, 0, 126, 0.507);
+}

@@ -14,15 +14,12 @@ export const Appoinment=(props) =>{
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
     const buttonColor={background:'#2A628F' ,padding:'10px 97px',margin :'5px',width:100}
     const buttongreenColor = {background:'#3D8361',padding:'10px 97px',margin :'5px',width:100};
-    const [Name,setName] = useState(props.name===null?"" :props.name);
-    const [Address,setAddress] = useState('');
-    const [Age,setAge] = useState('');
-    const [Gender,setGender] = useState('');
-    const [appoinmentnumber,setAppoinmentnumber] = useState('');
+    const [name,setname] = useState(props.name===null?"" :props.name);
+    const [address,setaddress] = useState('');
+    const [gender,setgender] = useState('');
+    const [appoinmentnumber,setappoinmentnumber] = useState('');
     const [contactnumber,setcontactnumber] = useState(props.phone===null?"" :props.phone);
-    const [doctor, setdoctor] = useState('');
     const [type, settype] = useState("");
-    const [date,setDate] = useState('');
     const [time,setTime] = useState('');
     const [cookies] = useCookies('proxy');
     const navigateTo = useNavigate();
@@ -48,15 +45,15 @@ export const Appoinment=(props) =>{
 
     const handleName= ({target}) =>
     {
-      setName(target.value);
+      setname(target.value);
     }
     const handleAddress= ({target}) =>
     {
-      setAddress(target.value);
+      setaddress(target.value);
     }
     const handleAge =({target}) =>
     {
-      setAge(target.value);
+      props.setage(target.value);
     }
     const handlecontactnumber= ({target}) =>
     {
@@ -64,15 +61,15 @@ export const Appoinment=(props) =>{
     }
     const handlegender =({target}) =>
     {
-      setGender(target.value);
+      setgender(target.value);
     }
     const handleDoctor =({target}) =>
     {
-      setdoctor(target.value);
+      props.setdoctor(target.value);
     }
     const handleappoinmentnumber =({target}) =>
     {
-      setAppoinmentnumber(target.value);
+      setappoinmentnumber(target.value);
     }
     const handleType = ({target})=>
     {
@@ -80,7 +77,7 @@ export const Appoinment=(props) =>{
     }
    const handleDate = ({target})=>
     {
-      setDate(target.value);
+      props.setdate(target.value);
     }
     const handleTime = ({target})=>
     {
@@ -88,23 +85,26 @@ export const Appoinment=(props) =>{
     }
     const handleSubmit =async({target}) =>
     {
+      const date = props.date;
+      const age = props.age;
+      const doctor = props.doctor;
+      
       const appoinment = {
-        name: Name,
-        address: Address,
-        phone: contactnumber,
-        age: Age,
-        gender:Gender ,
-        appoinmentnumber:appoinmentnumber,
-        type:type,
-        date: date,
-        time:time,
-        doctor: doctor
+        name,
+        address,
+        contactnumber,
+        age,
+        gender ,
+        appoinmentnumber,
+        type,
+        date,
+        time,
+        doctor
     };
   await axios.post(`${cookies.proxy}/api/appointment/record`,appoinment)
   .then((res)=>{
-    alert("Your appoinment successfully added");
-  console.log(res.data);
-  navigateTo('/appoinmenttable');
+    console.log(res.data);
+    navigateTo('/receptionist');
 
   }).catch((err)=>{
     alert("Your appoinment have getting inturrupted.Try again");
@@ -124,17 +124,17 @@ export const Appoinment=(props) =>{
             <br/>
                 PATIENT DETAILS 
                 <br/><br/>
-                <TextField fullWidth label='Patient Name' placeholder="Enter Patient Name" onChange={handleName} value={Name}/>
+                <TextField fullWidth label='Patient Name' placeholder="Enter Patient Name" onChange={handleName} value={name}/>
                 <br/><br/>
-                <TextField fullWidth label='Address' placeholder="Enter Address" onChange={handleAddress} value={Address}/>
+                <TextField fullWidth label='Address' placeholder="Enter Address" onChange={handleAddress} value={address}/>
                 <br/><br/>
                 <TextField fullWidth label='Contact Number' placeholder="Enter Contact Number" onChange={handlecontactnumber} value={contactnumber}/>
                 <br/><br/>
-                <TextField fullWidth label='Age'placeholder="Enter Age" value={Age} onChange={handleAge}/>
+                <TextField fullWidth label='Age'placeholder="Enter Age" value={props.age} onChange={handleAge}/>
                 <br/><br/>
                 <FormControl component="fieldset">
                 <FormLabel component="legend">Gender</FormLabel>
-                <RadioGroup aria-label="gender" value={Gender} style={{display:'initial'}} onChange={handlegender}>
+                <RadioGroup aria-label="gender" value={gender} style={{display:'initial'}} onChange={handlegender}>
                     <FormControlLabel value="female" control={<Radio/>} label="Female"/>
                     <FormControlLabel value="male" control={<Radio/>} label="Male"/>
                 </RadioGroup>
@@ -154,7 +154,7 @@ export const Appoinment=(props) =>{
                   labelId='select-Doctor-label'
                   id='doctor'
                   name='doctor'
-                  value={doctor} 
+                  value={props.doctor} 
                   onChange={handleDoctor}
                     variant='standard' >
                         <MenuItem value=''>
@@ -182,7 +182,7 @@ export const Appoinment=(props) =>{
                 <br/><br/>
                 <div style={{display:'flex'}}>
                 <h5>Date</h5>
-                <TextField type="date" fullWidth onChange={handleDate} value={date}/>
+                <TextField type="date" fullWidth onChange={handleDate} value={props.date}/>
                 <h5>Time</h5>
                 <TextField type="time" fullWidth onChange={handleTime} value ={time}/>
                 </div>
@@ -191,12 +191,13 @@ export const Appoinment=(props) =>{
                <FormControlLabel control={<Checkbox defaultChecked />} required label="I accept the terms and conditions." />
                 </FormGroup>
                 <div align="center" >
+                <a href="/receptionist"><button className='button'>Cancel</button></a>
                 <button className='button' onClick={(e)=>{
                  props.btnsetter(!props.btnstate);
                  handleSubmit(e);
             
                 }} variant="contained"  style={{color:'white'}} >Confirm Appoinment</button>
-                <NavLink to='/appoinmenttable' style={{color:'white'}} ><button className='button'>Appointment Table</button></NavLink>
+                
                 <br/>
                 </div>
             </form>

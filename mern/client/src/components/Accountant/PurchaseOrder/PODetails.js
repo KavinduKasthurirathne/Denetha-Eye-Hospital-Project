@@ -5,15 +5,15 @@ import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
 import POBody from './POBody';
-import NoticeDialog from '../NoticeDialog';
 import POHeader from './POHeader';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PODetails = (props) => {
     const [data, setData] = useState({});
     const [items, setItems] = useState([]);
-    const [save, setSave] = useState(true);
-    const [dialog, setDialog] = useState(false);
-    const [message, setMessage] = useState('');
+    const [save, setSave] = useState(false);
     const [cookies] = useCookies('name', 'proxy');
 
     //a function to get ISO date with correct time zone
@@ -49,7 +49,6 @@ const PODetails = (props) => {
             ...prev,
             [target.name]: target.value
         }));
-        setSave(false);
     };
 
     const handleSave = async () => {
@@ -64,17 +63,21 @@ const PODetails = (props) => {
         };
         await axios.post(`${cookies.proxy}/api/purchaseOrder/update/${data._id}`, update)
         .then((response) => {
-            setMessage(response.data.message);
-            setDialog(true);
+            toast(response.data.message);
+            setSave(false);
             props.getPO();
-            setSave(true);
         })
-        .catch((err)=>{console.log(err)})
+        .catch((err)=>{
+            console.log(err);
+            setSave(false);
+        })
     };
 
-    const dialogClose = () => {
-        setDialog(false);
-    };
+    useEffect(()=>{
+        if(save){
+            handleSave();
+        }
+    }, [items]);
 
     return (
         <div className='basic' >
@@ -84,20 +87,15 @@ const PODetails = (props) => {
             <POHeader 
                 data={data}
                 handleChange={handleChange} />
-            <NoticeDialog 
-                message={`Status: ${message}`} 
-                handleClose={dialogClose}
-                handleButton={dialogClose} 
-                enable={dialog} 
-                title='Alert!' />
+
             <POBody 
                 data={items}  
                 setter={setItems} 
                 editor={data.editor}
-                editDate={data.lastEdit}
-                save={save} 
-                handleSave={handleSave} 
-                setSave={setSave} />
+                editDate={data.lastEdit} 
+                save={setSave} />
+
+            <ToastContainer />
             </>
             :
             <p className='prompt'>Select a Purchase order to edit</p>}

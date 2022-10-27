@@ -1,0 +1,21 @@
+.addmemberform{
+    margin-left: 600px;
+    text-Align: 'center';
+    font-weight: bold;
+    font-Size: 18;
+    margin-top: 100px;
+    width: 200;
+    background-Color: 'yellow';
+}
+.btn_btn-primary{
+    width:100px;
+    height:30px;
+    background-color: lightskyblue;
+}
+.form-group label{
+   margin:10px;
+}
+
+.form-control{
+    margin-left:100px;
+}

@@ -2,8 +2,8 @@ body {
     background-color: #F3F3F3;
 }
 
-.head {
-    font-size: 32px;
+.headerPatients {
+    font-size: 30px;
     text-align: center;
     padding-top: 70px;
 }
@@ -14,7 +14,7 @@ body {
 
 .patienttable {
     margin: auto;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-bottom: 30px;
     background-color: rgb(255, 255, 255);
     width: 70%;
@@ -43,6 +43,7 @@ td {
 }
 
 .view-icon {
+    cursor: pointer;
     opacity: 35%;
     width: 20px;
     height:20px;

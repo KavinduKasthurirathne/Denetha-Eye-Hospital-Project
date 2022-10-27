@@ -1,21 +1,60 @@
-profile.css
-.profiletable{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    
+/* .profiletable {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  width: 600px;
 }
-.profiletable th{
-    text-align: right;
+.profiletable th {
+  text-align: right;
+  width: 100px;
 }
-.profiletable td{
-    text-align: left;
-    width:5px;
+.profiletable td {
+  text-align: left;
+  width: 5px;
 }
-#btnedit{
-    font-size: 20px;
-    float:right;
-    background-color: #2A628F;
-    margin-right: 315px;
-    margin-top: 20px;
+.btnedit {
+  font-size: 20px;
+  float: left;
+  background-color: #2a628f;
+  margin-left: 600px;
+  margin-top: 20px;
+}
+.btnRemove {
+  font-size: 20px;
+  float: right;
+  background-color: #2a628f;
+  margin-right: 450px;
+  margin-top: 20px;
+}
+.ProfilePage {
+  margin-bottom: 100px;
+} */
+
+.mainDiv {
+  width: 100%;
+  height: 750px;
+}
+
+.updateform {
+  position: relative;
+  width: 50%;
+  height: 700px;
+  border-radius: 20px;
+  margin-top: 15px;
+  margin-left: 25%;
+  padding: 50px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.updateFormout label {
+  width: 20%;
+}
+
+.updateFormout input {
+  width: 60%;
+}
+
+.updateFormout button {
+  margin-top: 10px;
+  width: 200px;
 }

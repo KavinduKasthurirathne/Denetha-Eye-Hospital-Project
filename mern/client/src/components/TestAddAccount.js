@@ -27,6 +27,10 @@ export const TestAddAccount = () => {
     };
 
     const handleSubmit = async () => {
+        if(input.role === null) {
+            return;
+        }
+        
         const data = {
             name: input.name,
             username: input.username,
@@ -45,8 +49,9 @@ export const TestAddAccount = () => {
     };
 
     return (
-        <div id='addAccount' className='round-edge-div'>
+        <div id='addAccount'>
             <TextField 
+                required
                 sx={{marginTop: 2, width:200}}
                 label='Name'
                 name='name'
@@ -54,6 +59,7 @@ export const TestAddAccount = () => {
                 onChange={inputOnChange} 
                 variant='standard' />
             <TextField 
+                required
                 sx={{marginTop: 2, width:200}}
                 label='Username'
                 name='username'
@@ -61,6 +67,7 @@ export const TestAddAccount = () => {
                 onChange={inputOnChange} 
                 variant='standard' />
             <TextField 
+                required
                 sx={{marginTop: 2, width:200}}
                 label='Password'
                 name='password'
