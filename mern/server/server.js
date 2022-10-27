@@ -27,6 +27,12 @@ app.use('/api/appointment', appoinmentRouter);
 const meetingRouter = require('./routes/Meeting');
 app.use('/api/meeting' , meetingRouter);
 
+const inventory = require('./routes/Inventory');
+app.use('/api/inventory' , inventory);
+
+const vendor = require('./routes/Vendor');
+app.use('/api/vendor' , vendor);
+
 const profileRouter = require('./routes/Profiledb');
 app.use('/api/profile' , profileRouter);
 

@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
-
+import {Inventory} from '../components/Inventory';
+import {InventoryTable} from '../components/Inventorytable';
 import {Appoinment} from "../components/Appoinment";
 import App from '../App';
 import {Patients} from '../components/Patients';
@@ -26,6 +27,8 @@ const createRoutes = () => {
             
             <Route exact path='/' element={<App />} />
             <Route exact path='accountant' element={<Accountant />} />
+            <Route exact path='inventory' element={<Inventory/>}/>
+            <Route exact path='InventoryTable' element={<InventoryTable/>}/>
             <Route exact path='receptionist' element={<Reception />} >
             </Route>
             <Route exact path='staff' element={<Patients />} />
