@@ -137,13 +137,6 @@ export const Header = () => {
                         </MenuItem>
                         <MenuItem>
                             <ListItemIcon>
-                                <AccountCircleIcon />
-                            </ListItemIcon>
-                            <NavLink to='/profile' style={{color:'black'}} >Profile
-                            </NavLink>
-                        </MenuItem>
-                        <MenuItem>
-                            <ListItemIcon>
                                 <HelpIcon />
                             </ListItemIcon>
                             
