@@ -10,7 +10,7 @@ export default function AddSuPatient (){
         const [number , setNumber]= useState("");
         const [age , setAge]= useState("");
 
-        const [gender, setGender] = React.useState('Male');
+        const [gender, setGender] = React.useState('Female');
 
         const handleChange = (e) => {
          setGender(e.target.value)
@@ -30,7 +30,7 @@ export default function AddSuPatient (){
             setName("");
             setNumber("");
             setAge("");
-            setGender("");
+            //setGender("");
             setStype("");
 
         }).catch((err) => {
@@ -63,7 +63,7 @@ export default function AddSuPatient (){
                 <input type="text" class="form-control" id="pname"  placeholder="Enter Patient's Name" value = {pname} onChange={(e)=>{
 
                 setName(e.target.value);
-                }}/>    
+                }} required/>    
             </div><br/>
 
             <div className="form-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -84,14 +84,14 @@ export default function AddSuPatient (){
             </div><br/>
             <div class="form-group">
             <label for="gender">Gender :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="radio" value="male" checked={gender === 'Male'} onChange={handleChange} /> Male&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="radio" value="female" checked={gender === 'Female'} onChange={handleChange}/> Female</div>
+            <input type="radio" value="Male" checked={gender === 'Male'} onChange={handleChange} /> Male&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" value="Female" checked={gender === 'Female'} onChange={handleChange}/> Female</div>
             <br/>
             
             
 
             <div className="form-group">
-                <label for="Stype">Surgery Type :</label>&nbsp;&nbsp;&nbsp;
+                <label for="Stype">Surgery Type :</label> &nbsp; &nbsp; &nbsp;
                 <input type="text" class="form-control" id="Stype"  placeholder="Enter Patient's Surgery Type" value = {Stype}  onChange={(e)=>{
 
                         setStype(e.target.value);
