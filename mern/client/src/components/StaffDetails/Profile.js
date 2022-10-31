@@ -90,7 +90,7 @@ const Profile = () => {
         <hr />
 
         <div className="updateFormout">
-          <form onSubmit={addData}>
+          <form>
             <div>
               <label>Username : </label>
               <input value={cookies.username} disabled />
@@ -146,7 +146,7 @@ const Profile = () => {
             />
             <br />
             <center>
-              <button type="submit" className="button">
+              <button type="submit" className="button" onSubmit={addData}>
                 Save
               </button>
               <button className="button">Update</button>

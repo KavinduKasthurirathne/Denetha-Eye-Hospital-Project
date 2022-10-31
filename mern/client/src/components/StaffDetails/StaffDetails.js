@@ -4,6 +4,7 @@ import AddNewMember from "./AddNewMember.js";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+//import SearchIcon from "@mui/icons-material/Search";
 
 function StaffDetails() {
   function recordList() {
@@ -11,6 +12,7 @@ function StaffDetails() {
       return <Record record={record} key={record._id} />;
     });
   }
+
   //   const [stafDetails, setStafDetails] = useState([]);
 
   //   function getAllStaffDetails() {
@@ -49,6 +51,48 @@ function StaffDetails() {
     navigate("/AddNewMember");
   };
 
+  //////////////search staff member//////////////////
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   setSearchInput(e.target.value);
+  // };
+
+  // if (searchInput.length > 0) {
+  //   countries.filter((country) => {
+  //     return country.name.match(searchInput);
+  //   });
+  // }
+  ///////////////////////////
+
+  //////////find staff member///
+
+  const [filterData, setFilterData] = useState([]);
+
+  function searchStaff() {
+    <div className="searchStaff">
+      {filterData.map((value, key) => {
+        return (
+          <a className="dataItem" href={value.Record}>
+            <p>{value.name}</p>
+          </a>
+        );
+      })}
+    </div>;
+  }
+
+  const handleFilter = (event) => {
+    const searchWord = event.target.value;
+    const newFilter = records.filter((value) => {
+      return value.name.toLowerCase().includes(searchWord);
+    });
+    if (searchWord === "") {
+      setFilterData([]);
+    } else {
+      setFilterData(newFilter);
+    }
+  };
+  ////////////////////////////////////////////
+
   return (
     <div className="maindiv">
       <br />
@@ -66,8 +110,16 @@ function StaffDetails() {
               Add
             </button>
           </Link>
+          <div className="searchMember">
+            <input
+              type="text"
+              className="search"
+              placeholder="search"
+              onChange={handleFilter}
+            />
 
-          <input type="text" className="search" placeholder="search" />
+            {filterData.length != 0 ? searchStaff() : null}
+          </div>
         </div>
 
         <div>

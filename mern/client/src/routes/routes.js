@@ -14,6 +14,7 @@ import StaffDetails from "../components/StaffDetails/StaffDetails";
 import Meetings from "../components/Meetings/MeetingDetails";
 import AddMeeting from "../components/Meetings/AddMeeting";
 import AddNewMember from "../components/StaffDetails/AddNewMember";
+import PrintMeetings from "../components/Meetings/PrintMeetingDetails";
 import Profile from "../components/StaffDetails/Profile";
 import { EditAppoinment } from "../components/EditAppointment";
 import { AppointmentMainpage } from "../components/AppointmentMainpage";
@@ -45,6 +46,7 @@ const createRoutes = () => {
       <Route exact path="appointment" element={<Appoinment />} />
       <Route exact path="appoinmenttable" element={<AppoinmentTable />} />
       <Route exact path="meetings" element={<Meetings />} />
+      <Route exact path="meetings/printmeeting" element={<PrintMeetings />} />
       <Route exact path="profile" element={<Profile />} />
       <Route exact path="surgery" element={<RecordList />} />
       <Route exact path="addNew" element={<AddSuPatient />} />
