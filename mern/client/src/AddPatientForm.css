@@ -58,10 +58,10 @@ body {
     background-color: #1a8d10;
 }
 
-#cancelBtn {
-    background-color: #F92A2A;
-}
-
 .cancelBtn:hover {
     background-color: #ad1c1c;
+}
+
+#cancelBtn {
+    background-color: #F92A2A;
 }

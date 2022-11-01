@@ -49,6 +49,7 @@ export const Patients = () => {
        <tr>
            <td>{props.record.name}</td>
            <td>{props.record.phone}</td>
+           <td>{props.record.age}</td>
            <td><img id="redirecting" src={eyeicon} alt='eyeicon' className='view-icon' onClick={viewProfile}/></td>
    
        </tr>
@@ -63,6 +64,7 @@ export const Patients = () => {
                     <tr>
                         <th>Patient Name</th>
                         <th>Phone Number</th>
+                        <th>Age</th>
                         <th>Action</th>
                     </tr>
                 </thead>
