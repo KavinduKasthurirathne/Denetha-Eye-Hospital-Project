@@ -1,19 +1,14 @@
 import '../Patients.css';
 import '../App.css';
 import React, {useState, useEffect} from "react";
+import {NavLink, useNavigate} from 'react-router-dom';
 
 
 const eyeicon = require('../image/eye.png');
-const Record = (props) => (
-    <tr>
-        <td>{props.record.name}</td>
-        <td>{props.record.phone}</td>
-        <td></td>
-    </tr>
-);
 
 export const Patients = () => {
     const [records, setRecords] = useState([]);
+    const navigateTo = useNavigate();
 
     //This method fetches the records from the database
     useEffect(() => {
@@ -45,10 +40,20 @@ export const Patients = () => {
         });
     }
 
-
     function viewProfile(e) {
-        alert("Clicked!")
+        navigateTo('/patientprofile');
     };
+   
+    const Record = (props) => (
+       
+       <tr>
+           <td>{props.record.name}</td>
+           <td>{props.record.phone}</td>
+           <td><img id="redirecting" src={eyeicon} alt='eyeicon' className='view-icon' onClick={viewProfile}/></td>
+   
+       </tr>
+       
+    );
 
     return (
         <>

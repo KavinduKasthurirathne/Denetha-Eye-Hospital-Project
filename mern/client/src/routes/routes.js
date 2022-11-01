@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Appoinment } from "../components/Appoinment";
 import App from "../App";
 import { Patients } from "../components/Patients";
-//import {PatientProfile} from '../components/PatientProfile';
+import {PatientProfile} from '../components/PatientProfile';
 import { Accountant } from "../components/Accountant";
 import { Logout } from "../components/Logout";
 import { AppoinmentTable } from "../components/AppoinmentTable";
@@ -31,6 +31,7 @@ const createRoutes = () => {
       <Route exact path="accountant" element={<Accountant />} />
       <Route exact path="manager" element={<StaffDetails />} />
       <Route exact path="receptionist" element={<Reception />}/>
+      <Route exact path="patientprofile" element={<PatientProfile/>}/>
       <Route exact path="staff" element={<Patients />} />
       <Route exact path="doctor" element={<Patients />} />
       <Route exact path="admin" element={<Patients />} />

@@ -44,3 +44,14 @@ td {
     height:20px;
     margin: auto;
 }
+
+.searchIcon {
+    float: left;
+    height: 60px;
+    width: 50px;
+    color: #2A628F;
+    background-color: white;
+    display: grid;
+    place-items: center;
+    margin-top: 0px; 
+  }
