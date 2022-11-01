@@ -31,7 +31,7 @@ const createRoutes = () => {
       <Route exact path="accountant" element={<Accountant />} />
       <Route exact path="manager" element={<StaffDetails />} />
       <Route exact path="receptionist" element={<Reception />}/>
-      <Route exact path="patientprofile" element={<PatientProfile/>}/>
+      <Route exact path="PatientProfile" element={<PatientProfile/>}/>
       <Route exact path="staff" element={<Patients />} />
       <Route exact path="doctor" element={<Patients />} />
       <Route exact path="admin" element={<Patients />} />
