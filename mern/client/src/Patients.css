@@ -2,19 +2,14 @@ body {
     background-color: #F3F3F3;
 }
 
-.headerPatients {
-    font-size: 30px;
-    text-align: center;
-    padding-top: 70px;
-}
-
 .table1 {
     margin: auto;
 }
 
 .patienttable {
-    margin: auto;
-    padding-top: 10px;
+    margin-top: 80px;
+    margin-left: 200px;
+    padding-top: 30px;
     padding-bottom: 30px;
     background-color: rgb(255, 255, 255);
     width: 70%;
