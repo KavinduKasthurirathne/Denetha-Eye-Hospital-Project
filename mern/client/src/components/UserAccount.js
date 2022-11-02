@@ -5,6 +5,8 @@ import { useCookies } from 'react-cookie';
 import NoticeDialog from './Accountant/NoticeDialog';
 import axios from 'axios';
 
+import Profile from "./StaffDetails/Profile";
+
 const UserAccount = () => {
     const [cookies, setCookie, deleteCookie] = useCookies('name', 'role', 'username', 'id', 'loggedIn', 'proxy');
     const [changePass, setChangePass] = useState(false);
@@ -89,8 +91,9 @@ const UserAccount = () => {
     };
 
     return (
+        <>
         <div className='App'>
-            <div className='round-edge-div center-align' >
+            <div className='round-edge-div-non-static center-align'>
                 <div>
                     <p id='user-account'>User Account</p>
                     <TextField 
@@ -162,6 +165,8 @@ const UserAccount = () => {
                     enable={changePass} />
             </div>
         </div>
+        <Profile />
+        </>
     );
 };
 

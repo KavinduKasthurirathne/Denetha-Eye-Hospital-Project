@@ -5,6 +5,9 @@ import { Button, FormControl, InputLabel, MenuItem, OutlinedInput, Select, TextF
 import axios from 'axios';
 import {useCookies} from 'react-cookie';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const PCSubmit = (props) => {
     const [cookies] = useCookies('name', 'proxy');
     const [inputs, setInputs] = useState({
@@ -57,6 +60,7 @@ const PCSubmit = (props) => {
                 date: '',
                 amount: ''
             });
+            toast(res.data.message);
             setDisable(true);
             props.getList(props.root);
         }).catch((err)=>{
@@ -84,6 +88,7 @@ const PCSubmit = (props) => {
                 date: '',
                 amount: ''
             });
+            toast(res.data.message);
             setDisable(true);
             props.setUpdate(false);
             props.getList(props.root);
@@ -210,7 +215,7 @@ const PCSubmit = (props) => {
                     color='secondary' 
                     disabled={disable} >Add</Button>
                 }
-                
+                <ToastContainer />
             </div>
         </div>
     );

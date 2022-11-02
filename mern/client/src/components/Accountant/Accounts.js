@@ -56,6 +56,7 @@ const Accounts = () => {
                         inputs={inputs}
                         setInputs={setInputs}
                         setEditID={setEditID}
+                        refreshData={getReceipts}
                         patientData={transactionData} />
                 </div>
             </div>

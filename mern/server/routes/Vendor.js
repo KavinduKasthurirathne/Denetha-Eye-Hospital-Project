@@ -1,32 +1,26 @@
 const router = require('express').Router();
-const Appoinment = require('../models/AppoinmentModel');
+const vendor = require('../models/PurchaseOrderModel');
 
 router.route('/record').post(async (req, res) => {
 
     const {
-        name,
+        vendorcode,
+        vendorname,
+        contactno,
         address,
-        phone,
-        age,
-        gender,
-        appoinmentnumber,
+        emailaddress,
         type,
-        date,
-        time,
-        doctor,
+        status,
     } = req.body;
 
-    const newRecord = new Appoinment({
-        name,
+    const newRecord = new vendor({
+        vendorcode,
+        vendorname,
+        contactno,
         address,
-        phone,
-        age,
-        gender,
-        appoinmentnumber,
+        emailaddress,
         type,
-        date,
-        time,
-        doctor,});
+        status,});
     
        await newRecord.save().then((result)=>{
             res.json(result);
@@ -36,6 +30,5 @@ router.route('/record').post(async (req, res) => {
         })
        
 });
-
 
 module.exports = router;

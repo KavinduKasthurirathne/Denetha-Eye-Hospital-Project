@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./MeetingDetails.css";
 import AddMeetings from "./AddMeeting.js";
+import PrintMeetingDetails from "./PrintMeetingDetails.js";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 
@@ -60,12 +61,18 @@ function Meetings(props) {
     navigate("add_meetings");
   };
 
+  const printMeeting = () => {
+    navigate("printmeeting");
+  };
+
   return (
     <div className="meetingDetailsContainer">
       <div className="meetingDetailsInnerContainer">
         <div className="meetingheader">
           <h2 className="meetingtopic">Meeting Time Table</h2>
-          <button className="button">Download</button>
+          <button className="button" onClick={printMeeting}>
+            Download
+          </button>
           <button className="button" onClick={AddMeeting}>
             Add
           </button>
@@ -75,7 +82,7 @@ function Meetings(props) {
           <thead>
             <tr>
               <th>Date</th>
-              <th>ID</th>
+              {/* <th>ID</th> */}
               <th>Time</th>
               <th>Host</th>
               <th>Description</th>
@@ -105,7 +112,7 @@ function Meetings(props) {
 const Record = (props) => (
   <tr>
     <td>{getDateString(props.record.date)}</td>
-    <td>{props.record._id}</td>
+    {/* <td>{props.record._id}</td> */}
     <td>{props.record.time}</td>
     <td>{props.record.host}</td>
     <td>{props.record.description}</td>

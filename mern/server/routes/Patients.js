@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const patient = require('../models/PatientModel');
 
-router.route('/search').post(async (req, res) => {
+router.route('/search').post(async(req, res) => {
 
         patient.find().then((patients)=>{
             res.json(patients);
@@ -12,6 +12,10 @@ router.route('/search').post(async (req, res) => {
 
 });
 
+router.route('/delete').post(async(req, res) => {
+
+
+});
 
 router.route('/insert').post(async(req, res) => {
 
@@ -41,9 +45,15 @@ router.route('/insert').post(async(req, res) => {
     
 });
 
+//Retrieve data from database
+router.route('/get').get(async(req, res) => {
+    patient.find().then((patient)=>{
+        res.json(patient)
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
 
 
 
 module.exports = router;
-
-
