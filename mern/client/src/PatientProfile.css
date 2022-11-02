@@ -7,7 +7,7 @@ body {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:rgb(21, 149, 189);
     text-align: left;
-    margin-left: 150px;
+    margin-left: 100px;
     padding-top: 10px;
     position: relative;
 }
@@ -15,18 +15,18 @@ body {
 .head {
     font-size: 22px;
     text-align: left;
-    margin-left: 150px;
-    padding-top: 5px;
+    margin-left: 100px;
+    padding-top: 3px;
     position: relative;
 }
 
 .patienttable {
-    margin-left: 250px;
+    margin-left: 340px;
     margin-top: 100px;
     padding-top: 30px;
     padding-bottom: 30px;
     background-color: rgb(255, 255, 255);
-    width: 65%;
+    width: 45%;
     border-radius: 20px;
     box-shadow: 2px 2px 4px #989898;
     position: absolute;
@@ -40,20 +40,17 @@ body {
     margin-left: 150px;
 }
 
-.buttons {
-    margin-top: 40px;
-    margin-bottom: 50px;
-    margin-left: 50px;
+.buttonsView {
+    margin-top: 50px;
+    margin-left: 88px;
 }
 
 #updateBtn {
     background-color: #22BB14;
-    margin-right: 100px;
 }
 
 #deleteBtn {
     background-color: #F92A2A;
-    margin-right: 100px;
 }
 
 .updateBtn:hover {
@@ -73,12 +70,19 @@ body {
 }
 
 .print-icon {
-    width: 18px;
-    height: 18px;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 20px;
+    height: 20px;
 }
 
-.printButton {
-    margin-left: 225px;
+#printBtn {
+    background-color: #2a628f00;
+    margin-left: 85px;
+}
+
+.printBtn:hover {
+    background-color: #1f3e58;
+}
+
+.textfield {
+    margin-left: 100px;
 }
