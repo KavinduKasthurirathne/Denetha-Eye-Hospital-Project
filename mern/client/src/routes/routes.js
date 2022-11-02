@@ -22,6 +22,7 @@ import { Help } from "../components/Help";
 import RecordList from "../components/Surgery/SurgeryDetails";
 import AddSuPatient from "../components/Surgery/AddnewPatient";
 // import Edit from "../components/Surgery/EditDetails";
+import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
 
 const createRoutes = () => {
@@ -48,6 +49,7 @@ const createRoutes = () => {
       <Route exact path="addNew" element={<AddSuPatient />} />
       {/* <Route exact path = 'edit' element = {<Edit/>} /> */}
       <Route exact path = 'diagForm' element = {<DForm/>} />
+      <Route exact path="DallDetails" element = {<DiagnosisDetail/>} />
       <Route exact path="meetings/add_meetings" element={<AddMeeting />} />
       <Route exact path="AddNewMember" element={<AddNewMember />} />
       <Route exact path="editAcc" element={<UserAccount />} />
