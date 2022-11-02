@@ -83,8 +83,8 @@ export default function RecordList() {
    });
  }
  const navigate2 = useNavigate();
-    const navigateToDiagForm = () => {
-        navigate2('/diagForm');
+    const navigateToDiagDeta = () => {
+        navigate2('/DallDetails');
       };
       
   
@@ -129,7 +129,7 @@ export default function RecordList() {
      </table>
      <br/>
      <button className="button" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button>
-     <button className="button" onClick= {navigateToDiagForm}><span>Diagnosis Recipts</span></button>
+     <button className="button" onClick= {navigateToDiagDeta}><span>Diagnosis Recipts</span></button>
      
    </div>
  );

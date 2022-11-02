@@ -53,7 +53,7 @@ router.route("/update/:pid").put(async(req,res)=>{
 
         })
 
-/*router.route("/delete/:pid").delete(async(req,res)=>{
+router.route("/delete/:pid").delete(async(req,res)=>{
     let sid = req.params.pid;
 
     await diagnosis1.findByIdAndDelete(sid).then(()=>{
@@ -63,7 +63,7 @@ router.route("/update/:pid").put(async(req,res)=>{
         res.status(500).send({status:"Error with deleting user",error:err.message})
 }) 
 
-}) */
+}) 
 
 router.route("/get/:pid").get(async (req,res)=>{
     let sid = req.params.pid;

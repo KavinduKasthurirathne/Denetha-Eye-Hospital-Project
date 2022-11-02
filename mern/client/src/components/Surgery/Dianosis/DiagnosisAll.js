@@ -102,14 +102,19 @@ export default function RecordList() {
           filterContent(res.data.posts,searchItem);
         })
       }
+
+      const navigateD = useNavigate();
+    const navigateToDiag = () => {
+        navigateD('/diagForm');
+      };
  
  
  // This following section will display the table with the records of individuals.
  return (
    <div className="container">
-    <h2 style={{marginLeft:20}}>Surgery Details</h2>
+    <h2 style={{marginLeft:20}}>Diagnosis Records </h2>
     <input className="searchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
-    <button className="button" onClick= {navigateToAddNew}><span>Add New Patient</span></button>
+    <button className="button" onClick= {navigateToDiag}><span>Add New Form</span></button>
      <table className="table_table-striped" style={{ marginTop: 20 }}>
        <thead className="theader">
          <tr>
@@ -129,8 +134,7 @@ export default function RecordList() {
        <tbody>{recordList()}</tbody>
      </table>
      <br/>
-     <button className="button" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button>
-     <button className="button" onClick= {navigateToDiagForm}><span>Diagnosis Recipts</span></button>
+     
      
    </div>
  );
