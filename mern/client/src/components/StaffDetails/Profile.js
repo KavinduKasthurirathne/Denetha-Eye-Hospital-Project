@@ -4,12 +4,21 @@ import "./Profile.css";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 
-const Profile = () => {
+const Profile = (props) => {
+  const getDateString = (iso) => {
+    const date = new Date(iso);
+    const correctDate = new Date(date.getTime() + 360 * 60000);
+    return correctDate.toISOString().split("T")[0];
+  };
+  const [records, setRecords] = useState([]);
+
+  //add data to the profile table when user added personal data
+
   var [contactno, setContactno] = useState();
   var [address, setAddress] = useState();
   var [email, setEmail] = useState();
   var [dob, setDob] = useState();
-  var [basicSal, setBasicSal] = useState();
+  var [docId, setDocId] = useState();
   const [cookies] = useCookies("id", "username", "role", "name");
 
   const navigate = useNavigate();
@@ -21,29 +30,30 @@ const Profile = () => {
     await axios
       .post("http://localhost:5000/api/profile/get", data)
       .then(({ data }) => {
-        if (data.message === null) {
-          setContactno(data.contactno);
-          setAddress(data.address);
-          setEmail(data.email);
-          setDob(data.dob);
-          setBasicSal(data.basicSal);
-        }
+        setContactno(data[0].contactno);
+        setAddress(data[0].address);
+        setEmail(data[0].email);
+        setDob(getDateString(data[0].dob));
+        setDocId(data[0]._id);
       });
   };
 
-  //add data to the profile table when user added personal data
-  function addData(e) {
+  useEffect(() => {
+    findProfile();
+  }, []);
+
+  async function addData(e) {
     e.preventDefault();
 
     const addNewDataToProfile = {
+      id: cookies.id,
       contactno,
       address,
       email,
       dob,
-      basicSal,
     };
 
-    axios
+    await axios
       .post("http://localhost:5000/api/profile/add", addNewDataToProfile)
       .then(() => {
         alert("Data Inserted!");
@@ -55,7 +65,41 @@ const Profile = () => {
       });
   }
 
+  async function updateProfile(event) {
+    const updateProfile = {
+      docId,
+      contactno,
+      address,
+      email,
+      dob,
+    };
+
+    console.log(updateProfile);
+    await axios
+      .post("http://localhost:5000/api/profile/update", updateProfile)
+      .then(() => {
+        alert("Profile updated Successfully!");
+        findProfile();
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
+  async function deleteProfile(event) {
+    await axios
+      .post("http://localhost:5000/api/profile/delete", { pid: docId })
+      .then(() => {
+        alert("Profile deleted!");
+        findProfile();
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
+
   const backbtn = useNavigate();
+
   return (
     <div className="mainDiv">
       <div className="updateform">
@@ -63,47 +107,56 @@ const Profile = () => {
         <hr />
 
         <div className="updateFormout">
-          <form onSubmit={addData}>
-            <label>Contact No :</label>
-            <input value={contactno} />
-            <br />
+          <label>Contact No :</label>
+          <input
+            onChange={(e) => {
+              setContactno(e.target.value);
+            }}
+            value={contactno}
+          />
+          <br />
 
-            <label>Address :</label>
-            <input
-              onChange={(e) => {
-                setAddress(e.target.value);
-              }}
-              value={address}
-            />
-            <br />
+          <label>Address :</label>
+          <input
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
+            value={address}
+          />
+          <br />
 
-            <label>Email :</label>
-            <input
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              value={email}
-            />
-            <br />
+          <label>Email :</label>
+          <input
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
+          />
+          <br />
 
-            <label>Date of Birth :</label>
-            <input
-              onChange={(e) => {
-                setDob(e.target.value);
-              }}
-              value={dob}
-            />
-            <br />
-            <center>
-              <button type="submit" className="button" onSubmit={addData}>
-                Save
-              </button>
-              <button className="button">Update</button>
-              <button style={{ backgroundColor: "#ff4d4d" }} className="button">
-                Delete
-              </button>
-            </center>
-          </form>
+          <label>Date of Birth :</label>
+          <input
+            onChange={(e) => {
+              setDob(e.target.value);
+            }}
+            value={dob}
+          />
+          <br />
+          <center>
+            <button className="button" onClick={addData}>
+              Save
+            </button>
+            <button className="button" onClick={updateProfile}>
+              Update
+            </button>
+            <button
+              style={{ backgroundColor: "#ff4d4d" }}
+              onClick={deleteProfile}
+              className="button"
+            >
+              Delete
+            </button>
+          </center>
         </div>
       </div>
     </div>
