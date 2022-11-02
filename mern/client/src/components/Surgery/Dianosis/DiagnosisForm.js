@@ -15,7 +15,7 @@ export default function DForm(){
         const [DAddmission , setDAddmission]= useState("");
         const [Ddischarge , setDdischarge]= useState("");
         const [Dsurgery , setDsurgery]= useState("");
-        const [PHACO , setPHACO]= useState('Nevan 8 hourly 6/52');
+        const [PHACO , setPHACO]= useState("");
         const [IOL , setIOL]= useState("");
         const [variable , setVariable]= useState("");
         const handleChange = (e) => {
@@ -29,7 +29,7 @@ export default function DForm(){
                 pname,ward,Regno,age,DAddmission,Ddischarge,Dsurgery,PHACO,IOL,variable
             }
             
-            axios.post("http://localhost:5000/api/surgery/add" , newPatient).then(()=> {
+            axios.post("http://localhost:5000/api/diagnosis/add" , newPatient).then(()=> {
                 alert("Patient Details Added")
                 setPname("");
                 setWard("");
@@ -49,7 +49,7 @@ export default function DForm(){
         }
         const navigate = useNavigate();
         const navigateToAddDiagnosis = () => {
-            navigate('/surgery');
+            navigate('/DallDetails');
           };
     
     return(
@@ -82,13 +82,13 @@ export default function DForm(){
                     setWard(e.target.value);
                 }}/>
                 <label for="Aname" id="Aname">Age:</label>&nbsp;
-                <input type="text" id="name" name="fname"   value = {age}
+                <input type="number" id="name" name="fname"   value = {age}
                 onChange={(e)=>{
 
                     setAge(e.target.value);
                 }}/><br/>
                 <label for="Aname" id="Aname">Reg No:</label>&nbsp;
-                <input type="text" id="name" name="fname"  value = {Regno}
+                <input type="number" id="name" name="fname"  value = {Regno}
                 onChange={(e)=>{
 
                     setRegno(e.target.value);
@@ -112,8 +112,14 @@ export default function DForm(){
                     setDsurgery(e.target.value);
                 }}/><br/>
 
-            <label for="Aname" id="Aname">R/PHACO + 'F' IOL T/A</label>   
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Nevan 8 hourly 6/52"   
+            <label >R/PHACO + 'F' IOL T/A</label>   
+            <input type="text" id="name" name="fname"   value = {PHACO}
+                onChange={(e)=>{
+
+                    setPHACO(e.target.value);
+                }}/><br/>
+            
+            {/* <input type="checkbox" id="vehicle1" name="vehicle1" value="Nevan 8 hourly 6/52"   
             checked={PHACO === 'Nevan 8 hourly 6/52'} onChange={handleChange}/>
             <label for="vehicle1"> Nevan 8 hourly 6/52</label><br/>
             <input type="checkbox" id="vehicle2" name="vehicle2" value="Prednisolone 2/52"
@@ -121,7 +127,7 @@ export default function DForm(){
             <label for="vehicle2"> Prednisolone 2/52</label><br/>
             <input type="checkbox" id="vehicle3" name="vehicle3" value=" Optimox 2/52"
             checked={PHACO === 'Prednisolone 2/52'} onChange={handleChange}/>
-            <label for="Optimox 2/52"> Optimox 2/52</label>
+            <label for="Optimox 2/52"> Optimox 2/52</label> */}
 
             <label for="Aname" id="Aname">IOL Type:</label>&nbsp;
                 <input type="text" id="name" name="fname"  
@@ -142,9 +148,6 @@ export default function DForm(){
             <button  onClick={navigateToAddDiagnosis} >Save</button>
 
             </div>
-                
-
-
             </form>
         </div>
     );
