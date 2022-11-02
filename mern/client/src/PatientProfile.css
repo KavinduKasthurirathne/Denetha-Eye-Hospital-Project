@@ -35,3 +35,50 @@ body {
 .patientform {
     margin-left: 150px;
 }
+
+.table2 {
+    margin-left: 150px;
+}
+
+.buttons {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    margin-left: 50px;
+}
+
+#updateBtn {
+    background-color: #22BB14;
+    margin-right: 100px;
+}
+
+#deleteBtn {
+    background-color: #F92A2A;
+    margin-right: 100px;
+}
+
+.updateBtn:hover {
+    background-color: #1a8d10;
+}
+
+.deleteBtn:hover {
+    background-color: #ad1c1c;
+}
+
+#cancelBtn {
+    background-color: #2A628F;
+}
+
+.cancelBtn:hover {
+    background-color: #1f3e58;
+}
+
+.print-icon {
+    width: 18px;
+    height: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.printButton {
+    margin-left: 225px;
+}
