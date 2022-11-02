@@ -124,14 +124,14 @@ export default function DForm(){
             <label for="Optimox 2/52"> Optimox 2/52</label>
 
             <label for="Aname" id="Aname">IOL Type:</label>&nbsp;
-                <input type="date" id="name" name="fname"  
+                <input type="text" id="name" name="fname"  
                 value = {IOL}
                 onChange={(e)=>{
 
                     setIOL(e.target.value);
                 }}/><br/>
             <label for="Aname" id="Aname">Variable W/S</label>&nbsp;
-            <input type="date" id="name" name="fname"   
+            <input type="text" id="name" name="fname"   
             value = {variable}
             onChange={(e)=>{
 
