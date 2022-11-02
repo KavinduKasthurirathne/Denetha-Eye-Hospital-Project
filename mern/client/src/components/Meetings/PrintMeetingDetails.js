@@ -1,8 +1,18 @@
 import "./MeetingDetails.css";
+import { Button } from "@mui/material";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { unstable_HistoryRouter } from "react-router-dom";
+import { ReactToPrint } from "react-to-print";
 
 function PrintMeetings(props) {
+  //const componentRef = useRef();
+  // const handlePrint = useReactToPrint({
+  //   content: () => componentRef.current,
+  //   documentTitle: "Meeting Details",
+  //   onafterprint: () => unstable_HistoryRouter(-1),
+  // });
+
   // This method fetches the records from the database.
   function getRecords() {
     axios("http://localhost:5000/api/meeting/")
@@ -25,9 +35,31 @@ function PrintMeetings(props) {
     });
   }
 
+  // function PrintComponent() {
+  //   let componentRef = useRef();
+
+  //   return (
+  //     <>
+  //       <div>
+  //         {/* button to trigger printing of target component */}
+  //         <ReactToPrint
+  //           trigger={() => <Button>Print this out!</Button>}
+  //           content={() => componentRef}
+  //         />
+
+  //         {/* component to be printed */}
+  //         <ComponentToPrint ref={(el) => (componentRef = el)} />
+  //       </div>
+  //     </>
+  //   );
+  // }
+
   return (
     <div className="meetingDetailsContainer">
-      <div className="meetingDetailsInnerContainer">
+      <div
+        className="meetingDetailsInnerContainer"
+        // ref={componentRef}
+      >
         <div className="meetingheader">
           <h2 className="meetingtopic">Meeting Time Table</h2>
         </div>
@@ -43,6 +75,13 @@ function PrintMeetings(props) {
           </thead>
           <tbody className="meetingtablebody">{recordList()}</tbody>
         </table>
+        <button
+          className="button"
+          variant="outline-success"
+          //onClick={handlePrint}
+        >
+          Print
+        </button>
       </div>
       <br />
       <br />
