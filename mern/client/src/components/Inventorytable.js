@@ -37,7 +37,14 @@ export const InventoryTable = () => {
 );
     return (
         <Paper elevation={20} style={paperStyle}>
-        <div align="center">
+        {/* <div align="center"> */}
+        <div class = "MeetingDetails">
+        <div class = "block1">
+                
+                <h1>Inventory Table</h1>
+                {/* <input type = "button" id = "btn1"/>Add */}
+                {/* <input type = "button" id = "btn2"/>Download */}
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -71,3 +78,4 @@ export const InventoryTable = () => {
             </Paper>
   );
 }
+
