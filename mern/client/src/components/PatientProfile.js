@@ -73,9 +73,9 @@ export const PatientProfile = () => {
           });
     }
 
-    function deleteProfile(e) {
-        alert("Clicked")
-    };
+    // function deleteProfile(e) {
+    //     alert("Clicked")
+    // };
 
     function updateProfile(e) {
         alert("Clicked")
