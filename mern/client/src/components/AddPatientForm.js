@@ -53,7 +53,7 @@ export const AddPatientForm = () => {
         <>
 
         <div class='addformpatienttable'>
-            <p class='denethahead'><u><b>Denetha Eye Hospital</b></u></p>
+            <p class='denethaheadadd'><u><b>Denetha Eye Hospital</b></u></p>
             <p class='addformhead'><u><b>Add New Patient</b></u></p>
 
             <form class='addform' onSubmit={sendData}>
@@ -131,18 +131,13 @@ export const AddPatientForm = () => {
                     <label for="msg">Message</label>
                 </div> */}
 
-                <br></br>
-                <br></br>
-
-                <p class='noteDoctor'><i>To be filled by the doctor*</i></p>
-
                 <label for="remarks">Remarks: </label>
                 <input type="text" id="remarks" className="remarks" placeholder='Add Remarks'
                 onChange = {(e)=>{
                     setremarks(e.target.value);
                 }} /> <br></br>
 
-                <div class='buttons'>
+                <div class='buttonsAdd'>
                     <button id='saveBtn' className='button' type="submit"><b>Save</b></button>
                     <button id='cancelBtn' className='button' type="cancel" onClick={cancelForm}><b>Cancel</b></button>
                 </div>

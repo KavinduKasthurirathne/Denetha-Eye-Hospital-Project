@@ -25,7 +25,8 @@ export const AppointType = (props) => {
             Make Appointment</button>
 
      </div> 
-        
+     <a href="/ViewAllReceipts"><button className='button' id="ViewReceipts">View All Receipts</button></a>
+        <br/>  
     </>
     )
 }

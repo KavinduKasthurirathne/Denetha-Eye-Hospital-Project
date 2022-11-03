@@ -20,7 +20,7 @@ export const Inventory=() =>{
     const [Location,setLocation] = useState('');
     const [Quantity,setQuantity] = useState('');
     const [Cost,setCost] = useState('');
-    const [type, settype] = useState('');
+    // const [type, settype] = useState('');
     const [Status,setStatus] = useState('');
     //const [time,setTime] = useState('');
     const [cookies] = useCookies('proxy');
@@ -51,10 +51,10 @@ export const Inventory=() =>{
     {
       setCost(target.value);
     }
-    const handletype = ({target})=>
-    {
-      settype(target.value);
-    }
+    // const handletype = ({target})=>
+    // {
+    //   settype(target.value);
+    // }
    const handleStatus = ({target})=>
     {
       setStatus(target.value);
@@ -68,7 +68,7 @@ export const Inventory=() =>{
         Location: Location,
         Quantity: Quantity,
         Cost:Cost,
-        type:type,
+        // type:type,
         Status: Status
     };
   await axios.post(`${cookies.proxy}/api/inventory/record`,inventory)

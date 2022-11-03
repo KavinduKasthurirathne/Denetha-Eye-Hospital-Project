@@ -15,6 +15,17 @@ router.route('/insert').post(async (req, res) => {
 
 });
 
+router.route('/viewAll').get(async(req, res) => {
+
+    receipt.find().then((receipts)=>{
+        res.json(receipts);
+
+    }).catch((err)=>{
+        console.log(err);
+    })
+
+});
+
 router.route('/update/:id').put(async(req,res) =>{
     let receiptId = req.params.id;
     const { name, phone, type, age, date, doctor, amount,} = req.body;
@@ -27,6 +38,19 @@ router.route('/update/:id').put(async(req,res) =>{
         res.json("Receipt updated");
     }).catch((err) => {
         console.log(err);
+    }
+        
+    )
+})
+
+router.route('/delete/:id').delete(async(req,res) =>{ 
+    let receiptId = req.params.id;
+    
+    await receipt.findByIdAndDelete(receiptId).then(() => {
+        res.status(200).send({status:"Receipt Deleted"});
+    }).catch((err) => {
+        console.log(err.message);
+        res.status(500).send({status:"Error with deleting user",error:err.message})
     }
         
     )

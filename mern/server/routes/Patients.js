@@ -12,11 +12,6 @@ router.route('/search').post(async(req, res) => {
 
 });
 
-router.route('/delete').post(async(req, res) => {
-
-
-});
-
 router.route('/insert').post(async(req, res) => {
 
     const {
@@ -52,8 +47,38 @@ router.route('/get').get(async(req, res) => {
     }).catch((err)=>{
         console.log(err);
     })
-})
+});
 
+//delete profile
+router.route("/delete").post(async (req, res) => {
+    const patientProfileId = req.body.pid;
+  
+    await patient.findByIdAndDelete(patientProfileId)
+      .then((result) => {
+        res.status(200).send({ message: "Patient Profile Deleted" });
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .send({ status: "Error: Delete unsuccessful", error: err.message });
+      });
+  });
 
+  router.route("/get").post(async (req, res) => {
+    const id = req.body.id;
+    await patient.find({ id })
+      .then((result) => {
+        if (result) {
+          res.json(result);
+        } else {
+          res.status(200).send({ message: "No Patient" });
+        }
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .send({ status: "Error: Patient not found!", error: err.message });
+      });
+  });
 
 module.exports = router;
