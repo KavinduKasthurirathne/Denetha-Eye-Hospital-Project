@@ -114,7 +114,7 @@ export default function RecordList() {
    <div className="container3">
     <h2 style={{marginLeft:20}}>Diagnosis Records </h2>
     <input className="MYsearchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
-    <button  onClick= {navigateToDiag}><span>Add New Form</span></button><br></br>
+    <button className="button1" onClick= {navigateToDiag}><span>Add New Form</span></button><br></br>
     
      <table className="table_table-striped1" style={{ marginTop: 20 }}>
        <thead className="theader">
