@@ -55,14 +55,14 @@
           sans-serif;
       
 }
-/* .MYsearchbar{
+.MYsearchbar{
     float: right;
   padding: 6px;
   border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-} */
+  /* margin-top: 8px; */
+  margin-left: 16px;
+  font-size: 16px;
+}
 
 .button1 span {
   cursor: pointer;
