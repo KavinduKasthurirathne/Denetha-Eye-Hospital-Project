@@ -113,6 +113,13 @@
 }
 
 #receiptsTable {
+    
+    background-color: rgb(255, 255, 255);
+   
+    
+}
+
+#receiptstable {
     margin-top: 3%;
     margin-left: 11.5%;
     padding-top: 25px;

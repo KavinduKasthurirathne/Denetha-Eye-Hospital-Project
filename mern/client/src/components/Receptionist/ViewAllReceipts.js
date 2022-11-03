@@ -13,9 +13,11 @@ const Record = (props) => (
             <td>{props.record.doctor}</td>
             <td>{props.record.amount}</td>
             <td><button className="button"  onClick={() => {
-                     props.deleteRecord(props.record._id);
-                     window.alert("Receipt Deleted");
-                     }}><i className="far fa-trash-alt"></i></button></td>
+                 if (window.confirm("Confirm Delete") === true) {
+                    props.deleteRecord(props.record._id);
+                  } 
+                    
+                    }}><i className="far fa-trash-alt"></i></button></td>
         </tr>
         
      );
@@ -74,18 +76,18 @@ export const ViewAllReceipts = () => {
         <>
         <br/>
         <center><h2>Receipts</h2></center>
-        <div id="receiptsTable">
+        <div id="receiptstable">
             <table>
                 <thead>
                     <tr>
-                        <th>Patient Name</th>
-                        <th>Phone Number</th>
-                        <th>Type</th>
-                        <th>Age</th>
-                        <th>Date</th>
-                        <th>Doctor</th>
-                        <th>Amount(Rs.)</th>
-                        <th></th>
+                        <th id="receiptsTable">Patient Name</th>
+                        <th id="receiptsTable">Phone Number</th>
+                        <th id="receiptsTable">Type</th>
+                        <th id="receiptsTable">Age</th>
+                        <th id="receiptsTable">Date</th>
+                        <th id="receiptsTable">Doctor</th>
+                        <th id="receiptsTable">Amount(Rs.)</th>
+                        
                     </tr>
                 </thead>
 
