@@ -107,30 +107,6 @@ router.route("/update").post(async (req, res) => {
         .send({ status: "Error: Account not found", error: err.message });
     });
 
-  //destructure
-  const {name, age, gender, dob, address, phone, gname, gnumber} = req.body;
-
-  //update values
-  const updateProfile = {
-    name,
-    age,
-    gender,
-    dob,
-    address,
-    phone,
-    gname,
-    gnumber
-  };
-
-  const update = await patient.findOneAndUpdate(patientProfileId, updateProfile)
-    .then((result) => {
-      res.status(200).send({ message: "Update successful", update: update });
-    })
-    .catch((err) => {
-      res
-        .status(500)
-        .send({ status: "Error: Update unsuccessful", error: err.message });
-    });
 });
 
 module.exports = router;

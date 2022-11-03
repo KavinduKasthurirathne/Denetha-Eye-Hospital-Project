@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import '../AddPatientForm.css';
 import '../App.css';
 import axios from "axios";
-import {NavLink,useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 export const AddPatientForm = () => {
 

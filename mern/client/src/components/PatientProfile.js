@@ -3,12 +3,12 @@ import '../App.css';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useCookies } from 'react-cookie';
-import { Button, TextField } from '@mui/material';
+import { Button, TextField, useThemeProps } from '@mui/material';
 import {NavLink,useNavigate} from 'react-router-dom';
 
 const printicon = require('../image/print.png');
 
-export const PatientProfile = () => {
+export const PatientProfile = (props) => {
 
     var [name, setname] = useState();
     var [age, setage] = useState();
@@ -21,48 +21,42 @@ export const PatientProfile = () => {
     var [pId, setpId] = useState();
     const [cookies] = useCookies("id", "name", "age", "gender", "dob", "address", "phone", "gname",
                                     "gnumber");
+    const [selected, setSelected] = useState(0);
+
 
     const navigateTo = useNavigate();
 
 
     const findProfile = async () => {
-        const data = {
-          id: cookies.id,
-        };
+        const id = {
+            id: cookies.id,
+        }
+
         await axios
-          .post("http://localhost:5000/api/patient/get", data)
+          .post("http://localhost:5000/api/patient/get", id)
           .then(({data}) => {
-            setname(data[0].name);
-            setage(data[0].age);
-            setgender(data[0].gender);
-            setdob(data[0].dob);
-            setaddress(data[0].address);
-            setphone(data[0].phone);
-            setgname(data[0].gname);
-            setgnumber(data[0].gnumber);
-            setpId(data[0]._id);
+            console.log(data);
+            console.log(selected);
+            console.log(props.selected);
+
+            setname(data[props.selected].name);
+            setage(data[props.selected].age);
+            setgender(data[props.selected].gender);
+            setdob(data[props.selected].dob);
+            setaddress(data[props.selected].address);
+            setphone(data[props.selected].phone);
+            setgname(data[props.selected].gname);
+            setgnumber(data[props.selected].gnumber);
+            setpId(data[props.selected]._id);
           });
       };
-    
-      useEffect(() => {
-        findProfile();
-      }, []);
 
-    // Function will execute on click of button
-    const printProfile = () => {
-        // using Java Script method to get PDF file
-        fetch('SamplePDF.pdf').then(response => {
-            response.blob().then(blob => {
-                // Creating new object of PDF file
-                const fileURL = window.URL.createObjectURL(blob);
-                // Setting various property values
-                let alink = document.createElement('a');
-                alink.href = fileURL;
-                alink.download = 'SamplePDF.pdf';
-                alink.click();
-            })
-        })
-    }
+    useEffect(() => {
+        if(props.selected !== null) {
+            setSelected(props.selected);
+        }
+        findProfile();
+    },[props.selected]);
     
 
     //Delete Patient
@@ -79,11 +73,10 @@ export const PatientProfile = () => {
           });
     }
 
-
     //Update Patient
     async function updateProfile(event) {
         const updateProfile = {
-          pId,
+          docId:pId,
           name,
           age,
           gender,
@@ -112,21 +105,24 @@ export const PatientProfile = () => {
         navigateTo('/patient');
     };
 
-
+    function printProfile(e) {
+        alert("Print karanna onemada?");
+    }
 
     return (
         <>
        
-       <div class='patienttable'>
-            <p class='denethahead'><u><b>Denetha Eye Hospital</b></u></p>
-            <p class='head'><u><b>Patient Details</b></u></p>
+       <div className='patienttable'>
+            <p className='denethahead'><u><b>Denetha Eye Hospital</b></u></p>
+            <p className='head'><u><b>Patient Details</b></u></p>
 
-            <div class="textfield">
+            <div className="textfield">
                 <TextField
                     sx={{width:400}}
                     name='name'
                     variant='standard'
                     label='Name'
+                    InputLabelProps={{shrink: true}}
                     onChange={(e) => {
                         setname(e.target.value);
                     }}
@@ -137,6 +133,7 @@ export const PatientProfile = () => {
                     name='age'
                     variant='standard'
                     label='Age'
+                    InputLabelProps={{shrink: true}}
                     onChange={(e) => {
                         setage(e.target.value);
                     }}
@@ -147,6 +144,7 @@ export const PatientProfile = () => {
                     name='gender'
                     variant='standard'
                     label='Gender'
+                    InputLabelProps={{shrink: true}}
                     onChange={(e) => {
                         setgender(e.target.value);
                     }}
@@ -157,6 +155,7 @@ export const PatientProfile = () => {
                     name='dob'
                     variant='standard'
                     label='Date of Birth'
+                    InputLabelProps={{shrink: true}}
                     onChange={(e) => {
                         setdob(e.target.value);
                     }}
@@ -167,6 +166,7 @@ export const PatientProfile = () => {
                     name='address'
                     variant='standard'
                     label='Address'
+                    InputLabelProps={{shrink: true}}
                     onChange={(e) => {
                         setaddress(e.target.value);
                     }}
@@ -177,6 +177,7 @@ export const PatientProfile = () => {
                     name='phone'
                     variant='standard'
                     label='Phone Number'
+                    InputLabelProps={{shrink: true}}
                     onChange={(e) => {
                         setphone(e.target.value);
                     }}
@@ -187,6 +188,7 @@ export const PatientProfile = () => {
                     name='gname'
                     variant='standard'
                     label='Guardian Name'
+                    InputLabelProps={{shrink: true}}
                     onChange={(e) => {
                         setgname(e.target.value);
                     }}
@@ -197,6 +199,7 @@ export const PatientProfile = () => {
                     name='gphone'
                     variant='standard'
                     label='Guardian Phone Number'
+                    InputLabelProps={{shrink: true}}
                     onChange={(e) => {
                         setgnumber(e.target.value);
                     }}
@@ -204,7 +207,7 @@ export const PatientProfile = () => {
             </div>
 
         
-            <div class='buttonsView'>
+            <div className='buttonsView'>
                 <button id='deleteBtn' className='button' type="delete" onClick={deleteProfile}><b>Delete</b></button>
                 <button id='updateBtn' className='button' type="submit" onClick={updateProfile}><b>Update</b></button>
                 <button id='cancelBtn' className='button' type="cancel" onClick={cancel}><b>Cancel</b></button>
