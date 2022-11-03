@@ -3,10 +3,24 @@ import PrintIcon from '@mui/icons-material/Print';
 import React, {useEffect, useRef, useState} from "react";
 import PrintableTR from "./PrintableTR";
 import { useReactToPrint } from 'react-to-print';
+import { useCookies } from 'react-cookie';
+import axios from "axios";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TransactionDetails = (props) => {
     const componentRef = useRef();
     const [editButton, setEditButton] = useState(true);
+    const [cookies] = useCookies("proxy");
+    const [doctorTotal, setDoctorTotal] = useState(0);
+    const [patientTotal, setPatientTotal] = useState(0);
+
+    useEffect(()=>{
+        setDoctorTotal(()=>2000);
+        setPatientTotal(()=>calcPatientIncome());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[props.patientData]);
 
     useEffect(()=> {
         if(
@@ -37,7 +51,21 @@ const TransactionDetails = (props) => {
         return total;
     }
 
-    const submitEdit = () => {};
+    const submitEdit = async () => {
+        const data = {
+            date: props.inputs.date,
+            name: props.inputs.name,
+            type: props.inputs.type,
+            amount: props.inputs.amount,
+            id: props.editID,
+        }
+        await axios.post(`${cookies.proxy}/api/transactions/edit`, data)
+        .then(res => {
+            toast(res.data.message);
+            props.refreshData(props.date);
+        })
+        .catch(err => console.log(err))
+    };
 
     return(
         <>
@@ -62,10 +90,10 @@ const TransactionDetails = (props) => {
                 </div>
             </div>
             <div style={{textAlign:'right', width:'45%', margin:'auto'}}>
-                Total income from patients = Rs.{calcPatientIncome()}.00 <br/>
-                Total Doctor Payments = Rs.##.00 <br/>
+                Total income from patients = Rs.{patientTotal}.00 <br/>
+                Total Doctor Payments = Rs.{doctorTotal}.00 <br/>
                 <hr/>
-                Gross Income - Rs.{calcPatientIncome() - 0}.00 <br/>
+                Gross Income - Rs.{patientTotal - doctorTotal}.00 <br/>
             </div>
             <hr/><br/>
             <div style={{textAlign:'left', width:'60%', margin:'auto'}}>
@@ -121,6 +149,8 @@ const TransactionDetails = (props) => {
                     type='text'
                     onChange={handleInputs} 
                     label='Amount'  /><br/>
+
+                <ToastContainer />
             </div>
         </>
     );

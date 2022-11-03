@@ -58,7 +58,7 @@ export const Receipt = (props) => {
       .then((res) => {
             console.log(res.data);
             alert("Appoinment completed");
-            window.location.reload();
+            
         })
         .catch((err) => {
         console.log(err)});
@@ -120,7 +120,7 @@ export const Receipt = (props) => {
            <button className='button' onClick={()=>{
                  props.btnsetter(!props.btnstate)
                 }}>Edit</button>
-           <button className='button' onClick={handleInsert}>Confirm Payment</button>
+           <a href="\ViewAllReceipts"><button className='button' onClick={handleInsert}>Confirm Payment</button></a>
            <br/>
          </div>
            

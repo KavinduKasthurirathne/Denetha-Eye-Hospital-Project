@@ -1,6 +1,8 @@
 import React, { useState,useEffect } from "react";
 import './Reception.css';
 import axios from "axios";
+import {useNavigate} from 'react-router-dom';
+
 
 export const EditReceipt = (props) => {  
 
@@ -61,6 +63,7 @@ export const EditReceipt = (props) => {
         setdoctor(target.value);
     }
 
+    const navigateTo = useNavigate();
     const handleUpdate = (e) =>{
         e.preventDefault();
         const receiptOb = {
@@ -73,11 +76,12 @@ export const EditReceipt = (props) => {
             doctor
       };
       
+      
       axios.post("http://localhost:5000/api/receipt/insert", receiptOb)
       .then((res) => {
             console.log(res.data);
             alert("Receipt Updated...");
-            window.location.reload();
+            navigateTo("/ViewAllReceipts");
         })
         .catch((err) => {
         console.log(err)});
@@ -134,7 +138,7 @@ export const EditReceipt = (props) => {
             </table>
             <br/>
            {/* <a href="mern\client\src\components\Reception.js"><button className='button' type="cancel">Cancel</button></a> */}
-           <button type="submit" className='button'>Save</button>
+           <a href="/ViewAllReceipts"><button type="submit" className='button'>Save</button></a>
            </form> 
            <br/>
            

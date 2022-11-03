@@ -6,12 +6,16 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from
 
 const PrintableTR = React.forwardRef((props, ref) => {
 
-    const calculateTotal = (list) => {
+    const calculatePatientTotal = (list) => {
         let sum = 0;
         if(list){
             list.map((item)=>(sum += parseFloat(item.amount)));
         }
         return(sum.toFixed(2));
+    };
+
+    const calculateDoctorTotal = () => {
+        return (2000.00).toFixed(2);
     };
 
     const getDateString = (iso) => {
@@ -87,18 +91,20 @@ const PrintableTR = React.forwardRef((props, ref) => {
                         }
                         <TableRow>
                             <TableCell align='right' colSpan={3}><div className='bold-text'>Patient Sub Total</div></TableCell>
-                            <TableCell align='right' ><div className='bold-text'>{calculateTotal(props.patientData)}</div></TableCell>
+                            <TableCell align='right' ><div className='bold-text'>{calculatePatientTotal(props.patientData)}</div></TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell align='right' colSpan={3}><div className='bold-text'>Doctor Sub Total</div></TableCell>
-                            <TableCell align='right' ><div className='bold-text'>{calculateTotal(props.patientData)}</div></TableCell>
+                            <TableCell align='right' ><div className='bold-text'>{calculateDoctorTotal()}</div></TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
                 </TableContainer>
             </div>
             <div id='sign' >
-                <h3 className='normal-text right-align'>{`Gross Income -> `}{calculateTotal(props.patientData)}</h3>
+                <h3 className='normal-text right-align'>
+                    {`Gross Income -> `}{(calculatePatientTotal(props.patientData) - calculateDoctorTotal()).toFixed(2)}
+                </h3>
             </div>
         </div>
     );

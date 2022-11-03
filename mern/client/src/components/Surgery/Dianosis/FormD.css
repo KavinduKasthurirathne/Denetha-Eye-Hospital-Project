@@ -1,0 +1,26 @@
+.form{
+    max-width: 75%;
+}
+.h2{
+    text-align: center;
+}
+.p{
+    text-align: center; 
+}
+.h6{
+    margin-left: 30%;
+}
+.tel{
+    text-align: right;
+    margin-right: 150px;
+}
+.data{
+    text-align: center;
+}
+#Aname{
+    text-align: right;
+    margin-left: 350px;
+}
+#wname{
+    margin-left: 60px;
+}
