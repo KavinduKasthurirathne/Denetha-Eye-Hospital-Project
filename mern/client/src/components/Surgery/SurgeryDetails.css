@@ -1,17 +1,29 @@
-.table_table-striped th{padding-top: 12px;
+.table_table-striped1 th{
+  padding-top: 12px;
   padding-bottom: 12px;
-  text-align: center;
-  background-color: #def7ed;
+  margin-left: auto;
+    margin-right: auto;
+  background-color: transparent;
   color: rgb(18, 18, 18);
-  padding: 8px;
+  /* padding: 12px; */
   font-size: 20px;
-
+  
 }
-.container{
-    margin-top: 70px;
-    margin-left: 20px;
-    margin-right: 20px;
-    align-content: center;
+
+#columnwidth{
+  width: 20px;
+}
+
+.container3{
+  border-radius: 8px;
+  padding: 8px;
+    margin-top: 30px;
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+     padding: 50px 0;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 8px 15px 5px rgba(0, 0, 0, 0.082);
 }
 .design{
     padding: 8px;
@@ -26,7 +38,7 @@
     border-radius: 8px;
     font-size: 16px;
 }
-.button{
+.button1{
         padding: 15px;
         width: auto;
         margin-left: 10px;
@@ -43,23 +55,23 @@
           sans-serif;
       
 }
-.searchbar{
+.MYsearchbar{
     float: right;
   padding: 6px;
   border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
+  /* margin-top: 8px; */
+  margin-left: 16px;
+  font-size: 16px;
 }
 
-.button span {
+.button1 span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.button span:after {
+.button1 span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -68,11 +80,11 @@
   transition: 0.5s;
 }
 
-.button:hover span {
+.button1:hover span {
   padding-right: 25px;
 }
 
-.button:hover span:after {
+.button1:hover span:after {
   opacity: 1;
   right: 0;
 }

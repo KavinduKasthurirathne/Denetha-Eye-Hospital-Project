@@ -83,7 +83,7 @@ export default function AddSuPatient (){
                 }}/>
             </div><br/>
             <div class="form-group">
-            <label for="gender">Gender :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="gender">Gender :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></br>
             <input type="radio" value="Male" checked={gender === 'Male'} onChange={handleChange} /> Male&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="radio" value="Female" checked={gender === 'Female'} onChange={handleChange}/> Female</div>
             <br/>

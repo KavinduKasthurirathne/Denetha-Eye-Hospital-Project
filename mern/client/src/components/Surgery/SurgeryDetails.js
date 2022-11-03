@@ -104,12 +104,12 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div className="container">
+   <div className="container3">
     <h2 style={{marginLeft:20}}>Surgery Details</h2>
-    <input className="searchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
-    <button className="button" onClick= {navigateToAddNew}><span>Add New Patient</span></button>
-     <table className="table_table-striped" style={{ marginTop: 20 }}>
-       <thead className="theader">
+    <input className="MYsearchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
+    <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
+     <table className="table_table-striped1">
+       <thead>
          <tr>
            <th className="cwidth">Patient Number</th>
            <th>Patient Name</th>
@@ -120,16 +120,16 @@ export default function RecordList() {
            <th>Addmission Form</th>
            <th>Ultra Sound Report</th>
            <th>Diagnosis Card</th>
-           <th>Theater Details</th>
-           <th>Payment</th>
-           <th>Action</th>
+           <th id="columnwidth">Theater Details</th>
+           <th id="columnwidth">Payment</th>
+           <th id="columnwidth">Action</th>
          </tr>
        </thead>
-       <tbody>{recordList()}</tbody>
+       <tbody >{recordList()}</tbody>
      </table>
      <br/>
-     <button className="button" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button>
-     <button className="button" onClick= {navigateToDiagDeta}><span>Diagnosis Recipts</span></button>
+     <button className="button1" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button>
+     <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Recipts</span></button>
      
    </div>
  );

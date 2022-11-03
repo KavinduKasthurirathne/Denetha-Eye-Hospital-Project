@@ -1,5 +1,10 @@
 .form{
     max-width: 75%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    background-color: rgb(159, 186, 209);
+    border-radius: 10%;
 }
 .h2{
     text-align: center;
@@ -23,4 +28,9 @@
 }
 #wname{
     margin-left: 60px;
+}
+.print{
+    align-items: center;
+    margin-left: 80%;
+   
 }
