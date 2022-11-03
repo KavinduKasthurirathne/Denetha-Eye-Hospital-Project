@@ -24,7 +24,7 @@ router.route("/add").post(async (req, res) => {
   const contactno = req.body.contactno;
   const address = req.body.address;
   const email = req.body.email;
-  const dob = Date(req.body.dob);
+  const dob = req.body.dob;
 
   const newProfile = new Profiledb({
     id,
@@ -51,38 +51,19 @@ router.route("/update").post(async (req, res) => {
     contactno: req.body.contactno,
     address: req.body.address,
     email: req.body.email,
-    dob: Date(req.body.dob),
+    dob: req.body.dob,
   };
 
   await Profiledb.findByIdAndUpdate(id, UpdateProfile)
     .then((result) => {
-      res.status(200).send({ message: "Updated" });
+      res
+        .status(200)
+        .send({ message: "Update successful", update: UpdateProfile });
     })
     .catch((err) => {
       res
         .status(500)
-        .send({ status: "Error: Account not found", error: err.message });
-    });
-
-  //destructure
-  const { contactno, address, email, dob } = req.body;
-
-  //update values
-  const updateProfile = {
-    contactno,
-    address,
-    email,
-    dob,
-  };
-
-  const update = await Profiledb.findOneAndUpdate(profileId, updateProfile)
-    .then((result) => {
-      res.status(200).send({ message: "Update successful", update: update });
-    })
-    .catch((err) => {
-      res
-        .status(500)
-        .send({ status: "Error: Update unsuccessful", error: err.message });
+        .send({ message: "Error: Update unsuccessful", error: err.message });
     });
 });
 

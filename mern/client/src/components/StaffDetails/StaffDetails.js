@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./StaffDetails.css";
-import AddNewMember from "./AddNewMember.js";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -32,7 +31,8 @@ function StaffDetails() {
 
   // This method fetches the records from the database.
   function getRecords() {
-    axios("http://localhost:5000/api/staffdetails/")
+    axios
+      .post("http://localhost:5000/api/account/")
       .then((res) => {
         setRecords(res.data);
       })
@@ -64,35 +64,6 @@ function StaffDetails() {
   // }
   ///////////////////////////
 
-  //////////find staff member///
-
-  const [filterData, setFilterData] = useState([]);
-
-  function searchStaff() {
-    <div className="searchStaff">
-      {filterData.map((value, key) => {
-        return (
-          <a className="dataItem" href={value.Record}>
-            <p>{value.name}</p>
-          </a>
-        );
-      })}
-    </div>;
-  }
-
-  const handleFilter = (event) => {
-    const searchWord = event.target.value;
-    const newFilter = records.filter((value) => {
-      return value.name.toLowerCase().includes(searchWord);
-    });
-    if (searchWord === "") {
-      setFilterData([]);
-    } else {
-      setFilterData(newFilter);
-    }
-  };
-  ////////////////////////////////////////////
-
   return (
     <div className="maindiv">
       <br />
@@ -103,7 +74,11 @@ function StaffDetails() {
         <div>
           <Link to={"/AddNewMember"}>
             <button
-              style={{ width: "100px", backgroundColor: "#128500" }}
+              style={{
+                width: "100px",
+                margin: "0px",
+                backgroundColor: "#128500",
+              }}
               className="button"
               onClick={AddNewMember}
             >
@@ -115,10 +90,10 @@ function StaffDetails() {
               type="text"
               className="search"
               placeholder="search"
-              onChange={handleFilter}
+              // onChange={handleFilter}
             />
 
-            {filterData.length != 0 ? searchStaff() : null}
+            {/* {filterData.length != 0 ? searchStaff() : null} */}
           </div>
         </div>
 
@@ -126,10 +101,9 @@ function StaffDetails() {
           <table className="stafftable">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Name</th>
-                <th>Job Status</th>
-                <th></th>
+                <th>Username</th>
+                <th>Role</th>
               </tr>
             </thead>
             <tbody className="stafftablebody">{recordList()}</tbody>
@@ -142,16 +116,9 @@ function StaffDetails() {
 
 const Record = (props) => (
   <tr>
-    <td>{props.record.sid}</td>
     <td>{props.record.name}</td>
-    <td>{props.record.jobstatus}</td>
-    <td>
-      <Link to={"/profile"}>
-        <button style={{ width: "100px" }} className="button">
-          View
-        </button>
-      </Link>
-    </td>
+    <td>{props.record.username}</td>
+    <td>{props.record.role}</td>
   </tr>
 );
 
