@@ -126,6 +126,7 @@ export const PatientProfile = () => {
                     sx={{width:400}}
                     name='name'
                     variant='standard'
+                    label='Name'
                     onChange={(e) => {
                         setname(e.target.value);
                     }}
@@ -135,6 +136,7 @@ export const PatientProfile = () => {
                     sx={{marginTop:2, width:400}}
                     name='age'
                     variant='standard'
+                    label='Age'
                     onChange={(e) => {
                         setage(e.target.value);
                     }}
@@ -174,7 +176,7 @@ export const PatientProfile = () => {
                     sx={{marginTop:2, width:400}}
                     name='phone'
                     variant='standard'
-                    //label='Phone Number'
+                    label='Phone Number'
                     onChange={(e) => {
                         setphone(e.target.value);
                     }}

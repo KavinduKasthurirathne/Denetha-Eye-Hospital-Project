@@ -27,14 +27,14 @@ body {
     box-shadow: 2px 2px 4px #989898;
 }
 
-th{
+#patientTh{
     font-size: 20px;
     width: 15%;
     background-color: transparent;
     text-align: center;
 }
 
-td {
+#patientTd {
     text-align: center;
     padding-top: 20px;
 }
