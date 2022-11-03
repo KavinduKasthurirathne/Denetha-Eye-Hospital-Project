@@ -58,7 +58,7 @@ export const Patients = () => {
 
     return (
         <>
-        <div class='patienttable'>
+        <div class='patienttableMainPage'>
             <table class='table1'>
                 <thead>
                     <tr>

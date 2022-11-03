@@ -131,11 +131,6 @@ export const AddPatientForm = () => {
                     <label for="msg">Message</label>
                 </div> */}
 
-                <br></br>
-                <br></br>
-
-                <p class='noteDoctor'><i>To be filled by the doctor*</i></p>
-
                 <label for="remarks">Remarks: </label>
                 <input type="text" id="remarks" className="remarks" placeholder='Add Remarks'
                 onChange = {(e)=>{
