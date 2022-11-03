@@ -21,7 +21,7 @@ export const Reception = () => {
     const [NewAppoinment, setNewAppoinment] = useState(false);
 
     return (
-
+        <>
         <div>
             {!NewAppoinment?<div>
                 <h1 id='leftText'>Reception</h1>
@@ -66,8 +66,10 @@ export const Reception = () => {
                                     age={Appointmentage}
                                     doctor={Appointmentdoctor}/>
             }              
-                                        
+                              
         </div>
+       
+        </>
     );
     
 }

@@ -7,6 +7,8 @@ import {PatientProfile} from '../components/PatientProfile';
 import { Accountant } from "../components/Accountant";
 import { Logout } from "../components/Logout";
 import { AppoinmentTable } from "../components/AppoinmentTable";
+import {Inventory} from '../components/Inventory';
+import {InventoryTable} from '../components/Inventorytable';
 import { Reception } from "../components/Reception";
 import UserAccount from "../components/UserAccount";
 import { AddPatientForm } from "../components/AddPatientForm";
@@ -24,6 +26,7 @@ import AddSuPatient from "../components/Surgery/AddnewPatient";
 // import Edit from "../components/Surgery/EditDetails";
 import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
+import {ViewAllReceipts} from "../components/Receptionist/ViewAllReceipts"
 
 const createRoutes = () => {
   return (
@@ -32,6 +35,7 @@ const createRoutes = () => {
       <Route exact path="accountant" element={<Accountant />} />
       <Route exact path="manager" element={<StaffDetails />} />
       <Route exact path="receptionist" element={<Reception />}/>
+      <Route exact path="ViewAllReceipts" element={<ViewAllReceipts />}/>
       <Route exact path="PatientProfile" element={<PatientProfile/>}/>
       <Route exact path="staff" element={<Patients />} />
       <Route exact path="doctor" element={<Patients />} />
@@ -46,6 +50,8 @@ const createRoutes = () => {
       <Route exact path="meetings/printmeeting" element={<PrintMeetings />} />
       <Route exact path="profile" element={<Profile />} />
       <Route exact path="surgery" element={<RecordList />} />
+      <Route exact path='inventory' element={<Inventory/>}/>
+      <Route exact path='InventoryTable' element={<InventoryTable/>}/>
       <Route exact path="addNew" element={<AddSuPatient />} />
       {/* <Route exact path = 'edit' element = {<Edit/>} /> */}
       <Route exact path = 'diagForm' element = {<DForm/>} />
