@@ -14,8 +14,6 @@ export const AddPatientForm = () => {
     const [phone, setphone] = useState("");
     const [gname, setguardianName] = useState("");
     const [gnumber, setguardianPhone] = useState("");
-    const [checkboxCall, setcheckboxCall] = useState("");
-    const [checkboxMsg, setcheckboxMsg] = useState("");
     const [remarks, setremarks] = useState("");
     const navigateTo = useNavigate();
 
@@ -31,8 +29,6 @@ export const AddPatientForm = () => {
             phone,
             gname,
             gnumber,
-            checkboxCall,
-            checkboxMsg,
             remarks
         }
 
@@ -112,24 +108,6 @@ export const AddPatientForm = () => {
                 onChange = {(e)=>{
                     setguardianPhone(e.target.value);
                 }} /> <br></br>
-
-                {/* <label for="checkboxform">How do you like to remind upcoming appointments: </label> <br></br>
-
-                <div class='checkboxes'>
-                    <input type="checkbox" id="checkboxCall" className="checkboxCall" value="Call"
-                    onChange = {(e)=>{
-                        setcheckboxCall(e.target.value);
-                    }} />
-
-                    <label for="call">Call</label>
-
-                    <input type="checkbox" id="checkboxMsg" className="checkboxMsg" value="Message"
-                    onChange = {(e)=>{
-                        setcheckboxMsg(e.target.value);
-                    }} />
-
-                    <label for="msg">Message</label>
-                </div> */}
 
                 <label for="remarks">Remarks: </label>
                 <input type="text" id="remarks" className="remarks" placeholder='Add Remarks'

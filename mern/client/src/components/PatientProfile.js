@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useCookies } from 'react-cookie';
 import { Button, TextField } from '@mui/material';
+import {NavLink,useNavigate} from 'react-router-dom';
 
 const printicon = require('../image/print.png');
 
@@ -21,6 +22,9 @@ export const PatientProfile = () => {
     const [cookies] = useCookies("id", "name", "age", "gender", "dob", "address", "phone", "gname",
                                     "gnumber");
 
+    const navigateTo = useNavigate();
+
+
     const findProfile = async () => {
         const data = {
           id: cookies.id,
@@ -28,15 +32,15 @@ export const PatientProfile = () => {
         await axios
           .post("http://localhost:5000/api/patient/get", data)
           .then(({data}) => {
-            setname(data[5].name);
-            setage(data[5].age);
-            setgender(data[5].gender);
-            setdob(data[5].dob);
-            setaddress(data[5].address);
-            setphone(data[5].phone);
-            setgname(data[5].gname);
-            setgnumber(data[5].gnumber);
-            setpId(data[5]._id);
+            setname(data[0].name);
+            setage(data[0].age);
+            setgender(data[0].gender);
+            setdob(data[0].dob);
+            setaddress(data[0].address);
+            setphone(data[0].phone);
+            setgname(data[0].gname);
+            setgnumber(data[0].gnumber);
+            setpId(data[0]._id);
           });
       };
     
@@ -60,30 +64,55 @@ export const PatientProfile = () => {
         })
     }
     
+
+    //Delete Patient
     async function deleteProfile(event) {
         await axios
           .post("http://localhost:5000/api/patient/delete", { pid: pId })
           .then(() => {
             window.confirm("Are you sure you want to delete?");
-            //alert("Patient Profile Deleted!");
             findProfile();
+            navigateTo('/patient');
           })
           .catch((err) => {
             alert(err);
           });
     }
 
-    // function deleteProfile(e) {
-    //     alert("Clicked")
-    // };
 
-    function updateProfile(e) {
-        alert("Clicked")
-    };
+    //Update Patient
+    async function updateProfile(event) {
+        const updateProfile = {
+          pId,
+          name,
+          age,
+          gender,
+          dob,
+          address,
+          phone,
+          gname,
+          gnumber
+        };
+    
+        console.log(updateProfile);
+        await axios
+          .post("http://localhost:5000/api/patient/update", updateProfile)
+          .then(() => {
+            alert("Patient Details Updated Successfully!");
+            findProfile();
+            navigateTo('/patient');
+          })
+          .catch((err) => {
+            alert(err);
+          });
+      }
+
 
     function cancel(e) {
-        alert("Clicked")
+        navigateTo('/patient');
     };
+
+
 
     return (
         <>
@@ -115,6 +144,7 @@ export const PatientProfile = () => {
                     sx={{marginTop:2, width:400}}
                     name='gender'
                     variant='standard'
+                    label='Gender'
                     onChange={(e) => {
                         setgender(e.target.value);
                     }}
@@ -124,6 +154,7 @@ export const PatientProfile = () => {
                     sx={{marginTop:2, width:400}}
                     name='dob'
                     variant='standard'
+                    label='Date of Birth'
                     onChange={(e) => {
                         setdob(e.target.value);
                     }}
@@ -132,7 +163,9 @@ export const PatientProfile = () => {
                 <TextField
                     sx={{marginTop:2, width:400}}
                     name='address'
-                    variant='standard'onChange={(e) => {
+                    variant='standard'
+                    label='Address'
+                    onChange={(e) => {
                         setaddress(e.target.value);
                     }}
                     value={address}/>
@@ -140,7 +173,9 @@ export const PatientProfile = () => {
                 <TextField
                     sx={{marginTop:2, width:400}}
                     name='phone'
-                    variant='standard'onChange={(e) => {
+                    variant='standard'
+                    //label='Phone Number'
+                    onChange={(e) => {
                         setphone(e.target.value);
                     }}
                     value={phone}/>
@@ -148,7 +183,9 @@ export const PatientProfile = () => {
                 <TextField
                     sx={{marginTop:2, width:400}}
                     name='gname'
-                    variant='standard'onChange={(e) => {
+                    variant='standard'
+                    label='Guardian Name'
+                    onChange={(e) => {
                         setgname(e.target.value);
                     }}
                     value={gname}/>
@@ -156,7 +193,9 @@ export const PatientProfile = () => {
                 <TextField
                     sx={{marginTop:2, width:400}}
                     name='gphone'
-                    variant='standard'onChange={(e) => {
+                    variant='standard'
+                    label='Guardian Phone Number'
+                    onChange={(e) => {
                         setgnumber(e.target.value);
                     }}
                     value={gnumber}/>
