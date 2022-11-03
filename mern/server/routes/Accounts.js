@@ -16,6 +16,14 @@ router.route('/add').post(async (req, res) => {
     });
 });
 
+router.route('/').post(async (req, res) => {
+    await account.find().then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        res.status(500).send({status: 'Error', error: err.message});
+    });
+});
+
 router.route('/check').post(async (req, res) => {
     const {username, password} = req.body;
 
