@@ -47,10 +47,10 @@ export const Patients = () => {
     const Record = (props) => (
        
        <tr>
-           <td>{props.record.name}</td>
-           <td>{props.record.phone}</td>
-           <td>{props.record.age}</td>
-           <td><img id="redirecting" src={eyeicon} alt='eyeicon' className='view-icon' onClick={viewProfile}/></td>
+           <td id='patientTd'>{props.record.name}</td>
+           <td id='patientTd'>{props.record.phone}</td>
+           <td id='patientTd'>{props.record.age}</td>
+           <td id='patientTd'><img id="redirecting" src={eyeicon} alt='eyeicon' className='view-icon' onClick={viewProfile}/></td>
    
        </tr>
        
@@ -62,10 +62,10 @@ export const Patients = () => {
             <table class='table1'>
                 <thead>
                     <tr>
-                        <th>Patient Name</th>
-                        <th>Phone Number</th>
-                        <th>Age</th>
-                        <th>Action</th>
+                        <th id='patientTh'>Patient Name</th>
+                        <th id='patientTh'>Phone Number</th>
+                        <th id='patientTh'>Age</th>
+                        <th id='patientTh'>Action</th>
                     </tr>
                 </thead>
 

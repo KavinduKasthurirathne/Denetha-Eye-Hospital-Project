@@ -64,7 +64,8 @@ export const PatientProfile = () => {
         await axios
           .post("http://localhost:5000/api/patient/delete", { pid: pId })
           .then(() => {
-            alert("Patient Profile Deleted!");
+            window.confirm("Are you sure you want to delete?");
+            //alert("Patient Profile Deleted!");
             findProfile();
           })
           .catch((err) => {
