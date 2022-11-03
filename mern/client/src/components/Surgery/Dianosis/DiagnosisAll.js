@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom";
-//import './SurgeryDetails.css';
+
 
  
 const Record = (props) => (
@@ -111,11 +111,12 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div className="container">
+   <div className="container3">
     <h2 style={{marginLeft:20}}>Diagnosis Records </h2>
-    <input className="searchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
-    <button className="button" onClick= {navigateToDiag}><span>Add New Form</span></button>
-     <table className="table_table-striped" style={{ marginTop: 20 }}>
+    <input className="MYsearchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
+    <button  onClick= {navigateToDiag}><span>Add New Form</span></button><br></br>
+    
+     <table className="table_table-striped1" style={{ marginTop: 20 }}>
        <thead className="theader">
          <tr>
            <th className="cwidth">Patient Number</th>
