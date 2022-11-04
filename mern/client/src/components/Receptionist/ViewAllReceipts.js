@@ -11,13 +11,17 @@ const Record = (props) => (
             <td>{props.record.age}</td>
             <td>{props.record.date}</td>
             <td>{props.record.doctor}</td>
-            <td>{props.record.amount}</td>
+            <td>Rs.{props.record.amount}</td>
             <td><button className="button"  onClick={() => {
                  if (window.confirm("Confirm Delete") === true) {
                     props.deleteRecord(props.record._id);
                   } 
-                    
-                    }}><i className="far fa-trash-alt"></i></button></td>
+                    }}><i className="fas fa-trash-alt"></i></button></td>
+            <td><button className="button"  onClick={() => {
+                 props.btnsetter(!props.btnstate);
+                 props.Idsetter(props.record._id);   
+
+                    }}><i className="fas fa-pen"></i></button></td>
         </tr>
         
      );
@@ -86,7 +90,7 @@ export const ViewAllReceipts = () => {
                         <th id="patientTh">Age</th>
                         <th id="patientTh">Date</th>
                         <th id="patientTh">Doctor</th>
-                        <th id="patientTh">Amount(Rs.)</th>
+                        <th id="patientTh">Amount</th>
                         
                     </tr>
                 </thead>
