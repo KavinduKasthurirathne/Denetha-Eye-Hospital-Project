@@ -1,8 +1,8 @@
-import '../Patients.css';
+import './Patients/Patients.css';
 import '../App.css';
 import React, {useState, useEffect} from "react";
 import {NavLink, useNavigate} from 'react-router-dom';
-import { PatientProfile } from './PatientProfile';
+import { PatientProfile } from './Patients/PatientProfile';
 import Dialog from '@mui/material/Dialog';
 import { DialogContent, DialogTitle } from '@mui/material';
 import Slide from '@mui/material/Slide';
@@ -75,7 +75,7 @@ export const Patients = () => {
         navigateTo('/patient');
     };
 
-    const closeWindow = () => {
+    function closeWindow(e) {
         navigateTo('/patient');
     }
 
@@ -101,7 +101,7 @@ export const Patients = () => {
 
 
 
-        <Dialog 
+        <Dialog className='patientDialog'
             fullScreen
             open={open}
             TransitionComponent={Transition}
@@ -109,13 +109,13 @@ export const Patients = () => {
             <AppBar sx={{ position: 'relative' }}>
             <Toolbar>
                 <IconButton
-                edge="start"
-                color="inherit"
-                onClick={handleClose}
-                aria-label="close"
+                    edge="start"
+                    color="inherit"
+                    onClick={handleClose}
+                    aria-label="close"
                 >
                 <CloseIcon
-                onClick={closeWindow}/>
+                    onClick={closeWindow}/>
                 </IconButton>
             </Toolbar>
             </AppBar>
