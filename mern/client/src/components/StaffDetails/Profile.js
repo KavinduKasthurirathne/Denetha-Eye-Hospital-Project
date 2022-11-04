@@ -56,7 +56,7 @@ const Profile = (props) => {
     await axios
       .post("http://localhost:5000/api/profile/add", addNewDataToProfile)
       .then(() => {
-        alert("Data Inserted!");
+        window.confirm("Data Inserted!");
         window.location.reload(true);
       })
       .catch((err) => {
@@ -78,7 +78,7 @@ const Profile = (props) => {
     await axios
       .post("http://localhost:5000/api/profile/update", updateProfile)
       .then(() => {
-        alert("Profile updated Successfully!");
+        window.confirm("Profile updated Successfully!");
         findProfile();
       })
       .catch((err) => {

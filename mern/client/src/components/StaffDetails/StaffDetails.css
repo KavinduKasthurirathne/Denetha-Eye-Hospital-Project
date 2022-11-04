@@ -5,6 +5,7 @@
 
 .topic1 {
   margin-left: 40%;
+  font-size: xx-large;
 }
 
 .addbtn:hover {
@@ -13,19 +14,24 @@
 }
 
 .search {
+  margin-bottom: 0%;
   margin-left: 45%;
   width: 40%;
 }
 
 .stafftable {
+  margin-top: 0px;
   width: 95%;
   margin: 10px;
   border: 10px;
 }
 
 .stafftable th {
-  padding-left: 130px;
-  background-color: rgba(0, 0, 126, 0.507);
+  text-align: center;
+  height: 40px;
+  background-color: rgb(171, 202, 245);
 }
-.searchIcon {
+.stafftable td {
+  text-align: center;
+  padding: 20px;
 }

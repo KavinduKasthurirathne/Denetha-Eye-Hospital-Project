@@ -1,19 +1,27 @@
 .container2{
     margin-left: 50px;
     margin-top: 3%;
+    width: 70%;
+   
+    
+}
+.gedercss{
+ 
+  margin-right: 70%;
+  
 }
 .form-control{width: 43%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 6px;
   box-sizing:content-box;}
 
   .form-group{
-    font-family: "Times New Roman", Times, serif;
+    /* font-family: "Times New Roman", Times, serif; */
     font-weight: bold;
-    font-size: 23px;
+    font-size: 20px;
     
   }
   .formcolor{
@@ -22,9 +30,10 @@
     margin-left:450px;
     text-align:center;
    max-height: 700px;
-    border-radius: 80px;
+    border-radius: 60px;
+    
   }
-  .button{
-    max-width: 350px;
-    font-weight: 700;
+  .h2cssIWAnt{
+    text-align: center;
   }
+ 

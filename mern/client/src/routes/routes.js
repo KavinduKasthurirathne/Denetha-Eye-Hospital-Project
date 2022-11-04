@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Appoinment } from "../components/Appoinment";
 import App from "../App";
 import { Patients } from "../components/Patients";
-import {PatientProfile} from '../components/PatientProfile';
+import {PatientProfile} from '../components/Patients/PatientProfile';
 import { Accountant } from "../components/Accountant";
 import { Logout } from "../components/Logout";
 import { AppoinmentTable } from "../components/AppoinmentTable";
@@ -11,7 +11,7 @@ import {Inventory} from '../components/Inventory';
 import {InventoryTable} from '../components/Inventorytable';
 import { Reception } from "../components/Reception";
 import UserAccount from "../components/UserAccount";
-import { AddPatientForm } from "../components/AddPatientForm";
+import { AddPatientForm } from "../components/Patients/AddPatientForm";
 import StaffDetails from "../components/StaffDetails/StaffDetails";
 import Meetings from "../components/Meetings/MeetingDetails";
 import AddMeeting from "../components/Meetings/AddMeeting";
@@ -23,7 +23,7 @@ import { AppointmentMainpage } from "../components/AppointmentMainpage";
 import { Help } from "../components/Help";
 import RecordList from "../components/Surgery/SurgeryDetails";
 import AddSuPatient from "../components/Surgery/AddnewPatient";
-// import Edit from "../components/Surgery/EditDetails";
+ import Edit from "../components/Surgery/EditDetails";
 import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
 import {ViewAllReceipts} from "../components/Receptionist/ViewAllReceipts"
@@ -53,7 +53,7 @@ const createRoutes = () => {
       <Route exact path='inventory' element={<Inventory/>}/>
       <Route exact path='InventoryTable' element={<InventoryTable/>}/>
       <Route exact path="addNew" element={<AddSuPatient />} />
-      {/* <Route exact path = 'edit' element = {<Edit/>} /> */}
+      <Route exact path = '/edit/:id' element = {<Edit/>} />
       <Route exact path = 'diagForm' element = {<DForm/>} />
       <Route exact path="DallDetails" element = {<DiagnosisDetail/>} />
       <Route exact path="meetings/add_meetings" element={<AddMeeting />} />

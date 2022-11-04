@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom";
-//import './SurgeryDetails.css';
+
 
  
 const Record = (props) => (
@@ -11,17 +11,16 @@ const Record = (props) => (
    <td>{props.record.ward}</td>
    <td>{props.record.Regno}</td>
    <td>{props.record.age}</td>
-   <td>{props.record.DAddmission}</td>
-   <td>{props.record.Ddischarge}</td>
-   <td>{props.record.Dsurgery}</td>
+   <td>{getDateString (props.record.DAddmission)}</td>
+   <td>{getDateString (props.record.Ddischarge)}</td>
+   <td>{getDateString (props.record.Dsurgery)}</td>
    <td>{props.record.PHACO}</td>
    <td>{props.record.IOL}</td>
    <td>{props.record.variable}</td>
    
-   {/* <td><button className="button-29">Released</button></td> */}
    
    <td>
-     <a style={{color: 'Black'}} className="btnLink" href={`/edit/${props.record._id}`}><b>Update</b></a><br/><br/>
+     <a style={{color: 'Black'}}  href={`/edit/${props.record._id}`}><b>Update</b></a><br/><br/>
      <button className="button-71"
        onClick={() => {
          props.deleteRecord(props.record._id);
@@ -111,27 +110,28 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div className="container">
+   <div className="surgeryContainer">
     <h2 style={{marginLeft:20}}>Diagnosis Records </h2>
-    <input className="searchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
-    <button className="button" onClick= {navigateToDiag}><span>Add New Form</span></button>
-     <table className="table_table-striped" style={{ marginTop: 20 }}>
+    <input className="MYsearchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
+    <button className="button1" onClick= {navigateToDiag}><span>Add New Form</span></button><br></br>
+    
+     <table className="table_table-striped1" style={{ marginTop: 20 }}>
        <thead className="theader">
          <tr>
-           <th className="cwidth">Patient Number</th>
-           <th>Patient Name</th>
-           <th className="cwidth">Number</th>
-           <th className="cwidth">Age</th>
-           <th className="cwidth">Gender</th>
-           <th>Surgery Type</th>
-           <th>Addmission Form</th>
-           <th>Ultra Sound Report</th>
-           <th>Diagnosis Card</th>
-           <th>Theater Details</th>
-           <th>Action</th>
+           <th className="Diatableheader">Patient Name</th>
+           <th className="Diatableheader">Ward NO</th>
+           <th className="Diatableheader">Registration Number</th>
+           <th className="Diatableheader">Age</th>
+           <th className="Diatableheader"> Date of Addmission</th>
+           <th className="Diatableheader">Date of Discharge</th>
+           <th className="Diatableheader">Date of Surgery</th>
+           <th className="Diatableheader">PHACO</th>
+           <th className="Diatableheader">IOL</th>
+           <th className="Diatableheader">Variable</th>
+           <th className="Diatableheader">Action</th>
          </tr>
        </thead>
-       <tbody>{recordList()}</tbody>
+       <tbody className="design">{recordList()}</tbody>
      </table>
      <br/>
      
@@ -139,4 +139,8 @@ export default function RecordList() {
    </div>
  );
 }
-
+//a function to get ISO date with correct time zone
+const getDateString = (iso) => {
+  const date = new Date(iso);
+  const correctDate = new Date(date.getTime() + 360 * 60000);
+  return correctDate.toISOString().split("T")[0];};

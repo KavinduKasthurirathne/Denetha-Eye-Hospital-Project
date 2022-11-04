@@ -15,7 +15,7 @@ export default function DForm(){
         const [DAddmission , setDAddmission]= useState("");
         const [Ddischarge , setDdischarge]= useState("");
         const [Dsurgery , setDsurgery]= useState("");
-        const [PHACO , setPHACO]= useState("");
+        const [PHACO , setPHACO]= useState("Nevan 8 hourly 6/52");
         const [IOL , setIOL]= useState("");
         const [variable , setVariable]= useState("");
         const handleChange = (e) => {
@@ -56,6 +56,7 @@ export default function DForm(){
         <div>
             <form className="form" onSubmit = {sendData}>
             
+            <button  type = "submit" class = "button" className='print' >Print</button>
 
                 
                 <h2 className="h2">Denetha<br/>Eye Care Center</h2>
@@ -113,21 +114,15 @@ export default function DForm(){
                 }}/><br/>
 
             <label >R/PHACO + 'F' IOL T/A</label>   
-            <input type="text" id="name" name="fname"   value = {PHACO}
-                onChange={(e)=>{
-
-                    setPHACO(e.target.value);
-                }}/><br/>
-            
-            {/* <input type="checkbox" id="vehicle1" name="vehicle1" value="Nevan 8 hourly 6/52"   
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Nevan 8 hourly 6/52"   
             checked={PHACO === 'Nevan 8 hourly 6/52'} onChange={handleChange}/>
-            <label for="vehicle1"> Nevan 8 hourly 6/52</label><br/>
+            <label for="vehicle1"> Nev1an 8 hourly 6/52</label><br/>
             <input type="checkbox" id="vehicle2" name="vehicle2" value="Prednisolone 2/52"
              checked={PHACO === 'Prednisolone 2/52'} onChange={handleChange}/>
             <label for="vehicle2"> Prednisolone 2/52</label><br/>
             <input type="checkbox" id="vehicle3" name="vehicle3" value=" Optimox 2/52"
             checked={PHACO === 'Prednisolone 2/52'} onChange={handleChange}/>
-            <label for="Optimox 2/52"> Optimox 2/52</label> */}
+            <label for="Optimox 2/52"> Optimox 2/52</label>
 
             <label for="Aname" id="Aname">IOL Type:</label>&nbsp;
                 <input type="text" id="name" name="fname"  
@@ -145,7 +140,7 @@ export default function DForm(){
             }}/><br/>
             <label for="Aname" id="Aname">Dr.M.Shaminda Amarathunge</label>
             <label for="Aname" id="Aname">MBBS.MD.(ophth)Consultant Eye Surgeon</label>
-            <button  onClick={navigateToAddDiagnosis} >Save</button>
+            <button  type = "submit" class = "button"  >Save</button>
 
             </div>
             </form>

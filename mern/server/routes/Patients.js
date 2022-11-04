@@ -81,4 +81,32 @@ router.route("/delete").post(async (req, res) => {
       });
   });
 
+
+  //update profile
+router.route("/update").post(async (req, res) => {
+  const id = req.body.docId;
+
+  const UpdateProfile = {
+    name: req.body.name,
+    age: req.body.age,
+    gender: req.body.gender,
+    dob: req.body.dob,
+    address: req.body.address,
+    phone: req.body.phone,
+    gname: req.body.gname,
+    gnumber: req.body.gnumber,
+  };
+
+  await patient.findByIdAndUpdate(id, UpdateProfile)
+    .then((result) => {
+      res.status(200).send({ message: "Updated Successfully!" });
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({ status: "Error: Account not found", error: err.message });
+    });
+
+});
+
 module.exports = router;

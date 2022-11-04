@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import {Login} from './components/Login'
 import { TestAddAccount } from './components/TestAddAccount';
 import { useCookies } from 'react-cookie';
-import AddPatientForm from './components/AddPatientForm';
+import AddPatientForm from './components/Patients/AddPatientForm';
 
 const App = () => {
   //list of error messages
