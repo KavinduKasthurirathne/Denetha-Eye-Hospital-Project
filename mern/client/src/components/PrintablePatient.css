@@ -1,0 +1,38 @@
+.a4 {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+}
+.table {
+    width: 80%;
+    margin: auto;
+    font-size: small;
+}
+.th{
+    font-size: medium;
+    font-weight: bold;
+    font-size: small;
+    background-color: rgb(255, 255, 255);
+}
+.td{
+    padding: 0px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+#data {
+    margin: auto;
+    width: 80%;
+}
+#po-logo-container {
+    flex-basis: 10%;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+#print-logo {
+    width: 150px;
+}
+#sign {
+    margin: auto;
+    width: 70%;
+}

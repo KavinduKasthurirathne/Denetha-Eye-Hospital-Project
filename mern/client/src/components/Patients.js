@@ -72,7 +72,12 @@ export const Patients = () => {
     const handleClose = () => {
         setOpen(false);
         setSelected(null);
+        navigateTo('/patient');
     };
+
+    const closeWindow = () => {
+        navigateTo('/patient');
+    }
 
 
     return (
@@ -109,7 +114,8 @@ export const Patients = () => {
                 onClick={handleClose}
                 aria-label="close"
                 >
-                <CloseIcon />
+                <CloseIcon
+                onClick={closeWindow}/>
                 </IconButton>
             </Toolbar>
             </AppBar>
