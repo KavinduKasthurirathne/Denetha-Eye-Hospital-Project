@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "..Receptionist/SearchBar.css";
 import axios from "axios";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
@@ -40,11 +41,11 @@ function searchBar(props) {
 
   return (
     <>
-      <div>
+      <div id="search">
         <div className="searchInputs">
           <input
             type="text"
-            placeholder="Enter patient name..."
+            placeholder="Search"
             value={wordEntered}
             onChange={handleFilter}
           />
@@ -57,7 +58,31 @@ function searchBar(props) {
             )}
           </div>
         </div>
+
+        {/* displaying  most relavant name and phone */}
+        {filteredData.length !== 0 && (
+          <div className="dataResult">
+            {filteredData.slice(0, 12).map((value, key) => {
+              return (
+                <div
+                  className="dataItem hover"
+                  key={key}
+                  onClick={() => {
+                    props.setSelectedName(filteredData[key].name);
+                    clearInput();
+                  }}
+                >
+                  <p>{value.name}</p>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
+      <SearchResult
+        Pname={props.selectedName}
+        setName={props.setSelectedName}
+      />
     </>
   );
 }

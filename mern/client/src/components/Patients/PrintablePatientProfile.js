@@ -1,6 +1,6 @@
 import React from "react";
-import '../Accountant.css';
-import '../PrintablePatient.css';
+import '../Accountant/Accountant.css';
+import '../Patients/PrintablePatient.css';
 import '../../../App.css';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 

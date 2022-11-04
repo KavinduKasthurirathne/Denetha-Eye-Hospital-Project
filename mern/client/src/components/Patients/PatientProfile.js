@@ -1,12 +1,12 @@
-import '../PatientProfile.css';
-import '../App.css';
+import '../Patients/PatientProfile.css';
+import '../../App.css';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useCookies } from 'react-cookie';
 import { Button, TextField, useThemeProps } from '@mui/material';
 import {NavLink,useNavigate} from 'react-router-dom';
 
-const printicon = require('../image/print.png');
+const printicon = require('../../image/print.png');
 
 export const PatientProfile = (props) => {
 

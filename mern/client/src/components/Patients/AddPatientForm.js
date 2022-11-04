@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import '../AddPatientForm.css';
-import '../App.css';
+import './AddPatientForm.css';
+import '../../App.css';
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
 

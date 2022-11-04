@@ -90,7 +90,7 @@ export default function Edit() {
                <label for="pname">Patient Name :</label>&nbsp;&nbsp;&nbsp;&nbsp;
                <input type="text" class="form-control" id="pname"  placeholder="Enter Patient's Name"  value={form.pname}
            onChange={(e) => updateForm({ pname: e.target.value })}
-           required/>    
+           />    
            </div><br/>
 
            <div className="form-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
