@@ -106,7 +106,7 @@ export default function RecordList() {
  return (
    <div className="surgeryContainer">
     <h2 style={{marginLeft:20}}>Surgery Details</h2>
-    <input  type="text" placeholder="Search.." onChange={handleTextSearch}></input>
+    <input className="MYsearchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
     <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
      <table className="table_table-striped1">
        <thead>

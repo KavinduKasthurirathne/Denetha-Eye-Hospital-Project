@@ -69,10 +69,10 @@
 .MYsearchbar{
     float: right;
   padding: 6px;
-  border: none;
-  /* margin-top: 8px; */
   margin-left: 16px;
-  /* font-size: 16px; */
+  font-size: 16px;
+  margin-right: 3px;
+
 }
 
 .button1 span {
