@@ -54,7 +54,7 @@ export const InventoryTable = () => {
                         <th>Location</th>
                         <th>Quantity</th>
                         <th>Cost</th>
-                        <th>Type</th>
+                        {/* <th>Type</th> */}
                         <th>Status</th>
                     </tr>
                 </thead>
