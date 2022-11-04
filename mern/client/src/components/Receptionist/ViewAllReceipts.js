@@ -79,19 +79,19 @@ export const ViewAllReceipts = () => {
         <div id="receiptstable">
             <table>
                 <thead>
-                    <tr>
-                        <th id="receiptsTable">Patient Name</th>
-                        <th id="receiptsTable">Phone Number</th>
-                        <th id="receiptsTable">Type</th>
-                        <th id="receiptsTable">Age</th>
-                        <th id="receiptsTable">Date</th>
-                        <th id="receiptsTable">Doctor</th>
-                        <th id="receiptsTable">Amount(Rs.)</th>
+                    <tr id="patientTh">
+                        <th id="patientTh">Patient Name</th>
+                        <th id="patientTh">Phone Number</th>
+                        <th id="patientTh">Type</th>
+                        <th id="patientTh">Age</th>
+                        <th id="patientTh">Date</th>
+                        <th id="patientTh">Doctor</th>
+                        <th id="patientTh">Amount(Rs.)</th>
                         
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody id="patientTd">
                     {recordList()}
                 </tbody>
             </table>
