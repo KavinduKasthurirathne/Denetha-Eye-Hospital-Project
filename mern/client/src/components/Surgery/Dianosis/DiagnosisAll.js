@@ -11,9 +11,9 @@ const Record = (props) => (
    <td>{props.record.ward}</td>
    <td>{props.record.Regno}</td>
    <td>{props.record.age}</td>
-   <td>{props.record.DAddmission}</td>
-   <td>{props.record.Ddischarge}</td>
-   <td>{props.record.Dsurgery}</td>
+   <td>{getDateString (props.record.DAddmission)}</td>
+   <td>{getDateString (props.record.Ddischarge)}</td>
+   <td>{getDateString (props.record.Dsurgery)}</td>
    <td>{props.record.PHACO}</td>
    <td>{props.record.IOL}</td>
    <td>{props.record.variable}</td>
@@ -119,16 +119,16 @@ export default function RecordList() {
      <table className="table_table-striped1" style={{ marginTop: 20 }}>
        <thead className="theader">
          <tr>
-           <th className="cwidth">Patient Number</th>
-           <th>Patient Name</th>
-           <th className="cwidth">Number</th>
-           <th className="cwidth">Age</th>
-           <th className="cwidth">Gender</th>
-           <th>Surgery Type</th>
-           <th>Addmission Form</th>
-           <th>Ultra Sound Report</th>
-           <th>Diagnosis Card</th>
-           <th>Theater Details</th>
+           <th >Patient Name</th>
+           <th>Ward NO</th>
+           <th >Registration Number</th>
+           <th >Age</th>
+           <th > Date of Addmission</th>
+           <th>Date of Discharge</th>
+           <th>Date of Surgery</th>
+           <th>PHACO</th>
+           <th>IOL</th>
+           <th>Variable</th>
            <th>Action</th>
          </tr>
        </thead>
@@ -140,4 +140,8 @@ export default function RecordList() {
    </div>
  );
 }
-
+//a function to get ISO date with correct time zone
+const getDateString = (iso) => {
+  const date = new Date(iso);
+  const correctDate = new Date(date.getTime() + 360 * 60000);
+  return correctDate.toISOString().split("T")[0];};
