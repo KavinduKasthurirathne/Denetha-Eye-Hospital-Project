@@ -53,10 +53,11 @@
 .AppointTable{
     padding: 1%;
    border: 0px;
+   margin: auto;
  
 }
 
-#td{
+#Atd{
     padding: 30px;
     background-color: rgb(222, 238, 240);
 }
@@ -68,7 +69,7 @@
     
 }
 
-#td:hover{
+#Atd:hover{
    
     cursor: pointer;
     
@@ -112,16 +113,11 @@
     background-color: rgb(255, 255, 255);    
 }
 
-#receiptsTable {
-    
-    background-color: rgb(255, 255, 255);
-   
-    
-}
+
 
 #receiptstable {
     margin-top: 3%;
-    margin-left: 11.5%;
+    margin: auto;
     padding-top: 25px;
     padding-bottom: 25px;
     padding-left: 25px;
