@@ -57,7 +57,7 @@ export const Receipt = (props) => {
       axios.post("http://localhost:5000/api/receipt/insert", receiptOb)
       .then((res) => {
             console.log(res.data);
-            alert("Appoinment completed");
+            
             
         })
         .catch((err) => {

@@ -99,7 +99,7 @@ export const EditReceipt = (props) => {
                 <tbody>
                 
                 <tr>
-                    <td id="receiptCell">Patient name:</td>
+                    <td id="receiptCell">Patient name: *</td>
                     <td id="receiptCell"> <input value={name} type={"text"} onChange={handleName} required></input></td>
                 </tr>
                 <tr>
@@ -107,11 +107,11 @@ export const EditReceipt = (props) => {
                     <td id="receiptCell">{type}</td>
                 </tr>
                 <tr>
-                    <td id="receiptCell">Date:</td>
+                    <td id="receiptCell">Date: *</td>
                     <td id="receiptCell">  <input value={date} type={"date"} onChange={handleDate} required></input></td>
                 </tr>
                 <tr>
-                    <td id="receiptCell">Phone:</td>
+                    <td id="receiptCell">Phone: *</td>
                     <td id="receiptCell"><input value={phone} type={"text"} onChange={handlePhone} required pattern="[0-9]{10}"></input></td>
                 </tr>
                 <tr>
