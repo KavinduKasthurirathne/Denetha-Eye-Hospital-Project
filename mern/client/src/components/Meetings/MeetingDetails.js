@@ -70,10 +70,10 @@ function Meetings(props) {
       <div className="meetingDetailsInnerContainer">
         <div className="meetingheader">
           <h2 className="meetingtopic">Meeting Time Table</h2>
-          <button className="button" onClick={printMeeting}>
+          <button className="downloadMeetingbutton" onClick={printMeeting}>
             Download
           </button>
-          <button className="button" onClick={AddMeeting}>
+          <button className="addMeetingbutton" onClick={AddMeeting}>
             Add
           </button>
         </div>
@@ -118,7 +118,7 @@ const Record = (props) => (
     <td>{props.record.description}</td>
     <td>
       <button
-        className="button"
+        className="EditMeetingbutton"
         onClick={() => {
           props.setEditDetails({
             id: props.record._id,
@@ -134,7 +134,7 @@ const Record = (props) => (
     </td>
     <td>
       <button
-        className="button"
+        className="EditMeetingbutton"
         onClick={() => {
           props.deleteRecord(props.record._id);
         }}
