@@ -53,7 +53,7 @@ export default function Edit() {
     pnumber: form.pnumber,
     pname: form.pname,
     number: form.number,
-    age: form.number,
+    age: form.age,
     gender:form.gender,
     Stype: form.Stype,
    };
@@ -73,14 +73,14 @@ export default function Edit() {
  // This following section will display the form that takes input from the user to update the data.
  return (
    <div>
-     <h3>Update Record</h3>
-     <form onSubmit={onSubmit}>
+     
+     <form onSubmit={onSubmit} className = "formcolor">
      <div className="container2">
        
        
        <br/> <br/><br/> 
            <div className="form-group">
-               <h2>Add New Patient</h2><br/>
+               <h2 className="h2cssIWAnt">Update Patient Record</h2><br/>
                <label for="pnumber">Patient Number : </label>
                <input type="number" class="form-control" id="pnumber"  placeholder="Enter Next Number" value={form.pnumber}
            onChange={(e) => updateForm({ pnumber: e.target.value })}/>    
@@ -104,6 +104,7 @@ export default function Edit() {
                <label for="age">Patient Age :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <input type="number" class="form-control" id="age" placeholder="Enter Age"  value={form.age}
            onChange={(e) => updateForm({ age: e.target.value })}/>
+
            </div><br/>
            <div class="form-group">
            <label for="gender" className="gedercss">Gender :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
