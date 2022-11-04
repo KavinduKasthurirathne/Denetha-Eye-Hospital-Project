@@ -53,7 +53,7 @@ const createRoutes = () => {
       <Route exact path='inventory' element={<Inventory/>}/>
       <Route exact path='InventoryTable' element={<InventoryTable/>}/>
       <Route exact path="addNew" element={<AddSuPatient />} />
-      <Route exact path = 'edit/id' element = {<Edit/>} />
+      <Route exact path = '/edit/:id' element = {<Edit/>} />
       <Route exact path = 'diagForm' element = {<DForm/>} />
       <Route exact path="DallDetails" element = {<DiagnosisDetail/>} />
       <Route exact path="meetings/add_meetings" element={<AddMeeting />} />
