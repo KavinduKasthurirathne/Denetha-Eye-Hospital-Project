@@ -13,8 +13,8 @@ const Record = (props) => (
    <td>{props.record.age}</td>
    <td>{props.record.gender}</td>
    <td>{props.record.Stype}</td>
-   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Admission Form</Link></td>
-   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Report</Link></td>
+   {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Admission Form</Link></td> */}
+   {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Report</Link></td> */}
    <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Details Recipt</Link></td>
    <td><button className="button-29">Released</button></td>
    <td><button className="button-88">Paid</button></td>
@@ -104,31 +104,31 @@ export default function RecordList() {
  
  // This following section will display the table with the records of individuals.
  return (
-   <div className="container3">
+   <div className="surgeryContainer">
     <h2 style={{marginLeft:20}}>Surgery Details</h2>
     <input className="MYsearchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
     <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
      <table className="table_table-striped1">
        <thead>
          <tr>
-           <th className="cwidth">Patient Number</th>
-           <th>Patient Name</th>
-           <th className="cwidth">Number</th>
-           <th className="cwidth">Age</th>
-           <th className="cwidth">Gender</th>
-           <th>Surgery Type</th>
-           <th>Addmission Form</th>
-           <th>Ultra Sound Report</th>
-           <th>Diagnosis Card</th>
-           <th id="columnwidth">Theater Details</th>
-           <th id="columnwidth">Payment</th>
-           <th id="columnwidth">Action</th>
+           <th className="Stableheader">Patient Number</th>
+           <th className="Stableheader">Patient Name</th>
+           <th className="Stableheader">Number</th>
+           <th className="Stableheader">Age</th>
+           <th className="Stableheader">Gender</th>
+           <th className="Stableheader">Surgery Type</th>
+           {/* <th className="Stableheader">Addmission Form</th> */}
+           {/* <th className="Stableheader">Ultra Sound Report</th> */}
+           <th className="Stableheader">Diagnosis Card</th>
+           <th className="Stableheader">Theater Details</th>
+           <th className="cwidth">Payment</th>
+           <th className="Stableheader">Action</th>
          </tr>
        </thead>
        <tbody >{recordList()}</tbody>
      </table>
      <br/>
-     <button className="button1" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button>
+     {/* <button className="button1" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button> */}
      <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Recipts</span></button>
      
    </div>

@@ -5,6 +5,11 @@
    
     
 }
+.gedercss{
+ 
+  margin-right: 70%;
+  
+}
 .form-control{width: 43%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -28,8 +33,7 @@
     border-radius: 60px;
     
   }
-  .button{
-    max-width: 350px;
-    font-weight: 700;
-    margin-bottom: 30%;
+  .h2cssIWAnt{
+    text-align: center;
   }
+ 
