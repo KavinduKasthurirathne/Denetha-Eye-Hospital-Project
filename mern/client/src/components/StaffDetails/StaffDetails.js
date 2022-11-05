@@ -26,21 +26,6 @@ function StaffDetails() {
       });
   }
 
-  //   const [stafDetails, setStafDetails] = useState([]);
-
-  //   function getAllStaffDetails() {
-  //     axios
-  //       .get("./api/staffdetails/get/")
-  //       .then((res) => {
-  //         setStafDetails(res.data);
-  //       })
-  //       .catch((err) => {
-  //         alert(err.message);
-  //       });
-  //   }
-
-  //   useEffect(() => getAllStaffDetails());
-
   const [records, setRecords] = useState([]);
 
   // This method fetches the records from the database.
@@ -64,19 +49,6 @@ function StaffDetails() {
   const AddNewMember = () => {
     navigate("/AddNewMember");
   };
-
-  //////////////search staff member//////////////////
-  // const handleChange = (e) => {
-  //   e.preventDefault();
-  //   setSearchInput(e.target.value);
-  // };
-
-  // if (searchInput.length > 0) {
-  //   countries.filter((country) => {
-  //     return country.name.match(searchInput);
-  //   });
-  // }
-  ///////////////////////////
 
   return (
     <div className="maindiv">
@@ -107,6 +79,7 @@ function StaffDetails() {
               aria-label="Search"
               onChange={(e) => {
                 setsearchTerm(e.target.value);
+                console.log(e.target.value);
               }}
             />
           </form>
