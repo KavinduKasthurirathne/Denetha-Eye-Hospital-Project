@@ -16,7 +16,14 @@ const Record = (props) => (
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Admission Form</Link></td> */}
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Report</Link></td> */}
    <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Details Recipt</Link></td>
-   <td><button className="button-29">Released</button></td>
+   <td> 
+          <select className="dropdown">
+            <option  className= 'dropdowncolor' value="Waiting">Waiting</option>
+          <option className= 'dropdowncolor' value="intheater">In Theater</option>
+          <option className= 'dropdowncolor'value="Released">Released</option>
+        </select>
+  
+   </td>
    <td><button className="button-88">Paid</button></td>
    <td>
      <a style={{color: 'Black'}} className="btnLink" href={`/edit/${props.record._id}`}><b>Update</b></a><br/><br/>
