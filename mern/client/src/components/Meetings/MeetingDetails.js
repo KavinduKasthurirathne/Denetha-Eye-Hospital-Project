@@ -4,6 +4,7 @@ import AddMeetings from "./AddMeeting.js";
 import PrintMeetingDetails from "./PrintMeetingDetails.js";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import AlertDelete from "./AlertDelete";
 
 function Meetings(props) {
   const [editDetails, setEditDetails] = useState({
@@ -14,12 +15,14 @@ function Meetings(props) {
     description: "",
   });
   const [records, setRecords] = useState([]);
+  //const [alertDelete, setAlertDelete] = useState(false);
 
   // This method fetches the records from the database.
   function getRecords() {
     axios("http://localhost:5000/api/meeting/")
       .then((res) => {
         setRecords(res.data);
+        console.log(records);
       })
       .catch((err) => {
         alert(err);
@@ -38,7 +41,7 @@ function Meetings(props) {
 
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
-    window.alert("Meeting deleted");
+    //setAlertDelete(true);
   }
 
   // This method will map out the records on the table
@@ -77,7 +80,7 @@ function Meetings(props) {
             Add
           </button>
         </div>
-
+        {/* {AlertDelete && <AlertDelete />} */}
         <table className="meetingtable">
           <thead>
             <tr>

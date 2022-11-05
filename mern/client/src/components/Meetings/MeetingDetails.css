@@ -23,6 +23,10 @@
   margin-left: auto;
   margin-right: auto;
   background-color: white;
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  margin-bottom: 50px;
 }
 
 .meetingtable th {
@@ -83,6 +87,24 @@
   padding: 15px;
   width: auto;
   margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 30px;
+  border: 0px;
+  color: white;
+  background-color: #2a628f;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #989898;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.printbutton {
+  padding: 15px;
+  width: auto;
+  margin-left: 150px;
+  margin-top: 40px;
   margin-right: 10px;
   border-radius: 30px;
   border: 0px;
