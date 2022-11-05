@@ -50,4 +50,14 @@ router.route('/').get((req,res)=>{
     })
 })
 */
+
+router.route("/search").post(async (req, res) => {
+  Staff.find()
+    .then((staff) => {
+      res.json(staff);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 module.exports = router;
