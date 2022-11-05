@@ -79,7 +79,7 @@ export const Receipt = (props) => {
                     <td id="receiptCell">{props.name}</td>
                 </tr>
                 <tr>
-                    <td id="receiptCell">Appoinment type:</td>
+                    <td id="receiptCell">Appointment type:</td>
                     <td id="receiptCell">{type}</td>
                 </tr>
                 <tr>
