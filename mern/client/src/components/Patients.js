@@ -1,10 +1,11 @@
 import './Patients/Patients.css';
 import '../App.css';
 import React, {useState, useEffect} from "react";
-import {NavLink, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
+import SearchBar from "./Patients/PatientSearchProfile";
 import { PatientProfile } from './Patients/PatientProfile';
 import Dialog from '@mui/material/Dialog';
-import { DialogContent, DialogTitle } from '@mui/material';
+import {DialogContent} from '@mui/material';
 import Slide from '@mui/material/Slide';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,6 +18,10 @@ const eyeicon = require('../image/eye.png');
 export const Patients = () => {
     const [records, setRecords] = useState([]);
     const [selected, setSelected] = useState();
+
+    const [selectedName, setSelectedName] = useState("");
+    const [selectedPhone, setSelectedPhone] = useState("");
+
     const [open, setOpen] = useState(false);
     const navigateTo = useNavigate();
 
@@ -82,6 +87,12 @@ export const Patients = () => {
 
     return (
         <>
+
+        <SearchBar selectedName={selectedName} 
+                    setSelectedName={setSelectedName} 
+                    selectedPhone={selectedPhone} 
+                    setSelectedPhone={setSelectedPhone}/>
+
         <div className='patienttableMainPage'>
             <table className='table1'>
                 <thead>
@@ -98,8 +109,6 @@ export const Patients = () => {
                 </tbody>
             </table>
         </div>
-
-
 
         <Dialog className='patientDialog'
             fullScreen

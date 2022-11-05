@@ -1,0 +1,87 @@
+.searchPatientInputs {
+    margin-top: 40px;
+    margin-left: 870px;
+    display: flex;
+  }
+  
+  #searchPatient input {
+    float: left;
+    background-color: white;
+    border: 0;
+    border-radius: 2px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-size: 16px;
+    padding: 10px;
+    height: 20px;
+    width: 300px;
+    margin-left: 15%;
+    margin-top: 0px; 
+    box-shadow: 1px 1px 1px #989898;  
+    
+  }
+  
+  .searchPatientIcon {
+    float: left;
+    height: 40px;
+    width: 40px;
+    color: #2A628F;
+    background-color: white;
+    display: grid;
+    place-items: center;
+    margin-top: 0px;
+    box-shadow: 1px 1px 1px #989898;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  .searchIcon svg {
+    font-size: 35px;
+  }
+  
+  .patientDataResult {
+   
+    margin-left: 945px;
+    width: 360px;
+    height: 130px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 2px 2px 2px;
+    overflow: hidden;
+    overflow-y: visible;
+    overflow-block: visible;
+    position: absolute;
+    
+  }
+  
+  .patientDataResult::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .patientDataResult .dataItem {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  
+  .dataItem p {
+    margin-left: 10px;
+  }
+ 
+  
+  .hover:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+  }
+  
+  #clearBtn {
+    cursor: pointer;
+  }
+
+  .patientdetails{
+    float: left;
+    margin-left:15%;
+    margin-top: 5%;
+  }
