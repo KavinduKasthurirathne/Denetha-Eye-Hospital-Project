@@ -131,14 +131,15 @@ export default function DForm(){
 
             <label for="Optimox 2/52"> Optimox 2/52</label><br/><br/>
 
-            <label for="Aname"  className='lableDiag'>IOL Type:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="Aname"  className='lableDiag'>IOL Type:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text"  name="fname" className='forminput'  
                 value = {IOL}
                 onChange={(e)=>{
 
                     setIOL(e.target.value);
                 }}/><br/>
-            <label for="Aname"  className='lableDiag'>Variable W/S:</label>
+            <label for="Aname"  className='lableDiag'>Variable W/S:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text"  name="fname"   className='forminput'
             value = {variable}
             onChange={(e)=>{
