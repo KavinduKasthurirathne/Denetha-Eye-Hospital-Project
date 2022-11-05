@@ -21,7 +21,7 @@ router.route("/add").post((req,res)=>{
     diagnosisAdd.save().then(()=>{
         res.json("Details Added")
     }).catch(()=>{
-        console.log(err);
+        console.log(err.message);
     })
 
 })
@@ -30,7 +30,7 @@ router.route("/").get((req,res)=>{
     diagnosis1.find().then((diagnosis)=>{
         res.json(diagnosis)
     }).catch((err)=>{
-        console.log(err);
+        console.log(err.message);
     })
 })
 //update data
@@ -47,7 +47,7 @@ router.route("/update/:pid").put(async(req,res)=>{
         .then(()=>{
             res.status(200).send({status:"Updated Diagnosis Card"})  
         }).catch((err)=>{
-            console.log(err);
+            console.log(err.message);
             res.status(500).send({status:"Error with updating data",error:err.message});
             })
 
