@@ -1,23 +1,32 @@
 .form{
-    max-width: 75%;
+    max-width: 55%;
     margin-left: 20%;
     margin-right: 20%;
-    margin-top: 10%;
-    background-color: rgb(159, 186, 209);
-    border-radius: 10%;
+    margin-top: 3%;
+    background-color: rgb(228, 241, 255);
+    border-radius: 3%;
+    box-shadow: 0px 8px 15px 5px rgba(0, 0, 0, 0.082);
 }
-.h2{
+.Dh2{
     text-align: center;
+
+}
+.p1{
+    text-align:center; 
+    
 }
 .p{
-    text-align: center; 
-}
-.h6{
+    text-align:center; 
     margin-left: 30%;
+}
+.Dh6{
+    margin-left: 10%;
+    font-size: 15px;
 }
 .tel{
     text-align: right;
     margin-right: 150px;
+    font-size: 18px;
 }
 .data{
     text-align: center;
@@ -30,7 +39,66 @@
     margin-left: 60px;
 }
 .print{
+    margin-top: 3%;
     align-items: center;
     margin-left: 80%;
+    padding: 15px;
+    width: 150px;
+    margin-right: 10px;
+    border-radius: 30px;
+    border: 0px;
+    color: white;
+    background-color: #2A628F;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #989898;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
    
+}
+.Dsave{
+    align-items: center;
+    margin-left: 40%;
+    padding: 15px;
+    width: 150px;
+    margin-right: 10px;
+    border-radius: 30px;
+    border: 0px;
+    color: white;
+    background-color: #2A628F;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #989898;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+
+
+
+}
+.lableDiag{
+    margin-left: 10%;
+    text-align: left;
+}
+.forminput{
+    width: 50%;
+    margin-left: 15px;
+    align-items:center;
+    margin-right: 10%;
+    height: 30%;
+}
+.form label{
+    width: 40%;
+    font-weight: 700;
+    font-size: 19px;
+    
+}
+.mycheckbox{
+    margin-left: 30%;
+}
+.logoForDiagnosis{
+    width: 15%;
+    margin-left: 43%;
+    border-radius: 100px;
 }
