@@ -6,6 +6,7 @@ import './SurgeryDetails.css';
 
  
 const Record = (props) => (
+
  <tr className="design">
    <td>{props.record.pnumber}</td>
    <td>{props.record.pname}</td>
@@ -16,7 +17,14 @@ const Record = (props) => (
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Admission Form</Link></td> */}
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Report</Link></td> */}
    <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Details Recipt</Link></td>
-   <td><button className="button-29">Released</button></td>
+   <td> 
+          <select className="dropdown">
+            <option  className= 'dropdowncolor' value="Waiting">Waiting</option>
+          <option className= 'dropdowncolor' value="intheater">In Theater</option>
+          <option className= 'dropdowncolor'value="Released">Released</option>
+        </select>
+  
+   </td>
    <td><button className="button-88">Paid</button></td>
    <td>
      <a style={{color: 'Black'}} className="btnLink" href={`/edit/${props.record._id}`}><b>Update</b></a><br/><br/>
@@ -33,7 +41,33 @@ const Record = (props) => (
 );
  
 export default function RecordList() {
-  
+
+  const [SearchItem , setSearchItem] = useState ("");
+
+
+// This method will map out the records on the table
+function recordList() {
+  return records 
+  .filter((val) => {
+   if (SearchItem === "") {
+     return val;
+   } else if (
+     val.pname.toLowerCase().includes(SearchItem.toLowerCase()) ||
+     val.Stype.toLowerCase().includes(SearchItem.toLowerCase())
+   ) {
+     return val;
+   }
+ }).map((record) => {
+    return (
+      <Record
+        record={record}
+        deleteRecord={() => deleteRecord(record._id)}
+        key={record._id}
+      />
+    );
+  });
+}
+
     const navigate = useNavigate();
     const navigateToAddNew = () => {
         navigate('/addNew');
@@ -70,43 +104,22 @@ export default function RecordList() {
    setRecords(newRecords);
  }
  
- // This method will map out the records on the table
- function recordList() {
-   return records.map((record) => {
-     return (
-       <Record
-         record={record}
-         deleteRecord={() => deleteRecord(record._id)}
-         key={record._id}
-       />
-     );
-   });
- }
+ 
  const navigate2 = useNavigate();
     const navigateToDiagDeta = () => {
         navigate2('/DallDetails');
       };
       
   
-      function filterContent (posts,searchItem){
-        const result = posts.filter((post)=>{
-          post.includes(searchItem);
-        })
-        this.setState({posts:result});
-      }
-  function handleTextSearch (e){
-        const searchItem = e.currentTarget.value;
-        axios.get("http://localhost:5000/api/surgery/get").then((res)=>{
-          filterContent(res.data.posts,searchItem);
-        })
-      }
- 
- 
  // This following section will display the table with the records of individuals.
  return (
    <div className="surgeryContainer">
     <h2 style={{marginLeft:20}}>Surgery Details</h2>
-    <input className="MYsearchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
+    <form>
+    <input className="MYsearchbar" type="text" placeholder="Search.." onChange={(e) => {
+      setSearchItem(e.target.value);
+    }}/></form>
+
     <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
      <table className="table_table-striped1">
        <thead>

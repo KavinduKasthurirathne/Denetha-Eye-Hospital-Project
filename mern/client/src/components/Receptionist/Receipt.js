@@ -1,6 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useRef } from "react";
 import './Reception.css';
 import axios from "axios";
+import { useReactToPrint } from 'react-to-print';
+import { ReceiptPrint } from "./ReceiptPrint";
+
 
 export const Receipt = (props) => {  
 
@@ -63,6 +66,12 @@ export const Receipt = (props) => {
         .catch((err) => {
         console.log(err)});
     }
+
+    const componentRef = useRef();
+
+    const print = useReactToPrint({
+        content: ()=>componentRef.current
+    });
     
     
       return(<>         
@@ -79,7 +88,7 @@ export const Receipt = (props) => {
                     <td id="receiptCell">{props.name}</td>
                 </tr>
                 <tr>
-                    <td id="receiptCell">Appoinment type:</td>
+                    <td id="receiptCell">Appointment Type:</td>
                     <td id="receiptCell">{type}</td>
                 </tr>
                 <tr>
@@ -116,11 +125,25 @@ export const Receipt = (props) => {
                 </tbody>    
             </table>
             <br/>
+            
            <a href="/receptionist"><button className='button' >Cancel</button></a>
            <button className='button' onClick={()=>{
                  props.btnsetter(!props.btnstate)
                 }}>Edit</button>
            <a href="\ViewAllReceipts"><button className='button' onClick={handleInsert}>Confirm Payment</button></a>
+           <button className="button" onClick={print}><i class='fa fa-print'></i></button>
+            <div style={{display:"none"}}>
+                <ReceiptPrint  ref={componentRef}
+                               name={props.name}
+                               type={type}
+                               date={props.date}
+                               phone={props.phone}
+                               age={props.age}
+                               doctor={props.doctor}
+                               Hospitalfee={Hospitalfee}
+                               Doctorfee={Doctorfee}
+                               amount={amount}
+            /></div>
            <br/>
          </div>
            

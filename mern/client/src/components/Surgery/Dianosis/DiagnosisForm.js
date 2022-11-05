@@ -3,8 +3,9 @@ import './FormD.css';
 import React, {useState} from "react";
 //import {Header} from '../Header.js';
 import axios  from "axios";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
 
+const projectlogo = require('../../../image/denethaLogo.png');
 
 export default function DForm(){
 
@@ -56,94 +57,102 @@ export default function DForm(){
         <div>
             <form className="form" onSubmit = {sendData}>
             
-            <button  type = "submit" class = "button" className='print' >Print</button>
+            <button  type = "submit"  className='print' >Print</button>
 
-                
-                <h2 className="h2">Denetha<br/>Eye Care Center</h2>
-                <p className="p">REG NO:</p>
-                <div className="width">
-                <h5 className="h6">34/6,1st Lane,<br/>
+                <img src= {projectlogo} alt='logo' className='logoForDiagnosis'></img>
+                <h2 className="Dh2">Denetha<br/>Eye Care Center</h2>
+                <p className="p1">REG NO:</p>
+                <div >
+                <h5 className="Dh6">34/6,1st Lane,<br/>
                     Bauddhaloka Mawatha,<br/>
                     Kurunegala.</h5></div>
                     <div className="tel"><h5>
                 Tel:037-2222013 <br/>Hot line:077-7211494</h5></div>
-                <h2 className="h2"><u>Diagnosis Card</u></h2>
+                <h2 className="Dh2"><u>Diagnosis Card</u></h2><br/>
 
-                <div className="data">
-                <label for="fname">Name of Patient:</label>&nbsp;
-                <input type="text" id="fname" name="fname"    value = {pname}
+                <div >
+                <label   className='lableDiag'>Name of Patient:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" className='forminput' name="fname"    value = {pname}
                 onChange={(e)=>{
 
                     setPname(e.target.value);
-                }}/><br/>
-                <label for="lname"id="wname">Ward:</label>&nbsp;&nbsp;
-                <input type="text" id="lname" name="lname" value = {ward}
+                }}/><br/><br/>
+                <label    className='lableDiag' >Ward Number:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text"  className='forminput' name="lname" value = {ward}
                 onChange={(e)=>{
 
                     setWard(e.target.value);
-                }}/>
-                <label for="Aname" id="Aname">Age:</label>&nbsp;
-                <input type="number" id="name" name="fname"   value = {age}
+                }}/><br/><br/>
+                <label for="Aname"    className='lableDiag' >Patient Age :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="number" className='forminput' name="fname"   value = {age}
                 onChange={(e)=>{
 
                     setAge(e.target.value);
-                }}/><br/>
-                <label for="Aname" id="Aname">Reg No:</label>&nbsp;
-                <input type="number" id="name" name="fname"  value = {Regno}
+                }}/><br/><br/>
+                <label for="Aname"   className='lableDiag'> Registration No:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="number"  name="fname" className='forminput' value = {Regno}
                 onChange={(e)=>{
 
                     setRegno(e.target.value);
-                }}/><br/>
-                <label for="Aname" id="Aname">Date Of Addmition:</label>&nbsp;
-                <input type="date" id="name" name="fname"  value = {DAddmission}
+                }}/><br/><br/>
+                <label   className='lableDiag'>Date Of Addmition:</label>
+                <input type="date"  name="fname" className='forminput'  value = {DAddmission}
                 onChange={(e)=>{
 
                     setDAddmission(e.target.value);
-                }}/><br/>
-                <label for="Aname" id="Aname">Date Of Discharge:</label>&nbsp;
-                <input type="date" id="name" name="fname"  value = {Ddischarge}
+                }}/><br/><br/>
+                <label  className='lableDiag'>Date Of Discharge:</label>&nbsp;&nbsp;
+                <input type="date"  name="fname" className='forminput' value = {Ddischarge}
                 onChange={(e)=>{
 
                     setDdischarge(e.target.value);
-                }}/><br/>
-                <label for="Aname" id="Aname">Date Of Surgery:</label>&nbsp;
-                <input type="date" id="name" name="fname"  value = {Dsurgery}
+                }}/><br/><br/>
+                <label className='lableDiag'>Date Of Surgery:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="date"  name="fname"  className='forminput' value = {Dsurgery}
                 onChange={(e)=>{
 
                     setDsurgery(e.target.value);
-                }}/><br/>
+                }}/><br/><br/>
 
-            <label >R/PHACO + 'F' IOL T/A</label>   
-            <input type="checkbox" id="vehicle1" name="vehicle1" value="Nevan 8 hourly 6/52"   
+            <label  className='lableDiag'>R/PHACO + 'F' IOL T/A</label>  <br/>
+<br/>
+            <input type="checkbox" className='mycheckbox' name="vehicle1" value="Nevan 8 hourly 6/52"   
             checked={PHACO === 'Nevan 8 hourly 6/52'} onChange={handleChange}/>
-            <label for="vehicle1"> Nev1an 8 hourly 6/52</label><br/>
-            <input type="checkbox" id="vehicle2" name="vehicle2" value="Prednisolone 2/52"
-             checked={PHACO === 'Prednisolone 2/52'} onChange={handleChange}/>
-            <label for="vehicle2"> Prednisolone 2/52</label><br/>
-            <input type="checkbox" id="vehicle3" name="vehicle3" value=" Optimox 2/52"
-            checked={PHACO === 'Prednisolone 2/52'} onChange={handleChange}/>
-            <label for="Optimox 2/52"> Optimox 2/52</label>
 
-            <label for="Aname" id="Aname">IOL Type:</label>&nbsp;
-                <input type="text" id="name" name="fname"  
+            <label for="vehicle1"> Nevan 8 hourly 6/52</label><br/>
+
+            <input type="checkbox"  className='mycheckbox' name="vehicle2" value="Prednisolone 2/52"
+             checked={PHACO === 'Prednisolone 2/52'} onChange={handleChange}/>
+
+            <label for="vehicle2"> Prednisolone 2/52</label><br/>
+
+            <input type="checkbox" className='mycheckbox' name="vehicle3" value=" Optimox 2/52"
+            checked={PHACO === 'Prednisolone 2/52'} onChange={handleChange}/>
+
+            <label for="Optimox 2/52"> Optimox 2/52</label><br/><br/>
+
+            <label for="Aname"  className='lableDiag'>IOL Type:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text"  name="fname" className='forminput'  
                 value = {IOL}
                 onChange={(e)=>{
 
                     setIOL(e.target.value);
                 }}/><br/>
-            <label for="Aname" id="Aname">Variable W/S</label>&nbsp;
-            <input type="text" id="name" name="fname"   
+            <label for="Aname"  className='lableDiag'>Variable W/S:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text"  name="fname"   className='forminput'
             value = {variable}
             onChange={(e)=>{
 
                 setVariable(e.target.value);
-            }}/><br/>
-            <label for="Aname" id="Aname">Dr.M.Shaminda Amarathunge</label>
-            <label for="Aname" id="Aname">MBBS.MD.(ophth)Consultant Eye Surgeon</label>
-            <button  type = "submit" class = "button"  >Save</button>
+            }}/><br/><br/>
+            <label for="Aname" className=' p'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Dr.M.Shaminda Amarathunge</label><br/>
+            <label for="Aname" className='p'>MBBS.MD.(ophth)Consultant Eye Surgeon</label><br/><br/><br/> 
+            <button  type = "submit" className='Dsave'  >Save</button><br/><br/><br/><br/>
 
             </div>
             </form>
+            <br/><br/> <br/><br/> <br/><br/>
         </div>
     );
     }

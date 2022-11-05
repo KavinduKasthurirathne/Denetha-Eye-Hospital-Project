@@ -103,7 +103,7 @@ export const EditReceipt = (props) => {
                     <td id="receiptCell"> <input value={name} type={"text"} onChange={handleName} required></input></td>
                 </tr>
                 <tr>
-                    <td id="receiptCell">Appoinment type:</td>
+                    <td id="receiptCell">Appointment Type:</td>
                     <td id="receiptCell">{type}</td>
                 </tr>
                 <tr>

@@ -1,29 +1,34 @@
+import { Link, useNavigate } from "react-router-dom";
 import "./MeetingDetails.css";
-import { Button } from "@mui/material";
+import { useReactToPrint } from "react-to-print";
+
 import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
-import { unstable_HistoryRouter } from "react-router-dom";
-import { ReactToPrint } from "react-to-print";
 
-function PrintMeetings(props) {
-  //const componentRef = useRef();
-  // const handlePrint = useReactToPrint({
-  //   content: () => componentRef.current,
-  //   documentTitle: "Meeting Details",
-  //   onafterprint: () => unstable_HistoryRouter(-1),
-  // });
+function PrintMeetingDetails(props) {
+  const componentRef = useRef();
+  const [records, setRecords] = useState([]);
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "Meeting Time Table",
+    onAfterPrint: () => history(-1),
+  });
+
+  const history = useNavigate();
 
   // This method fetches the records from the database.
   function getRecords() {
     axios("http://localhost:5000/api/meeting/")
       .then((res) => {
         setRecords(res.data);
+        console.log(records);
       })
       .catch((err) => {
         alert(err);
       });
   }
-  const [records, setRecords] = useState([]);
+
   useEffect(() => {
     getRecords();
   }, [records.length]);
@@ -31,58 +36,46 @@ function PrintMeetings(props) {
   // This method will map out the records on the table
   function recordList() {
     return records.map((record) => {
-      return <Record record={record} key={record._id} />;
+      return (
+        <Record
+          record={record}
+          key={record._id}
+          // setEditDetails={setEditDetails}
+        />
+      );
     });
   }
 
-  // function PrintComponent() {
-  //   let componentRef = useRef();
-
-  //   return (
-  //     <>
-  //       <div>
-  //         {/* button to trigger printing of target component */}
-  //         <ReactToPrint
-  //           trigger={() => <Button>Print this out!</Button>}
-  //           content={() => componentRef}
-  //         />
-
-  //         {/* component to be printed */}
-  //         <ComponentToPrint ref={(el) => (componentRef = el)} />
-  //       </div>
-  //     </>
-  //   );
-  // }
+  const navigate = useNavigate();
 
   return (
     <div className="meetingDetailsContainer">
-      <div
-        className="meetingDetailsInnerContainer"
-        // ref={componentRef}
-      >
-        <div className="meetingheader">
-          <h2 className="meetingtopic">Meeting Time Table</h2>
-        </div>
+      <div>
+        <div className="meetingDetailsInnerContainer">
+          <div className="printdiv" ref={componentRef}>
+            <div className="meetingheader">
+              <h2 className="meetingtopic">Meeting Time Table</h2>
+            </div>
 
-        <table className="meetingtable">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Host</th>
-              <th>Description</th>
-            </tr>
-          </thead>
-          <tbody className="meetingtablebody">{recordList()}</tbody>
-        </table>
-        <button
-          className="button"
-          variant="outline-success"
-          //onClick={handlePrint}
-        >
-          Print
-        </button>
+            <table className="meetingtable">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  {/* <th>ID</th> */}
+                  <th>Time</th>
+                  <th>Host</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody className="meetingtablebody">{recordList()}</tbody>
+            </table>
+          </div>
+        </div>
       </div>
+      <button className="printbutton" onClick={handlePrint}>
+        Print
+      </button>
+
       <br />
       <br />
       {/* {editDetails.date === "" ? null : (
@@ -102,6 +95,7 @@ function PrintMeetings(props) {
 const Record = (props) => (
   <tr>
     <td>{getDateString(props.record.date)}</td>
+    {/* <td>{props.record._id}</td> */}
     <td>{props.record.time}</td>
     <td>{props.record.host}</td>
     <td>{props.record.description}</td>
@@ -114,4 +108,4 @@ const getDateString = (iso) => {
   return correctDate.toISOString().split("T")[0];
 };
 
-export default PrintMeetings;
+export default PrintMeetingDetails;

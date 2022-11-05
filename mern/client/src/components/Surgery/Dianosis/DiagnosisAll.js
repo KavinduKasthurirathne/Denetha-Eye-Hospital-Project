@@ -34,6 +34,9 @@ const Record = (props) => (
 );
  
 export default function RecordList() {
+
+  const [SearchItem , setSearchItem] = useState ("");
+
   
     const navigate = useNavigate();
     const navigateToAddNew = () => {
@@ -73,7 +76,17 @@ export default function RecordList() {
  
  // This method will map out the records on the table
  function recordList() {
-   return records.map((record) => {
+   return records
+   .filter((val) => {
+    if (SearchItem === "") {
+      return val;
+    } else if (
+      val.pname.toLowerCase().includes(SearchItem.toLowerCase()) ||
+      val.ward.toLowerCase().includes(SearchItem.toLowerCase())
+    ) {
+      return val;
+    }
+  }).map((record) => {
      return (
        <Record
          record={record}
@@ -112,7 +125,8 @@ export default function RecordList() {
  return (
    <div className="surgeryContainer">
     <h2 style={{marginLeft:20}}>Diagnosis Records </h2>
-    <input className="MYsearchbar" type="text" placeholder="Search.." onChange={handleTextSearch}></input>
+    <input className="MYsearchbar" type="text" placeholder="Search.." onChange={(e) => {
+      setSearchItem(e.target.value);}}></input>
     <button className="button1" onClick= {navigateToDiag}><span>Add New Form</span></button><br></br>
     
      <table className="table_table-striped1" style={{ marginTop: 20 }}>

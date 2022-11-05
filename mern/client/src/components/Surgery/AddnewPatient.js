@@ -77,7 +77,7 @@ export default function AddSuPatient (){
 
             <div class="form-group">
                 <label for="age">Patient Age :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="number" class="form-control" id="age" placeholder="Enter Age" value = {age} onChange={(e)=>{
+                <input type="number" className="form-control" id="age" placeholder="Enter Age" value = {age} onChange={(e)=>{
 
                 setAge(e.target.value);
                 }}/>
