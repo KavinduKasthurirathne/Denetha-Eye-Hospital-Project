@@ -2,7 +2,6 @@ import './Patients/Patients.css';
 import '../App.css';
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
-import SearchBar from "./Patients/PatientSearchProfile";
 import { PatientProfile } from './Patients/PatientProfile';
 import Dialog from '@mui/material/Dialog';
 import {DialogContent} from '@mui/material';
@@ -19,8 +18,7 @@ export const Patients = () => {
     const [records, setRecords] = useState([]);
     const [selected, setSelected] = useState();
 
-    const [selectedName, setSelectedName] = useState("");
-    const [selectedPhone, setSelectedPhone] = useState("");
+    const [searchTerm, setsearchTerm] = useState("");
 
     const [open, setOpen] = useState(false);
     const navigateTo = useNavigate();
@@ -43,13 +41,23 @@ export const Patients = () => {
     }, [records.length]);
 
     function recordList() {
-        return records.map((record, i) => {
+        return records
+        .filter((val) => {
+
+            if (searchTerm === "") {
+              return val;
+            } else if (
+              val.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+    
+          }).map((record, i) => {
             return (
                 <Record
                     record = {record}
                     id = {i}
-                    key = {record._id}
-                />
+                    key = {record._id}/>
             );
         });
     }
@@ -88,10 +96,18 @@ export const Patients = () => {
     return (
         <>
 
-        <SearchBar selectedName={selectedName} 
-                    setSelectedName={setSelectedName} 
-                    selectedPhone={selectedPhone} 
-                    setSelectedPhone={setSelectedPhone}/>
+        <form class="PatientSearchBar">
+            <input
+                class="form-control mr-sm-2"
+                type="search"
+                placeholder="Search Patient Name..."
+                aria-label="Search"
+                onChange={(e) => {
+                    setsearchTerm(e.target.value);
+                    console.log(e.target.value);
+                }}/>
+        </form>
+
 
         <div className='patienttableMainPage'>
             <table className='table1'>

@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef} from "react";
 import axios from "axios";
 import { useCookies } from 'react-cookie';
 import { Button, TextField, useThemeProps } from '@mui/material';
-import {NavLink,useNavigate} from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import PrintablePatientProfile from "./PrintablePatientProfile";
 
@@ -53,6 +53,7 @@ export const PatientProfile = (props) => {
           });
       };
 
+
     useEffect(() => {
         if(props.selected !== null) {
             setSelected(props.selected);
@@ -74,6 +75,7 @@ export const PatientProfile = (props) => {
             alert(err);
           });
     }
+
 
     //Update Patient
     async function updateProfile(event) {
@@ -108,36 +110,9 @@ export const PatientProfile = (props) => {
     };
 
     function printProfile(e) {
-        alert("Printed!")
+        //alert("Printed!");
+        navigateTo('/printPatient');
     }
-
-    // const [inputs, setinputs] = useState({
-    //     vendor:'',
-    //     date:'',
-    //     mode:''
-    // });
-    // const componentRef = useRef();
-
-    // useEffect(()=>{
-    //     const {vendor, date, mode} = props.data
-    //     setinputs({
-    //         vendor: vendor,
-    //         date: date,
-    //         mode: mode
-    //     });
-    // },[props.data]);
-
-    // const handleChange = (e) => {
-    //     setinputs((prev)=>({
-    //         ...prev,
-    //         [e.target.name]: e.target.value
-    //     }));
-    //     props.handleChange(e);
-    // };
-
-    // const printProfile = useReactToPrint({
-    //     content: ()=>componentRef.current
-    // });
 
 
     return (

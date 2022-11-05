@@ -40,10 +40,6 @@ function PatientSearchBar(props) {
     setWordEntered("");
   };
 
-  function viewProfile(e) {
-    alert("Viewed!")
-  }
-
   return (
     <>
     <div id="searchPatient">

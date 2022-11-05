@@ -1,24 +1,25 @@
-.a4 {
+.a4Patient {
     margin: auto;
-    width: 100%;
+    width: 60%;
     text-align: center;
     background-color: rgb(255, 255, 255);
 }
-.table {
+.printableTable {
     width: 80%;
     margin: auto;
-    font-size: small;
-}
-.th{
     font-size: medium;
-    font-weight: bold;
-    font-size: small;
+}
+.printpatientTH{
+    text-align: left;
+    padding-left: 50px;
+    padding-top: 15px;
     background-color: rgb(255, 255, 255);
 }
-.td{
-    padding: 0px;
-    border: 1px solid;
-    border-radius: 5px;
+.printpatientTD{
+    text-align: left;
+    padding-left: 50px;
+    padding-top: 15px;
+    background-color: rgb(255, 255, 255);
 }
 #data {
     margin: auto;
@@ -35,4 +36,33 @@
 #sign {
     margin: auto;
     width: 70%;
+}
+
+.printPatient {
+    margin-top: 100px;
+}
+
+.printpatient-flex-child {
+    flex: 1;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.PrintingButton {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    width: 10%;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 30px;
+    text-align: center;
+    border: 0px;
+    color: white;
+    background-color: #2A628F;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #989898;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
 }
