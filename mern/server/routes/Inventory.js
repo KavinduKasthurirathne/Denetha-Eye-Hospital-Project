@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const inventory = require('../models/Inventory');
-
+let inventory = require("../models/Inventory");
 router.route('/record').post(async (req, res) => {
 
     const {
@@ -67,7 +67,7 @@ router.route("/update/:pid").put(async(req,res)=>{
 
     const update = await inventory.findByIdAndUpdate(sid,updatedata)
     .then(()=>{
-        res.status(200).send({status:"Updated Surgery details"})  
+        res.status(200).send({status:"Updated Inventory details"})  
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status:"Error with updating data",error:err.message});
@@ -78,7 +78,7 @@ router.route("/update/:pid").put(async(req,res)=>{
 router.route("/delete/:pid").delete(async(req,res)=>{
 let sid = req.params.pid;
 
-await surgery1.findByIdAndDelete(sid).then(()=>{
+await inventory.findByIdAndDelete(sid).then(()=>{
     res.status(200).send({status:"Details Deleted"});
 }).catch((err)=>{
     console.log(err.message);
