@@ -117,3 +117,28 @@
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
+
+#companylogo {
+  width: 150px;
+  flex-basis: 10%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-left: 50px;
+}
+
+.meetingprintHeader {
+  display: inline-flex;
+}
+/* .printComapanyName {
+  text-align: center;
+} */
+
+.comapnyDetails {
+  text-align: center;
+  margin-left: 50px;
+  font-size: small;
+}
+
+.printdiv {
+  margin-top: 40px;
+}

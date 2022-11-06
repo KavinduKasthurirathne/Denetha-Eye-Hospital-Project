@@ -13,15 +13,15 @@ const Record = (props) => (
             <td>{props.record.doctor}</td>
             <td>Rs.{props.record.amount}</td>
             <td><button className="button"  onClick={() => {
-                 if (window.confirm("Confirm Delete") === true) {
+                 if (window.confirm("Are you sure you want to delete?") === true) {
                     props.deleteRecord(props.record._id);
                   } 
                     }}><i className="fas fa-trash-alt"></i></button></td>
-            <td><button className="button"  onClick={() => {
+            {/* <td><button className="button"  onClick={() => {
                  props.btnsetter(!props.btnstate);
                  props.Idsetter(props.record._id);   
 
-                    }}><i className="fas fa-pen"></i></button></td>
+                    }}><i className="fas fa-pen"></i></button></td> */}
         </tr>
         
      );

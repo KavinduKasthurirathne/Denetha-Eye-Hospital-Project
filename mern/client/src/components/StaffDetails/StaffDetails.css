@@ -8,15 +8,13 @@
   font-size: xx-large;
 }
 
+.addbtn {
+  margin-left: 100px;
+}
+
 .addbtn:hover {
   box-shadow: rgba(0, 0, 0, 0.15) 0 3px 9px 0;
   transform: translateY(-2px);
-}
-
-.search {
-  margin-bottom: 0%;
-  margin-left: 45%;
-  width: 40%;
 }
 
 .stafftable {
@@ -34,4 +32,30 @@
 .stafftable td {
   text-align: center;
   padding: 20px;
+}
+
+.staffsearchform {
+  margin-left: 950px;
+  max-width: 5000px;
+}
+
+.inlineAddSearch {
+  display: inline-flex;
+}
+
+.EditMeetingbutton {
+  padding: 18px;
+  width: auto;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 30px;
+  border: 0px;
+  color: white;
+  background-color: #2a628f;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #989898;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
