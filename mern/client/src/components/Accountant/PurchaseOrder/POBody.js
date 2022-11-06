@@ -146,6 +146,13 @@ const POBody = (props) => {
                         onClick={handleAdd} 
                         color='secondary' 
                         disabled={disable} >{editSelect===null? 'Add':'Edit'}</Button>
+                        <div style={{height: 5}}></div>
+                    {editSelect===null ? null :
+                    <Button 
+                    variant="contained" 
+                    onClick={() => setEditSelect(null)} 
+                    color='secondary'>Cancel</Button>
+                    }
                 </div>
             </div>
             <div id='message'>
