@@ -12,13 +12,15 @@
 .printpatientTH{
     text-align: left;
     padding-left: 50px;
-    padding-top: 15px;
+    padding-top: 5px;
+    padding-bottom: 15px;
     background-color: rgb(255, 255, 255);
 }
 .printpatientTD{
     text-align: left;
     padding-left: 50px;
-    padding-top: 15px;
+    padding-top: 5px;
+    padding-bottom: 15px;
     background-color: rgb(255, 255, 255);
 }
 #data {
@@ -38,8 +40,16 @@
     width: 70%;
 }
 
+#printPatientBtn {
+    /* background-color: #2a628f00; */
+    margin-left: 550px;
+    margin-top: 25px;
+    margin-bottom: 100px;
+}
+
 .printPatient {
-    margin-top: 100px;
+    margin-top: 60px;
+    height: auto;
 }
 
 .printpatient-flex-child {

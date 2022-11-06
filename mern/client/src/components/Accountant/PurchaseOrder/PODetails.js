@@ -86,7 +86,9 @@ const PODetails = (props) => {
             <>
             <POHeader 
                 data={data}
-                handleChange={handleChange} />
+                handleChange={handleChange}
+                getPO={props.getPO}
+                id={data._id} />
 
             <POBody 
                 data={items}  

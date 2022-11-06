@@ -14,6 +14,10 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const eyeicon = require('../image/eye.png');
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 export const Patients = () => {
     const [records, setRecords] = useState([]);
     const [selected, setSelected] = useState();
@@ -77,10 +81,6 @@ export const Patients = () => {
        </tr>
        
     );
-
-    const Transition = React.forwardRef(function Transition(props, ref) {
-        return <Slide direction="up" ref={ref} {...props} />;
-    });
 
     const handleClose = () => {
         setOpen(false);

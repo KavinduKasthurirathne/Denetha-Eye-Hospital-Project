@@ -1,15 +1,18 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import '../Patients/PrintablePatient.css';
 import { TextField } from "@mui/material";
 import { Container } from "@mui/system";
 import { useNavigate, useParams } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
 import { Button } from '@mui/material';
+import axios from "axios";
 
-
-const printicon = require('../../image/print.png');
 
 const PrintablePatientProfile = () => {
+
+    const logo = require('../../image/denethaLogo.png');
+
+    //Printing Function
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
@@ -17,12 +20,11 @@ const PrintablePatientProfile = () => {
         onAfterPrint: () => history(-1),
     });
 
+    const { id } = useParams();
 
-    const {id} = useParams();
     const date = new Date();
-    const history = useNavigate();
 
-    const logo = require('../../image/denethaLogo.png');
+    const history = useNavigate();
 
     return (
         <Container className="printPatient">
@@ -87,10 +89,10 @@ const PrintablePatientProfile = () => {
 
             </div>
 
-            <button id='printBtn' className='button' type='print' onClick={handlePrint}>
-                <img id="redirecting" src={printicon} alt='printicon' className='print-icon'/>
+            <button id='printPatientBtn' className='button' type='print' onClick={handlePrint}>
+                PRINT
             </button>
-
+            
         </Container>
     );
 };

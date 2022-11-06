@@ -80,7 +80,6 @@ export const EditReceipt = (props) => {
       axios.post("http://localhost:5000/api/receipt/insert", receiptOb)
       .then((res) => {
             console.log(res.data);
-            alert("Receipt Updated...");
             navigateTo("/ViewAllReceipts");
         })
         .catch((err) => {
@@ -111,7 +110,7 @@ export const EditReceipt = (props) => {
                     <td id="receiptCell">  <input value={date} type={"date"} onChange={handleDate} required></input></td>
                 </tr>
                 <tr>
-                    <td id="receiptCell">Phone: *</td>
+                    <td id="receiptCell">Phone: *<h6>*Please make sure to enter 10 digits</h6></td>
                     <td id="receiptCell"><input value={phone} type={"text"} onChange={handlePhone} required pattern="[0-9]{10}"></input></td>
                 </tr>
                 <tr>
@@ -137,9 +136,11 @@ export const EditReceipt = (props) => {
                 </tbody>    
             </table>
             <br/>
-           {/* <a href="mern\client\src\components\Reception.js"><button className='button' type="cancel">Cancel</button></a> */}
-           <a href="/ViewAllReceipts"><button type="submit" className='button'>Save</button></a>
+            <a href="/receptionist" className='button' id="cancelReceipt">Cancel</a>
+           <a href="/ViewAllReceipts"><button type="submit" className='button' >Save</button></a>
            </form> 
+           
+
            <br/>
            
          </div>
