@@ -67,7 +67,7 @@ export const InventoryTable = () => {
                     <td>{contacts.location}</td>
                     <td>{contacts.quantity}</td>
                     <td>{contacts.cost}</td>
-                    <td>{contacts.type}</td>
+                    {/* <td>{contacts.type}</td> */}
                     <td>{contacts.status}</td>
                     <td><Button style={greenbutton}>Edit</Button><Button style={redbutton}>Delete</Button></td>
                 </tr>
