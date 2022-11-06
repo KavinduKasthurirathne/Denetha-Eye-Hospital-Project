@@ -26,4 +26,3 @@ Eye Hospital Management System for Denetha Eye Hospital
 
 #### Technologies used - MERN stack
 
-Note - The student's github account should be given in brackets e.g. (asiriRepos), this ideally should be your student id
