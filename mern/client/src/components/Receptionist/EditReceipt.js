@@ -110,7 +110,7 @@ export const EditReceipt = (props) => {
                     <td id="receiptCell">  <input value={date} type={"date"} onChange={handleDate} required></input></td>
                 </tr>
                 <tr>
-                    <td id="receiptCell">Phone: *<h6>Please make sure to enter 10 digits</h6></td>
+                    <td id="receiptCell">Phone: *<h6>*Please make sure to enter 10 digits</h6></td>
                     <td id="receiptCell"><input value={phone} type={"text"} onChange={handlePhone} required pattern="[0-9]{10}"></input></td>
                 </tr>
                 <tr>

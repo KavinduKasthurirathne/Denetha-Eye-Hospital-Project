@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "axios": "^0.27.2",
+    "file-saver": "^2.0.5",
+    "install": "^0.13.0",
+    "react-datepicker": "^4.8.0",
     "react-router-dom": "^6.3.0"
   }
 }
