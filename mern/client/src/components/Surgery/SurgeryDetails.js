@@ -144,7 +144,7 @@ function recordList() {
      </table>
      <br/>
      {/* <button className="button1" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button> */}
-     <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Recipts</span></button>
+     <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Receipts</span></button>
      
    </div>
  );

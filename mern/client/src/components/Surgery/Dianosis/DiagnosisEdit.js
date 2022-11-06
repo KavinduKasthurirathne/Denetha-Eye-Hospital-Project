@@ -112,7 +112,8 @@ export default function DFormEdit(){
                  onChange={(e) => updateForm({ ward: e.target.value })}/>
                  <br/><br/>
 
-                <label for="Aname"    className='lableDiag' >Patient Age :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="Aname"    className='lableDiag' >Patient Age :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="number" className='forminput' name="fname"   value = {form.age}
                onChange={(e) => updateForm({ age: e.target.value })}/>
                <br/><br/>
