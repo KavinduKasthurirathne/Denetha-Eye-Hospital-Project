@@ -7,14 +7,14 @@ import { Button,Paper } from "@mui/material";
 export const InventoryTable = () => {
     const [contacts,setContacts] = useState([]);
     const [addFormData,setFormData] = useState({
-        itemcode:'',
-        itemname:'',
-        vendorcode:'',
-        location:'',
-        quantity:'',
-        cost:'',
-        type:'',
-        status:'',
+        Itemcode:'',
+        Itemname:'',
+        Vendorcode:'',
+        Location:'',
+        Quantity:'',
+        Cost:'',
+        // type:'',
+        Status:'',
     })
     
     const handleformsubmit = (event) =>
@@ -61,14 +61,14 @@ export const InventoryTable = () => {
                 <tbody>
                     {contacts.map((Contact)=>(
                     <tr>
-                    <td>{contacts.itemcode}</td>
-                    <td>{contacts.itemname}</td>
-                    <td>{contacts.vendorcode}</td>
-                    <td>{contacts.location}</td>
-                    <td>{contacts.quantity}</td>
-                    <td>{contacts.cost}</td>
+                    <td>{contacts.Itemcode}</td>
+                    <td>{contacts.Itemname}</td>
+                    <td>{contacts.Vendorcode}</td>
+                    <td>{contacts.Location}</td>
+                    <td>{contacts.Quantity}</td>
+                    <td>{contacts.Cost}</td>
                     {/* <td>{contacts.type}</td> */}
-                    <td>{contacts.status}</td>
+                    <td>{contacts.Status}</td>
                     <td><Button style={greenbutton}>Edit</Button><Button style={redbutton}>Delete</Button></td>
                 </tr>
                     ))}    
