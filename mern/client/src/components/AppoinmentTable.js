@@ -1,75 +1,107 @@
-import React, { useState } from 'react';
-import '../App.css';
-import data from "./data.json";
+import React, { useEffect, useState } from "react";
 import '../Appoinment.css';
-import { Button,Paper } from "@mui/material";
+import '../App.css';
+const Record = (props) => (
+ <tr>
+   <td>{props.record.name}</td>
+   <td>{props.record.address}</td>
+   <td>{props.record.phone}</td>
+   <td>{props.record.age}</td>
+   <td>{props.record.gender}</td>
+   <td>{props.record.appoinmentnumber}</td>
+   <td>{props.record.type}</td>
+   <td>{props.record.date}</td>
+   <td>{props.record.time}</td>
+   <td>{props.record.doctor}</td>
+   <td>
+   <button className="button" variant="contained"  style={{color:'white'}}
+       onClick={() => {
+         props.deleteRecord(props.record._id);
+         window.alert("Record Update");
+       }}
+     >
+       Update
+     </button>|
+     <button className='button' variant="contained"  style={{color:'black'}}
+       onClick={() => {
+         props.deleteRecord(props.record._id);
+         window.alert("Record Deleted");
+       }}
+     >
+       Delete
+     </button>
+   </td>
+ </tr>
+);
 
-export const AppoinmentTable = () => {
-    const [contacts,setContacts] = useState(data);
-    const [addFormData,setFormData] = useState({
-        name:'',
-        address:'',
-        contactnumber:'',
-        age:'',
-        gender:'',
-        appoinmentnumber:'',
-        doctor:'',
-        type:'',
-        date:'',
-        time:''
-    })
-    
-    const handleformsubmit = (event) =>
-    {
-        event.preventDefault();
-        const filedname = event.target.getAttribute('name');
-        const feildvalue = event.target.value;
-        const newdata = {...addFormData};
-        newdata[filedname] = feildvalue;
-        setFormData(newdata);
-    }
-    const paperStyle={padding:'2px 2px',width:'1305px',margin:"20px auto"}
-    const redbutton={background:'#FF6760' ,padding:'0px',margin :'5px',width:100}
-    const greenbutton={background:'#00ADA3' ,padding:'0px',margin :'5px',width:100}
-    
-    return (
-        <Paper elevation={20} style={paperStyle}>
-        <div align="center">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Patient Name</th>
-                        <th>Address</th>
-                        <th>Contact Number</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Appoinemnt Number</th>
-                        <th>Doctor</th>
-                        <th>Type</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {contacts.map((Contact)=>(
-                    <tr>
-                    <td>{Contact.name}</td>
-                    <td>{Contact.address}</td>
-                    <td>{Contact.contactnumber}</td>
-                    <td>{Contact.age}</td>
-                    <td>{Contact.gender}</td>
-                    <td>{Contact.appoinmentnumber}</td>
-                    <td>{Contact.doctor}</td>
-                    <td>{Contact.type}</td>
-                    <td>{Contact.date}</td>
-                    <td>{Contact.time}</td>
-                    <td><Button style={greenbutton}>Edit</Button><Button style={redbutton}>Delete</Button></td>
-                </tr>
-                    ))}    
-                </tbody>
-            </table>
-            </div>
-            </Paper>
-  );
+export default function AppoinmentTable() {
+  
+const [records, setRecords] = useState([]);
+
+useEffect(() => {
+ async function getRecords() {
+   const response = await fetch(`http://localhost:5000/api/appointment`);
+
+   if (!response.ok) {
+     const message = `An error occurred: ${response.statusText}`;
+     window.alert(message);
+     return;
+   }
+
+   const records = await response.json();
+   setRecords(records);
+ }
+
+ getRecords();
+
+ return;
+}, [records.length]);
+
+// This method will delete a record
+async function deleteRecord(id) {
+ await fetch(`http://localhost:5000/api/appointment/delete/${id}`, {
+   method: "DELETE"
+ });
+
+ const newRecords = records.filter((el) => el._id !== id);
+ setRecords(newRecords);
+}
+
+
+function recordList() {
+ return records.map((record) => {
+   return (
+     <Record
+       record={record}
+       deleteRecord={() => deleteRecord(record._id)}
+       key={record._id}
+     />
+   );
+ });
+}
+
+return (
+  <div className="arrange" >
+     <button className='button' onClick="/Appointments" variant="contained"  style={{color:'black'}}> Download PDF </button>
+   <h2 style={{marginLeft:520}}>Appoinment Details</h2>
+    <table className="content-table" style={{ marginTop: 20 }}>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th >Phone number</th>
+          <th >Age</th>
+          <th >Gender</th>
+          <th >Appoinment Number</th>
+          <th >Type</th>
+          <th >Date</th>
+          <th >Time</th>
+          <th >Doctor</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>{recordList()}</tbody>
+    </table>
+  </div>
+);
 }

@@ -24,8 +24,8 @@ app.use("/api/transactions", transactionsRouter);
 const patientRouter = require("./routes/Patients");
 app.use("/api/patient", patientRouter);
 
-const appoinmentRouter = require("./routes/Appoinment");
-app.use("/api/appointment", appoinmentRouter);
+const appoinmentRouter = require('./routes/Appoinment');
+app.use('/api/appointment', appoinmentRouter);
 
 const meetingRouter = require("./routes/Meeting");
 app.use("/api/meeting", meetingRouter);

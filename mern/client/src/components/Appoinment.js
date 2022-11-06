@@ -14,12 +14,15 @@ export const Appoinment=(props) =>{
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
     const buttonColor={background:'#2A628F' ,padding:'10px 97px',margin :'5px',width:100}
     const buttongreenColor = {background:'#3D8361',padding:'10px 97px',margin :'5px',width:100};
-    const [name,setname] = useState(props.name===null?"" :props.name);
-    const [address,setaddress] = useState('');
-    const [gender,setgender] = useState('');
-    const [appoinmentnumber,setappoinmentnumber] = useState('');
-    const [contactnumber,setcontactnumber] = useState(props.phone===null?"" :props.phone);
+    const [name,setName] = useState(props.name===null?"" :props.name);
+    const [address,setAddress] = useState('');
+    const [age,setAge] = useState('');
+    const [gender,setGender] = useState('');
+    const [appoinmentnumber,setAppoinmentnumber] = useState('');
+    const [phone,setcontactnumber] = useState(props.phone===null?"" :props.phone);
+    const [doctor, setdoctor] = useState('');
     const [type, settype] = useState("");
+    const [date,setDate] = useState('');
     const [time,setTime] = useState('');
     const [cookies] = useCookies('proxy');
     const navigateTo = useNavigate();
@@ -45,15 +48,15 @@ export const Appoinment=(props) =>{
 
     const handleName= ({target}) =>
     {
-      setname(target.value);
+      setName(target.value);
     }
     const handleAddress= ({target}) =>
     {
-      setaddress(target.value);
+      setAddress(target.value);
     }
     const handleAge =({target}) =>
     {
-      props.setage(target.value);
+      setAge(target.value);
     }
     const handlecontactnumber= ({target}) =>
     {
@@ -61,15 +64,15 @@ export const Appoinment=(props) =>{
     }
     const handlegender =({target}) =>
     {
-      setgender(target.value);
+      setGender(target.value);
     }
     const handleDoctor =({target}) =>
     {
-      props.setdoctor(target.value);
+      setdoctor(target.value);
     }
     const handleappoinmentnumber =({target}) =>
     {
-      setappoinmentnumber(target.value);
+      setAppoinmentnumber(target.value);
     }
     const handleType = ({target})=>
     {
@@ -77,7 +80,7 @@ export const Appoinment=(props) =>{
     }
    const handleDate = ({target})=>
     {
-      props.setdate(target.value);
+      setDate(target.value);
     }
     const handleTime = ({target})=>
     {
@@ -85,14 +88,10 @@ export const Appoinment=(props) =>{
     }
     const handleSubmit =async({target}) =>
     {
-      const date = props.date;
-      const age = props.age;
-      const doctor = props.doctor;
-      
       const appoinment = {
         name,
         address,
-        contactnumber,
+        phone,
         age,
         gender ,
         appoinmentnumber,
@@ -128,9 +127,9 @@ export const Appoinment=(props) =>{
                 <br/><br/>
                 <TextField fullWidth label='Address' placeholder="Enter Address" onChange={handleAddress} value={address}/>
                 <br/><br/>
-                <TextField fullWidth label='Contact Number' placeholder="Enter Contact Number" onChange={handlecontactnumber} value={contactnumber}/>
+                <TextField fullWidth label='Contact Number' placeholder="Enter Contact Number" onChange={handlecontactnumber} value={phone}/>
                 <br/><br/>
-                <TextField fullWidth label='Age'placeholder="Enter Age" value={props.age} onChange={handleAge}/>
+                <TextField fullWidth label='Age' type="number" placeholder="Enter Age" value={age} onChange={handleAge}/>
                 <br/><br/>
                 <FormControl component="fieldset">
                 <FormLabel component="legend">Gender</FormLabel>
@@ -154,7 +153,7 @@ export const Appoinment=(props) =>{
                   labelId='select-Doctor-label'
                   id='doctor'
                   name='doctor'
-                  value={props.doctor} 
+                  value={doctor} 
                   onChange={handleDoctor}
                     variant='standard' >
                         <MenuItem value=''>
@@ -182,7 +181,7 @@ export const Appoinment=(props) =>{
                 <br/><br/>
                 <div style={{display:'flex'}}>
                 <h5>Date</h5>
-                <TextField type="date" fullWidth onChange={handleDate} value={props.date}/>
+                <TextField type="date" fullWidth onChange={handleDate} value={date}/>
                 <h5>Time</h5>
                 <TextField type="time" fullWidth onChange={handleTime} value ={time}/>
                 </div>
