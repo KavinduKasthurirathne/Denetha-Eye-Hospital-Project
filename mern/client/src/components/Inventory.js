@@ -71,6 +71,7 @@ export const Inventory=() =>{
         // type:type,
         Status: Status
     };
+    
   await axios.post(`${cookies.proxy}/api/inventory/record`,inventory)
   .then((res)=>{
     alert("Your inventory item successfully added");

@@ -2,27 +2,28 @@ const router = require('express').Router();
 const inventory = require('../models/Inventory');
 // let inventory = require("../models/Inventory");
 router.route('/record').post(async (req, res) => {
+    console.log(req);
+    console.log("line06");
 
     const {
-        itemcode,
-        itemname,
-        vendorcode,
-        location,
-        quantity,
-        cost,
-        type,
-        status,
+        Itemcode,
+        Itemname,
+        Vendorcode,
+        Location,
+        Quantity,
+        Cost,
+        Status,
     } = req.body;
 
     const newRecord = new inventory({
-        itemcode,
-        itemname,
-        vendorcode,
-        location,
-        quantity,
-        cost,
-        type,
-        status,});
+        Itemcode,
+        Itemname,
+        Vendorcode,
+        Location,
+        Quantity,
+        Cost,
+        Status,});
+        console.log(req);
     
        await newRecord.save().then((result)=>{
             res.json(result);
@@ -51,7 +52,6 @@ router.route("/update/:pid").put(async(req,res)=>{
         location,
         quantity,
         cost,
-        type,
         status} = req.body;
 
     const updatedata = {
@@ -61,7 +61,6 @@ router.route("/update/:pid").put(async(req,res)=>{
         location,
         quantity,
         cost,
-        type,
         status
     }
 

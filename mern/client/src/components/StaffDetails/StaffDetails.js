@@ -4,7 +4,15 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { AlertDialog } from "./deleteConfimation";
-
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 //import SearchIcon from "@mui/icons-material/Search";
 
 function StaffDetails() {
@@ -18,7 +26,6 @@ function StaffDetails() {
 
     const newRecords = records.filter((el) => el._id !== oid);
     setRecords(newRecords);
-    window.alert("deleted");
   }
 
   function recordList() {
@@ -118,23 +125,52 @@ function StaffDetails() {
   );
 }
 
-const Record = (props) => (
-  <tr>
-    <td>{props.record.name}</td>
-    <td>{props.record.username}</td>
-    <td>{props.record.role}</td>
-    <td>
-      <button
-        className="EditMeetingbutton"
-        onClick={() => {
-          props.deleteRecord(props.record._id);
-          // AlertDialog;
-        }}
+const Record = (props) => {
+  const [deleteMeeting, setDeleteMeeting] = useState(false);
+
+  return (
+    <tr>
+      <td>{props.record.name}</td>
+      <td>{props.record.username}</td>
+      <td>{props.record.role}</td>
+      <td>
+        <button
+          className="EditMeetingbutton"
+          onClick={() => setDeleteMeeting(true)}
+        >
+          Delete
+        </button>
+      </td>
+
+      <Dialog
+        open={deleteMeeting}
+        onClose={() => setDeleteMeeting(false)}
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-description"
       >
-        Delete
-      </button>
-    </td>
-  </tr>
-);
+        <DialogTitle id="dialog-title">Warning!</DialogTitle>
+        <DialogContent>
+          This will delete the account permanently. Are you sure want to delete
+          this account?
+        </DialogContent>
+        <DialogActions>
+          <Box sx={{ m: 1, position: "relative" }}>
+            <Button
+              variant="contained"
+              onClick={() => {
+                props.deleteRecord(props.record._id);
+                setDeleteMeeting(false);
+              }}
+              autoFocus
+              color="secondary"
+            >
+              Confirm
+            </Button>
+          </Box>
+        </DialogActions>
+      </Dialog>
+    </tr>
+  );
+};
 
 export default StaffDetails;
