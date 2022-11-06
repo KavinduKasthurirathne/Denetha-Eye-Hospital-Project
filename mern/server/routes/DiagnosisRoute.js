@@ -21,7 +21,7 @@ router.route("/add").post((req,res)=>{
     diagnosisAdd.save().then(()=>{
         res.json("Details Added")
     }).catch(()=>{
-        console.log(err.message);
+        // console.log(err.message);
     })
 
 })
