@@ -17,7 +17,7 @@ const profileSchema = new Mongoose.Schema({
   },
 
   dob: {
-    type: Date,
+    type: String,
   },
 
   id: {
