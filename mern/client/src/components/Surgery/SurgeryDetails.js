@@ -26,6 +26,8 @@ const Record = (props) => (
   
    </td>
    <td><button className="button-88">Paid</button></td>
+   
+  
    <td>
      <a style={{color: 'Black'}} className="btnLink" href={`/edit/${props.record._id}`}><b>Update</b></a><br/><br/>
      <button className="button-71"
