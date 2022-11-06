@@ -61,7 +61,7 @@ export const Accountant = () => {
                     className='button navButton' 
                     onClick={AccountsOnClick}
                     disabled={display==='accounts' ? true : false}>
-                    INCOME AND EXPENSES
+                    INCOME
                 </button>
                 <div>
                     {display==='purchaseOrder' && <PurchaseOrder data={POdata} getPO={getPOdata} />}

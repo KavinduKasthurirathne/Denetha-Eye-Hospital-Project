@@ -1,0 +1,76 @@
+body {
+    background-color: #F3F3F3;
+}
+
+.denethahead {
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(21, 149, 189);
+    text-align: left;
+    margin-left: 150px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.addformhead {
+    font-size: 22px;
+    text-align: left;
+    margin-left: 150px;
+    padding-top: 5px;
+    position: relative;
+}
+
+.addformpatienttable {
+    margin-left: 250px;
+    margin-top: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    width: 65%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px #989898;
+    position: absolute;
+}
+
+.addform {
+    margin-left: 150px;
+}
+
+.checkboxes {
+    margin-left: 190px;
+    margin-top: 5px;
+}
+
+.buttons {
+    margin-top: 50px;
+    margin-left: 370px;
+}
+
+.saveBtn {
+    font-size: 16px;
+    padding: 7px;
+    margin-right: 70px;
+    width: 80px;
+    background-color: #22BB14;
+    border-width: 0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #989898;
+}
+
+.saveBtn:hover {
+    background-color: #1a8d10;
+}
+
+.cancelBtn {
+    font-size: 16px;
+    padding: 7px;
+    width: 90px;
+    background-color: #F92A2A;
+    border-width: 0px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px #989898;
+}
+
+.cancelBtn:hover {
+    background-color: #ad1c1c;
+}

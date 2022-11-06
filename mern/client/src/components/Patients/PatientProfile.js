@@ -28,7 +28,6 @@ export const PatientProfile = (props) => {
 
     const navigateTo = useNavigate();
 
-
     const findProfile = async () => {
         const id = {
             id: cookies.id,
@@ -110,7 +109,6 @@ export const PatientProfile = (props) => {
     };
 
     function printProfile(e) {
-        //alert("Printed!");
         navigateTo('/printPatient');
     }
 

@@ -6,7 +6,8 @@ import { Patients } from "../components/Patients";
 import { PatientProfile } from "../components/Patients/PatientProfile";
 import { Accountant } from "../components/Accountant";
 import { Logout } from "../components/Logout";
-import { AppoinmentTable } from "../components/AppoinmentTable";
+
+import AppoinmentTable from "../components/AppoinmentTable";
 import { Inventory } from "../components/Inventory";
 import { InventoryTable } from "../components/Inventorytable";
 import { Reception } from "../components/Reception";
@@ -19,15 +20,25 @@ import AddNewMember from "../components/StaffDetails/AddNewMember";
 import PrintMeetings from "../components/Meetings/PrintMeetingDetails";
 import Profile from "../components/StaffDetails/Profile";
 import { EditAppoinment } from "../components/EditAppointment";
-import { AppointmentMainpage } from "../components/AppointmentMainpage";
+import {AppointmentMainpage} from "../components/AppointmentMainpage";
 import { Help } from "../components/Help";
 import RecordList from "../components/Surgery/SurgeryDetails";
+import  HelpTable  from "../components/Helptable";
 import AddSuPatient from "../components/Surgery/AddnewPatient";
 import Edit from "../components/Surgery/EditDetails";
 import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
 import { ViewAllReceipts } from "../components/Receptionist/ViewAllReceipts";
 import PrintablePatientProfile from "../components/Patients/PrintablePatientProfile";
+import DoctorRegister from '../components/Doctor/DoctorRegister';
+import DoctorHome from '../components/Doctor/DoctorHome';
+import EditDoctor from "../components/Doctor/EditDoctor";
+import DoctorDetails from "../components/Doctor/DoctorDetails";
+import DoctorRecordList from '../components/Doctor/DoctorRecordList';
+import EditDoctorRecord from '../components/Doctor/EditDoctorRecord';
+import CreateDoctorRecord from "../components/Doctor/CreateDoctorRecord";
+import CreateAppType from "../components/Doctor/CreateAppType";
+import DoctorReport from "../components/Doctor/DoctorReport";
 
 const createRoutes = () => {
   return (
@@ -60,6 +71,7 @@ const createRoutes = () => {
       <Route exact path="InventoryTable" element={<InventoryTable />} />
       <Route exact path="addNew" element={<AddSuPatient />} />
       <Route exact path="/edit/:id" element={<Edit />} />
+      <Route exact path='helptable' element={<HelpTable />} />
       <Route exact path="diagForm" element={<DForm />} />
       <Route exact path="DallDetails" element={<DiagnosisDetail />} />
       <Route exact path="meetings/add_meetings" element={<AddMeeting />} />
@@ -67,11 +79,16 @@ const createRoutes = () => {
       <Route exact path="editAcc" element={<UserAccount />} />
       <Route exact path="help" element={<Help />} />
       <Route exact path="logout" element={<Logout />} />
-      <Route
-        exact
-        path="*"
-        element={<h2 className="App">404 - Page not found!</h2>}
-      />
+      <Route exact path="*" element={<h2 className="App">404 - Page not found!</h2>} />
+      <Route exact path='/addDoctor' element={<DoctorRegister/>} />
+      <Route exact path='/doctorHome' element={<DoctorHome/>} />
+      <Route exact path='/doctorHome/editDoctor/:id' element={<EditDoctor/>} />
+      <Route exact path='/doctorHome/doctorProfile/:id' element={<DoctorDetails/>} />
+      <Route exact path='/doctorRecords' element={<DoctorRecordList/>} />
+      <Route exact path='/editDoctorRecords/:id' element={<EditDoctorRecord/>} />
+      <Route exact path='/addNewDoctorRecord' element={<CreateDoctorRecord/>} />
+      <Route exact path='/addNewAppointmentType' element={<CreateAppType/>} />
+      <Route exact path='/createReport' element={<DoctorReport/>} />
     </Routes>
   );
 };

@@ -52,7 +52,7 @@ export const Header = () => {
         }, {
             name: 'Patients',
             path: '/patient',
-            visible: ['receptionist', 'doctor']
+            visible: ['receptionist', 'doctor','accountant']
         }, {
             name: 'Appointments',
             path: '/appoinmenttable',
@@ -65,7 +65,14 @@ export const Header = () => {
             name:'Meetings',
             path:'/meetings',
             visible: ['staff' , 'manager','accountant','receptionist']
+            
         }
+        , {
+            name:'Doctor',
+            path:'/doctorHome',
+            visible: ['manager','doctor']
+        }
+        
     ];
 
     return (

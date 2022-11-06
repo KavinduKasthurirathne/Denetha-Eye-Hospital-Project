@@ -47,13 +47,30 @@ function PrintMeetingDetails(props) {
   }
 
   const navigate = useNavigate();
-
+  const logo = require("../../image/denethaLogo.png");
   return (
     <div className="meetingDetailsContainer">
       <div>
         <div className="meetingDetailsInnerContainer">
           <div className="printdiv" ref={componentRef}>
             <div className="meetingheader">
+              <div className="meetingprintHeader">
+                <img id="companylogo" src={logo} alt="logo" />
+                <div className="comapnyDetails">
+                  <h2 className="printComapanyName">
+                    Denetha Eye Hospital (Pvt) Ltd
+                  </h2>
+                  <p className="PrintcomapnyDetails">
+                    No.01, 1st Lane,
+                    <br />
+                    Bauddhaloka Mawatha, Kurunegala.
+                    <br />
+                    Tel: 0372222013
+                  </p>
+                </div>
+              </div>
+              <hr />
+
               <h2 className="meetingtopic">Meeting Time Table</h2>
             </div>
 
