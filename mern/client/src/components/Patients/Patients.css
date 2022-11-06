@@ -8,7 +8,7 @@ body {
 
 .patienttableMainPage {
     margin-top: 60px;
-    margin-left: 260px;
+    margin-left: 250px;
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 20px;
@@ -57,3 +57,10 @@ body {
     place-items: center;
     margin-top: 0px; 
   }
+
+.PatientSearchBar {
+    margin-top: 50px;
+    margin-left: 500px;
+    width: 50%;
+    height: 20px;
+}

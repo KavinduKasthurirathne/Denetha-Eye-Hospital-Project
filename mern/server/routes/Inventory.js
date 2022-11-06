@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const inventory = require('../models/Inventory');
+// let inventory = require("../models/Inventory");
 router.route('/record').post(async (req, res) => {
 
     const {

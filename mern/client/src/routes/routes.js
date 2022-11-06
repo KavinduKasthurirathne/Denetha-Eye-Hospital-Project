@@ -27,6 +27,7 @@ import Edit from "../components/Surgery/EditDetails";
 import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
 import { ViewAllReceipts } from "../components/Receptionist/ViewAllReceipts";
+import PrintablePatientProfile from "../components/Patients/PrintablePatientProfile";
 
 const createRoutes = () => {
   return (
@@ -37,6 +38,7 @@ const createRoutes = () => {
       <Route exact path="receptionist" element={<Reception />} />
       <Route exact path="ViewAllReceipts" element={<ViewAllReceipts />} />
       <Route exact path="PatientProfile" element={<PatientProfile />} />
+      <Route exact path="printPatient" element={<PrintablePatientProfile />} />
       <Route exact path="staff" element={<Patients />} />
       <Route exact path="doctor" element={<Patients />} />
       <Route exact path="admin" element={<Patients />} />

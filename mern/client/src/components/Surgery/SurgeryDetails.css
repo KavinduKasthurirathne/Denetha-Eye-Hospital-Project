@@ -71,7 +71,9 @@
   padding: 6px;
   margin-left: 16px;
   font-size: 16px;
-  margin-right: 3px;
+  margin-right: 5px;
+  width: 20%;
+  border-color: rgb(62, 59, 59);
 
 }
 
