@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
 
 
-const PrintablePatientProfile = React.forwardRef((props) => {
+const PrintablePatientProfile = React.forwardRef((props, ref) => {
 
     const logo = require('../../image/denethaLogo.png');
 
