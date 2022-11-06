@@ -110,7 +110,6 @@ export const PatientProfile = (props) => {
     };
 
     function printProfile(e) {
-        //alert("Printed!");
         navigateTo('/printPatient');
     }
 
