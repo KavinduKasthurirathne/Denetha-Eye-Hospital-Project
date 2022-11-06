@@ -28,6 +28,15 @@ import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
 import {ViewAllReceipts} from "../components/Receptionist/ViewAllReceipts"
 import PrintablePatientProfile from "../components/Patients/PrintablePatientProfile";
+import DoctorRegister from '../components/Doctor/DoctorRegister';
+import DoctorHome from '../components/Doctor/DoctorHome';
+import EditDoctor from "../components/Doctor/EditDoctor";
+import DoctorDetails from "../components/Doctor/DoctorDetails";
+import DoctorRecordList from '../components/Doctor/DoctorRecordList';
+import EditDoctorRecord from '../components/Doctor/EditDoctorRecord';
+import CreateDoctorRecord from "../components/Doctor/CreateDoctorRecord";
+import CreateAppType from "../components/Doctor/CreateAppType";
+import DoctorReport from "../components/Doctor/DoctorReport";
 
 const createRoutes = () => {
   return (
@@ -64,6 +73,16 @@ const createRoutes = () => {
       <Route exact path="help" element={<Help />} />
       <Route exact path="logout" element={<Logout />} />
       <Route exact path="*" element={<h2 className="App">404 - Page not found!</h2>} />
+      <Route exact path='/addDoctor' element={<DoctorRegister/>} />
+      <Route exact path='/doctorHome' element={<DoctorHome/>} />
+      <Route exact path='/doctorHome/editDoctor/:id' element={<EditDoctor/>} />
+      <Route exact path='/doctorHome/doctorProfile/:id' element={<DoctorDetails/>} />
+      <Route exact path='/doctorRecords' element={<DoctorRecordList/>} />
+      <Route exact path='/editDoctorRecords/:id' element={<EditDoctorRecord/>} />
+      <Route exact path='/addNewDoctorRecord' element={<CreateDoctorRecord/>} />
+      <Route exact path='/addNewAppointmentType' element={<CreateAppType/>} />
+      <Route exact path='/createReport' element={<DoctorReport/>} />
+
     </Routes>
   );
 };

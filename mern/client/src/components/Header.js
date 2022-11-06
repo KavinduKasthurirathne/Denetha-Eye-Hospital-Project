@@ -65,7 +65,14 @@ export const Header = () => {
             name:'Meetings',
             path:'/meetings',
             visible: ['staff' , 'manager','accountant','receptionist']
+            
         }
+        , {
+            name:'Doctor',
+            path:'/doctorHome',
+            visible: ['manager','doctor']
+        }
+        
     ];
 
     return (

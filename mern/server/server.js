@@ -8,6 +8,26 @@ app.use(express.json());
 
 const mongoose = require("mongoose");
 
+const pdf = require('html-pdf');
+const pdfTemplate = require('./documents');
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+app.post('/create-pdf', (req, res) => {
+  pdf.create(pdfTemplate(req.body), {}).toFile('result.pdf', (err) => {
+      if(err) {
+          res.send(Promise.reject());
+      }
+
+      res.send(Promise.resolve());
+  });
+});
+
+app.get('/fetch-pdf', (req, res) => {
+  res.sendFile(`${__dirname}/result.pdf`)
+})
+
 //routes
 const accountRouter = require("./routes/Accounts");
 app.use("/api/account", accountRouter);
@@ -53,6 +73,15 @@ app.use("/api/diagnosis", diagnosisRouter);
 
 const receiptRouter = require("./routes/Receipts");
 app.use("/api/receipt", receiptRouter);
+
+const doctorRouter = require("./routes/Doctor");
+app.use("/api/doctor",doctorRouter);
+
+const recordsRouter = require("./routes/DoctorRecords");
+app.use("/api/DoctorRecords",recordsRouter);
+
+const appTypeRouter = require("./routes/AppType");
+app.use("/api/AppType",appTypeRouter);
 
 // const addpatientRouter = require("./routes/AddPatient");
 // app.use("./api/addpatient", addpatientRouter);
