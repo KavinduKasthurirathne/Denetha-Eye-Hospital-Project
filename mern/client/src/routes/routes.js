@@ -23,7 +23,7 @@ import { EditAppoinment } from "../components/EditAppointment";
 import {AppointmentMainpage} from "../components/AppointmentMainpage";
 import { Help } from "../components/Help";
 import RecordList from "../components/Surgery/SurgeryDetails";
-//import  HelpTable  from "../components/Helptable";
+import  HelpTable  from "../components/Helptable";
 import AddSuPatient from "../components/Surgery/AddnewPatient";
 import Edit from "../components/Surgery/EditDetails";
 import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
@@ -62,6 +62,7 @@ const createRoutes = () => {
       <Route exact path="InventoryTable" element={<InventoryTable />} />
       <Route exact path="addNew" element={<AddSuPatient />} />
       <Route exact path="/edit/:id" element={<Edit />} />
+      <Route exact path='helptable' element={<HelpTable />} />
       <Route exact path="diagForm" element={<DForm />} />
       <Route exact path="DallDetails" element={<DiagnosisDetail />} />
       <Route exact path="meetings/add_meetings" element={<AddMeeting />} />
