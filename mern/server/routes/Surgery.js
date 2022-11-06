@@ -63,8 +63,8 @@ router.route("/delete/:pid").delete(async(req,res)=>{
 
 router.route("/get/:pid").get(async (req,res)=>{
     let sid = req.params.pid;
-    const user = await surgery1.findById(sid).then(()=>{
-        res.status(200).send({status:"User fetched"})
+    const user = await surgery1.findById(sid).then((data)=>{
+        res.status(200).send(data);
     }).catch((err)=>{
         console.log(err.message);
         res.status(500).send({status:"Error with get user",error:err.message});
