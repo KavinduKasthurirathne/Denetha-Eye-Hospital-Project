@@ -39,6 +39,7 @@ import EditDoctorRecord from '../components/Doctor/EditDoctorRecord';
 import CreateDoctorRecord from "../components/Doctor/CreateDoctorRecord";
 import CreateAppType from "../components/Doctor/CreateAppType";
 import DoctorReport from "../components/Doctor/DoctorReport";
+import DFormEdit from "../components/Surgery/Dianosis/DiagnosisEdit";
 
 const createRoutes = () => {
   return (
@@ -71,6 +72,7 @@ const createRoutes = () => {
       <Route exact path="InventoryTable" element={<InventoryTable />} />
       <Route exact path="addNew" element={<AddSuPatient />} />
       <Route exact path="/edit/:id" element={<Edit />} />
+      <Route exact path="/editDform/:id" element = {<DFormEdit/>} />
       <Route exact path='helptable' element={<HelpTable />} />
       <Route exact path="diagForm" element={<DForm />} />
       <Route exact path="DallDetails" element={<DiagnosisDetail />} />
