@@ -57,8 +57,8 @@ export default function DForm(){
         <div>
             <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             <form className="form" onSubmit = {sendData}>
-            
-            <button  type = "submit"  className='print' >Print</button>
+{/*             
+            <button  type = "submit"  className='print' >Print</button> */}
 
                 <img src= {projectlogo} alt='logo' className='logoForDiagnosis'></img>
                 <h2 className="Dh2">Denetha<br/>Eye Care Center</h2>

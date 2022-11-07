@@ -81,12 +81,13 @@ export default function DFormEdit(){
     };
 
         const navigate = useNavigate();
-        // const navigateToAddDiagnosis = () => {
-        //     navigate('/DallDetails');
-        //   };
+        const navigateToAddDiagnosis = () => {
+            navigate('/DallDetails');
+          };
     
     return(
         <div>
+            <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             <form className="form" onSubmit = {onSubmit}>
             <div>
             <button  type = "submit"  className='print' onClick={printForm}>Print</button>

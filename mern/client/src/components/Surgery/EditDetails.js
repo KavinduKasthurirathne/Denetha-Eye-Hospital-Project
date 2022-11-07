@@ -80,11 +80,15 @@ export default function Edit() {
  
    navigate("/surgery");
  }
+
+ const navigateToDetails = () => {
+  navigate('/surgery');
+};
  
  // This following section will display the form that takes input from the user to update the data.
  return (
    <div>
-     
+     <button type="submit" className="Dback" onClick={navigateToDetails}  > Back </button>
      <form onSubmit={onSubmit} className = "formcolor">
      <div className="container2">
        
@@ -136,7 +140,7 @@ export default function Edit() {
            <br/><br/> <br/>
          
           
-           <button type="submit" className="button" > ⇇Back </button>
+           
            </div>
 
      </form>

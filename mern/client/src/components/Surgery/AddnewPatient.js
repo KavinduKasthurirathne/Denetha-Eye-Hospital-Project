@@ -45,7 +45,7 @@ export default function AddSuPatient (){
 
     return(
         <div className="container2">
-       
+        <button type="submit" class="Dback"  onClick={navigateToAddNew}> Back </button>
         <form onSubmit = {sendData} className = "formcolor">
         <br/> <br/><br/> 
             <div className="form-group">
@@ -55,7 +55,7 @@ export default function AddSuPatient (){
                 onChange={(e)=>{
 
                     setPnumber(e.target.value);
-                }}/>    
+                }} required/>    
             </div>
                 <br/>
             <div className="form-group">
@@ -72,7 +72,7 @@ export default function AddSuPatient (){
                 <input type="number" class="form-control" id="number"  placeholder="Enter Number" value = {number} onChange={(e)=>{
 
                 setNumber(e.target.value);
-                }}/>    
+                }} required/>    
             </div><br/>
 
             <div class="form-group">
@@ -102,7 +102,7 @@ export default function AddSuPatient (){
             <br/><br/> <br/>
             </form>
            
-            <button type="submit" class="button"  onClick={navigateToAddNew}> ⇇Back </button>
+           
             </div>
 
     )

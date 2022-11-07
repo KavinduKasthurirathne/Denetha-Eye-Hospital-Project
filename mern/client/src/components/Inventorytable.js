@@ -1,81 +1,97 @@
-import React, { useState } from 'react';
-//import data from "./data.json";
+import React, { useEffect, useState } from "react";
 import './Inventory.css';
-import { Button,Paper } from "@mui/material";
+import '../App.css';
+const Record = (props) => (
+ <tr>
+   <td>{props.record.Itemcode}</td>
+   <td>{props.record.Itemname}</td>
+   <td>{props.record.Vendorcode}</td>
+   <td>{props.record.Location}</td>
+   <td>{props.record.Quntity}</td>
+   <td>{props.record.Cost}</td>
+   {/* <td>{props.record.type}</td> */}
+   <td>{props.record.Status}</td>
+   <td>
+   <a style={{color: 'Black'}} className="btnLink" href={`/Update/${props.record._id}`}><b>Update</b></a><br/><br/>
+     
 
+     <button className='button' variant="contained"  style={{color:'black'}}
+       onClick={() => {
+         props.deleteRecord(props.record._id);
+         window.alert("Record Deleted");
+       }}
+     >
+       Delete
+     </button>
+   </td>
+ </tr>
+);
 
 export const InventoryTable = () => {
-    const [contacts,setContacts] = useState([]);
-    const [addFormData,setFormData] = useState({
-        Itemcode:'',
-        Itemname:'',
-        Vendorcode:'',
-        Location:'',
-        Quantity:'',
-        Cost:'',
-        // type:'',
-        Status:'',
-    })
-    
-    const handleformsubmit = (event) =>
-    {
-        event.preventDefault();
-        const filedname = event.target.getAttribute('name');
-        const feildvalue = event.target.value;
-        const newdata = {...addFormData};
-        newdata[filedname] = feildvalue;
-        setFormData(newdata);
-    }
-    const paperStyle={padding:'2px 2px',width:'1305px',margin:"20px auto"}
-    const redbutton={background:'#FF6760' ,padding:'0px',margin :'5px',width:100}
-    const greenbutton={background:'#00ADA3' ,padding:'0px',margin :'5px',width:100}
-    const numbers = [1, 2, 3, 4, 5];
-    const listItems = numbers.map((number) =>
-        <li key={number.toString()}>
-    {number}
-    </li>
-);
-    return (
-        <Paper elevation={20} style={paperStyle}>
-        {/* <div align="center"> */}
-        <div class = "MeetingDetails">
-        <div class = "block1">
-                
-                <h1>Inventory Table</h1>
-                {/* <input type = "button" id = "btn1"/>Add */}
-                {/* <input type = "button" id = "btn2"/>Download */}
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Item Code</th>
-                        <th>Item Name</th>
-                        <th>Vendor Code</th>
-                        <th>Location</th>
-                        <th>Quantity</th>
-                        <th>Cost</th>
-                        {/* <th>Type</th> */}
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {contacts.map((Contact)=>(
-                    <tr>
-                    <td>{contacts.Itemcode}</td>
-                    <td>{contacts.Itemname}</td>
-                    <td>{contacts.Vendorcode}</td>
-                    <td>{contacts.Location}</td>
-                    <td>{contacts.Quantity}</td>
-                    <td>{contacts.Cost}</td>
-                    {/* <td>{contacts.type}</td> */}
-                    <td>{contacts.Status}</td>
-                    <td><Button style={greenbutton}>Edit</Button><Button style={redbutton}>Delete</Button></td>
-                </tr>
-                    ))}    
-                </tbody>
-            </table>
-            </div>
-            </Paper>
-  );
+  
+const [records, setRecords] = useState([]);
+
+useEffect(() => {
+ async function getRecords() {
+   const response = await fetch(`http://localhost:5000/api/inventory`);
+
+   if (!response.ok) {
+     const message = `An error occurred: ${response.statusText}`;
+     window.alert(message);
+     return;
+   }
+
+   const records = await response.json();
+   setRecords(records);
+ }
+
+ getRecords();
+
+ return;
+}, [records.length]);
+
+// This method will delete a record
+async function deleteRecord(id) {
+ await fetch(`http://localhost:5000/api/inventory/delete/${id}`, {
+   method: "DELETE"
+ });
+
+ const newRecords = records.filter((el) => el._id !== id);
+ setRecords(newRecords);
 }
 
+
+function recordList() {
+ return records.map((record) => {
+   return (
+     <Record
+       record={record}
+       deleteRecord={() => deleteRecord(record._id)}
+       key={record._id}
+     />
+   );
+ });
+}
+
+return (
+  <div className="arrange" >
+     <button className='button' onClick="/Inventory" variant="contained"  style={{color:'black'}}> Download PDF </button>
+   <h2 style={{marginLeft:300}}>Inventory Details</h2>
+    <table className="content-table" style={{ marginTop: 20 }}>
+      <thead>
+        <tr>
+          <th>Itemcode</th>
+          <th>Itemname</th>
+          <th>Vendorcode</th>
+          <th>Location</th>
+          <th>Quantity</th>
+          <th>Cost</th>
+          <th>Status</th>
+          
+        </tr>
+      </thead>
+      <tbody>{recordList()}</tbody>
+    </table>
+  </div>
+);
+}
