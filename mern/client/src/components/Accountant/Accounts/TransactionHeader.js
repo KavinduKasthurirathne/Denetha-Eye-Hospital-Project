@@ -5,6 +5,8 @@ const TransactionHeader = (props) => {
 
     const handleChange = ({target}) => {
         props.setDate(target.value);
+        props.setEditID(null);
+        props.setInputs({});
     };
 
     return(
