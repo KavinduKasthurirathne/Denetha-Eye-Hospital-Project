@@ -31,10 +31,11 @@ export default function DForm(){
             }
             
             axios.post("http://localhost:5000/api/diagnosis/add" , newPatient).then(()=> {
-                alert("Patient Details Added")
+                // alert("Patient Details Added")
                 setPname("");
                 setWard("");
                 setRegno("");
+                setAge ("");
                 setDAddmission("");
                 setDdischarge("");
                 setDsurgery("");
@@ -57,8 +58,8 @@ export default function DForm(){
         <div>
             <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             <form className="form" onSubmit = {sendData}>
-            
-            <button  type = "submit"  className='print' >Print</button>
+{/*             
+            <button  type = "submit"  className='print' >Print</button> */}
 
                 <img src= {projectlogo} alt='logo' className='logoForDiagnosis'></img>
                 <h2 className="Dh2">Denetha<br/>Eye Care Center</h2>

@@ -52,7 +52,6 @@ export default function Update() {
  }
  
  async function onSubmit(e) {
-   e.preventDefault();
    const editedPerson = {
     name: form.name,
     address: form.address,
@@ -65,17 +64,23 @@ export default function Update() {
     time: form.time,
     doctor: form.doctor,
    };
+
+   console.log(editedPerson);
  
    // This will send a put request to update the data in the database.
-   await fetch(`http://localhost:5000/api/Appoinment/Update/${params.id}`, {
-     method: "PUT",
-     body: JSON.stringify(editedPerson),
-     headers: {
-       'Content-Type': 'application/json'
-     },
-   });
- 
-   navigate("/AppoinmentTable");
+   await axios.post(`http://localhost:5000/api/appointment/update/${params.id}`, editedPerson)
+   .then(()=>navigate("/AppoinmentTable"))
+   .catch((err)=>console.log(err));
+
+  //  await fetch(`http://localhost:5000/api/Appoinment/Update/${params.id}`, {
+  //    method: "PUT",
+  //    body: JSON.stringify(editedPerson),
+  //    headers: {
+  //      'Content-Type': 'application/json'
+  //    },
+  //  });
+  //  window.alert("Record Update");
+  //  navigate("/AppoinmentTable");
  }
 
  return (
@@ -85,7 +90,7 @@ export default function Update() {
             <div> <img className='logo-img' src={logo} alt={'logo'} /></div>
             <h1>Edit Appoinment</h1>
             </Grid>
-            <form onSubmit={onSubmit}>
+            <form>
             <br/>
                 PATIENT DETAILS 
                 <br/><br/>
@@ -95,13 +100,13 @@ export default function Update() {
                 <br/><br/>
                 <TextField fullWidth label='Phone number' placeholder="Enter phone number" onChange={(e) => updateForm({ phone: e.target.value })} value={form.phone}/>    
                 <br/><br/>
-                <TextField type="number" fullWidth label='Age' placeholder="Enter Age" onChange={(e) => updateForm({ age: e.target.value })} value={form.age}/>    
+                <TextField type="number" fullWidth label='Age' placeholder="Enter Age" onChange={(e) => updateForm({ age: e.target.value })} value={parseInt(form.age)}/>    
                 <br/><br/>
                 <TextField fullWidth label='Gender' placeholder="Enter gender" onChange={(e) => updateForm({ gender: e.target.value })} value={form.gender}/>    
                 <br/><br/>
                 APPOINMENT DETAILS
                 <br/><br/>
-                <TextField type="number" fullWidth label='Appointment number' placeholder="Enter Appointment number" onChange={(e) => updateForm({ appoinmentnumber: e.target.value })} value={form.appoinmentnumber}/>     
+                <TextField type="number" fullWidth label='Appointment number' placeholder="Enter Appointment number" onChange={(e) => updateForm({ appoinmentnumber: e.target.value })} value={parseInt(form.appoinmentnumber)}/>     
                 <br/><br/>
                 
                 <TextField fullWidth label='Type' placeholder="Enter Type" onChange={(e) => updateForm({ type: e.target.value })} value={form.type}/> 
@@ -119,7 +124,7 @@ export default function Update() {
                <FormControlLabel control={<Checkbox defaultChecked />} required label="I accept the terms and conditions." />
                 </FormGroup>
                 <div align="center" >
-                <Button type="submit" variant="contained" style={buttonColor}>Submit</Button>
+                <Button onClick={onSubmit} variant="contained" style={buttonColor}>Submit</Button>
                 </div>
             </form>
         </Paper>

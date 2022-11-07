@@ -25,7 +25,7 @@ export default function AddSuPatient (){
         }
         
         axios.post("http://localhost:5000/api/surgery/add" , newPatient).then(()=> {
-            alert("Patient Details Added")
+            // alert("Patient Details Added")
             setPnumber("");
             setName("");
             setNumber("");
@@ -45,7 +45,7 @@ export default function AddSuPatient (){
 
     return(
         <div className="container2">
-       
+        <button type="submit" class="Dback"  onClick={navigateToAddNew}> Back </button>
         <form onSubmit = {sendData} className = "formcolor">
         <br/> <br/><br/> 
             <div className="form-group">
@@ -55,24 +55,24 @@ export default function AddSuPatient (){
                 onChange={(e)=>{
 
                     setPnumber(e.target.value);
-                }}/>    
+                }} required/>    
             </div>
                 <br/>
             <div className="form-group">
-                <label for="pname">Patient Name :</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="pname">Patient Name :</label>&nbsp;&nbsp;&nbsp;
                 <input type="text" class="form-control" id="pname"  placeholder="Enter Patient's Name" value = {pname} onChange={(e)=>{
 
                 setName(e.target.value);
                 }} required/>    
             </div><br/>
 
-            <div className="form-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="number">Number :</label>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div className="form-group">
+                <label for="number">REG NO :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
                 <input type="number" class="form-control" id="number"  placeholder="Enter Number" value = {number} onChange={(e)=>{
 
                 setNumber(e.target.value);
-                }}/>    
+                }} required/>    
             </div><br/>
 
             <div class="form-group">
@@ -91,7 +91,7 @@ export default function AddSuPatient (){
             
 
             <div className="form-group">
-                <label for="Stype">Surgery Type :</label> &nbsp; &nbsp; &nbsp;
+                <label for="Stype">Surgery Type :</label>
                 <input type="text" class="form-control" id="Stype"  placeholder="Enter Patient's Surgery Type" value = {Stype}  onChange={(e)=>{
 
                         setStype(e.target.value);
@@ -102,7 +102,8 @@ export default function AddSuPatient (){
             <br/><br/> <br/>
             </form>
            
-            <button type="submit" class="button"  onClick={navigateToAddNew}> ⇇Back </button>
+            <br/><br/> <br/>
+         
             </div>
 
     )

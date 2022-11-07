@@ -3,10 +3,18 @@ import '../../App.css';
 import React, { useEffect, useState, useRef} from "react";
 import axios from "axios";
 import { useCookies } from 'react-cookie';
-import { Button, TextField, useThemeProps } from '@mui/material';
+import { TextField, useThemeProps } from '@mui/material';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
 import {PrintablePatientProfile} from "./PrintablePatientProfile";
+import {
+    Box,
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+  } from "@mui/material";
 
 const printicon = require('../../image/print.png');
 
@@ -26,6 +34,8 @@ export const PatientProfile = (props) => {
                                     "gnumber", "remarks");
     const [selected, setSelected] = useState(0);
 
+
+    const [deleteprofile, setDeleteprofile] = useState(false);
 
     const navigateTo = useNavigate();
 
@@ -68,7 +78,7 @@ export const PatientProfile = (props) => {
         await axios
           .post("http://localhost:5000/api/patient/delete", { pid: pId })
           .then(() => {
-            window.confirm("Are you sure you want to delete?");
+            setDeleteprofile(false);
             findProfile();
             navigateTo('/patient');
           })
@@ -97,7 +107,7 @@ export const PatientProfile = (props) => {
         await axios
           .post("http://localhost:5000/api/patient/update", updateProfile)
           .then(() => {
-            alert("Patient Details Updated Successfully!");
+            alert("Updated Successfully!");
             findProfile();
             navigateTo('/patient');
           })
@@ -117,6 +127,7 @@ export const PatientProfile = (props) => {
     const printProfile = useReactToPrint({
         content: ()=>componentRef.current
     });
+    
 
 
     return (
@@ -229,7 +240,7 @@ export const PatientProfile = (props) => {
 
         
             <div className='buttonsView'>
-                <button id='deleteBtn' className='button' type="delete" onClick={deleteProfile}><b>Delete</b></button>
+                <button id='deleteBtn' className='button' type="delete" onClick={() => setDeleteprofile(true)}><b>Delete</b></button>
                 <button id='updateBtn' className='button' type="submit" onClick={updateProfile}><b>Update</b></button>
                 <button id='cancelBtn' className='button' type="cancel" onClick={cancel}><b>Cancel</b></button>
                 <button id='printBtn' className='button' type='print' onClick={printProfile}>
@@ -250,8 +261,29 @@ export const PatientProfile = (props) => {
                 </div>
             </div>
 
+            <Dialog
+                open={deleteprofile}
+                onClose={() => setDeleteprofile(false)}
+                aria-labelledby="dialog-title"
+                aria-describedby="dialog-description">
+
+                <DialogTitle id="dialog-title">Warning!</DialogTitle>
+                    <DialogContent>
+                        Are you sure you want delete the profile?
+                    </DialogContent>
+                <DialogActions>
+                    <Box sx={{ m: 1, position: "relative" }}>
+                        <Button
+                            variant="contained"
+                            onClick={deleteProfile}
+                            autoFocus
+                            color="secondary">
+                            Confirm
+                        </Button>
+                    </Box>
+                </DialogActions>
+            </Dialog>
         </div>
-        
         </>
     );
 }

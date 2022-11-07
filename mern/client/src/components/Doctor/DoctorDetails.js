@@ -67,14 +67,13 @@ const DoctorDetails = () => {
 
   return (
     <div className="container mt-10">
-      
       <Card sx={{ maxWidth: 600 }}>
         <CardContent>
         <img src={require('./profile.png')} style={{ width: 80 }} alt="profile"/>
           <div className="row">  
             <div className="left_view col-lg-6 col-md-6 col-12">
               <h3 className="mt-3">
-                <br></br>
+                
                 Name: <span>{getuserdata.name}Jagath Perera</span>
               </h3>
               <p className="mt-3">
@@ -97,9 +96,9 @@ const DoctorDetails = () => {
             </div>
           </div>
            <div className="add_btn">
-            
+            <br></br>
             <NavLink to="/createReport"><button className="button">Create Income Report</button></NavLink>
-            <NavLink to="/addNewDoctorRecord"><button className="button">Create Weekly Records</button></NavLink>
+            <NavLink to="/addNewAppointmentType"><button className="button">Add Appointment Type</button></NavLink>
           </div>  
         </CardContent>
       </Card>

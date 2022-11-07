@@ -103,7 +103,7 @@ const PrintableTR = React.forwardRef((props, ref) => {
             </div>
             <div id='sign' >
                 <h3 className='normal-text right-align'>
-                    {`Gross Income -> `}{(calculatePatientTotal(props.patientData))}
+                    {`Gross Income from patients -> `}{(calculatePatientTotal(props.patientData))}
                 </h3>
             </div>
         </div>

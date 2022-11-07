@@ -55,7 +55,8 @@ export default class DoctorRecordList extends Component {
   render() {
     return (
       <div>
-        <p class='head'><b>Doctor Records</b></p>
+        <br/>
+        <center><h2>Doctor Records</h2></center>
         <div className="container">
         <table className="table">
           <thead className="thead-light">
