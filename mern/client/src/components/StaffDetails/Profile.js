@@ -55,6 +55,7 @@ const Profile = (props) => {
   useEffect(() => {
     if (
       contactno.length == 10 &&
+      // contactno.pattern == "[0-9]" &&
       contactno != "" &&
       email != "" &&
       address != "" &&
@@ -85,7 +86,8 @@ const Profile = (props) => {
     await axios
       .post("http://localhost:5000/api/profile/add", addNewDataToProfile)
       .then(() => {
-        window.location.reload(true);
+        // window.location.reload(true);
+        navigate("/meetings");
       })
       .catch((err) => {
         alert(err);
@@ -107,6 +109,7 @@ const Profile = (props) => {
       .post("http://localhost:5000/api/profile/update", updateProfile)
       .then(() => {
         findProfile();
+        navigate("/meetings");
       })
       .catch((err) => {
         alert(err);
@@ -119,6 +122,7 @@ const Profile = (props) => {
       .then(() => {
         setDeleteprofile(false);
         findProfile();
+        navigate("/meetings");
       })
       .catch((err) => {
         alert(err);
@@ -139,6 +143,8 @@ const Profile = (props) => {
             sx={{ width: "50%" }}
             label="Contact No"
             helperText="Enter only 10 digits"
+            reqired
+            pattern="[0-9]{10}"
             onChange={(e) => {
               setContactno(e.target.value);
             }}

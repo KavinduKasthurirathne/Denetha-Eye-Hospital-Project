@@ -269,7 +269,7 @@ export const PatientProfile = (props) => {
 
                 <DialogTitle id="dialog-title">Warning!</DialogTitle>
                     <DialogContent>
-                        Are you sure want to delete the profile?
+                        Are you sure you want delete the profile?
                     </DialogContent>
                 <DialogActions>
                     <Box sx={{ m: 1, position: "relative" }}>

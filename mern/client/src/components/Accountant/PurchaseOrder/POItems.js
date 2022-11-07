@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import '../Accountant.css';
 import '../../../App.css';
 import { Table, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, TableBody } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import NoticeDialog from "../NoticeDialog";
 
 const POItems = (props) => {
+    const [deleteItem, setDeleteItem] = useState(false);
+    const [index, setIndex] = useState();
+
+    const onDelete = () => {
+        const newItems = props.data.filter((value, i) => (i !== index));
+        props.setter(newItems);
+        props.setSave(true);
+        setDeleteItem(false);
+    }
 
     return (
         <div id='po-item-table' >
@@ -29,9 +39,8 @@ const POItems = (props) => {
                                 <TableCell align='right'>{row.amount}</TableCell>
                                 <TableCell align='center' style={{width: '15%'}} >
                                     <IconButton aria-label='delete record' size='small' onClick={()=>{
-                                        const newItems = props.data.filter((value, index) => (index !== i));
-                                        props.setter(newItems);
-                                        props.setSave(true);
+                                        setIndex(i);
+                                        setDeleteItem(true);
                                     }}>
                                         <DeleteIcon />
                                     </IconButton>
@@ -53,6 +62,12 @@ const POItems = (props) => {
                     </TableBody>
                 </Table>
             </TableContainer>
+            <NoticeDialog 
+                message={ <div style={{margin: 5}}>This will delete this item and it cannot be recovered.</div> }
+                handleClose={()=>setDeleteItem(false)}
+                handleButton={onDelete}
+                title='Are you sure?' 
+                enable={deleteItem} />
         </div>
     );
 };

@@ -3,11 +3,12 @@ import './FormD.css';
 import React, {useState} from "react";
 //import {Header} from '../Header.js';
 import axios  from "axios";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 
 const projectlogo = require('../../../image/denethaLogo.png');
 
 export default function DForm(){
+    const params = useParams();
 
         const [pname , setPname]= useState("");
         const [ward , setWard]= useState("");
@@ -35,6 +36,7 @@ export default function DForm(){
                 setPname("");
                 setWard("");
                 setRegno("");
+                setAge ("");
                 setDAddmission("");
                 setDdischarge("");
                 setDsurgery("");
@@ -50,7 +52,7 @@ export default function DForm(){
         }
         const navigate = useNavigate();
         const navigateToAddDiagnosis = () => {
-            navigate('/DallDetails');
+            navigate(`/DallDetails`);
           };
     
     return(
