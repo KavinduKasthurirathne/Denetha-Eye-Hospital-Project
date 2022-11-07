@@ -98,7 +98,7 @@ export default function PrintForm(){
     return(
         <div className='surgeryprintcontainer'>
           <button  type = "submit"  className='print'  onClick={handlePrint}>Print</button>
-            <div   ref={componentRef}><form className='printcomponenentform'>
+            <div   ref={componentRef}><form className='printcomponenentform'  id='diagnosisedit'>
             
            
 
