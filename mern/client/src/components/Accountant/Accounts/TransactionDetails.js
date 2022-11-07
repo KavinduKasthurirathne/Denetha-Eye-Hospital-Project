@@ -67,6 +67,11 @@ const TransactionDetails = (props) => {
         .catch(err => console.log(err))
     };
 
+    const handleCancel = () => {
+        props.setEditID(null);
+        props.setInputs({});
+    };
+
     return(
         <>
             <div className='po-flex'>
@@ -89,69 +94,91 @@ const TransactionDetails = (props) => {
                     </IconButton>
                 </div>
             </div>
-            <div style={{textAlign:'right', width:'45%', margin:'auto'}}>
-                Total income from patients = Rs.{patientTotal}.00 <br/>
-                Total Doctor Payments = Rs.{doctorTotal}.00 <br/>
+            <div style={{textAlign:'left', width:'45%'}}>
                 <hr/>
-                Gross Income - Rs.{patientTotal - doctorTotal}.00 <br/>
+                Gross Income From Patients - Rs.{patientTotal}.00 <br/>
             </div>
             <hr/><br/>
-            <div style={{textAlign:'left', width:'60%', margin:'auto'}}>
-                <TextField 
-                    required
-                    id='date'
-                    name='date'
-                    size='small'
-                    value={props.inputs.date ?? ''}
-                    type='date'
-                    onChange={handleInputs} 
-                    label='Date' 
-                    InputLabelProps={{shrink: true}} /><br/><br/>
-                <TextField 
-                    required
-                    id='name'
-                    name='name'
-                    size='small'
-                    value={props.inputs.name ?? ''}
-                    type='text'
-                    onChange={handleInputs} 
-                    label='Name'  /><br/><br/>
-                <TextField 
-                    id='phone'
-                    name='phone'
-                    size='small'
-                    value={props.inputs.phone ?? ''}
-                    type='text'
-                    onChange={handleInputs} 
-                    label='phone'  />
-                <Button 
-                    disabled={editButton}
-                    sx={{marginLeft:10}} 
-                    color='secondary' 
-                    variant="contained" 
-                    onClick={submitEdit}>EDIT RECORD</Button>
-                <br/><br/>
-                <TextField 
-                    required
-                    id='type'
-                    name='type'
-                    size='small'
-                    value={props.inputs.type ?? ''}
-                    type='text'
-                    onChange={handleInputs} 
-                    label='Appointment'  /><br/><br/>
-                <TextField 
-                    required
-                    id='amount'
-                    name='amount'
-                    size='small'
-                    value={props.inputs.amount ?? ''}
-                    type='text'
-                    onChange={handleInputs} 
-                    label='Amount'  /><br/>
-
-                <ToastContainer />
-            </div>
+            <table style={{width:'100%'}}>
+                <tbody>
+                    <tr>
+                        <td style={{width:'40%'}}>
+                            <div style={{textAlign:'left', width:'60%', margin:'auto'}}>
+                                <TextField 
+                                    required
+                                    sx={{width:'80%'}}
+                                    id='date'
+                                    name='date'
+                                    size='small'
+                                    value={props.inputs.date ?? ''}
+                                    type='date'
+                                    onChange={handleInputs} 
+                                    label='Date' 
+                                    InputLabelProps={{shrink: true}} /><br/><br/>
+                                <TextField 
+                                    required
+                                    sx={{width:'130%'}}
+                                    id='name'
+                                    name='name'
+                                    size='small'
+                                    value={props.inputs.name ?? ''}
+                                    type='text'
+                                    onChange={handleInputs} 
+                                    label='Name'  /><br/><br/>
+                                <TextField 
+                                    id='phone'
+                                    sx={{width:'130%'}}
+                                    name='phone'
+                                    size='small'
+                                    value={props.inputs.phone ?? ''}
+                                    type='text'
+                                    onChange={handleInputs} 
+                                    label='phone'  />
+                                <br/><br/>
+                                <TextField 
+                                    required
+                                    id='type'
+                                    sx={{width:'130%'}}
+                                    name='type'
+                                    size='small'
+                                    value={props.inputs.type ?? ''}
+                                    type='text'
+                                    onChange={handleInputs} 
+                                    label='Appointment'  /><br/><br/>
+                                <TextField 
+                                    required
+                                    sx={{width:'130%'}}
+                                    id='amount'
+                                    name='amount'
+                                    size='small'
+                                    value={props.inputs.amount ?? ''}
+                                    type='text'
+                                    onChange={handleInputs} 
+                                    label='Amount'  /><br/>
+                                <ToastContainer />
+                            </div>
+                            
+                        </td>
+                        <td>
+                            <div style={{width:350}}>
+                                <Button 
+                                    disabled={editButton}
+                                    sx={{marginLeft:10}} 
+                                    color='secondary' 
+                                    variant="contained" 
+                                    onClick={submitEdit}>EDIT RECORD</Button>
+                                    {" "}
+                                {editButton ? null :
+                                    <Button 
+                                    variant="contained" 
+                                    onClick={handleCancel} 
+                                    color='secondary'>Cancel</Button>
+                                    }
+                            </div> <br />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </>
     );
 };

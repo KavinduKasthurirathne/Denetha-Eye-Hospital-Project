@@ -7,6 +7,7 @@ import { PatientProfile } from "../components/Patients/PatientProfile";
 import { Accountant } from "../components/Accountant";
 import { Logout } from "../components/Logout";
 
+
 import AppoinmentTable from "../components/AppoinmentTable";
 import { Inventory } from "../components/Inventory";
 import { InventoryTable } from "../components/Inventorytable";
@@ -26,6 +27,7 @@ import RecordList from "../components/Surgery/SurgeryDetails";
 import  HelpTable  from "../components/Helptable";
 import AddSuPatient from "../components/Surgery/AddnewPatient";
 import Edit from "../components/Surgery/EditDetails";
+import  Update from "../components/Update";
 import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
 import { ViewAllReceipts } from "../components/Receptionist/ViewAllReceipts";
@@ -39,6 +41,10 @@ import EditDoctorRecord from '../components/Doctor/EditDoctorRecord';
 import CreateDoctorRecord from "../components/Doctor/CreateDoctorRecord";
 import CreateAppType from "../components/Doctor/CreateAppType";
 import DoctorReport from "../components/Doctor/DoctorReport";
+import DFormEdit from "../components/Surgery/Dianosis/DiagnosisEdit";
+import  PrintForm from "../components/Surgery/Dianosis/printcomponent";
+
+
 
 const createRoutes = () => {
   return (
@@ -56,6 +62,7 @@ const createRoutes = () => {
       <Route exact path="patient" element={<Patients />} />
       <Route exact path="AddPatientForm" element={<AddPatientForm />} />
       <Route exact path="editappointment" element={<EditAppoinment />} />
+      
       <Route
         exact
         path="AppointmentMainpage"
@@ -71,24 +78,24 @@ const createRoutes = () => {
       <Route exact path="InventoryTable" element={<InventoryTable />} />
       <Route exact path="addNew" element={<AddSuPatient />} />
       <Route exact path="/edit/:id" element={<Edit />} />
+      <Route exact path="/Update/:id" element={<Update />} />
+      <Route exact path="/editDform/:id" element = {<DFormEdit/>} />
       <Route exact path='helptable' element={<HelpTable />} />
       <Route exact path="diagForm" element={<DForm />} />
+      <Route exact path="/printform" element = {< PrintForm/>} />
       <Route exact path="DallDetails" element={<DiagnosisDetail />} />
       <Route exact path="meetings/add_meetings" element={<AddMeeting />} />
       <Route exact path="AddNewMember" element={<AddNewMember />} />
       <Route exact path="editAcc" element={<UserAccount />} />
       <Route exact path="help" element={<Help />} />
       <Route exact path="logout" element={<Logout />} />
-      <Route exact path="*" element={<h2 className="App">404 - Page not found!</h2>} />
-      <Route exact path='/addDoctor' element={<DoctorRegister/>} />
-      <Route exact path='/doctorHome' element={<DoctorHome/>} />
-      <Route exact path='/doctorHome/editDoctor/:id' element={<EditDoctor/>} />
-      <Route exact path='/doctorHome/doctorProfile/:id' element={<DoctorDetails/>} />
-      <Route exact path='/doctorRecords' element={<DoctorRecordList/>} />
-      <Route exact path='/editDoctorRecords/:id' element={<EditDoctorRecord/>} />
-      <Route exact path='/addNewDoctorRecord' element={<CreateDoctorRecord/>} />
-      <Route exact path='/addNewAppointmentType' element={<CreateAppType/>} />
-      <Route exact path='/createReport' element={<DoctorReport/>} />
+     
+      
+      <Route
+        exact
+        path="*"
+        element={<h2 className="App">404 - Page not found!</h2>}
+      />
     </Routes>
   );
 };

@@ -14,14 +14,9 @@ const Record = (props) => (
    <td>{props.record.time}</td>
    <td>{props.record.doctor}</td>
    <td>
-   <button className="button" variant="contained"  style={{color:'white'}}
-       onClick={() => {
-         props.deleteRecord(props.record._id);
-         window.alert("Record Update");
-       }}
-     >
-       Update
-     </button>|
+   <a style={{color: 'Black'}} className="btnLink" href={`/Update/${props.record._id}`}><b>Update</b></a><br/><br/>
+     
+
      <button className='button' variant="contained"  style={{color:'black'}}
        onClick={() => {
          props.deleteRecord(props.record._id);

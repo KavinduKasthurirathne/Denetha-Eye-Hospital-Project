@@ -3,7 +3,7 @@ import '../Patients/PrintablePatient.css';
 import { Container } from "@mui/system";
 
 
-export const PrintablePatientProfile = React.forwardRef((props, ref) => {
+const PrintablePatientProfile = React.forwardRef((props, ref) => {
 
     const logo = require('../../image/denethaLogo.png');
 
@@ -70,13 +70,7 @@ export const PrintablePatientProfile = React.forwardRef((props, ref) => {
                 </div>
 
             </div>
-{/* 
-            <button id='printPatientBtn' className='button' type='print' onClick={handlePrint}>
-                PRINT
-            </button> */}
             
         </Container>
     );
 })
-
-// export default PrintablePatientProfile;
