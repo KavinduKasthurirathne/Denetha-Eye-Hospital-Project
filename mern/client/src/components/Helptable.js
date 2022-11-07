@@ -9,22 +9,16 @@ const Record = (props) => (
    <td>{props.record.message}</td>
    <td>{props.record.type}</td>
    <td>
-   <button className="button" variant="contained"  style={{color:'white'}}
-       onClick={() => {
-         props.deleteRecord(props.record._id);
-         window.alert("Record Update");
-       }}
-     >
-       Update
-     </button>|
+  
      <button className='button' variant="contained"  style={{color:'black'}}
        onClick={() => {
-         props.deleteRecord(props.record._id);
-         window.alert("Record Deleted");
+        if (window.confirm("Are you sure you want to delete?") === true) {
+          props.deleteRecord(props.record._id);
+        }
        }}
+        
      >
-       Delete
-     </button>
+       <i className="fas fa-trash-alt"></i></button>
    </td>
  </tr>
 );

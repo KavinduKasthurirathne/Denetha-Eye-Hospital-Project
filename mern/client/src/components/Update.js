@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import axios from "axios";
 import { Select,InputLabel, FormGroup, Button, Grid ,Paper, TextField,Radio ,RadioGroup, FormLabel, FormControl, Checkbox, FormControlLabel,Box,MenuItem } from "@mui/material";
 import '../Appoinment.css';
+import '../App.css';
 
 export default function Update() {
  const [form, setForm] = useState({
@@ -66,21 +67,11 @@ export default function Update() {
    };
 
    console.log(editedPerson);
- 
-   // This will send a put request to update the data in the database.
+
    await axios.post(`http://localhost:5000/api/appointment/update/${params.id}`, editedPerson)
    .then(()=>navigate("/AppoinmentTable"))
    .catch((err)=>console.log(err));
 
-  //  await fetch(`http://localhost:5000/api/Appoinment/Update/${params.id}`, {
-  //    method: "PUT",
-  //    body: JSON.stringify(editedPerson),
-  //    headers: {
-  //      'Content-Type': 'application/json'
-  //    },
-  //  });
-  //  window.alert("Record Update");
-  //  navigate("/AppoinmentTable");
  }
 
  return (
@@ -124,7 +115,7 @@ export default function Update() {
                <FormControlLabel control={<Checkbox defaultChecked />} required label="I accept the terms and conditions." />
                 </FormGroup>
                 <div align="center" >
-                <Button onClick={onSubmit} variant="contained" style={buttonColor}>Submit</Button>
+                <Button className='button' onClick={onSubmit} variant="contained" style={{color:'white'}}  >Submit</Button>
                 </div>
             </form>
         </Paper>

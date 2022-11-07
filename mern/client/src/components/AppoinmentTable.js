@@ -40,15 +40,6 @@ useEffect(() => {
     setRecords(result.data);
   }).catch((err) => console.log(err));
 
-  //  const response = await fetch(`http://localhost:5000/api/appointment`);
-
-  //  if (!response.ok) {
-  //    const message = `An error occurred: ${response.statusText}`;
-  //    window.alert(message);
-  //    return;
-  //  }
-
-  //  const records = await response.json();
    
  }
 
