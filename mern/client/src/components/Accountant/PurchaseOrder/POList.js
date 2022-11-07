@@ -110,6 +110,7 @@ const POList = (props) => {
                     <TextField 
                     required
                     label='New PO number'
+                    helperText='Only numbers are accepted'
                     variant='outlined'
                     value={newName}
                     onChange={handleChange} /></div> }
