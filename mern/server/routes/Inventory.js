@@ -2,8 +2,8 @@ const router = require('express').Router();
 const inventory = require('../models/Inventory');
 // let inventory = require("../models/Inventory");
 router.route('/record').post(async (req, res) => {
-    console.log(req);
-    console.log("line06");
+    // console.log(req);
+    // console.log("line06");
 
     const {
         Itemcode,
@@ -12,7 +12,7 @@ router.route('/record').post(async (req, res) => {
         Location,
         Quantity,
         Cost,
-        Status,
+        Status
     } = req.body;
 
     const newRecord = new inventory({
@@ -22,7 +22,7 @@ router.route('/record').post(async (req, res) => {
         Location,
         Quantity,
         Cost,
-        Status,});
+        Status});
         console.log(req);
     
        await newRecord.save().then((result)=>{

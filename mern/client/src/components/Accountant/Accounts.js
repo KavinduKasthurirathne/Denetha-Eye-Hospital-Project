@@ -41,7 +41,9 @@ const Accounts = () => {
         <div className='basic'>
             <TransactionHeader 
                 date={date} 
-                setDate={setDate} />
+                setDate={setDate}
+                setEditID={setEditID}
+                setInputs={setInputs} />
             <div id='transactionList'>
                 <div className='grid-child' id='acc-root'>
                     <TransactionsRoot 

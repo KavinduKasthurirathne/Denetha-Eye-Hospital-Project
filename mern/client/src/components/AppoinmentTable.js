@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../Appoinment.css';
 import '../App.css';
+import axios from "axios";
 const Record = (props) => (
  <tr>
    <td>{props.record.name}</td>
@@ -35,16 +36,20 @@ const [records, setRecords] = useState([]);
 
 useEffect(() => {
  async function getRecords() {
-   const response = await fetch(`http://localhost:5000/api/appointment`);
+  await axios.post(`http://localhost:5000/api/appointment/all`).then((result) => {
+    setRecords(result.data);
+  }).catch((err) => console.log(err));
 
-   if (!response.ok) {
-     const message = `An error occurred: ${response.statusText}`;
-     window.alert(message);
-     return;
-   }
+  //  const response = await fetch(`http://localhost:5000/api/appointment`);
 
-   const records = await response.json();
-   setRecords(records);
+  //  if (!response.ok) {
+  //    const message = `An error occurred: ${response.statusText}`;
+  //    window.alert(message);
+  //    return;
+  //  }
+
+  //  const records = await response.json();
+   
  }
 
  getRecords();
@@ -77,7 +82,7 @@ function recordList() {
 
 return (
   <div className="arrange" >
-     <button className='button' onClick="/Appointments" variant="contained"  style={{color:'black'}}> Download PDF </button>
+     <button className='button' variant="contained"  style={{color:'black'}}> Download PDF </button>
    <h2 style={{marginLeft:520}}>Appoinment Details</h2>
     <table className="content-table" style={{ marginTop: 20 }}>
       <thead>

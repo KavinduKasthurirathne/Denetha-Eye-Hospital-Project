@@ -28,7 +28,7 @@ export default function DFormEdit(){
        async function fetchData() {
          const id = params.id.toString();
     
-         await axios.get(`http://localhost:5000/api/diagnosis/get/${params.id.toString()}`)
+         await axios.post(`http://localhost:5000/api/diagnosis/get/${id}`)
          .then(({data}) => {
             setForm(data);
          }).catch((err) => {
@@ -91,6 +91,7 @@ export default function DFormEdit(){
             <form className="form" onSubmit = {onSubmit}>
             <div>
             <button  type = "submit"  className='print' onClick={printForm}>Print</button>
+            
 
                 <img src= {projectlogo} alt='logo' className='logoForDiagnosis'></img>
                 <h2 className="Dh2">Denetha<br/>Eye Care Center</h2>
@@ -169,7 +170,7 @@ export default function DFormEdit(){
             <br/><br/>
             <label for="Aname" className=' p'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Dr.M.Shaminda Amarathunge</label><br/>
             <label for="Aname" className='p'>MBBS.MD.(ophth)Consultant Eye Surgeon</label><br/><br/><br/> 
-            <button  type = "submit" className='Dsave'  >Save</button><br/><br/><br/><br/>
+            <button  type = "submit" className='Dsave'  >Update</button><br/><br/><br/><br/>
 
             </div>
             </div>

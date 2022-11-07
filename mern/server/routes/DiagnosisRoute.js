@@ -65,14 +65,13 @@ router.route("/delete/:pid").delete(async(req,res)=>{
 
 }) 
 
-router.route("/get/:pid").get(async (req,res)=>{
+router.route("/get/:pid").post(async (req,res)=>{
     let sid = req.params.pid;
-    const user = await diagnosis1.findById(sid).then(()=>{
-        res.status(200).send({status:"User fetched"})
+    const user = await diagnosis1.findById(sid).then((data)=>{
+        res.status(200).send(data);
     }).catch(()=>{
         console.log(err.message);
         res.status(500).send({status:"Error with get user Details",error:err.message});
-
 })
 })
 

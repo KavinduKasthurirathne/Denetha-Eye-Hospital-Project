@@ -136,7 +136,7 @@ export default function Edit() {
            </div>
            <br/>
            <button type="submit"
-           value="Update Record" className="button" >Update</button>
+           value="Update Record" className="Dback" id="myupdate" >Update</button>
            <br/><br/> <br/>
          
           
@@ -144,6 +144,8 @@ export default function Edit() {
            </div>
 
      </form>
+
+     <br/><br/> <br/>
    </div>
  );
 }
