@@ -90,7 +90,7 @@ export default function DFormEdit(){
         <div>
             <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             
-            <form className="form" onSubmit = {onSubmit}>
+            <form className="form" id='diagnosisedit' onSubmit = {onSubmit}>
             <div>
             <button  type = "submit"  className='print' onClick={printForm}>Print</button>
             
