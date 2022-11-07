@@ -31,7 +31,7 @@ import  Update from "../components/Update";
 import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
 import { ViewAllReceipts } from "../components/Receptionist/ViewAllReceipts";
-import PrintablePatientProfile from "../components/Patients/PrintablePatientProfile";
+// import PrintablePatientProfile from "../components/Patients/PrintablePatientProfile";
 import DoctorRegister from '../components/Doctor/DoctorRegister';
 import DoctorHome from '../components/Doctor/DoctorHome';
 import EditDoctor from "../components/Doctor/EditDoctor";
@@ -42,6 +42,8 @@ import CreateDoctorRecord from "../components/Doctor/CreateDoctorRecord";
 import CreateAppType from "../components/Doctor/CreateAppType";
 import DoctorReport from "../components/Doctor/DoctorReport";
 import DFormEdit from "../components/Surgery/Dianosis/DiagnosisEdit";
+import  PrintForm from "../components/Surgery/Dianosis/printcomponent";
+
 
 
 const createRoutes = () => {
@@ -53,7 +55,7 @@ const createRoutes = () => {
       <Route exact path="receptionist" element={<Reception />} />
       <Route exact path="ViewAllReceipts" element={<ViewAllReceipts />} />
       <Route exact path="PatientProfile" element={<PatientProfile />} />
-      <Route exact path="printPatient" element={<PrintablePatientProfile />} />
+      {/* <Route exact path="printPatient" element={<PrintablePatientProfile />} /> */}
       <Route exact path="staff" element={<Patients />} />
       <Route exact path="doctor" element={<Patients />} />
       <Route exact path="admin" element={<Patients />} />
@@ -80,13 +82,22 @@ const createRoutes = () => {
       <Route exact path="/editDform/:id" element = {<DFormEdit/>} />
       <Route exact path='helptable' element={<HelpTable />} />
       <Route exact path="diagForm" element={<DForm />} />
+      <Route exact path="/printform" element = {< PrintForm/>} />
       <Route exact path="DallDetails" element={<DiagnosisDetail />} />
       <Route exact path="meetings/add_meetings" element={<AddMeeting />} />
       <Route exact path="AddNewMember" element={<AddNewMember />} />
       <Route exact path="editAcc" element={<UserAccount />} />
       <Route exact path="help" element={<Help />} />
       <Route exact path="logout" element={<Logout />} />
-     
+      <Route exact path='/addDoctor' element={<DoctorRegister/>} />
+      <Route exact path='/doctorHome' element={<DoctorHome/>} />
+      <Route exact path='/doctorHome/editDoctor/:id' element={<EditDoctor/>} />
+      <Route exact path='/doctorHome/doctorProfile/:id' element={<DoctorDetails/>} />
+      <Route exact path='/doctorRecords' element={<DoctorRecordList/>} />
+      <Route exact path='/editDoctorRecords/:id' element={<EditDoctorRecord/>} />
+      <Route exact path='/addNewDoctorRecord' element={<CreateDoctorRecord/>} />
+      <Route exact path='/addNewAppointmentType' element={<CreateAppType/>} />
+      <Route exact path='/createReport' element={<DoctorReport/>} />
       
       <Route
         exact

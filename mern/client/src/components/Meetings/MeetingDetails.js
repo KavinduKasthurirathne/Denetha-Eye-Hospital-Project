@@ -163,7 +163,9 @@ const Record = (props) => {
         aria-describedby="dialog-description"
       >
         <DialogTitle id="dialog-title">Warning!</DialogTitle>
-        <DialogContent>Are you sure want to delete this meeting?</DialogContent>
+        <DialogContent>
+          Are you sure, that you want to delete this meeting?
+        </DialogContent>
         <DialogActions>
           <Box sx={{ m: 1, position: "relative" }}>
             <Button
