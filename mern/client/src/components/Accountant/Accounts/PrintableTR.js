@@ -89,21 +89,21 @@ const PrintableTR = React.forwardRef((props, ref) => {
                                 </TableRow>
                             ))
                         }
-                        <TableRow>
+                        {/* <TableRow>
                             <TableCell align='right' colSpan={3}><div className='bold-text'>Patient Sub Total</div></TableCell>
                             <TableCell align='right' ><div className='bold-text'>{calculatePatientTotal(props.patientData)}</div></TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell align='right' colSpan={3}><div className='bold-text'>Doctor Sub Total</div></TableCell>
                             <TableCell align='right' ><div className='bold-text'>{calculateDoctorTotal()}</div></TableCell>
-                        </TableRow>
+                        </TableRow> */}
                     </TableBody>
                 </Table>
                 </TableContainer>
             </div>
             <div id='sign' >
                 <h3 className='normal-text right-align'>
-                    {`Gross Income -> `}{(calculatePatientTotal(props.patientData) - calculateDoctorTotal()).toFixed(2)}
+                    {`Gross Income -> `}{(calculatePatientTotal(props.patientData))}
                 </h3>
             </div>
         </div>

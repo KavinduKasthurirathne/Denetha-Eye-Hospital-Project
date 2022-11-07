@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import '../Appoinment.css';
 import '../App.css';
+import {Button} from "@mui/material";
 const Record = (props) => (
  <tr>
-   <td>{props.record.name}</td>
-   <td>{props.record.address}</td>
-   <td>{props.record.phone}</td>
-   <td>{props.record.age}</td>
-   <td>{props.record.gender}</td>
-   <td>{props.record.appoinmentnumber}</td>
+   <td>{props.record.priority}</td>
+   <td>{props.record.discription}</td>
+   <td>{props.record.message}</td>
    <td>{props.record.type}</td>
-   <td>{props.record.date}</td>
-   <td>{props.record.time}</td>
-   <td>{props.record.doctor}</td>
    <td>
-   <a style={{color: 'Black'}} className="btnLink" href={`/Update/${props.record._id}`}><b>Update</b></a><br/><br/>
-     
-
+   <button className="button" variant="contained"  style={{color:'white'}}
+       onClick={() => {
+         props.deleteRecord(props.record._id);
+         window.alert("Record Update");
+       }}
+     >
+       Update
+     </button>|
      <button className='button' variant="contained"  style={{color:'black'}}
        onClick={() => {
          props.deleteRecord(props.record._id);
@@ -29,13 +29,13 @@ const Record = (props) => (
  </tr>
 );
 
-export default function AppoinmentTable() {
+export default function HelpTable() {
   
 const [records, setRecords] = useState([]);
 
 useEffect(() => {
  async function getRecords() {
-   const response = await fetch(`http://localhost:5000/api/appointment`);
+   const response = await fetch(`http://localhost:5000/api/help/`);
 
    if (!response.ok) {
      const message = `An error occurred: ${response.statusText}`;
@@ -54,7 +54,7 @@ useEffect(() => {
 
 // This method will delete a record
 async function deleteRecord(id) {
- await fetch(`http://localhost:5000/api/appointment/delete/${id}`, {
+ await fetch(`http://localhost:5000/api/help/delete/${id}`, {
    method: "DELETE"
  });
 
@@ -77,21 +77,14 @@ function recordList() {
 
 return (
   <div className="arrange" >
-     <button className='button' onClick="/Appointments" variant="contained"  style={{color:'black'}}> Download PDF </button>
-   <h2 style={{marginLeft:520}}>Appoinment Details</h2>
+   <h2 style={{marginLeft:420}}>Help Details</h2>
     <table className="content-table" style={{ marginTop: 20 }}>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Address</th>
-          <th >Phone number</th>
-          <th >Age</th>
-          <th >Gender</th>
-          <th >Appoinment Number</th>
+          <th>Priority</th>
+          <th>Discription</th>
+          <th >Message</th>
           <th >Type</th>
-          <th >Date</th>
-          <th >Time</th>
-          <th >Doctor</th>
           <th>Status</th>
         </tr>
       </thead>

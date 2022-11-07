@@ -20,7 +20,7 @@ const Record = (props) => (
    
    
    <td>
-     <a style={{color: 'Black'}}  href={`/edit/${props.record._id}`}><b>Update</b></a><br/><br/>
+     <a style={{color: 'Black'}}  href={`/editDform/${props.record._id}`}><b>Update</b></a><br/><br/>
      <button className="button-71"
        onClick={() => {
          props.deleteRecord(props.record._id);
