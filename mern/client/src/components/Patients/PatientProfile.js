@@ -6,7 +6,7 @@ import { useCookies } from 'react-cookie';
 import { Button, TextField, useThemeProps } from '@mui/material';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useReactToPrint } from 'react-to-print';
-import PrintablePatientProfile from "./PrintablePatientProfile";
+import {PrintablePatientProfile} from "./PrintablePatientProfile";
 
 const printicon = require('../../image/print.png');
 
@@ -20,9 +20,10 @@ export const PatientProfile = (props) => {
     var [phone, setphone] = useState();
     var [gname, setgname] = useState();
     var [gnumber, setgnumber] = useState();
+    var [remarks, setremarks] = useState();
     var [pId, setpId] = useState();
     const [cookies] = useCookies("id", "name", "age", "gender", "dob", "address", "phone", "gname",
-                                    "gnumber");
+                                    "gnumber", "remarks");
     const [selected, setSelected] = useState(0);
 
 
@@ -48,6 +49,7 @@ export const PatientProfile = (props) => {
             setphone(data[props.selected].phone);
             setgname(data[props.selected].gname);
             setgnumber(data[props.selected].gnumber);
+            setremarks(data[props.selected].remarks);
             setpId(data[props.selected]._id);
           });
       };
@@ -87,7 +89,8 @@ export const PatientProfile = (props) => {
           address,
           phone,
           gname,
-          gnumber
+          gnumber,
+          remarks
         };
     
         console.log(updateProfile);
@@ -108,9 +111,15 @@ export const PatientProfile = (props) => {
         navigateTo('/patient');
     };
 
-    function printProfile(e) {
-        navigateTo('/printPatient');
-    }
+    // function printProfile(e) {
+    //     navigateTo('/printPatient');
+    // }
+
+    const componentRef = useRef();
+
+    const printProfile = useReactToPrint({
+        content: ()=>componentRef.current
+    });
 
 
     return (
@@ -218,6 +227,19 @@ export const PatientProfile = (props) => {
                 <button id='printBtn' className='button' type='print' onClick={printProfile}>
                     <img id="redirecting" src={printicon} alt='printicon' className='print-icon'/>
                 </button>
+                <div style={{display:"none"}}>
+                    <PrintablePatientProfile  
+                            ref={componentRef}
+                            name={name}
+                            age={age}
+                            gender={gender}
+                            dob={dob}
+                            address={address}
+                            phone={phone}
+                            gname={gname}
+                            gnumber={gnumber}
+                            remarks={remarks}/>
+                </div>
             </div>
 
         </div>
