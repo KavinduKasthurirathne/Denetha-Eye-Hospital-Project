@@ -65,6 +65,16 @@ router.route('/record').post(async (req, res) => {
                 res.status(500).send({status:"Error with deleting user",error:err.message})
         })
         })
+
+        router.route("/get/:pid").post(async(req,res)=>{
+            let pid = req.params.pid;
+            await Appoinment.findById(pid).then((data)=>{
+                res.status(200).send(data);
+            }).catch((err)=>{
+                console.log(err.message);
+                res.status(500).send({status:"Error with deleting user",error:err.message})
+        })
+        })
     
         router.route("/").get((req,res)=>{
             Appoinment.find().then((result)=>{
