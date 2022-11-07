@@ -56,7 +56,7 @@ export default function DForm(){
           };
     
     return(
-        <div>
+        <div id='diagnosisedit'>
             <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             <form className="form" onSubmit = {sendData}>
 {/*             

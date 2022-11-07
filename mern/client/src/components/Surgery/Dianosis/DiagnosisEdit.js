@@ -47,9 +47,11 @@ export default function DFormEdit(){
      // These methods will update the state properties.
      function updateForm(value) {
        return setForm((prev) => {
+        
          return { ...prev, ...value };
        });
      }
+     
      
      async function onSubmit(e) {
        e.preventDefault();
@@ -90,7 +92,7 @@ export default function DFormEdit(){
         <div>
             <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             
-            <form className="form" onSubmit = {onSubmit}>
+            <form className="form" id='diagnosisedit' onSubmit = {onSubmit}>
             <div>
             <button  type = "submit"  className='print' onClick={printForm}>Print</button>
             
@@ -129,7 +131,7 @@ export default function DFormEdit(){
 
                 <label   className='lableDiag'>Date Of Addmition:</label>
                 <input type="date"  name="fname" className='forminput'  value = {form.DAddmission}
-                onChange={(e) => updateForm({ DAddmission: e.target.value })}/>
+                onChange={(e) => updateForm({ DAddmission:e.target.value })}/>
                 <br/><br/>
 
                 <label  className='lableDiag'>Date Of Discharge:</label>&nbsp;&nbsp;
