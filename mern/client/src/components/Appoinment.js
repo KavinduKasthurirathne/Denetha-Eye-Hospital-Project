@@ -124,13 +124,13 @@ export const Appoinment=(props) =>{
             <br/>
                 PATIENT DETAILS 
                 <br/><br/>
-                <TextField fullWidth label='Patient Name' placeholder="Enter Patient Name" onChange={handleName} value={name}/>
+                <TextField fullWidth label='Patient Name'  placeholder="Enter Patient Name" onChange={handleName} value={name}/>
                 <br/><br/>
-                <TextField fullWidth label='Address' placeholder="Enter Address" onChange={handleAddress} value={address}/>
+                <TextField fullWidth label='Address'  placeholder="Enter Address" onChange={handleAddress} value={address}/>
                 <br/><br/>
                 <TextField fullWidth label='Contact Number' placeholder="Enter Contact Number" onChange={handlecontactnumber} value={contactnumber}/>
                 <br/><br/>
-                <TextField type="number" fullWidth label='Age'placeholder="Enter Age" value={props.age} onChange={handleAge}/>
+                <TextField type="number" fullWidth label='Age' placeholder="Enter Age" value={props.age} onChange={handleAge}/>
                 <br/><br/>
                 <FormControl component="fieldset">
                 <FormLabel component="legend">Gender</FormLabel>
@@ -144,7 +144,7 @@ export const Appoinment=(props) =>{
                 <br/><br/>
                 <TextField InputProps={{
                   startAdornment: <InputAdornment position="start">{props.type}</InputAdornment>,
-                  }}type="number" fullWidth label='Appoinment Number'placeholder="Enter Appoinment Number" onChange={handleappoinmentnumber} value={appoinmentnumber}/>
+                  }}type="number"  fullWidth label='Appoinment Number'placeholder="Enter Appoinment Number" onChange={handleappoinmentnumber} value={appoinmentnumber}/>
                 <br/><br/>
                 
                 <FormControl sx={{marginTop: 2, width:450}}>
@@ -153,6 +153,7 @@ export const Appoinment=(props) =>{
                   label='Doctor'
                   labelId='select-Doctor-label'
                   id='doctor'
+                  
                   name='doctor'
                   value={props.doctor} 
                   onChange={handleDoctor}
@@ -176,15 +177,15 @@ export const Appoinment=(props) =>{
             </FormControl>
                 <br/><br/>
            
-                <TextField fullWidth label='Type' value={type} onChange={handleType}/>
+                <TextField fullWidth label='Type'  value={type} onChange={handleType}/>
 
            
                 <br/><br/>
                 <div style={{display:'flex'}}>
                 <h5>Date</h5>
-                <TextField type="date" fullWidth onChange={handleDate} value={props.date}/>
+                <TextField type="date" fullWidth  onChange={handleDate} value={props.date}/>
                 <h5>Time</h5>
-                <TextField type="time" fullWidth onChange={handleTime} value ={time}/>
+                <TextField type="time" fullWidth  onChange={handleTime} value ={time}/>
                 </div>
                 <br/>
                 <FormGroup>
