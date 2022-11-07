@@ -62,7 +62,6 @@ const createRoutes = () => {
       <Route exact path="patient" element={<Patients />} />
       <Route exact path="AddPatientForm" element={<AddPatientForm />} />
       <Route exact path="editappointment" element={<EditAppoinment />} />
-      
       <Route
         exact
         path="AppointmentMainpage"
