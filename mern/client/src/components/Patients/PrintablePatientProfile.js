@@ -1,31 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import '../Patients/PrintablePatient.css';
 import { Container } from "@mui/system";
-import { useNavigate, useParams } from "react-router-dom";
-import { useReactToPrint } from "react-to-print";
 
 
-const PrintablePatientProfile = React.forwardRef((props, ref) => {
+export const PrintablePatientProfile = React.forwardRef((props, ref) => {
 
     const logo = require('../../image/denethaLogo.png');
 
-    //Printing Function
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current,
-        documentTitle: "Patient Profile",
-        onAfterPrint: () => history(-1),
-    });
-
-    const { id } = useParams();
-
-    const date = new Date();
-
-    const history = useNavigate();
 
     return (
         <Container className="printPatient">
-            <div className='a4Patient' ref={componentRef}>
+            <div className='a4Patient' ref={ref}>
                 <div className='po-flex' >
                     <div id='po-logo-container' className='po-flex-child'>
                         <img id='print-logo' src={logo} alt='logo' />
@@ -67,7 +52,7 @@ const PrintablePatientProfile = React.forwardRef((props, ref) => {
                         </tr>
                         <tr>
                             <th className="printpatientTH">Phone Number: </th>
-                            <td className="printpatientTD">{props.number}</td>
+                            <td className="printpatientTD">{props.phone}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Guardian's Name: </th>  
@@ -85,13 +70,7 @@ const PrintablePatientProfile = React.forwardRef((props, ref) => {
                 </div>
 
             </div>
-
-            <button id='printPatientBtn' className='button' type='print' onClick={handlePrint}>
-                PRINT
-            </button>
             
         </Container>
     );
-});
-
-export default PrintablePatientProfile;
+})

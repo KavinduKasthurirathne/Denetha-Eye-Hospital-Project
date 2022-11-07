@@ -1,37 +1,22 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
+import {
+    Box,
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+  } from "@mui/material";
 
 
-const Record = (props) => (
-       
-        <tr>
-            <td>{props.record.name}</td>
-            <td>{props.record.phone}</td>
-            <td>{props.record.type}</td>
-            <td>{props.record.age}</td>
-            <td>{props.record.date}</td>
-            <td>{props.record.doctor}</td>
-            <td>Rs.{props.record.amount}</td>
-            <td><button className="button"  onClick={() => {
-                 if (window.confirm("Are you sure you want to delete?") === true) {
-                    props.deleteRecord(props.record._id);
-                  } 
-                    }}><i className="fas fa-trash-alt"></i></button></td>
-            {/* <td><button className="button"  onClick={() => {
-                 props.btnsetter(!props.btnstate);
-                 props.Idsetter(props.record._id);   
-
-                    }}><i className="fas fa-pen"></i></button></td> */}
-        </tr>
-        
-     );
  
 
 export const ViewAllReceipts = () => {
 
     
-
     const [records, setRecords] = useState([]);
+
     const navigateTo = useNavigate();
 
     //This method read the all receipts from the database
@@ -73,7 +58,56 @@ export const ViewAllReceipts = () => {
         });
     }
 
-//  
+    const Record = (props) => {
+
+        const [deleteMeeting, setDeleteMeeting] = useState(false);
+return(
+    <tr>
+        <td>{props.record.name}</td>
+        <td>{props.record.phone}</td>
+        <td>{props.record.type}</td>
+        <td>{props.record.age}</td>
+        <td>{props.record.date}</td>
+        <td>{props.record.doctor}</td>
+        <td>Rs.{props.record.amount}</td>
+        <td><button className="button"  onClick={() => {
+                        setDeleteMeeting(true)
+            //  if (window.confirm("Are you sure you want to delete?") === true) {
+            //     props.deleteRecord(props.record._id);
+            //   } 
+                }}><i className="fas fa-trash-alt"></i></button></td>
+
+        <Dialog
+        open={deleteMeeting}
+        onClose={() => setDeleteMeeting(false)}
+        >
+            
+        <DialogTitle id="dialog-title">Delete Warning!</DialogTitle>
+        <DialogContent>Are you sure you want to delete this receipt?</DialogContent>
+        <DialogActions>
+          <Box sx={{ m: 2, position: "relative" }}>
+            <Button
+              variant="contained"
+              onClick={() => {
+                props.deleteRecord(props.record._id);
+                setDeleteMeeting(false);
+              }}
+              autoFocus
+              color="secondary"
+            >
+              Delete
+            </Button>
+          </Box>
+        </DialogActions>
+        </Dialog>
+            {/* <td><button className="button"  onClick={() => {
+                 props.btnsetter(!props.btnstate);
+                 props.Idsetter(props.record._id);   
+
+                    }}><i className="fas fa-pen"></i></button></td> */}
+        </tr>
+         )
+    };
    
    
     return (
