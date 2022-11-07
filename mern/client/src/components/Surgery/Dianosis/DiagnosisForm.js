@@ -35,6 +35,7 @@ export default function DForm(){
                 setPname("");
                 setWard("");
                 setRegno("");
+                setAge ("");
                 setDAddmission("");
                 setDdischarge("");
                 setDsurgery("");
