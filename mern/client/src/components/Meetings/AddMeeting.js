@@ -48,6 +48,7 @@ function AddMeetings(props) {
       )
       .then(() => {
         navigate("/meetings");
+        window.location.reload(true);
       })
       .catch((err) => {
         alert(err);

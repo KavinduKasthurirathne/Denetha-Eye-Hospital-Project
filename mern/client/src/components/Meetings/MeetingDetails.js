@@ -4,8 +4,7 @@ import AddMeetings from "./AddMeeting.js";
 import PrintMeetingDetails from "./PrintMeetingDetails.js";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import AlertDelete from "./AlertDelete";
-import AlertDialog from "../StaffDetails/deleteConfimation";
+
 import {
   Box,
   Button,
@@ -51,7 +50,6 @@ function Meetings(props) {
 
     const newRecords = records.filter((el) => el._id !== id);
     setRecords(newRecords);
-    //setAlertDelete(true);
   }
 
   // This method will map out the records on the table
@@ -90,7 +88,7 @@ function Meetings(props) {
             Add
           </button>
         </div>
-        {/* {AlertDelete && <AlertDelete />} */}
+
         <table className="meetingtable">
           <thead>
             <tr>
