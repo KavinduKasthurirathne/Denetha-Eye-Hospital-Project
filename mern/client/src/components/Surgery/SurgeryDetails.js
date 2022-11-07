@@ -37,7 +37,15 @@ return (
         </select>
   
    </td>
-   <td><button className="button-88">Paid</button></td>
+   <td>
+   {/* <td>      <button className="button-88">Paid</button> */}
+   <label class="switch">
+        <input type="checkbox"/>Paid
+  <span class="slider round"></span>
+</label>
+   
+   
+   </td>
    
   
    <td>

@@ -106,7 +106,7 @@ export default function DFormEdit(){
                 <div >
                 <label   className='lableDiag'>Name of Patient:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" className='forminput' name="fname"    value = {form.pname}
-                 onChange={(e) => updateForm({ pnumber: e.target.value })}/>
+                 onChange={(e) => updateForm({ pname: e.target.value })}/>
                  <br/><br/>
                 <label    className='lableDiag' >Ward Number:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text"  className='forminput' name="lname" value = {form.ward}
