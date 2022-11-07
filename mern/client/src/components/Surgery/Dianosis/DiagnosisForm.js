@@ -55,6 +55,7 @@ export default function DForm(){
     
     return(
         <div>
+            <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             <form className="form" onSubmit = {sendData}>
             
             <button  type = "submit"  className='print' >Print</button>
@@ -76,13 +77,13 @@ export default function DForm(){
                 onChange={(e)=>{
 
                     setPname(e.target.value);
-                }}/><br/><br/>
+                }} required/><br/><br/>
                 <label    className='lableDiag' >Ward Number:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text"  className='forminput' name="lname" value = {ward}
                 onChange={(e)=>{
 
                     setWard(e.target.value);
-                }}/><br/><br/>
+                }} required/><br/><br/>
                 <label for="Aname"    className='lableDiag' >Patient Age :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="number" className='forminput' name="fname"   value = {age}
                 onChange={(e)=>{
@@ -94,13 +95,13 @@ export default function DForm(){
                 onChange={(e)=>{
 
                     setRegno(e.target.value);
-                }}/><br/><br/>
+                }} required/><br/><br/>
                 <label   className='lableDiag'>Date Of Addmition:</label>
                 <input type="date"  name="fname" className='forminput'  value = {DAddmission}
                 onChange={(e)=>{
 
                     setDAddmission(e.target.value);
-                }}/><br/><br/>
+                }} required/><br/><br/>
                 <label  className='lableDiag'>Date Of Discharge:</label>&nbsp;&nbsp;
                 <input type="date"  name="fname" className='forminput' value = {Ddischarge}
                 onChange={(e)=>{
