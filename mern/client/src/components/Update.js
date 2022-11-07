@@ -79,11 +79,9 @@ export default function Update() {
      
      <form onSubmit={onSubmit} className = "formcolor">
      <div className="container2">
-       
-       
        <br/>
            <div className="form-group">
-               <h2 className="h2cssIWAnt">Update </h2><br/>
+               <h2 className="h2cssIWAnt">Appointment Update </h2><br/>
                <TextField fullWidth label='Patient Name'id="name" placeholder="Enter Patient Name" onChange={(e) => updateForm({ name: e.target.value })} value={form.name}/>
                  
            </div>
@@ -94,7 +92,7 @@ export default function Update() {
    
            </div><br/>
 
-           <div className="form-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <div className="form-group">
                <TextField fullWidth label='Phone number' placeholder="Enter phone number" onChange={(e) => updateForm({ phone: e.target.value })} value={form.phone}/>    
            </div><br/>
 
@@ -119,10 +117,10 @@ export default function Update() {
 
            <div className="form-group">
            <TextField fullWidth label='Date' placeholder="Enter date" onChange={(e) => updateForm({ date: e.target.value })} value={form.date}/>     </div>
-        
+        <br/>
            <div className="form-group">
            <TextField fullWidth label='Time' placeholder="Enter time" onChange={(e) => updateForm({ time: e.target.value })} value={form.time}/>     </div>
-
+           <br/>
            <div className="form-group">
            <TextField fullWidth label='Doctor' placeholder="Enter the doctor" onChange={(e) => updateForm({ doctor: e.target.value })} value={form.doctor}/>     </div>
            <button type="submit" className="button" > Update </button>
