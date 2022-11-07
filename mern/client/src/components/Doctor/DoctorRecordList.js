@@ -10,9 +10,11 @@ const DoctorRecord = props => (
     <td>{props.doctorRecord.totalPatients}</td>
     <td>{props.doctorRecord.charge}</td>
     <td>{props.doctorRecord.date.substring(0,10)}</td>
-    <td>
-      <Link to={"/editDoctorRecords/"+props.doctorRecord._id}>edit</Link> | <a href="#" onClick={() => { props.deleteDoctorRecord(props.doctorRecord._id) }}>delete</a>
-    </td>
+    <td><button className="button"  onClick={() => {
+                 if (window.confirm("Are you sure you want to delete?") === true) {
+                    props.deleteDoctorRecord(props.doctorRecord._id);
+                  } 
+                    }}><i className="fas fa-trash-alt"></i></button></td>
   </tr>
 )
 
@@ -53,7 +55,8 @@ export default class DoctorRecordList extends Component {
   render() {
     return (
       <div>
-        <p class='head'><b>Doctor Records</b></p>
+        <br/>
+        <center><h2>Doctor Records</h2></center>
         <div className="container">
         <table className="table">
           <thead className="thead-light">

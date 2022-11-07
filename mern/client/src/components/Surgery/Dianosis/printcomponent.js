@@ -103,14 +103,17 @@ export default function PrintForm(){
            
 
                 <img src= {projectlogo} alt='logo' className='logoForDiagnosisprint'></img>
-               <h2>Denetha<br/>Eye Care Center</h2>
-                {/* <p className="p1">REG NO:</p> */}
+               
+               <div className='diagnocontainer'>
+               <h2  className='printH2' >Denetha Eye Care Center</h2>
+                
                 <div >
-                <h5 className="Dh6">34/6,1st Lane,<br/>
-                    Bauddhaloka Mawatha,<br/>
-                    Kurunegala.</h5></div>
-                    <div className="tel"><h5>
-                Tel:037-2222013 <br/>Hot line:077-7211494</h5></div>
+                <h5 className='printH4' >34/6,1st Lane,
+                    Bauddhaloka Mawatha,<br/><div className='h5edit'>
+                    Kurunegala.</div></h5></div> </div><br/>
+                    {/* <div className="telPrint"><h5>
+                Tel:037-2222013 <br/>Hot line:077-7211494</h5></div> */}
+                <hr/>
                 <h2 className="Dh2"><u>Diagnosis Card</u></h2><br/>
 
                 <div >
@@ -124,7 +127,7 @@ export default function PrintForm(){
                  <br/>
 
                 <label for="Aname"    className='lableDiag' >Patient Age :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="number" className='forminput' name="fname"   value = {form.age}
                onChange={(e) => updateForm({ age: e.target.value })}/>
                <br/>
@@ -134,7 +137,7 @@ export default function PrintForm(){
                 onChange={(e) => updateForm({ Regno: e.target.value })}/>
                 <br/>
 
-                <label   className='lableDiag'>Date Of Addmition:</label>
+                <label   className='lableDiag'>Date Of Addmition:</label>&nbsp;
                 <input type="date"  name="fname" className='forminput'  value = {form.DAddmission}
                 onChange={(e) => updateForm({ DAddmission: getDateString (e.target.value) })}/>
                 <br/>
@@ -165,18 +168,18 @@ export default function PrintForm(){
             checked={form.PHACO === 'Prednisolone 2/52'}  onChange={(e) => updateForm({ PHACO: e.target.value })}/>
 
             <label for="Optimox 2/52"> Optimox 2/52</label><br/>
-
+            <br/>
             <label for="Aname"  className='lableDiag'>IOL Type:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text"  name="fname" className='forminput'  
                 value = {form.IOL}
                 onChange={(e) => updateForm({ IOL: e.target.value })}/>
                 <br/>
-            <label for="Aname"  className='lableDiag'>Variable W/S:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <label for="Aname"  className='lableDiag'>Variable W/S:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <input type="text"  name="fname"   className='forminput'
             value = {form.variable}
             onChange={(e) => updateForm({ variable: e.target.value })}/>
-            <br/>
+            <br/><br/><br/>
             <label for="Aname" className=' p'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Dr.M.Shaminda Amarathunge</label><br/>
             <label for="Aname" className='p'>MBBS.MD.(ophth)Consultant Eye Surgeon</label><br/><br/>
            
@@ -185,6 +188,7 @@ export default function PrintForm(){
             </form>
            
             </div>
+            <br/><br/> <br/><br/>
         </div>
     );
     }

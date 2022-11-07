@@ -53,6 +53,9 @@ app.use("/api/meeting", meetingRouter);
 const inventory = require('./routes/Inventory');
 app.use('/api/inventory' , inventory);
 
+// const inventory = require('./routes/Inventorytable');
+// app.use('/api/Inventorytable' , Inventorytable);
+
 const profileRouter = require("./routes/Profiledb");
 app.use("/api/profile", profileRouter);
 

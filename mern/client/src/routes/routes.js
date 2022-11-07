@@ -62,7 +62,6 @@ const createRoutes = () => {
       <Route exact path="patient" element={<Patients />} />
       <Route exact path="AddPatientForm" element={<AddPatientForm />} />
       <Route exact path="editappointment" element={<EditAppoinment />} />
-      
       <Route
         exact
         path="AppointmentMainpage"
@@ -89,7 +88,15 @@ const createRoutes = () => {
       <Route exact path="editAcc" element={<UserAccount />} />
       <Route exact path="help" element={<Help />} />
       <Route exact path="logout" element={<Logout />} />
-     
+      <Route exact path='/addDoctor' element={<DoctorRegister/>} />
+      <Route exact path='/doctorHome' element={<DoctorHome/>} />
+      <Route exact path='/doctorHome/editDoctor/:id' element={<EditDoctor/>} />
+      <Route exact path='/doctorHome/doctorProfile/:id' element={<DoctorDetails/>} />
+      <Route exact path='/doctorRecords' element={<DoctorRecordList/>} />
+      <Route exact path='/editDoctorRecords/:id' element={<EditDoctorRecord/>} />
+      <Route exact path='/addNewDoctorRecord' element={<CreateDoctorRecord/>} />
+      <Route exact path='/addNewAppointmentType' element={<CreateAppType/>} />
+      <Route exact path='/createReport' element={<DoctorReport/>} />
       
       <Route
         exact

@@ -33,19 +33,18 @@ export default class CreateAppType extends Component {
   render() {
     return (
       <div>
-        <h3>Add New Appointment Type</h3>
+       <center><h2>Add New Appoinment Type</h2></center>
         <form onSubmit={this.onSubmit}>
-          <div className="form-group"> 
+        <div class="content"> 
             <label>Appointment Type Name: </label>
             <input  type="text"
                 required
-                className="form-control"
                 value={this.state.appType}
                 onChange={this.onChangeAppType}
                 />
-          </div>
-          <div className="form-group">
-            <input type="submit" value="Add" className="btn btn-primary" />
+          <button type="submit" class="button">
+            Add
+          </button>
           </div>
         </form>
       </div>

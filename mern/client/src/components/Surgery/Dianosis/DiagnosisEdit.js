@@ -81,12 +81,13 @@ export default function DFormEdit(){
     };
 
         const navigate = useNavigate();
-        // const navigateToAddDiagnosis = () => {
-        //     navigate('/DallDetails');
-        //   };
+        const navigateToAddDiagnosis = () => {
+            navigate('/DallDetails');
+          };
     
     return(
         <div>
+            <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             <form className="form" onSubmit = {onSubmit}>
             <div>
             <button  type = "submit"  className='print' onClick={printForm}>Print</button>
@@ -105,7 +106,7 @@ export default function DFormEdit(){
                 <div >
                 <label   className='lableDiag'>Name of Patient:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" className='forminput' name="fname"    value = {form.pname}
-                 onChange={(e) => updateForm({ pnumber: e.target.value })}/>
+                 onChange={(e) => updateForm({ pname: e.target.value })}/>
                  <br/><br/>
                 <label    className='lableDiag' >Ward Number:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text"  className='forminput' name="lname" value = {form.ward}
