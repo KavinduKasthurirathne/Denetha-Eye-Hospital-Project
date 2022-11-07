@@ -27,6 +27,7 @@ router.route('/record').post(async (req, res) => {
         date,
         time,
         doctor,});
+
     
        await newRecord.save().then((result)=>{
             res.json(result);
@@ -34,6 +35,26 @@ router.route('/record').post(async (req, res) => {
         }).catch((err)=>{
             console.log(err);
         })
+
+        router.route("/Update/:pid").put(async(req,res)=>{
+            let sid = req.params.pid;
+            //destructure
+            const{name,address,phone,age,gender,appoinmentnumber,type,date,time,doctor} = req.body;
+    
+            const updatedata = {
+                name,address,phone,age,gender,appoinmentnumber,type,date,time,doctor
+            }
+    
+            const update = await Appoinment.findByIdAndUpdate(sid,updatedata)
+            .then(()=>{
+                res.status(200).send({status:"Updated Appoitnment details"})  
+            }).catch((err)=>{
+                console.log(err);
+                res.status(500).send({status:"Error with updating data",error:err.message});
+                })
+    
+            })
+    
 
         router.route("/delete/:pid").delete(async(req,res)=>{
             let sid = req.params.pid;
