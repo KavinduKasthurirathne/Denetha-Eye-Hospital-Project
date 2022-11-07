@@ -46,22 +46,22 @@ router.route("/").get((req,res)=>{
 router.route("/update/:pid").put(async(req,res)=>{
     let sid = req.params.pid;
     //destructure
-    const{itemcode,
-        itemname,
-        vendorcode,
-        location,
-        quantity,
-        cost,
-        status} = req.body;
+    const{Itemcode,
+        Itemname,
+        Vendorcode,
+        Location,
+        Quantity,
+        Cost,
+        Status} = req.body;
 
     const updatedata = {
-        itemcode,
-        itemname,
-        vendorcode,
-        location,
-        quantity,
-        cost,
-        status
+        Itemcode,
+        Itemname,
+        Vendorcode,
+        Location,
+        Quantity,
+        Cost,
+        Status
     }
 
     const update = await inventory.findByIdAndUpdate(sid,updatedata)
@@ -74,27 +74,37 @@ router.route("/update/:pid").put(async(req,res)=>{
 
     })
 
-router.route("/delete/:pid").delete(async(req,res)=>{
-let sid = req.params.pid;
+    router.route("/delete/:pid").delete(async(req,res)=>{
+    let sid = req.params.pid;
 
-await inventory.findByIdAndDelete(sid).then(()=>{
-    res.status(200).send({status:"Details Deleted"});
-}).catch((err)=>{
-    console.log(err.message);
-    res.status(500).send({status:"Error with deleting user",error:err.message})
-})
+    await inventory.findByIdAndDelete(sid).then(()=>{
+        res.status(200).send({status:"Details Deleted"});
+    }).catch((err)=>{
+        console.log(err.message);
+        res.status(500).send({status:"Error with deleting user",error:err.message})
+    })
 
-})
+    })
 
-router.route("/get/:pid").get(async (req,res)=>{
-let sid = req.params.pid;
-const user = await surgery1.findById(sid).then(()=>{
-    res.status(200).send({status:"User fetched"})
-}).catch((err)=>{
-    console.log(err.message);
-    res.status(500).send({status:"Error with get user",error:err.message});
+    router.route("/get/:pid").get(async (req,res)=>{
+    let sid = req.params.pid;
+    const user = await inventory.findById(sid).then(()=>{
+        res.status(200).send({status:"User fetched"})
+    }).catch((err)=>{
+        console.log(err.message);
+        res.status(500).send({status:"Error with get user",error:err.message});
 
-})
-})
+        })
+                         
+    })
+    
+    router.route("/").get((req,res)=>{
+        inventory.find().then((result)=>{
+            res.json(result)
+        }).catch((err)=>{
+            console.log(err);
+        })
+    })
 
+    
 module.exports = router;
