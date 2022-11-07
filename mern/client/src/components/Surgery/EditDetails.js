@@ -77,7 +77,7 @@ export default function Edit() {
        'Content-Type': 'application/json'
      },
    });
- 
+   window.alert("User Records Updated SuccessFully");
    navigate("/surgery");
  }
 

@@ -31,7 +31,7 @@ export default function DForm(){
             }
             
             axios.post("http://localhost:5000/api/diagnosis/add" , newPatient).then(()=> {
-                alert("Patient Details Added")
+                // alert("Patient Details Added")
                 setPname("");
                 setWard("");
                 setRegno("");

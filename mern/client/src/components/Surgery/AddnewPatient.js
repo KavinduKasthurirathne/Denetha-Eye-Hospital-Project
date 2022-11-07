@@ -25,7 +25,7 @@ export default function AddSuPatient (){
         }
         
         axios.post("http://localhost:5000/api/surgery/add" , newPatient).then(()=> {
-            alert("Patient Details Added")
+            // alert("Patient Details Added")
             setPnumber("");
             setName("");
             setNumber("");
