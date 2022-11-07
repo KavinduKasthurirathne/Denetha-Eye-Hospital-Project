@@ -96,15 +96,15 @@ export default function PrintForm(){
           };
     
     return(
-        <div>
+        <div className='surgeryprintcontainer'>
           <button  type = "submit"  className='print'  onClick={handlePrint}>Print</button>
-            <div   ref={componentRef}><form className="form">
+            <div   ref={componentRef}><form className='printcomponenentform'>
             
            
 
-                <img src= {projectlogo} alt='logo' className='logoForDiagnosis'></img>
-                <h2 className="Dh2">Denetha<br/>Eye Care Center</h2>
-                <p className="p1">REG NO:</p>
+                <img src= {projectlogo} alt='logo' className='logoForDiagnosisprint'></img>
+               <h2>Denetha<br/>Eye Care Center</h2>
+                {/* <p className="p1">REG NO:</p> */}
                 <div >
                 <h5 className="Dh6">34/6,1st Lane,<br/>
                     Bauddhaloka Mawatha,<br/>
@@ -117,37 +117,37 @@ export default function PrintForm(){
                 <label   className='lableDiag'>Name of Patient:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" className='forminput' name="fname"    value = {form.pname}
                  onChange={(e) => updateForm({ pnumber: e.target.value })}/>
-                 <br/><br/>
+                 <br/>
                 <label    className='lableDiag' >Ward Number:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text"  className='forminput' name="lname" value = {form.ward}
                  onChange={(e) => updateForm({ ward: e.target.value })}/>
-                 <br/><br/>
+                 <br/>
 
                 <label for="Aname"    className='lableDiag' >Patient Age :</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="number" className='forminput' name="fname"   value = {form.age}
                onChange={(e) => updateForm({ age: e.target.value })}/>
-               <br/><br/>
+               <br/>
 
                 <label for="Aname"   className='lableDiag'> Registration No:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="number"  name="fname" className='forminput' value = {form.Regno}
                 onChange={(e) => updateForm({ Regno: e.target.value })}/>
-                <br/><br/>
+                <br/>
 
                 <label   className='lableDiag'>Date Of Addmition:</label>
                 <input type="date"  name="fname" className='forminput'  value = {form.DAddmission}
                 onChange={(e) => updateForm({ DAddmission: getDateString (e.target.value) })}/>
-                <br/><br/>
+                <br/>
 
                 <label  className='lableDiag'>Date Of Discharge:</label>&nbsp;&nbsp;
                 <input type="date"  name="fname" className='forminput' value = {form.Ddischarge}
                  onChange={(e) => updateForm({ Ddischarge: getDateString (e.target.value) })}/>
-                 <br/><br/>
+                 <br/>
 
                 <label className='lableDiag'>Date Of Surgery:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="date"  name="fname"  className='forminput' value = {form.Dsurgery}
                 onChange={(e) => updateForm({ Dsurgery: getDateString (e.target.value) })}/>
-                <br/><br/>
+                <br/>
 
             <label  className='lableDiag'>R/PHACO + 'F' IOL T/A</label>  <br/>
 <br/>
@@ -164,7 +164,7 @@ export default function PrintForm(){
             <input type="checkbox" className='mycheckbox' name="vehicle3" value=" Optimox 2/52"
             checked={form.PHACO === 'Prednisolone 2/52'}  onChange={(e) => updateForm({ PHACO: e.target.value })}/>
 
-            <label for="Optimox 2/52"> Optimox 2/52</label><br/><br/>
+            <label for="Optimox 2/52"> Optimox 2/52</label><br/>
 
             <label for="Aname"  className='lableDiag'>IOL Type:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -176,14 +176,14 @@ export default function PrintForm(){
             <input type="text"  name="fname"   className='forminput'
             value = {form.variable}
             onChange={(e) => updateForm({ variable: e.target.value })}/>
-            <br/><br/>
+            <br/>
             <label for="Aname" className=' p'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Dr.M.Shaminda Amarathunge</label><br/>
-            <label for="Aname" className='p'>MBBS.MD.(ophth)Consultant Eye Surgeon</label><br/><br/><br/> 
-           <br/><br/><br/><br/>
+            <label for="Aname" className='p'>MBBS.MD.(ophth)Consultant Eye Surgeon</label><br/><br/>
+           
 
             </div>
             </form>
-            <br/><br/> <br/><br/> <br/><br/>
+           
             </div>
         </div>
     );
