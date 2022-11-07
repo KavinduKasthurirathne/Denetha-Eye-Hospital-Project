@@ -111,9 +111,6 @@ export const PatientProfile = (props) => {
         navigateTo('/patient');
     };
 
-    // function printProfile(e) {
-    //     navigateTo('/printPatient');
-    // }
 
     const componentRef = useRef();
 
@@ -217,6 +214,17 @@ export const PatientProfile = (props) => {
                         setgnumber(e.target.value);
                     }}
                     value={gnumber}/>
+
+                <TextField
+                    sx={{marginTop:2, width:400}}
+                    name='remarks'
+                    variant='standard'
+                    label='Remarks'
+                    InputLabelProps={{shrink: true}}
+                    onChange={(e) => {
+                        setremarks(e.target.value);
+                    }}
+                    value={remarks}/>
             </div>
 
         

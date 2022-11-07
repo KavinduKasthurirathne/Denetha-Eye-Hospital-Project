@@ -3,7 +3,7 @@ import '../Patients/PrintablePatient.css';
 import { Container } from "@mui/system";
 
 
-const PrintablePatientProfile = React.forwardRef((props, ref) => {
+export const PrintablePatientProfile = React.forwardRef((props, ref) => {
 
     const logo = require('../../image/denethaLogo.png');
 
