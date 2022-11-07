@@ -73,7 +73,7 @@ export default function DFormEdit(){
            'Content-Type': 'application/json'
          },
        });
-       window.alert("User Records Updated SuccessFully");
+      //  window.alert("User Records Updated SuccessFully");
        navigatefor("/DallDetails");
      }
      const printForm = () => {
