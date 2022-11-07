@@ -32,6 +32,16 @@ import DiagnosisDetail from "../components/Surgery/Dianosis/DiagnosisAll";
 import DForm from "../components/Surgery/Dianosis/DiagnosisForm";
 import { ViewAllReceipts } from "../components/Receptionist/ViewAllReceipts";
 import PrintablePatientProfile from "../components/Patients/PrintablePatientProfile";
+import DoctorRegister from '../components/Doctor/DoctorRegister';
+import DoctorHome from '../components/Doctor/DoctorHome';
+import EditDoctor from "../components/Doctor/EditDoctor";
+import DoctorDetails from "../components/Doctor/DoctorDetails";
+import DoctorRecordList from '../components/Doctor/DoctorRecordList';
+import EditDoctorRecord from '../components/Doctor/EditDoctorRecord';
+import CreateDoctorRecord from "../components/Doctor/CreateDoctorRecord";
+import CreateAppType from "../components/Doctor/CreateAppType";
+import DoctorReport from "../components/Doctor/DoctorReport";
+import DFormEdit from "../components/Surgery/Dianosis/DiagnosisEdit";
 
 
 const createRoutes = () => {
@@ -67,6 +77,7 @@ const createRoutes = () => {
       <Route exact path="addNew" element={<AddSuPatient />} />
       <Route exact path="/edit/:id" element={<Edit />} />
       <Route exact path="/Update/:id" element={<Update />} />
+      <Route exact path="/editDform/:id" element = {<DFormEdit/>} />
       <Route exact path='helptable' element={<HelpTable />} />
       <Route exact path="diagForm" element={<DForm />} />
       <Route exact path="DallDetails" element={<DiagnosisDetail />} />
