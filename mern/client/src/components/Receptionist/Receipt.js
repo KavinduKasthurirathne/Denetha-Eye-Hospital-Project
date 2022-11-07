@@ -4,7 +4,6 @@ import axios from "axios";
 import { useReactToPrint } from 'react-to-print';
 import { ReceiptPrint } from "./ReceiptPrint";
 
-
 export const Receipt = (props) => {  
 
     const [type, settype] = useState("");
