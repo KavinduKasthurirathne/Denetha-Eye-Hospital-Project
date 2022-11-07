@@ -4,14 +4,21 @@
     color: red;
 
 }
-/* th
-{
-    background-color:#7f858c ;
+.table_table-striped1 th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-left: auto;
+      margin-right: auto;
+    background-color: transparent;
+    color: rgb(18, 18, 18);
+    /* padding: 12px; */
+    font-size: 20px;
+    
 }
-td
-{
-    background-color: #ffffff;
-} */
+
+#columnwidth{
+    width: 20px;
+}
 .upbackground
 {
     box-sizing: border-box;
