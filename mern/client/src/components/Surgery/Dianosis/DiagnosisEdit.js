@@ -91,6 +91,7 @@ export default function DFormEdit(){
             <form className="form" onSubmit = {onSubmit}>
             <div>
             <button  type = "submit"  className='print' onClick={printForm}>Print</button>
+            
 
                 <img src= {projectlogo} alt='logo' className='logoForDiagnosis'></img>
                 <h2 className="Dh2">Denetha<br/>Eye Care Center</h2>
