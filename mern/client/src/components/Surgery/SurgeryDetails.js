@@ -28,7 +28,7 @@ return (
    <td>{props.record.Stype}</td>
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Admission Form</Link></td> */}
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Report</Link></td> */}
-   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Details Receipt</Link></td>
+   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/editDform/${props.record._id}`}>Details Receipt</Link></td>
    <td> 
           <select className="dropdown">
             <option  className= 'dropdowncolor' value="Waiting">Waiting</option>
@@ -170,7 +170,8 @@ function recordList() {
       setSearchItem(e.target.value);
     }}/></form>
 
-    <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
+    
+    <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Receipts</span></button>
      <table className="table_table-striped1">
        <thead>
          <tr>
@@ -192,7 +193,7 @@ function recordList() {
      </table>
      <br/>
      {/* <button className="button1" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button> */}
-     <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Receipts</span></button>
+     <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
      
    </div>
  );
