@@ -1,14 +1,25 @@
 
 import './FormD.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 //import {Header} from '../Header.js';
 import axios  from "axios";
 import { useParams, useNavigate } from "react-router";
+import { useReactToPrint } from "react-to-print";
 
 const projectlogo = require('../../../image/denethaLogo.png');
 
-export default function DFormEdit(){
-  const [form, setForm] = useState({
+export default function PrintForm(){
+  const componentRef = useRef();
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "Patient Surgery Records",
+    onAfterPrint: () => history(-1),
+  });
+      const history = useNavigate();
+
+
+    const [form, setForm] = useState({
         pname:"",
         ward:"",
         Regno:"",
@@ -71,25 +82,25 @@ export default function DFormEdit(){
          body: JSON.stringify(editedPerson),
          headers: {
            'Content-Type': 'application/json'
+           
          },
        });
-       window.alert("User Records Updated SuccessFully");
+      
        navigatefor("/DallDetails");
      }
-     const printForm = () => {
-      navigate("/printform");
-    };
+     
 
         const navigate = useNavigate();
-        // const navigateToAddDiagnosis = () => {
-        //     navigate('/DallDetails');
-        //   };
+        const navigateToAddDiagnosis = () => {
+            navigate('/DallDetails');
+          };
     
     return(
         <div>
-            <form className="form" onSubmit = {onSubmit}>
-            <div>
-            <button  type = "submit"  className='print' onClick={printForm}>Print</button>
+          <button  type = "submit"  className='print'  onClick={handlePrint}>Print</button>
+            <div   ref={componentRef}><form className="form">
+            
+           
 
                 <img src= {projectlogo} alt='logo' className='logoForDiagnosis'></img>
                 <h2 className="Dh2">Denetha<br/>Eye Care Center</h2>
@@ -168,12 +179,12 @@ export default function DFormEdit(){
             <br/><br/>
             <label for="Aname" className=' p'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Dr.M.Shaminda Amarathunge</label><br/>
             <label for="Aname" className='p'>MBBS.MD.(ophth)Consultant Eye Surgeon</label><br/><br/><br/> 
-            <button  type = "submit" className='Dsave'  >Save</button><br/><br/><br/><br/>
+           <br/><br/><br/><br/>
 
-            </div>
             </div>
             </form>
             <br/><br/> <br/><br/> <br/><br/>
+            </div>
         </div>
     );
     }
