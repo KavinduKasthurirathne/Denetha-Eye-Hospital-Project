@@ -33,31 +33,14 @@ export default function Update() {
         
         return;
      });
-    //  const response = await fetch(`http://localhost:5000/api/surgery/get/${params.id.toString()}`);
-    //  console.log(params.id.toString());
- 
-    //  if (!response.ok) {
-    //    const message = `An error has occurred: ${response.statusText}`;
-    //    window.alert(message);
-    //    return;
-    //  }
- 
-    //  const record = await response.json();
-    //  if (!record) {
-    //    window.alert(`Record with id ${id} not found`);
-    //    navigate("/surgery");
-    //    return;
-    //  }
- 
-     //setForm(record);
+  
    }
  
    fetchData();
  
    return;
  }, [params.id, navigate]);
- 
- // These methods will update the state properties.
+
  function updateForm(value) {
    return setForm((prev) => {
      return { ...prev, ...value };
@@ -90,8 +73,7 @@ export default function Update() {
  
    navigate("/AppoinmentTable");
  }
- 
- // This following section will display the form that takes input from the user to update the data.
+
  return (
    <div>
      
