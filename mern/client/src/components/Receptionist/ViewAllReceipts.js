@@ -60,8 +60,8 @@ export const ViewAllReceipts = () => {
 
     const Record = (props) => {
 
-        const [deleteMeeting, setDeleteMeeting] = useState(false);
-return(
+    const [deleteMeeting, setDeleteMeeting] = useState(false);
+    return(
     <tr>
         <td>{props.record.name}</td>
         <td>{props.record.phone}</td>

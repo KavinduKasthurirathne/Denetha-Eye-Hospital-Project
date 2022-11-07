@@ -33,7 +33,6 @@ export const AddPatientForm = () => {
         }
 
         axios.post("http://localhost:5000/api/patient/insert", newPatient).then(()=>{
-            alert("Patient Added Successfully!");
             navigateTo('/receptionist');
         }).catch((err)=>{
             alert(err);

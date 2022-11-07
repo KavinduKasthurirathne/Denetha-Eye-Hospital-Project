@@ -3,10 +3,22 @@ import React, { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
 import { Link } from "react-router-dom";
 import './SurgeryDetails.css';
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 
  
-const Record = (props) => (
+const Record = (props) => {
+  const [deleteSurgery, setDeleteSurgery] = useState(false);
 
+return (
+ 
  <tr className="design">
    <td>{props.record.pnumber}</td>
    <td>{props.record.pname}</td>
@@ -16,7 +28,7 @@ const Record = (props) => (
    <td>{props.record.Stype}</td>
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Admission Form</Link></td> */}
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Report</Link></td> */}
-   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Details Receipt</Link></td>
+   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/editDform/${props.record._id}`}>Details Receipt</Link></td>
    <td> 
           <select className="dropdown">
             <option  className= 'dropdowncolor' value="Waiting">Waiting</option>
@@ -25,22 +37,58 @@ const Record = (props) => (
         </select>
   
    </td>
-   <td><button className="button-88">Paid</button></td>
+   <td>
+   {/* <td>      <button className="button-88">Paid</button> */}
+   <label class="switch">
+        <input type="checkbox"/>Paid
+  <span class="slider round"></span>
+</label>
+   
+   
+   </td>
    
   
    <td>
      <a style={{color: 'Black'}} className="btnLink" href={`/edit/${props.record._id}`}><b>Update</b></a><br/><br/>
      <button className="button-71"
-       onClick={() => {
-         props.deleteRecord(props.record._id);
-         window.alert("Record Deleted");
-       }}
+       onClick={() => 
+        setDeleteSurgery(true)
+         
+       }
      >
        Delete
      </button>
    </td>
+   <Dialog
+        open={deleteSurgery}
+        onClose={() => setDeleteSurgery(false)}
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-description"
+      >
+        <DialogTitle id="dialog-title">Warning!</DialogTitle>
+        <DialogContent>
+          Are you sure, that you want to delete this records?
+        </DialogContent>
+        <DialogActions>
+          <Box sx={{ m: 1, position: "relative" }}>
+            <Button
+              variant="contained"
+              onClick={() => {
+                props.deleteRecord(props.record._id);
+                setDeleteSurgery(false);
+              }}
+              autoFocus
+              color="secondary"
+            >
+              Confirm
+            </Button>
+          </Box>
+        </DialogActions>
+      </Dialog>
+
  </tr>
 );
+      };
  
 export default function RecordList() {
 
@@ -122,7 +170,8 @@ function recordList() {
       setSearchItem(e.target.value);
     }}/></form>
 
-    <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
+    
+    <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Receipts</span></button>
      <table className="table_table-striped1">
        <thead>
          <tr>
@@ -144,7 +193,7 @@ function recordList() {
      </table>
      <br/>
      {/* <button className="button1" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button> */}
-     <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Receipts</span></button>
+     <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
      
    </div>
  );

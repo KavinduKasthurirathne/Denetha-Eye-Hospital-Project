@@ -81,12 +81,13 @@ export default function DFormEdit(){
     };
 
         const navigate = useNavigate();
-        // const navigateToAddDiagnosis = () => {
-        //     navigate('/DallDetails');
-        //   };
+        const navigateToAddDiagnosis = () => {
+            navigate('/DallDetails');
+          };
     
     return(
         <div>
+            <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
             <form className="form" onSubmit = {onSubmit}>
             <div>
             <button  type = "submit"  className='print' onClick={printForm}>Print</button>
@@ -105,7 +106,7 @@ export default function DFormEdit(){
                 <div >
                 <label   className='lableDiag'>Name of Patient:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text" className='forminput' name="fname"    value = {form.pname}
-                 onChange={(e) => updateForm({ pnumber: e.target.value })}/>
+                 onChange={(e) => updateForm({ pname: e.target.value })}/>
                  <br/><br/>
                 <label    className='lableDiag' >Ward Number:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="text"  className='forminput' name="lname" value = {form.ward}
@@ -168,7 +169,7 @@ export default function DFormEdit(){
             <br/><br/>
             <label for="Aname" className=' p'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Dr.M.Shaminda Amarathunge</label><br/>
             <label for="Aname" className='p'>MBBS.MD.(ophth)Consultant Eye Surgeon</label><br/><br/><br/> 
-            <button  type = "submit" className='Dsave'  >Save</button><br/><br/><br/><br/>
+            <button  type = "submit" className='Dsave'  >Update</button><br/><br/><br/><br/>
 
             </div>
             </div>

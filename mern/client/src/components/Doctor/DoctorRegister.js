@@ -156,13 +156,15 @@ return (
               required
             />
           </div>
-          <div class="mb-3 col-lg-12 col-md-12 col-12">
+          <div class="mb-3 col-lg-6 col-md-6 col-12">
             <label  class="form-label">
               Description
             </label>
-            <textarea type="text" onChange={(e)=>{
+              <input
+              type="text" onChange={(e)=>{
                 setDesc(e.target.value);
-              }} name="desc"className="form-control" id="" cols="30" rows="5"></textarea>
+              }} name="desc"className="form-control" id=""
+            />
           </div>
             
           <button type="submit" class="button">

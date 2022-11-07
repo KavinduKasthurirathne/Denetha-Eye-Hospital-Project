@@ -77,14 +77,18 @@ export default function Edit() {
        'Content-Type': 'application/json'
      },
    });
- 
+   window.alert("User Records Updated SuccessFully");
    navigate("/surgery");
  }
+
+ const navigateToDetails = () => {
+  navigate('/surgery');
+};
  
  // This following section will display the form that takes input from the user to update the data.
  return (
    <div>
-     
+     <button type="submit" className="Dback" onClick={navigateToDetails}  > Back </button>
      <form onSubmit={onSubmit} className = "formcolor">
      <div className="container2">
        
@@ -132,14 +136,19 @@ export default function Edit() {
            </div>
            <br/>
            <button type="submit"
-           value="Update Record" className="button" >Update</button>
+           value="Update Record" className="Dback" id="myupdate" >Update</button>
            <br/><br/> <br/>
          
           
-           <button type="submit" className="button" > ⇇Back </button>
+           
            </div>
 
      </form>
+
+     <br/><br/> <br/>
+         
+
+
    </div>
  );
 }
