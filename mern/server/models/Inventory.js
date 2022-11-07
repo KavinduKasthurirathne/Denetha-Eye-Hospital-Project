@@ -3,9 +3,10 @@ const Mongoose = require('mongoose');
 const InventorySchema = new Mongoose.Schema({
     Itemcode: String,
     Itemname: String,
-    Vendocode: String,
+    Vendorcode: String,
     Location :String,
     Cost:String,
+    Quantity:String,
     // type:String,
     Status:String,
 });
