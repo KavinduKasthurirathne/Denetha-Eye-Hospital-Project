@@ -130,7 +130,7 @@ export const Appoinment=(props) =>{
                 <br/><br/>
                 <TextField fullWidth label='Contact Number' placeholder="Enter Contact Number" onChange={handlecontactnumber} value={contactnumber}/>
                 <br/><br/>
-                <TextField fullWidth label='Age'placeholder="Enter Age" value={props.age} onChange={handleAge}/>
+                <TextField type="number" fullWidth label='Age'placeholder="Enter Age" value={props.age} onChange={handleAge}/>
                 <br/><br/>
                 <FormControl component="fieldset">
                 <FormLabel component="legend">Gender</FormLabel>

@@ -74,7 +74,7 @@ export default function Update() {
        'Content-Type': 'application/json'
      },
    });
- 
+   window.alert("Record Update");
    navigate("/AppoinmentTable");
  }
 

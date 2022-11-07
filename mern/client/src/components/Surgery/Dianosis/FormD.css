@@ -28,6 +28,17 @@
     margin-right: 150px;
     font-size: 18px;
 }
+.telPrint{
+        /* float: right; */
+        text-align: right;
+        margin-right: 150px;
+        font-size: 18px;
+    
+}
+.diagnocontainer{
+    margin-left: 40%;
+    
+}
 .data{
     text-align: center;
 }
@@ -77,18 +88,26 @@
 
 
 }
+.h5edit{
+    margin-left: 18%;
+}
+.printH2{
+    margin-top: 5px;
+}
 .printcomponenentform{
-    max-width: 220mm;
-    max-height: 290mm;
+    max-width: 210mm;
+    max-height: 297mm;
     /* margin-left: 5%; */
     background-color: rgb(255, 255, 255);
     align-items: center;
     
-    box-shadow: 0px 8px 15px 5px rgba(0, 0, 0, 0.082);
+    /* box-shadow: 0px 8px 15px 5px rgba(0, 0, 0, 0.082); */
 }
 .surgeryprintcontainer{
     margin-left: 25%;
 }
+ 
+
 .Dback{
     align-items: center;
     margin-top: 3%;
@@ -142,4 +161,6 @@
     width: 15%;
     margin-left: 6%;
     border-radius: 100px;
+    max-width: 15%;
+    float: left;
 }
