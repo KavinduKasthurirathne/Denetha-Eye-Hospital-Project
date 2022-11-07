@@ -10,6 +10,7 @@
     height: 100%; 
     margin-left: auto;
     margin-right: auto;
+    margin-top: 50px;
   }
   
   .left_view h3 {
@@ -41,7 +42,7 @@
 .content {
     
     height: 100px;
-    
+    text-align: center;
     position: absolute;
     top:0;
     bottom: 0;
@@ -54,5 +55,7 @@
 .head {
   text-align: center;
 }
+
+
 
 
