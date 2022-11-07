@@ -169,7 +169,7 @@ export default function DFormEdit(){
             <br/><br/>
             <label for="Aname" className=' p'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   Dr.M.Shaminda Amarathunge</label><br/>
             <label for="Aname" className='p'>MBBS.MD.(ophth)Consultant Eye Surgeon</label><br/><br/><br/> 
-            <button  type = "submit" className='Dsave'  >Save</button><br/><br/><br/><br/>
+            <button  type = "submit" className='Dsave'  >Update</button><br/><br/><br/><br/>
 
             </div>
             </div>

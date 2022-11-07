@@ -28,7 +28,7 @@ return (
    <td>{props.record.Stype}</td>
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Admission Form</Link></td> */}
    {/* <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Ultra Sound Report</Link></td> */}
-   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/edit/${props.record._id}`}>Details Receipt</Link></td>
+   <td> <Link style={{color: 'brown'}} className="btnLink" to={`/editDform/${props.record._id}`}>Details Receipt</Link></td>
    <td> 
           <select className="dropdown">
             <option  className= 'dropdowncolor' value="Waiting">Waiting</option>
