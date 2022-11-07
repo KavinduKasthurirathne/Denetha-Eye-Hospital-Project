@@ -170,7 +170,8 @@ function recordList() {
       setSearchItem(e.target.value);
     }}/></form>
 
-    <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
+    
+    <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Receipts</span></button>
      <table className="table_table-striped1">
        <thead>
          <tr>
@@ -192,7 +193,7 @@ function recordList() {
      </table>
      <br/>
      {/* <button className="button1" onClick= {navigateToAddNew}><span>Ultra Sound Reports</span></button> */}
-     <button className="button1" onClick= {navigateToDiagDeta}><span>Diagnosis Receipts</span></button>
+     <button className="button1"  onClick= {navigateToAddNew}><span>Add New Patient</span></button>
      
    </div>
  );

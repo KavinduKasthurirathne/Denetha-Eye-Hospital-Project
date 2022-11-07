@@ -5,6 +5,23 @@
    
     
 }
+#myupdate{
+  margin-left: 20%;
+}
+.container2 input{
+ 
+  align-items: center;
+  font-size: 15px;
+  height: 20px;
+  font-weight: 500;
+ 
+  
+}
+.container2 label{
+  float: left;
+  margin-left: 5%;
+  
+}
 .gedercss{
  
   margin-right: 70%;
