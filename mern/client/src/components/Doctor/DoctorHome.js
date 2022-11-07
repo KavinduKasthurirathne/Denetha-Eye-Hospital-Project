@@ -74,16 +74,19 @@ const deleteuser = async(id)=>{
 //     getdata();
 //   }
 // }
-const paperStyle={padding:'1px 1px',width:'1200px',margin:"50px auto"}
+const paperStyle={padding:'10px 10px',width:'900px',margin:"100px auto"}
 
   return (
     <Paper elevation={20} style={paperStyle}>
     <div className="mt-5">
       <div className="container">
         <div className="add_btn">
+          <br></br><br></br>
           <NavLink to="/addDoctor"><button className="button">+Add Doctor</button></NavLink>
           <br></br><br></br>
           <NavLink to="/doctorRecords"><button className="button">Doctor Records</button></NavLink>
+          <br></br><br></br>
+          <NavLink to="/addNewDoctorRecord"><button className="button">+Add Records</button></NavLink>
         </div>
 
         <table class="table">
