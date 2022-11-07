@@ -1,9 +1,10 @@
-import React,{useState ,useEffect} from "react";
-import { Button, Grid ,Paper, TextField, Typography,Radio ,RadioGroup, FormLabel, FormControl, Checkbox,Select,InputLabel, 
+import React,{useState ,useEffect,NavLink} from "react";
+import { Grid ,Paper, TextField, Typography,Radio ,RadioGroup, FormLabel, FormControl, Checkbox,Select,InputLabel, 
     FormControlLabel,TextareaAutosize ,FormGroup,Box,MenuItem} from "@mui/material";
 import axios from 'axios';
 import {useCookies} from 'react-cookie';
-
+import {useNavigate} from 'react-router-dom';
+import '../App.css';
 export const Help=() =>{
     const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"}
     const buttonColor={background:'#2A628F' ,padding:'10px 97px',margin :'5px',width:100}
@@ -12,8 +13,15 @@ export const Help=() =>{
     const [Message,setMessage] = useState('');
     const [Type,setType] = useState('');
     const [cookies] = useCookies('proxy');
+   
     const logo = require('../image/denethaLogo.png');
     
+    const navigate = useNavigate();
+    const navigateToAddNew = () => {
+        navigate('/helptable');
+      };
+    const [records, setRecords] = useState([]);
+
     const handlePriority = ({target}) =>
     {
         setPriority(target.value);
@@ -40,8 +48,10 @@ export const Help=() =>{
     };
   await axios.post(`${cookies.proxy}/api/help/record`,Help)
   .then((res)=>{
+    alert("Success")
   console.log(res.data);
   }).catch((err)=>{
+    alert("Unsuccess")
     console.log(err);
   })
     }
@@ -94,7 +104,8 @@ export const Help=() =>{
                 </FormControl>
                 <br/><br/>
                 <div align="center">
-                <Button onClick={handleSubmit} variant="contained" style={buttonColor} >Submit</Button>
+                <button onClick={handleSubmit} className='button' variant="contained"  style={{color:'black'}} >Submit</button>
+                <button onClick={navigateToAddNew} className='button' variant="contained"  style={{color:'white'}} >View</button>
                 </div>
             </form>
         </Paper>

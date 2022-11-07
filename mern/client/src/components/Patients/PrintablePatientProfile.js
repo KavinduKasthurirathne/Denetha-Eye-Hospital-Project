@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import '../Patients/PrintablePatient.css';
-import { TextField } from "@mui/material";
 import { Container } from "@mui/system";
 import { useNavigate, useParams } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
-import { Button } from '@mui/material';
-import axios from "axios";
 
 
-const PrintablePatientProfile = () => {
+const PrintablePatientProfile = React.forwardRef((props, ref) => {
 
     const logo = require('../../image/denethaLogo.png');
 
@@ -50,39 +47,39 @@ const PrintablePatientProfile = () => {
                     <table>
                         <tr>
                             <th className="printpatientTH">Full Name: </th>
-                            <td className="printpatientTD">Name</td>
+                            <td className="printpatientTD">{props.name}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Age: </th>
-                            <td className="printpatientTD">Age</td>
+                            <td className="printpatientTD">{props.age}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Gender: </th>
-                            <td className="printpatientTD">Gender</td>
+                            <td className="printpatientTD">{props.gender}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Date of Birth: </th>
-                            <td className="printpatientTD">Date of Birth</td>
+                            <td className="printpatientTD">{props.dob}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Address: </th>
-                            <td className="printpatientTD">Address</td>
+                            <td className="printpatientTD">{props.address}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Phone Number: </th>
-                            <td className="printpatientTD">Phone Number</td>
+                            <td className="printpatientTD">{props.number}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Guardian's Name: </th>  
-                            <td className="printpatientTD">Guardian's Name</td>
+                            <td className="printpatientTD">{props.gname}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Guardian's Phone Number: </th>  
-                            <td className="printpatientTD">Guardian's Phone Number</td>
+                            <td className="printpatientTD">{props.gnumber}</td>
                         </tr>
                         <tr>
                             <th className="printpatientTH">Remarks: </th>  
-                            <td className="printpatientTD">Remarks</td>
+                            <td className="printpatientTD">{props.remarks}</td>
                         </tr>
                     </table>
                 </div>
@@ -95,6 +92,6 @@ const PrintablePatientProfile = () => {
             
         </Container>
     );
-};
+});
 
 export default PrintablePatientProfile;
