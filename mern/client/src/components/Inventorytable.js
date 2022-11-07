@@ -76,7 +76,7 @@ function recordList() {
 return (
   <div className="arrange" >
      <button className='button' onClick="/Inventory" variant="contained"  style={{color:'black'}}> Download PDF </button>
-   <h2 style={{marginLeft:520}}>Inventory Details</h2>
+   <h2 style={{marginLeft:300}}>Inventory Details</h2>
     <table className="content-table" style={{ marginTop: 20 }}>
       <thead>
         <tr>
