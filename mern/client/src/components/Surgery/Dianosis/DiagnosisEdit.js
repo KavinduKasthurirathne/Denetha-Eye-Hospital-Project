@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 //import {Header} from '../Header.js';
 import axios  from "axios";
 import { useParams, useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const projectlogo = require('../../../image/denethaLogo.png');
 
@@ -88,6 +89,7 @@ export default function DFormEdit(){
     return(
         <div>
             <button  type = "submit" className='Dback' onClick={navigateToAddDiagnosis}>Back</button>
+            
             <form className="form" onSubmit = {onSubmit}>
             <div>
             <button  type = "submit"  className='print' onClick={printForm}>Print</button>
@@ -127,17 +129,17 @@ export default function DFormEdit(){
 
                 <label   className='lableDiag'>Date Of Addmition:</label>
                 <input type="date"  name="fname" className='forminput'  value = {form.DAddmission}
-                onChange={(e) => updateForm({ DAddmission: getDateString (e.target.value) })}/>
+                onChange={(e) => updateForm({ DAddmission: e.target.value })}/>
                 <br/><br/>
 
                 <label  className='lableDiag'>Date Of Discharge:</label>&nbsp;&nbsp;
                 <input type="date"  name="fname" className='forminput' value = {form.Ddischarge}
-                 onChange={(e) => updateForm({ Ddischarge: getDateString (e.target.value) })}/>
+                 onChange={(e) => updateForm({ Ddischarge: e.target.value})}/>
                  <br/><br/>
 
                 <label className='lableDiag'>Date Of Surgery:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="date"  name="fname"  className='forminput' value = {form.Dsurgery}
-                onChange={(e) => updateForm({ Dsurgery: getDateString (e.target.value) })}/>
+                onChange={(e) => updateForm({ Dsurgery: e.target.value })}/>
                 <br/><br/>
 
             <label  className='lableDiag'>R/PHACO + 'F' IOL T/A</label>  <br/>
