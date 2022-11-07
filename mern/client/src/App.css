@@ -2,7 +2,7 @@
   text-align: center;
   animation: fadein 0.3s ease-in;
 }
-.basic{
+.basic {
   text-align: center;
   animation: fadetranslate 0.3s ease-in;
 }
@@ -48,24 +48,24 @@
   border-radius: 100px;
   box-shadow: 2px 2px 4px #00000057;
 }
-.header-logo{
+.header-logo {
   transform: translate(180%, 150%) scale(370%);
   width: 50%;
   border-radius: 100px;
   box-shadow: 0.7px 0.7px 1px #00000057;
 }
-#logo{
+#logo {
   flex-basis: 80px;
   flex-grow: 0;
   flex-shrink: 0;
 }
-#header-design-container{
+#header-design-container {
   overflow: hidden;
   flex-basis: 300px;
   flex-grow: 0;
   flex-shrink: 0;
 }
-#header-design{
+#header-design {
   width: 50%;
   transform: scale(150%) translate(55%, 10%);
 }
@@ -85,12 +85,12 @@ input {
   border-radius: 30px;
   border: 0px;
   color: white;
-  background-color: #2A628F;
+  background-color: #2a628f;
   transition: all 0.3s;
   cursor: pointer;
   box-shadow: 0px 0px 0px #989898;
   font-size: medium;
-  font-family:'Calibri';
+  font-family: "Calibri";
 }
 .button:hover {
   background-color: #1f3e58;
@@ -103,42 +103,42 @@ input {
 .button:active {
   transform: scale(92%);
 }
-.navButton{
+.navButton {
   width: 200px;
 }
 
-a{
+a {
   text-decoration: none;
   color: white;
 }
 
-.header{
+.header {
   height: 20%;
   animation: fadein 0.5s ease-in;
 }
-.flex-container{
+.flex-container {
   display: flex;
 }
-.flex-child{
+.flex-child {
   flex: 1;
   padding: 5px;
   margin: 5px;
 }
 
-.navlink{
+.navlink {
   margin-left: 8%;
   font-weight: lighter;
 }
-.active{
+.active {
   font-weight: bolder;
 }
-.right-align{
+.right-align {
   text-align: right;
 }
-.left-align{
+.left-align {
   text-align: left;
 }
-#profile{
+#profile {
   background-color: #ffffff00;
   display: flex;
   flex-basis: 15%;
@@ -146,25 +146,25 @@ a{
   flex-shrink: 0;
 }
 
-#username{
+#username {
   color: white;
   font-weight: bold;
   margin-top: 1px;
   margin-bottom: 1px;
-  white-space: nowrap
+  white-space: nowrap;
 }
-#userRole{
+#userRole {
   color: white;
   font-weight: lighter;
   margin-top: 1px;
   margin-bottom: 0px;
-  white-space: nowrap
+  white-space: nowrap;
 }
-#userinfo{
+#userinfo {
   margin-top: 20px;
 }
 
-#profilePic{
+#profilePic {
   margin: auto;
   background-color: rgba(0, 0, 0, 0);
   height: 75px;
@@ -172,22 +172,22 @@ a{
   text-align: center;
 }
 
-.error-msg{
+.error-msg {
   height: 25px;
   transition: all 0.5s;
   font-weight: lighter;
   animation: fadetranslate 0.5s ease-in;
 }
 
-.thin-text{
+.thin-text {
   font-weight: lighter;
   margin: 0%;
 }
-.bold-text{
+.bold-text {
   font-weight: bold;
   margin: 0%;
 }
-.loading{
+.loading {
   margin: auto;
   border: 6px solid #9c9c9c;
   border-radius: 50%;
@@ -197,7 +197,7 @@ a{
   background-color: #00ada400;
   animation: spin 1s infinite ease-in-out;
 }
-#addAccount{
+#addAccount {
   text-align: center;
   padding: 2%;
   width: 30%;
@@ -208,10 +208,10 @@ a{
   margin: auto;
   margin-bottom: 30px;
 }
-#navbar{
+#navbar {
   margin-top: 2.5%;
 }
-#user-account{
+#user-account {
   margin-top: 60px;
   font-size: x-large;
   font-weight: bold;
@@ -225,26 +225,33 @@ a{
   text-align: center;
   width: 90%;
 }
-.title{
+.title {
   font-size: large;
 }
 
-
 @keyframes fadein {
-  from {opacity: 0; }
-  to   {opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes fadetranslate {
-  from { 
+  from {
     opacity: 0;
     transform: translate(0%, -3%);
   }
-  to   { 
-    opacity: 1; 
+  to {
+    opacity: 1;
     transform: translate(0%, 0%);
   }
 }
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

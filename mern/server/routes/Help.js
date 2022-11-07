@@ -34,6 +34,26 @@ router.route('/record').post(async (req, res) => {
             res.status(500).send({status:"Error with deleting user",error:err.message})
     })
     })
+    
+    router.route("/update/:pid").put(async(req,res)=>{
+        let sid = req.params.pid;
+        //destructure
+        const{priority,discription,message,type} = req.body;
+
+        const updatedata = {
+            priority,discription,message,type
+        }
+
+        const update = await Help.findByIdAndUpdate(sid,updatedata)
+        .then(()=>{
+            res.status(200).send({status:"Updated Help details"})  
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500).send({status:"Error with updating data",error:err.message});
+            })
+
+        })
+
 
     router.route("/").get((req,res)=>{
         Help.find().then((result)=>{
