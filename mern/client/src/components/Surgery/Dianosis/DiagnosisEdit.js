@@ -77,7 +77,7 @@ export default function DFormEdit(){
        navigatefor("/DallDetails");
      }
      const printForm = () => {
-      navigate("/printform");
+      navigate(`/printform/${params.id}`);
     };
 
         const navigate = useNavigate();

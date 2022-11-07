@@ -39,7 +39,7 @@ export default function PrintForm(){
        async function fetchData() {
          const id = params.id.toString();
     
-         await axios.get(`http://localhost:5000/api/diagnosis/get/${params.id.toString()}`)
+         await axios.post(`http://localhost:5000/api/diagnosis/get/${params.id.toString()}`)
          .then(({data}) => {
             setForm(data);
          }).catch((err) => {
