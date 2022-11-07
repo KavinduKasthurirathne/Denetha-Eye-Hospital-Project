@@ -11,6 +11,7 @@ import { Logout } from "../components/Logout";
 import AppoinmentTable from "../components/AppoinmentTable";
 import { Inventory } from "../components/Inventory";
 import { InventoryTable } from "../components/Inventorytable";
+import { Editinventory } from "../components/Editinventory";
 import { Reception } from "../components/Reception";
 import UserAccount from "../components/UserAccount";
 import { AddPatientForm } from "../components/Patients/AddPatientForm";
@@ -75,6 +76,7 @@ const createRoutes = () => {
       <Route exact path="surgery" element={<RecordList />} />
       <Route exact path="inventory" element={<Inventory />} />
       <Route exact path="InventoryTable" element={<InventoryTable />} />
+      <Route exact path="Editinventory" element={<Editinventory />} />
       <Route exact path="addNew" element={<AddSuPatient />} />
       <Route exact path="/edit/:id" element={<Edit />} />
       <Route exact path="/Update/:id" element={<Update />} />
