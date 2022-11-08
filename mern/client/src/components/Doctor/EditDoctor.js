@@ -4,12 +4,35 @@ import { useState } from "react";
 import { Paper } from "@mui/material";
 
 
+
 const EditDoctor = () => {
 
   //const [getuserdata,setUserdata] = useState([]);
   //console.log(getuserdata);
 
-const history = useNavigate("");
+  const history = useNavigate("");
+  // const [name,setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [mobile, setMobile] = useState('');
+  // const [specialization,setSpecialization] = useState('');
+  // const [desc,setDesc] = useState('');
+  // const params = useParams();
+
+  // useEffect(()=>{
+  //     getDoctorDetails();
+  // },[]);
+
+  // const getDoctorDetails = async ()=>{
+  //   console.warn(params)
+  //   let result = await fetch(`/api/doctor/getuser/${params.id}`);
+  //   result = await result.json();
+  //   console.warn(result)
+  //   setName(result.name);
+  //   setEmail(result.email);
+  //   setMobile(result.mobile);
+  //   setSpecialization(result.specialization);
+  //   setDesc(result.desc);
+  // }
 
 const [inpval, setINP] = useState({
     name:"",
@@ -30,7 +53,7 @@ const [inpval, setINP] = useState({
     })
   } 
 
-  const { id } = useParams("");
+  const {id}  = useParams("");
   console.log(id);
 
   const getdata = async () => {

@@ -114,7 +114,12 @@ const paperStyle={padding:'10px 10px',width:'900px',margin:"100px auto"}
               <td className="d-flex justify-content-between">
                 <NavLink to={`doctorProfile/${element._id}`}><button className="button"><RemoveRedEyeIcon /></button></NavLink>
                 <NavLink to={`editDoctor/${element._id}`}><button className="button"><EditIcon/></button></NavLink>
-                <button className="button" onClick={()=>deleteuser(element._id)}><DeleteIcon/></button>
+              
+                <button className="button"  onClick={() => {
+                 if (window.confirm("Delete Doctor ?") === true) {
+                  deleteuser(element._id);
+                  } 
+                    }}><DeleteIcon/></button>
               </td>
             </tr> 
                 </>
