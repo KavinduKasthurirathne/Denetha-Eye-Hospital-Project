@@ -11,7 +11,6 @@ function AddMeetings(props) {
   var [time, setTime] = useState(props.time);
   var [host, setHost] = useState(props.host);
   var [description, setDescription] = useState(props.description);
-
   const navigate = useNavigate();
 
   function sendMeetingDetails(event) {
@@ -40,7 +39,6 @@ function AddMeetings(props) {
       description,
     };
 
-    console.log(updateMeeting);
     axios
       .put(
         "http://localhost:5000/api/meeting/update/" + props.id,
@@ -67,8 +65,6 @@ function AddMeetings(props) {
     const correctDate = new Date(date.getTime() + 360 * 60000);
     return correctDate.toISOString().split("T")[0];
   };
-
-  console.log(props);
 
   return (
     <div className="addMeetingContainer">
