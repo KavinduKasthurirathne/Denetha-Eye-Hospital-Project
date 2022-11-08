@@ -1,5 +1,5 @@
 import { Button, FormControl, IconButton, InputAdornment, InputLabel, MenuItem, Select, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {useCookies} from 'react-cookie';
@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const TestAddAccount = () => {
     const [show, setShow] = useState(false);
+    const [buttonEnable, setButtonEnable] = useState(true);
     const [cookies] = useCookies('proxy');
     const [input, setInput] = useState({
         name: '',
@@ -15,6 +16,18 @@ export const TestAddAccount = () => {
         role: ''
     });
     const navigateTo = useNavigate();
+
+    useEffect(()=>{
+        if(input.name!=='' && 
+        input.username!=='' &&
+        input.password!=='' &&
+        input.role!==''
+        ){
+            setButtonEnable(false);
+        } else {
+            setButtonEnable(true);
+        }
+    }, [input])
 
     const handleClickShow = () => {
         setShow(!show);
@@ -117,6 +130,8 @@ export const TestAddAccount = () => {
                 </Select>
             </FormControl><br />
             <Button 
+                disabled={buttonEnable}
+                variant='contained'
                 sx={{marginTop: 1}}
                 onClick={handleSubmit} >Add Account</Button>
         </div>

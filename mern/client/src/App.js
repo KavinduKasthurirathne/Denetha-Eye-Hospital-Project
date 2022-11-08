@@ -73,7 +73,10 @@ const App = () => {
         setCookie('loggedIn', 'true', {path: '/', maxAge: (3600*12)});
       }
     })
-    .catch((error) => {console.log(error)});
+    .catch((error) => {
+      console.log(error);
+      setLoading(false);
+    });
   };
 
   const user = {
