@@ -1,0 +1,63 @@
+.btn_btn-primary{
+    width:100px;
+    height:30px;
+}
+
+.form-group label{
+   margin:10px;
+}
+
+.form-control{
+    margin-left:100px;
+}
+
+.addMeetingContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 50px;
+}
+
+.addMeetingInnerContainer {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 20px 0;
+    box-shadow: 0px 8px 15px 5px rgba(0, 0, 0, 0.082);
+}
+
+.addMeetingTitle {
+    text-align: center;
+}
+
+.addmeetingform{
+    text-Align: 'center';
+    font-weight: bold;
+    font-Size: 18;
+    padding: 30px 0;
+}
+
+.form-group-addM {
+    width: 80%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    display: flex;
+}
+
+.form-group-addM input {
+    width: 130%;
+    height: 30px;
+}
+
+.form-group-addM label {
+    width: 50%;
+    height: 30px;
+    padding: 2px;
+    font-weight: lighter;
+}
+
+.addmeetingform button {
+    margin-top: 20px;
+}

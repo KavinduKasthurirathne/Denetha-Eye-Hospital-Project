@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { NavLink ,useParams , useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Paper } from "@mui/material";
+import {Grid, Paper } from "@mui/material";
+
 
 
 const EditDoctor = () => {
@@ -9,7 +10,29 @@ const EditDoctor = () => {
   //const [getuserdata,setUserdata] = useState([]);
   //console.log(getuserdata);
 
-const history = useNavigate("");
+  const history = useNavigate("");
+  // const [name,setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [mobile, setMobile] = useState('');
+  // const [specialization,setSpecialization] = useState('');
+  // const [desc,setDesc] = useState('');
+  // const params = useParams();
+
+  // useEffect(()=>{
+  //     getDoctorDetails();
+  // },[]);
+
+  // const getDoctorDetails = async ()=>{
+  //   console.warn(params)
+  //   let result = await fetch(`/api/doctor/getuser/${params.id}`);
+  //   result = await result.json();
+  //   console.warn(result)
+  //   setName(result.name);
+  //   setEmail(result.email);
+  //   setMobile(result.mobile);
+  //   setSpecialization(result.specialization);
+  //   setDesc(result.desc);
+  // }
 
 const [inpval, setINP] = useState({
     name:"",
@@ -17,7 +40,7 @@ const [inpval, setINP] = useState({
     mobile:"",
     specialization:"",
     desc:""
-  })
+  });
 
   const setdata = (e) => {
     console.log(e.target.value);
@@ -30,7 +53,7 @@ const [inpval, setINP] = useState({
     })
   } 
 
-  const { id } = useParams("");
+  const {id}  = useParams("");
   console.log(id);
 
   const getdata = async () => {
@@ -77,22 +100,26 @@ const [inpval, setINP] = useState({
     if(res2.status === 422 || !data2){
       alert("fill the data");
     }else{
-      alert("data updated");
+      alert("Doctor Updated Successfuly!");
       history.push("/")
     }
 
   }
 
-  const paperStyle={padding:'1px 1px',width:'1200px',margin:"50px auto"}
+  const logo = require('./denethaLogo.png');
+  const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"};
 
   return (
-    <Paper elevation={20} style={paperStyle}>
-    <div className="container">
-      <NavLink to="/doctorHome"><button className="button">Home</button></NavLink>
-      <form className="mt-5">
+    <Grid>
+        <Paper elevation={20} style={paperStyle}>
+            <Grid align='center'>
+            <div> <img className='logo-img' src={logo} alt={'logo'} /></div>
+            <h1>Edit Doctor Details</h1>
+            </Grid>
+            <form className="mt-5">
         <div className="row">
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputEmail1" class="form-label">
+            <label>
               Name
             </label>
             <input
@@ -106,7 +133,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Email Address
             </label>
             <input
@@ -119,7 +146,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Mobile Number
             </label>
             <input
@@ -132,7 +159,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label >
               Specialization
             </label>
             <input
@@ -145,19 +172,22 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-12 col-md-12 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Description
             </label>
-            <textarea type="text" value={inpval.desc} onChange={setdata} name="desc"className="form-control" id="" cols="30" rows="5"></textarea>
+            <input type="text" value={inpval.desc} onChange={setdata} name="desc"className="form-control" ></input>
           </div>
-
+          <br></br>
+          <center>
           <button type="submit" onClick={updateuser} class="button">
             Update
           </button>
+          <NavLink to="/doctorHome"><button className="button">Cancel</button></NavLink>
+          </center>
         </div>
       </form>
-    </div>
-    </Paper>
+        </Paper>
+    </Grid> 
   );
 };
 

@@ -135,7 +135,7 @@ export const PatientProfile = (props) => {
        
        <div className='patienttable'>
             <p className='denethahead'><u><b>Denetha Eye Hospital</b></u></p>
-            <p className='head'><u><b>Patient Details</b></u></p>
+            <p className='headPatient'><u><b>Patient Details</b></u></p>
 
             <div className="textfield">
                 <TextField
