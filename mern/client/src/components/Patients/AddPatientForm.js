@@ -19,6 +19,7 @@ export const AddPatientForm = () => {
 
     function sendData(e) {
         e.preventDefault();
+        navigateTo('/patient');
         
         const newPatient ={
             name,

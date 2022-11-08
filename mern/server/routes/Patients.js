@@ -95,6 +95,7 @@ router.route("/update").post(async (req, res) => {
     phone: req.body.phone,
     gname: req.body.gname,
     gnumber: req.body.gnumber,
+    remarks: req.body.remarks
   };
 
   await patient.findByIdAndUpdate(id, UpdateProfile)
