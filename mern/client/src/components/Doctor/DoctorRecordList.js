@@ -5,16 +5,16 @@ import "./Doctor.css";
 
 const DoctorRecord = props => (
   <tr>
-    <td>{props.doctorRecord.docName}</td>
-    <td>{props.doctorRecord.appType}</td>
-    <td>{props.doctorRecord.totalPatients}</td>
-    <td>{props.doctorRecord.charge}</td>
-    <td>{props.doctorRecord.date.substring(0,10)}</td>
-    <td><button className="button"  onClick={() => {
+    <td><center>Dr.{props.doctorRecord.docName}</center></td>
+    <td><center>{props.doctorRecord.appType}</center></td>
+    <td><center>{props.doctorRecord.totalPatients}</center></td>
+    <td><center>{props.doctorRecord.charge}</center></td>
+    <td><center>{props.doctorRecord.date.substring(0,10)}</center></td>
+    <td><center><button className="button"  onClick={() => {
                  if (window.confirm("Are you sure you want to delete?") === true) {
                     props.deleteDoctorRecord(props.doctorRecord._id);
                   } 
-                    }}><i className="fas fa-trash-alt"></i></button></td>
+                    }}><i className="fas fa-trash-alt"></i></button></center></td>
   </tr>
 )
 

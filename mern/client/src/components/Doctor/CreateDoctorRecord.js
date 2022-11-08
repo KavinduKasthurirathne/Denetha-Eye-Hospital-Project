@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { Button,Paper } from "@mui/material";
 import "./AddRecords.css";
+import { NavLink} from "react-router-dom";
 
 export default class CreateDoctorRecord extends Component {
   constructor(props) {
@@ -83,6 +84,7 @@ export default class CreateDoctorRecord extends Component {
 
     axios.post('http://localhost:5000/api/DoctorRecords/add', doctorRecord)
       .then(res => console.log(res.data));
+      alert("Record Added Successfully!");
 
     window.location = '/doctorRecords';
   }
@@ -156,6 +158,7 @@ export default class CreateDoctorRecord extends Component {
             <button type="submit" className="button">
               Submit
             </button>
+            <NavLink to="/doctorHome"><button className="button">Cancel</button></NavLink>
           </center>
         </form>
       </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { NavLink ,useParams , useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Paper } from "@mui/material";
+import {Grid, Paper } from "@mui/material";
 
 
 
@@ -106,13 +106,17 @@ const [inpval, setINP] = useState({
 
   }
 
-  const paperStyle={padding:'1px 1px',width:'1200px',margin:"50px auto"}
+  const logo = require('./denethaLogo.png');
+  const paperStyle={padding:'30px 30px',width:'450px',margin:"20px auto"};
 
   return (
-    <Paper elevation={20} style={paperStyle}>
-    <div className="container">
-      <NavLink to="/doctorHome"><button className="button">Home</button></NavLink>
-      <form className="mt-5">
+    <Grid>
+        <Paper elevation={20} style={paperStyle}>
+            <Grid align='center'>
+            <div> <img className='logo-img' src={logo} alt={'logo'} /></div>
+            <h1>Edit Doctor Details</h1>
+            </Grid>
+            <form className="mt-5">
         <div className="row">
           <div class="mb-3 col-lg-6 col-md-6 col-12">
             <label>
@@ -171,16 +175,19 @@ const [inpval, setINP] = useState({
             <label>
               Description
             </label>
-            <textarea type="text" value={inpval.desc} onChange={setdata} name="desc"className="form-control" id="" cols="30" rows="5"></textarea>
+            <input type="text" value={inpval.desc} onChange={setdata} name="desc"className="form-control" ></input>
           </div>
-
+          <br></br>
+          <center>
           <button type="submit" onClick={updateuser} class="button">
             Update
           </button>
+          <NavLink to="/doctorHome"><button className="button">Cancel</button></NavLink>
+          </center>
         </div>
       </form>
-    </div>
-    </Paper>
+        </Paper>
+    </Grid> 
   );
 };
 

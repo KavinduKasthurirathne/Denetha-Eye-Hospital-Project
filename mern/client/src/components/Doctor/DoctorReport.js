@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { saveAs } from 'file-saver';
 import '../../App.css';
+import { NavLink} from "react-router-dom";
 
 import './Report.css';
 
@@ -34,6 +35,7 @@ class DoctorReport extends Component {
         <input type="number" placeholder="Number of Patients" name="nop" onChange={this.handleChange} required/>
         <input type="number" placeholder="Charges" name="chrge" onChange={this.handleChange} required/>
         <button className='button' onClick={this.createAndDownloadPdf}>Download PDF</button>
+        <NavLink to="/doctorHome/doctorProfile/:id"><button className="button">Back</button></NavLink>
       </div>
       </div>
     );
