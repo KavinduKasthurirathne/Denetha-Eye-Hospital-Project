@@ -3,6 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import { Button,Paper } from "@mui/material";
+import "./AddRecords.css";
 
 export default class CreateDoctorRecord extends Component {
   constructor(props) {
@@ -90,20 +91,22 @@ export default class CreateDoctorRecord extends Component {
 
   render() {
     return (
-    <div>
-        <p class='head'><b>Add New Doctor Record</b></p>
-    <div className="container">
-      <form onSubmit={this.onSubmit}>
-      <div className="form-group"> 
-          <label>Doctor Name: </label>
-          <input  type="text"
+      <div className="addMeetingContainer">
+      <div className="addMeetingInnerContainer">
+      <p className="addMeetingTitle"><h2><b>Add New Doctor Record</b></h2></p>
+        <form className="addmeetingform" onSubmit={this.onSubmit}>
+          <div className="form-group-addM">
+            <label htmlFor="date">Doctor Name</label>
+            <input
+              type="text"
               required
               className="form-control"
               value={this.state.docName}
               onChange={this.onChangeDocName}
-              />
-        </div>
-        <div className="form-group"> 
+            />
+          </div>
+
+          <div className="form-group-addM">
           <label>Appoinment Type: </label>
           <select ref="userInput"
               required
@@ -119,8 +122,9 @@ export default class CreateDoctorRecord extends Component {
                 })
               }
           </select>
-        </div>
-        <div className="form-group">
+          </div>
+
+          <div className="form-group-addM">
           <label>Total Patients: </label>
           <input 
               type="text" 
@@ -128,29 +132,32 @@ export default class CreateDoctorRecord extends Component {
               value={this.state.totalPatients}
               onChange={this.onChangeTotalPatients}
               />
-        </div>
-        <div className="form-group">
-          <label>Doctor Charges per Patient(in LKR): </label>
+          </div>
+
+          <div className="form-group-addM">
+          <label>Doctor Charges: </label>
           <input 
               type="text" 
               className="form-control"
               value={this.state.charge}
               onChange={this.onChangeCharge}
               />
-        </div>
-        <div className="form-group">
+          </div>
+          <div className="form-group-addM">
           <label>Date: </label>
           <div>
-            <DatePicker
+            <DatePicker 
               selected={this.state.date}
               onChange={this.onChangeDate}
             />
           </div>
-        </div>
-        <div className="form-group">
-          <input type="submit" value="Create Doctor Record" className="btn btn-primary" />
-        </div>
-      </form>
+          </div>
+          <center>
+            <button type="submit" className="button">
+              Submit
+            </button>
+          </center>
+        </form>
       </div>
     </div>
     )

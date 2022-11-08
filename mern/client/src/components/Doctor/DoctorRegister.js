@@ -28,7 +28,7 @@ const DoctorRegister = () => {
         }
 
         axios.post("http://localhost:5000/api/doctor/add",newDoctor).then(()=>{
-            alert("Doctor Added")
+            alert("Doctor Added Successfully!")
         }).catch((err)=>{
             alert(err)
         })

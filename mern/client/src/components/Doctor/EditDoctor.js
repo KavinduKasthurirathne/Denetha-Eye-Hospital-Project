@@ -4,12 +4,35 @@ import { useState } from "react";
 import { Paper } from "@mui/material";
 
 
+
 const EditDoctor = () => {
 
   //const [getuserdata,setUserdata] = useState([]);
   //console.log(getuserdata);
 
-const history = useNavigate("");
+  const history = useNavigate("");
+  // const [name,setName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [mobile, setMobile] = useState('');
+  // const [specialization,setSpecialization] = useState('');
+  // const [desc,setDesc] = useState('');
+  // const params = useParams();
+
+  // useEffect(()=>{
+  //     getDoctorDetails();
+  // },[]);
+
+  // const getDoctorDetails = async ()=>{
+  //   console.warn(params)
+  //   let result = await fetch(`/api/doctor/getuser/${params.id}`);
+  //   result = await result.json();
+  //   console.warn(result)
+  //   setName(result.name);
+  //   setEmail(result.email);
+  //   setMobile(result.mobile);
+  //   setSpecialization(result.specialization);
+  //   setDesc(result.desc);
+  // }
 
 const [inpval, setINP] = useState({
     name:"",
@@ -17,7 +40,7 @@ const [inpval, setINP] = useState({
     mobile:"",
     specialization:"",
     desc:""
-  })
+  });
 
   const setdata = (e) => {
     console.log(e.target.value);
@@ -30,7 +53,7 @@ const [inpval, setINP] = useState({
     })
   } 
 
-  const { id } = useParams("");
+  const {id}  = useParams("");
   console.log(id);
 
   const getdata = async () => {
@@ -77,7 +100,7 @@ const [inpval, setINP] = useState({
     if(res2.status === 422 || !data2){
       alert("fill the data");
     }else{
-      alert("data updated");
+      alert("Doctor Updated Successfuly!");
       history.push("/")
     }
 
@@ -92,7 +115,7 @@ const [inpval, setINP] = useState({
       <form className="mt-5">
         <div className="row">
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputEmail1" class="form-label">
+            <label>
               Name
             </label>
             <input
@@ -106,7 +129,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Email Address
             </label>
             <input
@@ -119,7 +142,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Mobile Number
             </label>
             <input
@@ -132,7 +155,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label >
               Specialization
             </label>
             <input
@@ -145,7 +168,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-12 col-md-12 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Description
             </label>
             <textarea type="text" value={inpval.desc} onChange={setdata} name="desc"className="form-control" id="" cols="30" rows="5"></textarea>
