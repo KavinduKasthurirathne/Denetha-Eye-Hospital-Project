@@ -41,7 +41,13 @@ export default function PrintForm(){
     
          await axios.post(`http://localhost:5000/api/diagnosis/get/${id}`)
          .then(({data}) => {
-            setForm(data);
+          setForm((prev)=>({
+            ...prev, 
+            ...data, 
+            DAddmission:getDateString(data.DAddmission), 
+            Ddischarge:getDateString(data.Ddischarge),
+            Dsurgery:getDateString(data.Dsurgery)
+       }));
          }).catch((err) => {
             window.alert(`Record with id ${id} not found`);
             navigatefor("/DallDetails");
