@@ -18,7 +18,7 @@ export const Appoinment=(props) =>{
     const [address,setaddress] = useState('');
     const [gender,setgender] = useState('');
     const [appoinmentnumber,setappoinmentnumber] = useState('');
-    const [contactnumber,setcontactnumber] = useState(props.phone===null?"" :props.phone);
+    const [phone,setcontactnumber] = useState(props.phone===null?"" :props.phone);
     const [type, settype] = useState("");
     const [time,setTime] = useState('');
     const [cookies] = useCookies('proxy');
@@ -92,7 +92,7 @@ export const Appoinment=(props) =>{
       const appoinment = {
         name,
         address,
-        contactnumber,
+        phone,
         age,
         gender ,
         appoinmentnumber,
@@ -128,7 +128,7 @@ export const Appoinment=(props) =>{
                 <br/><br/>
                 <TextField fullWidth label='Address'  placeholder="Enter Address" onChange={handleAddress} value={address}/>
                 <br/><br/>
-                <TextField fullWidth label='Contact Number' placeholder="Enter Contact Number" onChange={handlecontactnumber} value={contactnumber}/>
+                <TextField fullWidth label='Contact Number' placeholder="Enter Contact Number" onChange={handlecontactnumber} value={phone}/>
                 <br/><br/>
                 <TextField type="number" fullWidth label='Age' placeholder="Enter Age" value={props.age} onChange={handleAge}/>
                 <br/><br/>
