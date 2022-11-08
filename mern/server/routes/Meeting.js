@@ -19,7 +19,7 @@ router.route("/").get(async (req, res) => {
 
 //add new meeting to the database
 router.route("/add").post((req, res) => {
-  const date = Date(req.body.date);
+  const date = req.body.date;
   const time = req.body.time;
   const host = req.body.host;
   const description = req.body.description;
