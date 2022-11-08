@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import {useCookies} from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 export const TestAddAccount = () => {
     const [show, setShow] = useState(false);
@@ -13,6 +14,7 @@ export const TestAddAccount = () => {
         password: '',
         role: ''
     });
+    const navigateTo = useNavigate();
 
     const handleClickShow = () => {
         setShow(!show);
@@ -45,7 +47,7 @@ export const TestAddAccount = () => {
             },
             body: JSON.stringify(data)
         }).then((response) => response.json())
-        .then((res)=>{alert(res)});
+        .then((res)=>{navigateTo('/manager')});
     };
 
     return (
