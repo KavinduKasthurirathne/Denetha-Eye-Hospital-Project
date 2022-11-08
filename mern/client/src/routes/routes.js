@@ -76,7 +76,7 @@ const createRoutes = () => {
       <Route exact path="surgery" element={<RecordList />} />
       <Route exact path="inventory" element={<Inventory />} />
       <Route exact path="InventoryTable" element={<InventoryTable />} />
-      <Route exact path="Editinventory" element={<Editinventory />} />
+      <Route exact path="Editinventory/:id" element={<Editinventory />} />
       <Route exact path="addNew" element={<AddSuPatient />} />
       <Route exact path="/edit/:id" element={<Edit />} />
       <Route exact path="/Update/:id" element={<Update />} />

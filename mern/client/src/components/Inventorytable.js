@@ -12,7 +12,7 @@ const Record = (props) => (
    {/* <td>{props.record.type}</td> */}
    <td>{props.record.Status}</td>
    <td>
-   <a style={{color: 'Black'}} className="btnLink" href={`/Update/${props.record._id}`}><b>Update</b></a><br/><br/>
+   <a style={{color: 'Black'}} className="btnLink" href={`/Editinventory/${props.record._id}`}><b>Update</b></a><br/><br/>
      
 
      <button className='button' variant="contained"  style={{color:'black'}}
