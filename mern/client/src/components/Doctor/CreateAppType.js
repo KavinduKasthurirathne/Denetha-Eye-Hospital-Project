@@ -47,7 +47,7 @@ export default class CreateAppType extends Component {
           <button type="submit" class="button">
             Add
           </button>
-          <NavLink to="/doctorHome/doctorProfile/:id"><button className="button">Back</button></NavLink>
+          <NavLink to="/doctorHome"><button className="button">Back</button></NavLink>
           </div>
         </form>
       </div>
