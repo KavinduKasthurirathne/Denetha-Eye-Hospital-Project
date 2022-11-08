@@ -107,11 +107,11 @@ const paperStyle={padding:'10px 10px',width:'900px',margin:"100px auto"}
                 <>
                 <tr>
               <th scope="row">{id + 1}</th>
-              <td>{element.name}</td>
-              <td>{element.email}</td>
-              <td>{element.mobile}</td>
-              <td>{element.specialization}</td>
-              <td className="d-flex justify-content-between">
+              <td><center>Dr.{element.name}</center></td>
+              <td><center>{element.email}</center></td>
+              <td><center>{element.mobile}</center></td>
+              <td><center>{element.specialization}</center></td>
+              <td className="d-flex justify-content-between"><center>
                 <NavLink to={`doctorProfile/${element._id}`}><button className="button"><RemoveRedEyeIcon /></button></NavLink>
                 <NavLink to={`editDoctor/${element._id}`}><button className="button"><EditIcon/></button></NavLink>
               
@@ -119,7 +119,7 @@ const paperStyle={padding:'10px 10px',width:'900px',margin:"100px auto"}
                  if (window.confirm("Delete Doctor ?") === true) {
                   deleteuser(element._id);
                   } 
-                    }}><DeleteIcon/></button>
+                    }}><DeleteIcon/></button></center>
               </td>
             </tr> 
                 </>

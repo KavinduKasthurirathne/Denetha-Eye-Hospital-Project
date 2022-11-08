@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { NavLink} from "react-router-dom";
 
 export default class CreateAppType extends Component {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class CreateAppType extends Component {
 
     axios.post('http://localhost:5000/api/AppType/add', appTypeN)
       .then(res => console.log(res.data));
+      alert("Appointment Type Added Successfully!");
 
     this.setState({
       appType: ''
@@ -45,6 +47,7 @@ export default class CreateAppType extends Component {
           <button type="submit" class="button">
             Add
           </button>
+          <NavLink to="/doctorHome/doctorProfile/:id"><button className="button">Back</button></NavLink>
           </div>
         </form>
       </div>
