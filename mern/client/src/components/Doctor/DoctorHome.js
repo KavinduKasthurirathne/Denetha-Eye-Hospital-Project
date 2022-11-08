@@ -51,7 +51,7 @@ const deleteuser = async(id)=>{
   if(res2.status === 422 || !deletedata){
     console.log("error");
   }else{
-    console.log("user deleted");
+    console.log("Doctor Deleted");
     getdata();
   }
 }

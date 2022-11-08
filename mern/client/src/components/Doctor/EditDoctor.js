@@ -17,7 +17,7 @@ const [inpval, setINP] = useState({
     mobile:"",
     specialization:"",
     desc:""
-  })
+  });
 
   const setdata = (e) => {
     console.log(e.target.value);
@@ -77,7 +77,7 @@ const [inpval, setINP] = useState({
     if(res2.status === 422 || !data2){
       alert("fill the data");
     }else{
-      alert("data updated");
+      alert("Doctor Updated Successfuly!");
       history.push("/")
     }
 
@@ -92,7 +92,7 @@ const [inpval, setINP] = useState({
       <form className="mt-5">
         <div className="row">
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputEmail1" class="form-label">
+            <label>
               Name
             </label>
             <input
@@ -106,7 +106,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Email Address
             </label>
             <input
@@ -119,7 +119,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Mobile Number
             </label>
             <input
@@ -132,7 +132,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-6 col-md-6 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label >
               Specialization
             </label>
             <input
@@ -145,7 +145,7 @@ const [inpval, setINP] = useState({
             />
           </div>
           <div class="mb-3 col-lg-12 col-md-12 col-12">
-            <label for="exampleInputPassword1" class="form-label">
+            <label>
               Description
             </label>
             <textarea type="text" value={inpval.desc} onChange={setdata} name="desc"className="form-control" id="" cols="30" rows="5"></textarea>
